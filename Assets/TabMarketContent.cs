@@ -33,7 +33,7 @@ public class TabMarketContent : MonoBehaviour
             GameManager.instance.SubtractResources(selectedResource.resourceName, amountSold);
 
 //this should probably be something like change text but init values works for now.
-            selectedResource.initValues(selectedResource.resourceName, GameManager.instance.resources[selectedResource.resourceName], 1);
+            selectedResource.InitValues(selectedResource.resourceName, GameManager.instance.resources[selectedResource.resourceName], 1);
 
             GameManager.instance.AddCoins(amountSold);
             UpdateSellText(quantitySlider.slider.value);

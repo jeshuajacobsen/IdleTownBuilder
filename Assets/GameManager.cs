@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public UnityEvent<string, int> onResourcesAdded;
 
     public Dictionary<string, int> resources = new Dictionary<string, int>();
+    public Dictionary<string, int> productionTimers = new Dictionary<string, int>();
 
     void Awake()
     {
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour
         onResourcesChanged = new UnityEvent<string, int>();
         onResourcesAdded = new UnityEvent<string, int>();
         UpdateCoinsText();
-        AddResources("Wood", 1);
+        AddResources("Wheat", 1);
     }
 
     // Start is called before the first frame update
@@ -74,8 +75,8 @@ public class GameManager : MonoBehaviour
             resources[resourceName] += quantity;
             onResourcesChanged.Invoke(resourceName, resources[resourceName]);
         } else {
-            onResourcesAdded.Invoke(resourceName, quantity);
             resources.Add(resourceName, quantity);
+            onResourcesAdded.Invoke(resourceName, quantity);
         }
     }
 
@@ -84,13 +85,13 @@ public class GameManager : MonoBehaviour
         if (resources.ContainsKey(resourceName))
         {
             resources[resourceName] -= quantity;
-            onResourcesChanged.Invoke(resourceName, quantity);
+            onResourcesChanged.Invoke(resourceName, resources[resourceName]);
         } else {
             resources.Add(resourceName, 0);
         }
-        if (quantity < 0) 
+        if (resources[resourceName] < 0) 
         {
-            quantity = 0;
+            resources[resourceName] = 0;
         }
         
     }

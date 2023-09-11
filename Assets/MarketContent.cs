@@ -12,6 +12,11 @@ public class MarketContent : MonoBehaviour
     private Transform selectedHighlight;
     public ResourceListItem selectedResource;
 
+    void Awake()
+    {
+        
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +63,6 @@ public class MarketContent : MonoBehaviour
         ResourceListItem resource = Instantiate(ResourceListItemPrefab, contentTransform);
         resources.Add(resource);
         resource.transform.SetParent(transform, false);
-        resource.initValues(resourceName, quantity, 1);
+        resource.InitValues(resourceName, GameManager.instance.resources[resourceName], 1);
     }
 }

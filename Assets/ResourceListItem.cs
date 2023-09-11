@@ -26,7 +26,8 @@ public class ResourceListItem : MonoBehaviour
         priceText = transform.Find("PriceText").GetComponent<TextMeshProUGUI>();
 
         GameManager.instance.onResourcesChanged.AddListener(UpdateQuantity);
-        
+        quantity = GameManager.instance.resources[resourceName];
+        UpdateQuantity(resourceName, quantity);
     }
 
     // Update is called once per frame
@@ -44,7 +45,7 @@ public class ResourceListItem : MonoBehaviour
         }
     }
 
-    public void initValues(string newName, int newQuantity, int newPrice)
+    public void InitValues(string newName, int newQuantity, int newPrice)
     {
         resourceName = newName;
         quantity = newQuantity;
