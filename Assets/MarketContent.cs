@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MarketContent : MonoBehaviour
 {
@@ -12,9 +13,11 @@ public class MarketContent : MonoBehaviour
     private Transform selectedHighlight;
     public ResourceListItem selectedResource;
 
+    public UnityEvent onSelectedResourceChange;
+
     void Awake()
     {
-        
+        onSelectedResourceChange = new UnityEvent();
     }
 
     // Start is called before the first frame update
@@ -49,6 +52,7 @@ public class MarketContent : MonoBehaviour
                 selectedHighlight.SetParent(item.transform, false);
                 selectedHighlight.gameObject.SetActive(true);
                 selectedHighlight.SetSiblingIndex(0);
+                onSelectedResourceChange.Invoke();
             }
         }
     }
@@ -63,6 +67,6 @@ public class MarketContent : MonoBehaviour
         ResourceListItem resource = Instantiate(ResourceListItemPrefab, contentTransform);
         resources.Add(resource);
         resource.transform.SetParent(transform, false);
-        resource.InitValues(resourceName, GameManager.instance.resources[resourceName], 1);
+        resource.InitValues(resourceName, GameManager.instance.resources[resourceName], GameManager.instance.resourcePrices[resourceName]);
     }
 }

@@ -19,12 +19,13 @@ public class ProductionOutput : MonoBehaviour
     void Awake()
     {
         onProductionClick = new UnityEvent<string>();
+        InvokeRepeating("Tick", 1.0f, 1.0f);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Tick", 1.0f, 1.0f);
+        
     }
 
     // Update is called once per frame
@@ -89,7 +90,7 @@ public class ProductionOutput : MonoBehaviour
         if (building.inputResourceButton1.gameObject.activeSelf)
         {
             if (!GameManager.instance.resources.ContainsKey(building.inputResourceButton1.resource) || 
-                building.inputResourceButton1.requiredAmount > GameManager.instance.resources[building.inputResourceButton1.resource])
+                building.inputResourceButton1.requiredAmount * building.level > GameManager.instance.resources[building.inputResourceButton1.resource])
             {
                 canStart = false;
             }
@@ -97,7 +98,7 @@ public class ProductionOutput : MonoBehaviour
         if (building.inputResourceButton2.gameObject.activeSelf)
         {
             if (!GameManager.instance.resources.ContainsKey(building.inputResourceButton2.resource) ||
-                building.inputResourceButton2.requiredAmount > GameManager.instance.resources[building.inputResourceButton2.resource])
+                building.inputResourceButton2.requiredAmount * building.level > GameManager.instance.resources[building.inputResourceButton2.resource])
             {
                 canStart = false;
             }
@@ -105,7 +106,7 @@ public class ProductionOutput : MonoBehaviour
         if (building.inputResourceButton3.gameObject.activeSelf)
         {
             if (!GameManager.instance.resources.ContainsKey(building.inputResourceButton3.resource) ||
-                building.inputResourceButton3.requiredAmount > GameManager.instance.resources[building.inputResourceButton3.resource])
+                building.inputResourceButton3.requiredAmount * building.level > GameManager.instance.resources[building.inputResourceButton3.resource])
             {
                 canStart = false;
             }

@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     private int coins = 0;
     public TextMeshProUGUI coinsText;
+    private int cityPrestige = 0;
+    [SerializeField] private TextMeshProUGUI prestigeText;
 
     public UnityEvent<string, int> onResourcesChanged;
     public UnityEvent<string, int> onResourcesAdded;
@@ -18,8 +20,16 @@ public class GameManager : MonoBehaviour
     public Dictionary<string, int> resources = new Dictionary<string, int>();
     public Dictionary<string, int> productionTimers = new Dictionary<string, int>();
 
+    
+    public Dictionary<string, int> resourcePrices;
+
     void Awake()
     {
+        resourcePrices = new Dictionary<string, int>();
+        resourcePrices["Wheat"] = 1;
+        resourcePrices["Wood"] = 4;
+        resourcePrices["Lumber"] = 10;
+
         if (instance == null)
         {
             instance = this;
@@ -32,6 +42,7 @@ public class GameManager : MonoBehaviour
         onResourcesChanged = new UnityEvent<string, int>();
         onResourcesAdded = new UnityEvent<string, int>();
         UpdateCoinsText();
+        UpdatePrestigeText();
         AddResources("Wheat", 1);
     }
 
@@ -55,6 +66,17 @@ public class GameManager : MonoBehaviour
     {
         coins += quantity;
         UpdateCoinsText();
+    }
+
+    void UpdatePrestigeText()
+    {
+        prestigeText.text = "" + cityPrestige;
+    }
+
+    public void AddPrestige(int quantity)
+    {
+        cityPrestige += quantity;
+        UpdatePrestigeText();
     }
 
     public void SubtractCoins(int quantity)

@@ -8,7 +8,7 @@ using SharpUI.Source.Common.UI.Elements.Loading;
 
 public class Building : MonoBehaviour
 {
-    private int level = 1;
+    public int level = 1;
     public ProductionInput inputResourceButton1;
     public ProductionInput inputResourceButton2;
     public ProductionInput inputResourceButton3;
@@ -30,8 +30,8 @@ public class Building : MonoBehaviour
     {
         levelText = transform.Find("LevelText").GetComponent<TextMeshProUGUI>();
         Button button = transform.Find("UpgradeButton").GetComponent<Button>();
-
         button.onClick.AddListener(LevelUp);
+        transform.Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + costForUpgrade;
 
         inputResourceButton1.onProductionClick.AddListener(ProductionClick);
         inputResourceButton2.onProductionClick.AddListener(ProductionClick);
@@ -114,6 +114,7 @@ public class Building : MonoBehaviour
             levelText.text = "Level: " + level;
             GameManager.instance.SubtractCoins(costForUpgrade);
             costForUpgrade++;
+            transform.Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + costForUpgrade;
         }
     }
 

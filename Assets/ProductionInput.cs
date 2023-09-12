@@ -18,12 +18,13 @@ public class ProductionInput : MonoBehaviour
     void Awake()
     {
         onProductionClick = new UnityEvent<string>();
+        InvokeRepeating("Tick", 1.0f, 1.0f);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Tick", 1.0f, 1.0f);
+        
     }
 
     // Update is called once per frame
