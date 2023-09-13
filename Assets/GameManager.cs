@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
     private int coins = 0;
     public TextMeshProUGUI coinsText;
     private int cityPrestige = 0;
-    [SerializeField] private TextMeshProUGUI prestigeText;
+    private int collectedPrestige = 0;
+    [SerializeField] private TextMeshProUGUI cityPrestigeText;
 
     public UnityEvent<string, int> onResourcesChanged;
     public UnityEvent<string, int> onResourcesAdded;
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
 
     
     public Dictionary<string, int> resourcePrices;
+
+    public UnityEvent<string> resetCity;
 
     void Awake()
     {
@@ -42,7 +45,7 @@ public class GameManager : MonoBehaviour
         onResourcesChanged = new UnityEvent<string, int>();
         onResourcesAdded = new UnityEvent<string, int>();
         UpdateCoinsText();
-        UpdatePrestigeText();
+        UpdateCityPrestigeText();
         AddResources("Wheat", 1);
     }
 
@@ -68,21 +71,33 @@ public class GameManager : MonoBehaviour
         UpdateCoinsText();
     }
 
-    void UpdatePrestigeText()
-    {
-        prestigeText.text = "" + cityPrestige;
-    }
-
-    public void AddPrestige(int quantity)
-    {
-        cityPrestige += quantity;
-        UpdatePrestigeText();
-    }
-
     public void SubtractCoins(int quantity)
     {
         coins -= quantity;
         UpdateCoinsText();
+    }
+
+    void UpdateCityPrestigeText()
+    {
+        cityPrestigeText.text = "" + cityPrestige;
+    }
+
+    public void AddCityPrestige(int quantity)
+    {
+        cityPrestige += quantity;
+        UpdateCityPrestigeText();
+    }
+
+    public void AddCollectedPrestige(int quantity)
+    {
+        collectedPrestige += quantity;
+        GameObject.FindWithTag("CollectedPrestige").transform.GetComponent<TextMeshProUGUI>().text = "" + collectedPrestige;
+    }
+
+    public void SubtractCollectedPrestige(int quantity)
+    {
+        collectedPrestige -= quantity;
+        GameObject.FindWithTag("CollectedPrestige").transform.GetComponent<TextMeshProUGUI>().text = "" + collectedPrestige;
     }
 
     public bool HasEnoughCoin(int amount)
@@ -116,5 +131,15 @@ public class GameManager : MonoBehaviour
             resources[resourceName] = 0;
         }
         
+    }
+
+    public void StartNewCity(string newCityName)
+    {
+        AddCollectedPrestige(cityPrestige);
+        cityPrestige = 0;
+        UpdateCityPrestigeText();
+        resources = new Dictionary<string, int>();
+        resetCity.Invoke(newCityName);
+        AddResources("Wheat", 1);
     }
 }

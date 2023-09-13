@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class NewCityContent : MonoBehaviour
+{
+    [SerializeField] private CityOption cityOptionPrefab;
+    private Transform contentTransform;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        CityOption city = Instantiate(cityOptionPrefab, contentTransform);
+        city.transform.SetParent(transform, false);
+        city.InitValues("Starterville");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+}

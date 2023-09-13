@@ -31,6 +31,22 @@ public class BuildingContent : MonoBehaviour
         building.InitValues("Lumber Mill", "Lumber", input);
         building.onProductionClick.AddListener(HandleProductionClick);
         buildings.Add(building);
+
+        GameManager.instance.resetCity.AddListener(Reset);
+    }
+
+    void Reset(string newCityName)
+    {
+        foreach(Building item in buildings)
+        {
+            Destroy(item.gameObject);
+        }
+        Building building = Instantiate(BuildingPrefab, contentTransform);
+        building.transform.SetParent(transform, false);
+        string[] input = {};
+        building.InitValues("Farm", "Wheat", input);
+        building.onProductionClick.AddListener(HandleProductionClick);
+        buildings.Add(building);
     }
 
     // Update is called once per frame

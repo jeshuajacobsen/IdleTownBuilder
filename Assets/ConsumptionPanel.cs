@@ -52,7 +52,7 @@ public class ConsumptionPanel : MonoBehaviour
             if (productionTimer >= requiredTime)
             {
                 productionTimer -= requiredTime;
-                GameManager.instance.AddPrestige(transform.parent.GetComponent<Demographic>().GetPrestigeGenerated());
+                GameManager.instance.AddCityPrestige(transform.parent.GetComponent<Demographic>().GetPrestigeGenerated());
 
                 if (!CanStartNextProduction())
                 {

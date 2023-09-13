@@ -38,8 +38,9 @@ public class Requirement : MonoBehaviour
     {
         resource = newResource;
         cost = newCost;
+        int resourceInStock = GameManager.instance.resources.ContainsKey(resource) ? GameManager.instance.resources[resource] : 0;
         
-        transform.Find("costText").GetComponent<TextMeshProUGUI>().text = "" + GameManager.instance.resources[resource] + "/" + cost * level;
+        transform.Find("costText").GetComponent<TextMeshProUGUI>().text = "" + resourceInStock + "/" + cost * level;
     }
 
     public bool IsMet()

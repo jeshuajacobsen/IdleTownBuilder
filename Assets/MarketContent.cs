@@ -34,12 +34,23 @@ public class MarketContent : MonoBehaviour
         selectedHighlight = transform.Find("selectedHighlight");
 
         SetSelectedResource(resources[0].resourceName);
+
+        GameManager.instance.resetCity.AddListener(Reset);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void Reset(string newCityName)
+    {
+        foreach(ResourceListItem item in resources)
+        {
+            Destroy(item.gameObject);
+        }
+        resources = new List<ResourceListItem>();
     }
 
     public void SetSelectedResource(string resourceName)
