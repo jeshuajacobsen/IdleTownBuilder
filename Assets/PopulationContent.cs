@@ -6,21 +6,17 @@ public class PopulationContent : MonoBehaviour
 {
     [SerializeField] private Demographic demoPrefab;
     [SerializeField] private Transform contentTransform;
-    private List<Demographic> demographics;
+    public List<Demographic> demographics;
 
     void Awake()
     {
-        Demographic demo = Instantiate(demoPrefab, contentTransform);
-        demo.transform.SetParent(transform, false);
-        demo.InitValues("Peasants");
-        demographics = new List<Demographic>();
-        demographics.Add(demo);
+        GameManager.instance.resetCity.AddListener(Reset);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.instance.resetCity.AddListener(Reset);
+        
     }
 
     // Update is called once per frame
@@ -29,16 +25,31 @@ public class PopulationContent : MonoBehaviour
         
     }
 
+    public void TickAll()
+    {
+        foreach (Demographic currentDemo in demographics)
+        {
+            if (!currentDemo.transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().locked)
+            {
+                currentDemo.Tick();
+            }
+        }
+    }
+
     void Reset(string newCityName)
     {
-        foreach(Demographic item in demographics)
+        if (demographics != null)
         {
-            Destroy(item.gameObject);
+            foreach(Demographic item in demographics)
+            {
+                Destroy(item.gameObject);
+            }
         }
         demographics = new List<Demographic>();
 
         Demographic demo = Instantiate(demoPrefab, contentTransform);
         demo.transform.SetParent(transform, false);
         demo.InitValues("Peasants");
+        demographics.Add(demo);
     }
 }

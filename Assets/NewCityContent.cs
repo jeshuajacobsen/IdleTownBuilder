@@ -13,7 +13,19 @@ public class NewCityContent : MonoBehaviour
     {
         CityOption city = Instantiate(cityOptionPrefab, contentTransform);
         city.transform.SetParent(transform, false);
-        city.InitValues("Starterville");
+        city.InitValues("Peasantville");
+
+        city = Instantiate(cityOptionPrefab, contentTransform);
+        city.transform.SetParent(transform, false);
+        city.InitValues("Aquias");
+
+        city = Instantiate(cityOptionPrefab, contentTransform);
+        city.transform.SetParent(transform, false);
+        city.InitValues("Dwarvary");
+
+        city = Instantiate(cityOptionPrefab, contentTransform);
+        city.transform.SetParent(transform, false);
+        city.InitValues("Harmony");
     }
 
     // Update is called once per frame

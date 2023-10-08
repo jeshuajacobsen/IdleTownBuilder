@@ -12,13 +12,13 @@ public class ProductionInput : MonoBehaviour
     public string resource = "";
     public int requiredAmount = 1;
     public UnityEvent<string> onProductionClick;
+    public bool locked = true;
 
     public LoadingBar loadingBar;
 
     void Awake()
     {
         onProductionClick = new UnityEvent<string>();
-        InvokeRepeating("Tick", 1.0f, 1.0f);
     }
 
     // Start is called before the first frame update
@@ -39,7 +39,7 @@ public class ProductionInput : MonoBehaviour
         requiredAmount = 1;
     }
 
-    private void Tick()
+    public void Tick()
     {
         if (GameManager.instance.productionTimers.ContainsKey(resource))
         {
@@ -57,5 +57,16 @@ public class ProductionInput : MonoBehaviour
     public void ProductionClick()
     {
         onProductionClick.Invoke(resource);
+    }
+
+    public void Unlock()
+    {
+        locked = false;
+        InvokeRepeating("Tick", 1.0f, 1.0f);
+    }
+
+    public int GetResourcesConsumed()
+    {
+        return (int)(requiredAmount * requiredTime);
     }
 }

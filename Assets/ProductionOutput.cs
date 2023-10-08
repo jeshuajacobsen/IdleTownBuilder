@@ -8,7 +8,7 @@ public class ProductionOutput : MonoBehaviour
 {
 
     private float productionTimer = 0;
-    private const float requiredTime = 10;
+    public int requiredTime = 10;
     public string resource = "";
     public UnityEvent<string> onProductionClick;
     private bool producing = false;
@@ -19,7 +19,6 @@ public class ProductionOutput : MonoBehaviour
     void Awake()
     {
         onProductionClick = new UnityEvent<string>();
-        InvokeRepeating("Tick", 1.0f, 1.0f);
     }
 
     // Start is called before the first frame update
@@ -40,7 +39,7 @@ public class ProductionOutput : MonoBehaviour
         GameManager.instance.productionTimers[newResource] = 0;
     }
 
-    private void Tick()
+    public void Tick()
     {
         if (producing)
         {
@@ -129,5 +128,10 @@ public class ProductionOutput : MonoBehaviour
         {
             GameManager.instance.SubtractResources(building.inputResourceButton3.resource, building.inputResourceButton3.requiredAmount);
         }
+    }
+
+    public void Unlock()
+    {
+        InvokeRepeating("Tick", 1.0f, 1.0f);
     }
 }

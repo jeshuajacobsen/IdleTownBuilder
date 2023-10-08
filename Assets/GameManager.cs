@@ -9,9 +9,9 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
-    private int coins = 0;
+    private int coins = 1;
     public TextMeshProUGUI coinsText;
-    private int cityPrestige = 0;
+    public int cityPrestige = 0;
     private int collectedPrestige = 0;
     [SerializeField] private TextMeshProUGUI cityPrestigeText;
 
@@ -31,7 +31,9 @@ public class GameManager : MonoBehaviour
         resourcePrices = new Dictionary<string, int>();
         resourcePrices["Wheat"] = 1;
         resourcePrices["Wood"] = 4;
-        resourcePrices["Lumber"] = 10;
+        resourcePrices["Clay"] = 10;
+        resourcePrices["Lumber"] = 30;
+        resourcePrices["Pottery"] = 90;
 
         if (instance == null)
         {
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartNewCity("Peasantville");
     }
 
     // Update is called once per frame
@@ -91,7 +94,10 @@ public class GameManager : MonoBehaviour
     public void AddCollectedPrestige(int quantity)
     {
         collectedPrestige += quantity;
-        GameObject.FindWithTag("CollectedPrestige").transform.GetComponent<TextMeshProUGUI>().text = "" + collectedPrestige;
+        if ( GameObject.FindWithTag("CollectedPrestige") != null)
+        {
+           GameObject.FindWithTag("CollectedPrestige").transform.GetComponent<TextMeshProUGUI>().text = "" + collectedPrestige;
+        }
     }
 
     public void SubtractCollectedPrestige(int quantity)
@@ -103,6 +109,11 @@ public class GameManager : MonoBehaviour
     public bool HasEnoughCoin(int amount)
     {
         return coins >= amount;
+    }
+
+    public bool HasEnoughPrestige(int amount)
+    {
+        return collectedPrestige >= amount;
     }
 
     public void AddResources(string resourceName, int quantity)

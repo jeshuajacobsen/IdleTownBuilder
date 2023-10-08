@@ -18,6 +18,7 @@ public class MarketContent : MonoBehaviour
     void Awake()
     {
         onSelectedResourceChange = new UnityEvent();
+        GameManager.instance.resetCity.AddListener(Reset);
     }
 
     // Start is called before the first frame update
@@ -33,7 +34,7 @@ public class MarketContent : MonoBehaviour
 
         selectedHighlight = transform.Find("selectedHighlight");
 
-        SetSelectedResource(resources[0].resourceName);
+        SetSelectedResource(resources[0].resourceName);        
 
         GameManager.instance.resetCity.AddListener(Reset);
     }

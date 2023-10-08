@@ -12,10 +12,12 @@ public class ConsumptionPanel : MonoBehaviour
     [SerializeField] private Requirement requirementPrefab;
     private Transform contentTransform;
     [SerializeField] private LoadingBar loadingBar;
+    private int unlockCost = 1;
+    public bool locked = true;
 
     void Awake()
     {
-        InvokeRepeating("Tick", 1.0f, 1.0f);
+        
     }
 
     // Start is called before the first frame update
@@ -43,7 +45,7 @@ public class ConsumptionPanel : MonoBehaviour
         }
     }
 
-    private void Tick()
+    public void Tick()
     {
         if (producing)
         {
@@ -96,5 +98,16 @@ public class ConsumptionPanel : MonoBehaviour
         {
             requirement.ConsumeResource();
         }
+    }
+
+    public void Unlock()
+    {
+        InvokeRepeating("Tick", 1.0f, 1.0f);
+        locked = false;
+    }
+
+    public int GetUnlockCost()
+    {
+        return unlockCost;
     }
 }
