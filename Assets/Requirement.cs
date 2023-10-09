@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -43,17 +44,22 @@ public class Requirement : MonoBehaviour
         transform.Find("costText").GetComponent<TextMeshProUGUI>().text = "" + resourceInStock + "/" + cost * level;
     }
 
-    public bool IsMet()
+    public float PercentMet()
     {
-        if (GameManager.instance.resources.ContainsKey(resource) && GameManager.instance.resources[resource] >= cost * level)
+        if (GameManager.instance.resources.ContainsKey(resource))
         {
-            return true;
+            return Math.Min(GameManager.instance.resources[resource], cost * level) / (cost * level);
         }
-        return false;
+        return 0;
     }
 
-    public void ConsumeResource()
+    public int ConsumeResource()
     {
-        GameManager.instance.SubtractResources(resource, cost * level);
+        if (GameManager.instance.resources.ContainsKey(resource))
+        {
+            GameManager.instance.SubtractResources(resource, Math.Min(GameManager.instance.resources[resource], cost * level));
+            return (int)(Math.Min(GameManager.instance.resources[resource], cost * level));
+        }
+        return 0;
     }
 }

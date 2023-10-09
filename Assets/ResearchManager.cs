@@ -8,6 +8,10 @@ public class ResearchManager : MonoBehaviour
     public static ResearchManager instance;
 
     public float farmMultiplier = 1;
+    public float woodMultiplier = 1;
+    public float incomeMiltiplier = 1;
+    public float farmCostMultiplier = 1;
+    public float peasentPrestigeMultiplier = 1;
 
     void Awake()
     {
@@ -36,6 +40,23 @@ public class ResearchManager : MonoBehaviour
 
     public void Upgrade(string upgradeTitle)
     {
-        farmMultiplier += .1f;
+        switch (upgradeTitle)
+        {
+            case "Farming":
+                farmMultiplier += .1f;
+                break;
+            case "Forestry":
+                woodMultiplier += .1f;
+                break;
+            case "Market":
+                incomeMiltiplier += .1f;
+                break;
+            case "Fertilizer":
+                farmCostMultiplier -= .1f;
+                break;
+            case "Peasentry":
+                peasentPrestigeMultiplier += .1f;
+                break;
+        }
     }
 }

@@ -56,6 +56,7 @@ public class TabMarketContent : MonoBehaviour
     {
         return (int)(quantitySlider.slider.value * 
                 GameManager.instance.resources[resourceName] * 
-                GameManager.instance.resourcePrices[resourceName]);
+                GameManager.instance.resourcePrices[resourceName] *
+                ResearchManager.instance.incomeMiltiplier);
     }
 }

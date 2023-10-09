@@ -67,26 +67,32 @@ public class Building : MonoBehaviour, Unlockable
                 unlockCost = 1;
                 break;
             case "Forester":
-                unlockCost = 100;
+                unlockCost = 10;
                 outputResource = "Wood";
-                baseCost = 30;
+                baseCost = 6;
                 break;
             case "Clay Pit":
-                unlockCost = 1000;
+                unlockCost = 100;
                 outputResource = "Clay";
-                baseCost = 100;
+                baseCost = 10;
                 break;
             case "Lumber Mill":
-                unlockCost = 5000;
+                unlockCost = 1000;
                 outputResource = "Lumber";
                 inputResources = new string[] {"Wood"};
-                baseCost = 500;
+                baseCost = 100;
                 break;
             case "Potter":
-                unlockCost = 10000;
+                unlockCost = 6000;
                 outputResource = "Pottery";
                 inputResources = new string[] {"Clay"};
-                baseCost = 2000;
+                baseCost = 600;
+                break;
+            case "Vegetable Farm":
+                unlockCost = 10000;
+                outputResource = "Vegetables";
+                inputResources = new string[] {};
+                baseCost = 600;
                 break;
         }
 
@@ -154,7 +160,12 @@ public class Building : MonoBehaviour, Unlockable
 
     public int CalculateCost()
     {
-        return (int)(baseCost * level * 1.2);
+        float multiplier = 1;
+        if (buildingName == "Farm")
+        {
+            multiplier = ResearchManager.instance.farmCostMultiplier;
+        }
+        return (int)(baseCost * level * 1.6 * multiplier);
     }
 
     public void ProductionClick(string resource)
@@ -190,6 +201,10 @@ public class Building : MonoBehaviour, Unlockable
         if (buildingName == "Farm")
         {
             multiplier = ResearchManager.instance.farmMultiplier;
+        } 
+        else if (buildingName == "Forester")
+        {
+            multiplier = ResearchManager.instance.woodMultiplier;
         }
         return (int)(level * multiplier);
     }

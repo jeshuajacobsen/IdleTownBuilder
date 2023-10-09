@@ -64,9 +64,4 @@ public class ProductionInput : MonoBehaviour
         locked = false;
         InvokeRepeating("Tick", 1.0f, 1.0f);
     }
-
-    public int GetResourcesConsumed()
-    {
-        return (int)(requiredAmount * requiredTime);
-    }
 }

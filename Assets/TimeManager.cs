@@ -91,7 +91,7 @@ public class TimeManager : MonoBehaviour
                 int oldAmount = oldResources.TryGetValue(resource, out int value) ? oldResources[resource] : 0;
                 timeAwayResources[resource] = (int)(GameManager.instance.resources[resource] - oldResources[resource]);
             }
-            timeAwayShowing.Invoke((int)difference.TotalSeconds, timeAwayResources, oldPrestige - GameManager.instance.cityPrestige);
+            timeAwayShowing.Invoke((int)difference.TotalSeconds, timeAwayResources, GameManager.instance.cityPrestige - oldPrestige);
         } else {
             timeAwayHidden.Invoke(true);
         }

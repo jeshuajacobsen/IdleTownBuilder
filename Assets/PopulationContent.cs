@@ -49,7 +49,7 @@ public class PopulationContent : MonoBehaviour
 
         Demographic demo = Instantiate(demoPrefab, contentTransform);
         demo.transform.SetParent(transform, false);
-        demo.InitValues("Peasants");
+        demo.InitValues("Peasants", 3);
         demographics.Add(demo);
     }
 }

@@ -8,7 +8,6 @@ public class ConsumptionPanel : MonoBehaviour
     private float productionTimer = 0;
     private const float requiredTime = 10;
     public List<Requirement> requirements;
-    private bool producing = false;
     [SerializeField] private Requirement requirementPrefab;
     private Transform contentTransform;
     [SerializeField] private LoadingBar loadingBar;
@@ -40,64 +39,47 @@ public class ConsumptionPanel : MonoBehaviour
         {
             Requirement requirement = Instantiate(requirementPrefab, contentTransform);
             requirement.transform.SetParent(transform.Find("RequirementsPanel"), false);
-            requirement.InitValues("Wheat", 1);
+            requirement.InitValues("Wheat", 20);
+            requirements.Add(requirement);
+            
+            requirement = Instantiate(requirementPrefab, contentTransform);
+            requirement.transform.SetParent(transform.Find("RequirementsPanel"), false);
+            requirement.InitValues("Pottery", 5);
+            requirements.Add(requirement);
+            
+            requirement = Instantiate(requirementPrefab, contentTransform);
+            requirement.transform.SetParent(transform.Find("RequirementsPanel"), false);
+            requirement.InitValues("Vegetables", 2);
             requirements.Add(requirement);
         }
     }
 
     public void Tick()
     {
-        if (producing)
+        productionTimer++;
+    
+        if (productionTimer >= requiredTime)
         {
-            productionTimer++;
-        
-            if (productionTimer >= requiredTime)
-            {
-                productionTimer -= requiredTime;
-                GameManager.instance.AddCityPrestige(transform.parent.GetComponent<Demographic>().GetPrestigeGenerated());
+            productionTimer -= requiredTime;
+            GameManager.instance.AddCityPrestige(GetPrestigeGenerated());
 
-                if (!CanStartNextProduction())
-                {
-                    productionTimer = 0;
-                    producing = false;
-                }
-                else
-                {
-                    StartNextProduction();
-                }
-            }
-        }
-        else
-        {
-            if (CanStartNextProduction())
+            foreach (Requirement requirement in requirements)
             {
-                StartNextProduction();
+                requirement.ConsumeResource();
             }
         }
  
         loadingBar.UpdatePercentage(productionTimer / requiredTime * 100);
     }
 
-    private bool CanStartNextProduction()
+    public int GetPrestigeGenerated()
     {
-        bool canStart = true;
-        foreach (Requirement requirement in requirements)
+        float totalPrestige = 0;
+        foreach (Requirement req in requirements)
         {
-            if (!requirement.IsMet())
-            {
-                canStart = false;
-            }
+            totalPrestige += req.PercentMet() * transform.parent.GetComponent<Demographic>().GetPrestigeGenerated() / requirements.Count;
         }
-        return canStart;
-    }
-
-    private void StartNextProduction()
-    {
-        producing = true;
-        foreach (Requirement requirement in requirements)
-        {
-            requirement.ConsumeResource();
-        }
+        return (int)totalPrestige;
     }
 
     public void Unlock()

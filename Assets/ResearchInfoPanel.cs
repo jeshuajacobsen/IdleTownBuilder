@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public class ResearchInfoPanel : MonoBehaviour
 {
@@ -12,11 +13,12 @@ public class ResearchInfoPanel : MonoBehaviour
     int baseCost;
     int level;
     int maxLevel;
+    public UnityEvent<string> onUpgrade;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        onUpgrade = new UnityEvent<string>();
     }
 
     // Update is called once per frame
@@ -29,12 +31,12 @@ public class ResearchInfoPanel : MonoBehaviour
     {
         titleText.text = title;
         descriptionText.text = description;
-        costText.text = "" + getCost();
-        currentLevelText.text = level + "/" + maxLevel;
         transform.parent.gameObject.SetActive(true);
         this.baseCost = baseCost;
         this.level = level;
         this.maxLevel = maxLevel;
+        costText.text = "" + getCost();
+        currentLevelText.text = level + "/" + maxLevel;
     }
 
     public void Upgrade()
@@ -46,6 +48,7 @@ public class ResearchInfoPanel : MonoBehaviour
             level++;
             currentLevelText.text = level + "/" + maxLevel;
             costText.text = "" + getCost();
+            onUpgrade.Invoke(titleText.text);
         }
         
     }

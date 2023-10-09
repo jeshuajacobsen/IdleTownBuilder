@@ -10,6 +10,7 @@ public class Demographic : MonoBehaviour, Unlockable
     private int level = 1;
     private int unlockCost = 1;
     private int baseCost = 1;
+    private int basePrestigeGenerated;
 
 
     // Start is called before the first frame update
@@ -23,10 +24,11 @@ public class Demographic : MonoBehaviour, Unlockable
         
     }
 
-    public void InitValues(string newName)
+    public void InitValues(string newName, int prestigeGenerated)
     {
         levelText.text = "Level: " + level;
         nameText.text = newName;
+        basePrestigeGenerated = prestigeGenerated;
 
         transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().InitValues(newName);
         transform.Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + CalculateCost();
@@ -50,7 +52,12 @@ public class Demographic : MonoBehaviour, Unlockable
 
     public int GetPrestigeGenerated()
     {
-        return level;
+        float multiplier = 1;
+        if (nameText.text == "Peasant")
+        {
+            multiplier = ResearchManager.instance.peasentPrestigeMultiplier;
+        }
+        return (int)(level * basePrestigeGenerated * multiplier);
     }
 
     public void Unlock()

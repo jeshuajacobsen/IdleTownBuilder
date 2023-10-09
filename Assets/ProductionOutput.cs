@@ -118,15 +118,15 @@ public class ProductionOutput : MonoBehaviour
         producing = true;
         if (building.inputResourceButton1.gameObject.activeSelf)
         {
-            GameManager.instance.SubtractResources(building.inputResourceButton1.resource, building.inputResourceButton1.requiredAmount);
+            GameManager.instance.SubtractResources(building.inputResourceButton1.resource, building.inputResourceButton1.requiredAmount * building.level);
         }
         if (building.inputResourceButton2.gameObject.activeSelf)
         {
-            GameManager.instance.SubtractResources(building.inputResourceButton2.resource, building.inputResourceButton2.requiredAmount);
+            GameManager.instance.SubtractResources(building.inputResourceButton2.resource, building.inputResourceButton2.requiredAmount * building.level);
         }
         if (building.inputResourceButton3.gameObject.activeSelf)
         {
-            GameManager.instance.SubtractResources(building.inputResourceButton3.resource, building.inputResourceButton3.requiredAmount);
+            GameManager.instance.SubtractResources(building.inputResourceButton3.resource, building.inputResourceButton3.requiredAmount * building.level);
         }
     }
 
