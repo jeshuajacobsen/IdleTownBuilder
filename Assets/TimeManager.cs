@@ -89,7 +89,7 @@ public class TimeManager : MonoBehaviour
             foreach (string resource in GameManager.instance.resources.Keys)
             {
                 int oldAmount = oldResources.TryGetValue(resource, out int value) ? oldResources[resource] : 0;
-                timeAwayResources[resource] = (int)(GameManager.instance.resources[resource] - oldResources[resource]);
+                timeAwayResources[resource] = (int)(GameManager.instance.resources[resource] - oldAmount);
             }
             timeAwayShowing.Invoke((int)difference.TotalSeconds, timeAwayResources, GameManager.instance.cityPrestige - oldPrestige);
         } else {

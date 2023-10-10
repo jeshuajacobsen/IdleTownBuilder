@@ -38,5 +38,6 @@ public class TimeAwayContent : MonoBehaviour
         GainedResourceListItem resource = Instantiate(gainedResourceListItemPrefab, contentTransform);
         resource.transform.SetParent(transform, false);
         resource.InitValues(resourceName, "" + quantity);
+        resources.Add(resource);
     }
 }

@@ -150,7 +150,9 @@ public class GameManager : MonoBehaviour
         cityPrestige = 0;
         UpdateCityPrestigeText();
         resources = new Dictionary<string, int>();
-        resetCity.Invoke(newCityName);
         AddResources("Wheat", 1);
+        coins = 1;
+        resetCity.Invoke(newCityName);
+        
     }
 }

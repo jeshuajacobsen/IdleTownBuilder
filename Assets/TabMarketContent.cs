@@ -40,16 +40,15 @@ public class TabMarketContent : MonoBehaviour
                 GameManager.instance.resourcePrices[selectedResource.resourceName]);
 
             GameManager.instance.AddCoins(amountSold);
-            UpdateSellText();
+            UpdateSellText(selectedResource.resourceName);
         }
     }
 
-    public void UpdateSellText()
+    public void UpdateSellText(string selectedResource)
     {
         GameObject marketContent = GameObject.FindWithTag("MarketContent");
-        ResourceListItem selectedResource = marketContent.transform.GetComponent<MarketContent>().selectedResource;
         transform.Find("SellQuantitySlider").Find("SellAmount").GetComponent<TextMeshProUGUI>().text = 
-            "$" + calculateSellAmount(selectedResource.resourceName);
+            "$" + calculateSellAmount(selectedResource);
     }
 
     private int calculateSellAmount(string resourceName)

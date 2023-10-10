@@ -13,11 +13,11 @@ public class MarketContent : MonoBehaviour
     private Transform selectedHighlight;
     public ResourceListItem selectedResource;
 
-    public UnityEvent onSelectedResourceChange;
+    public UnityEvent<string> onSelectedResourceChange;
 
     void Awake()
     {
-        onSelectedResourceChange = new UnityEvent();
+        onSelectedResourceChange = new UnityEvent<string>();
         GameManager.instance.resetCity.AddListener(Reset);
     }
 
@@ -47,11 +47,17 @@ public class MarketContent : MonoBehaviour
 
     void Reset(string newCityName)
     {
+        selectedHighlight.SetParent(transform, false);
         foreach(ResourceListItem item in resources)
         {
             Destroy(item.gameObject);
         }
         resources = new List<ResourceListItem>();
+        foreach (KeyValuePair<string, int> resourceKV in GameManager.instance.resources)
+        {
+            AddResourceListItem(resourceKV.Key, resourceKV.Value);
+        }
+        SetSelectedResource(resources[0].resourceName);
     }
 
     public void SetSelectedResource(string resourceName)
@@ -64,7 +70,7 @@ public class MarketContent : MonoBehaviour
                 selectedHighlight.SetParent(item.transform, false);
                 selectedHighlight.gameObject.SetActive(true);
                 selectedHighlight.SetSiblingIndex(0);
-                onSelectedResourceChange.Invoke();
+                onSelectedResourceChange.Invoke(selectedResource.resourceName);
             }
         }
     }
