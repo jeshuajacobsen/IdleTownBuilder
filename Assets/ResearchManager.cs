@@ -12,6 +12,7 @@ public class ResearchManager : MonoBehaviour
     public float incomeMiltiplier = 1;
     public float farmCostMultiplier = 1;
     public float peasentPrestigeMultiplier = 1;
+    public float farmSpeedUp = 0;
 
     void Awake()
     {
@@ -56,6 +57,9 @@ public class ResearchManager : MonoBehaviour
                 break;
             case "Peasentry":
                 peasentPrestigeMultiplier += .1f;
+                break;
+            case "Fast Crops":
+                farmSpeedUp += .2f;
                 break;
         }
     }

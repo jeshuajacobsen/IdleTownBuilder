@@ -92,7 +92,43 @@ public class Building : MonoBehaviour, Unlockable
                 unlockCost = 10000;
                 outputResource = "Vegetables";
                 inputResources = new string[] {};
-                baseCost = 600;
+                baseCost = 1000;
+                break;
+            case "Copper Mine":
+                unlockCost = 80000;
+                outputResource = "Copper Ore";
+                inputResources = new string[] {};
+                baseCost = 6000;
+                break;
+            case "Tin Mine":
+                unlockCost = 80000;
+                outputResource = "Tin Ore";
+                inputResources = new string[] {};
+                baseCost = 6000;
+                break;
+            case "Smelter":
+                unlockCost = 200000;
+                outputResource = "Bronze Ingot";
+                inputResources = new string[] {"Copper Ore", "Tin Ore", "Wood"};
+                baseCost = 10000;
+                break;
+            case "Wind Mill":
+                unlockCost = 80000;
+                outputResource = "Flour";
+                inputResources = new string[] {"Wheat"};
+                baseCost = 6000;
+                break;
+            case "Bakery":
+                unlockCost = 200000;
+                outputResource = "Bread";
+                inputResources = new string[] {"Flour"};
+                baseCost = 10000;
+                break;
+            case "Furniture Factory":
+                unlockCost = 800000;
+                outputResource = "Furniture";
+                inputResources = new string[] {"Lumber", "Bronze Ingot"};
+                baseCost = 50000;
                 break;
         }
 

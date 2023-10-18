@@ -24,8 +24,10 @@ public class Demographic : MonoBehaviour, Unlockable
         
     }
 
-    public void InitValues(string newName, int prestigeGenerated)
+    public void InitValues(string newName, int prestigeGenerated, int newUnlockCost, int newBaseCost)
     {
+        unlockCost = newUnlockCost;
+        baseCost = newBaseCost;
         levelText.text = "Level: " + level;
         nameText.text = newName;
         basePrestigeGenerated = prestigeGenerated;

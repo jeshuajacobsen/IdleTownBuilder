@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public UnityEvent<string, int> onResourcesAdded;
 
     public Dictionary<string, int> resources = new Dictionary<string, int>();
-    public Dictionary<string, int> productionTimers = new Dictionary<string, int>();
+    public Dictionary<string, float> productionTimers = new Dictionary<string, float>();
 
     
     public Dictionary<string, int> resourcePrices;
@@ -32,8 +32,15 @@ public class GameManager : MonoBehaviour
         resourcePrices["Wheat"] = 1;
         resourcePrices["Wood"] = 4;
         resourcePrices["Clay"] = 10;
-        resourcePrices["Lumber"] = 30;
-        resourcePrices["Pottery"] = 90;
+        resourcePrices["Lumber"] = 60;
+        resourcePrices["Pottery"] = 120;
+        resourcePrices["Vegetables"] = 300;
+        resourcePrices["Copper Ore"] = 800;
+        resourcePrices["Tin Ore"] = 800;
+        resourcePrices["Flour"] = 700;
+        resourcePrices["Bronze Ingot"] = 3000;
+        resourcePrices["Bread"] = 2000;
+        resourcePrices["Furniture"] = 5000;
 
         if (instance == null)
         {

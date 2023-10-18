@@ -44,7 +44,10 @@ public class ProductionOutput : MonoBehaviour
         if (producing)
         {
             productionTimer++;
-        
+            if (resource == "Wheat" || resource == "Vegetables")
+            {
+                productionTimer += ResearchManager.instance.farmSpeedUp;
+            }
             if (productionTimer >= requiredTime)
             {
                 productionTimer -= requiredTime;
@@ -69,7 +72,7 @@ public class ProductionOutput : MonoBehaviour
             }
         }
 
-        GameManager.instance.productionTimers[resource] = (int)productionTimer; 
+        GameManager.instance.productionTimers[resource] = productionTimer; 
         loadingBar.UpdatePercentage(productionTimer / requiredTime * 100);
     }
 

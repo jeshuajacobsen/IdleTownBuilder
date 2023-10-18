@@ -64,6 +64,49 @@ public class BuildingContent : MonoBehaviour
         building.onProductionClick.AddListener(HandleProductionClick);
         buildings.Add(building);
 
+        building = Instantiate(BuildingPrefab, contentTransform);
+        building.transform.SetParent(transform, false);
+        building.InitValues("Vegetable Farm");
+        building.onProductionClick.AddListener(HandleProductionClick);
+        buildings.Add(building);
+
+        building = Instantiate(BuildingPrefab, contentTransform);
+        building.transform.SetParent(transform, false);
+        building.InitValues("Wind Mill");
+        building.onProductionClick.AddListener(HandleProductionClick);
+        buildings.Add(building);
+
+        building = Instantiate(BuildingPrefab, contentTransform);
+        building.transform.SetParent(transform, false);
+        building.InitValues("Copper Mine");
+        building.onProductionClick.AddListener(HandleProductionClick);
+        buildings.Add(building);
+
+        building = Instantiate(BuildingPrefab, contentTransform);
+        building.transform.SetParent(transform, false);
+        building.InitValues("Tin Mine");
+        building.onProductionClick.AddListener(HandleProductionClick);
+        buildings.Add(building);
+
+        building = Instantiate(BuildingPrefab, contentTransform);
+        building.transform.SetParent(transform, false);
+        building.InitValues("Bakery");
+        building.onProductionClick.AddListener(HandleProductionClick);
+        buildings.Add(building);
+
+        building = Instantiate(BuildingPrefab, contentTransform);
+        building.transform.SetParent(transform, false);
+        building.InitValues("Smelter");
+        building.onProductionClick.AddListener(HandleProductionClick);
+        buildings.Add(building);
+
+        building = Instantiate(BuildingPrefab, contentTransform);
+        building.transform.SetParent(transform, false);
+        building.InitValues("Furniture Factory");
+        building.onProductionClick.AddListener(HandleProductionClick);
+        buildings.Add(building);
+        
+
         starting = true;
     }
 

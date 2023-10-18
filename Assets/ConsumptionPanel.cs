@@ -52,6 +52,28 @@ public class ConsumptionPanel : MonoBehaviour
             requirement.InitValues("Vegetables", 2);
             requirements.Add(requirement);
         }
+        if (demoName == "Commoners")
+        {
+            Requirement requirement = Instantiate(requirementPrefab, contentTransform);
+            requirement.transform.SetParent(transform.Find("RequirementsPanel"), false);
+            requirement.InitValues("Bread", 10);
+            requirements.Add(requirement);
+            
+            requirement = Instantiate(requirementPrefab, contentTransform);
+            requirement.transform.SetParent(transform.Find("RequirementsPanel"), false);
+            requirement.InitValues("Pottery", 10);
+            requirements.Add(requirement);
+            
+            requirement = Instantiate(requirementPrefab, contentTransform);
+            requirement.transform.SetParent(transform.Find("RequirementsPanel"), false);
+            requirement.InitValues("Vegetables", 20);
+            requirements.Add(requirement);
+
+            requirement = Instantiate(requirementPrefab, contentTransform);
+            requirement.transform.SetParent(transform.Find("RequirementsPanel"), false);
+            requirement.InitValues("Furniture", 5);
+            requirements.Add(requirement);
+        }
     }
 
     public void Tick()
