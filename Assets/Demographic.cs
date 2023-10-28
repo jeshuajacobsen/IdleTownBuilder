@@ -7,7 +7,7 @@ public class Demographic : MonoBehaviour, Unlockable
 {
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI nameText;
-    private int level = 1;
+    public int level = 1;
     private int unlockCost = 1;
     private int baseCost = 1;
     private int basePrestigeGenerated;
@@ -52,14 +52,14 @@ public class Demographic : MonoBehaviour, Unlockable
         }
     }
 
-    public int GetPrestigeGenerated()
+    public float GetPrestigeGenerated()
     {
         float multiplier = 1;
         if (nameText.text == "Peasant")
         {
-            multiplier = ResearchManager.instance.peasentPrestigeMultiplier;
+            multiplier += ResearchManager.instance.peasentPrestigeMultiplier;
         }
-        return (int)(level * basePrestigeGenerated * multiplier);
+        return (level * basePrestigeGenerated * multiplier);
     }
 
     public void Unlock()

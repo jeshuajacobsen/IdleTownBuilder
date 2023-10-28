@@ -8,7 +8,7 @@ using TMPro;
 public class Requirement : MonoBehaviour
 {
     public string resource;
-    private int cost;
+    public int cost;
     public int level = 1;
     [SerializeField] private Image resourceImage;
     [SerializeField] private TextMeshProUGUI costText;
@@ -40,6 +40,7 @@ public class Requirement : MonoBehaviour
         resource = newResource;
         cost = newCost;
         int resourceInStock = GameManager.instance.resources.ContainsKey(resource) ? GameManager.instance.resources[resource] : 0;
+        transform.Find("resourceImage").GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(newResource);
         
         transform.Find("costText").GetComponent<TextMeshProUGUI>().text = "" + resourceInStock + "/" + cost * level;
     }
@@ -48,7 +49,7 @@ public class Requirement : MonoBehaviour
     {
         if (GameManager.instance.resources.ContainsKey(resource))
         {
-            return Math.Min(GameManager.instance.resources[resource], cost * level) / (cost * level);
+            return Math.Min((float)GameManager.instance.resources[resource], cost * level) / (cost * level);
         }
         return 0;
     }

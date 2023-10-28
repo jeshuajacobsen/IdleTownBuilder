@@ -94,14 +94,16 @@ public class ConsumptionPanel : MonoBehaviour
         loadingBar.UpdatePercentage(productionTimer / requiredTime * 100);
     }
 
-    public int GetPrestigeGenerated()
+    public float GetPrestigeGenerated()
     {
         float totalPrestige = 0;
+        Demographic currentDemo = transform.parent.GetComponent<Demographic>();
         foreach (Requirement req in requirements)
         {
-            totalPrestige += req.PercentMet() * transform.parent.GetComponent<Demographic>().GetPrestigeGenerated() / requirements.Count;
+            Debug.Log(req.PercentMet());
+            totalPrestige += req.PercentMet() * currentDemo.GetPrestigeGenerated() / requirements.Count;
         }
-        return (int)totalPrestige;
+        return totalPrestige;
     }
 
     public void Unlock()

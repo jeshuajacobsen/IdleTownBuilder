@@ -92,9 +92,9 @@ public class GameManager : MonoBehaviour
         cityPrestigeText.text = "" + cityPrestige;
     }
 
-    public void AddCityPrestige(int quantity)
+    public void AddCityPrestige(float quantity)
     {
-        cityPrestige += quantity;
+        cityPrestige += (int)quantity;
         UpdateCityPrestigeText();
     }
 

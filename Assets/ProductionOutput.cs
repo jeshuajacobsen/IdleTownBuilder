@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using SharpUI.Source.Common.UI.Elements.Loading;
 
 public class ProductionOutput : MonoBehaviour
@@ -37,6 +38,7 @@ public class ProductionOutput : MonoBehaviour
     {
         resource = newResource;
         GameManager.instance.productionTimers[newResource] = 0;
+        transform.GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(newResource);
     }
 
     public void Tick()

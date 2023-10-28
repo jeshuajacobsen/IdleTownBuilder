@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class ResourceCost : MonoBehaviour
@@ -56,5 +57,6 @@ public class ResourceCost : MonoBehaviour
             resourceCost.text = "0/" + requiredAmount;
             resourceCost.color = Color.red;
         }
+        transform.Find("Image").GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(newResourceName);
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
 
@@ -24,6 +25,7 @@ public class ResourceListItem : MonoBehaviour
         resourceText = transform.Find("ResourceText").GetComponent<TextMeshProUGUI>();
         quantityText = transform.Find("QuantityText").GetComponent<TextMeshProUGUI>();
         priceText = transform.Find("PriceText").GetComponent<TextMeshProUGUI>();
+        transform.Find("ResourceIcon").GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(resourceName);
 
         GameManager.instance.onResourcesChanged.AddListener(UpdateQuantity);
         quantity = GameManager.instance.resources[resourceName];

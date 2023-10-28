@@ -358,6 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9285d3a3b1d8db943b15d08829eac59f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiredTime: 10
   resource: 
   onProductionClick:
     m_PersistentCalls:
@@ -481,7 +482,6 @@ MonoBehaviour:
   inputResourceButton3: {fileID: 3697525568092736678}
   outputResourceButton: {fileID: 3606843959307323408}
   buildingName: 
-  costForUpgrade: 1
   locked: 1
   levelText: {fileID: 1290920283615119314}
   onProductionClick:
