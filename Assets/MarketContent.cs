@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class MarketContent : MonoBehaviour
 {
 
-    List<ResourceListItem> resources = new List<ResourceListItem>();
+    public List<ResourceListItem> resources = new List<ResourceListItem>();
 
     public ResourceListItem ResourceListItemPrefab;
     public Transform contentTransform;
@@ -25,14 +25,7 @@ public class MarketContent : MonoBehaviour
     void Start()
     {
         
-        foreach (KeyValuePair<string, int> resourceKV in GameManager.instance.resources)
-        {
-            AddResourceListItem(resourceKV.Key, resourceKV.Value);
-        }
-        
         GameManager.instance.onResourcesAdded.AddListener(AddResourceListItem);
-
-        selectedHighlight = transform.Find("selectedHighlight");
 
         SetSelectedResource(resources[0].resourceName);        
 
@@ -47,7 +40,12 @@ public class MarketContent : MonoBehaviour
 
     void Reset(string newCityName)
     {
+        if (selectedHighlight == null)
+        {
+            selectedHighlight = transform.Find("SelectedHighlight");
+        }
         selectedHighlight.SetParent(transform, false);
+        
         foreach(ResourceListItem item in resources)
         {
             Destroy(item.gameObject);
