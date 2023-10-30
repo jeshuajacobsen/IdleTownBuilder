@@ -32,13 +32,13 @@ public class GameManager : MonoBehaviour
         resourcePrices["Wheat"] = 1;
         resourcePrices["Wood"] = 4;
         resourcePrices["Clay"] = 10;
-        resourcePrices["Lumber"] = 60;
-        resourcePrices["Pottery"] = 120;
-        resourcePrices["Vegetables"] = 300;
-        resourcePrices["Copper Ore"] = 800;
-        resourcePrices["Tin Ore"] = 800;
-        resourcePrices["Flour"] = 700;
-        resourcePrices["Bronze Ingot"] = 3000;
+        resourcePrices["Lumber"] = 100;
+        resourcePrices["Pottery"] = 160;
+        resourcePrices["Vegetables"] = 200;
+        resourcePrices["Copper Ore"] = 700;
+        resourcePrices["Tin Ore"] = 700;
+        resourcePrices["Flour"] = 600;
+        resourcePrices["Bronze Ingot"] = 4000;
         resourcePrices["Bread"] = 2000;
         resourcePrices["Furniture"] = 5000;
 

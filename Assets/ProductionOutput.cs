@@ -34,8 +34,9 @@ public class ProductionOutput : MonoBehaviour
         
     }
 
-    public void InitValues(string newResource)
+    public void InitValues(string newResource, int newRequiredTime)
     {
+        requiredTime = newRequiredTime;
         resource = newResource;
         GameManager.instance.productionTimers[newResource] = 0;
         transform.GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(newResource);

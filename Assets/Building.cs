@@ -56,6 +56,7 @@ public class Building : MonoBehaviour, Unlockable
 
         string[] inputResources = {};
         string outputResource = "";
+        int productionTime = 10;
 
         switch(newName)
         {
@@ -65,70 +66,82 @@ public class Building : MonoBehaviour, Unlockable
                 outputResource = "Wheat";
                 baseCost = 1;
                 unlockCost = 1;
+                productionTime = 10;
                 break;
             case "Forester":
                 unlockCost = 10;
                 outputResource = "Wood";
                 baseCost = 6;
+                productionTime = 12;
                 break;
             case "Clay Pit":
                 unlockCost = 100;
                 outputResource = "Clay";
                 baseCost = 10;
+                productionTime = 14;
                 break;
             case "Lumber Mill":
                 unlockCost = 1000;
                 outputResource = "Lumber";
                 inputResources = new string[] {"Wood"};
                 baseCost = 100;
+                productionTime = 20;
                 break;
             case "Potter":
                 unlockCost = 6000;
                 outputResource = "Pottery";
                 inputResources = new string[] {"Clay"};
                 baseCost = 600;
+                productionTime = 22;
                 break;
             case "Vegetable Farm":
                 unlockCost = 10000;
                 outputResource = "Vegetables";
                 inputResources = new string[] {};
                 baseCost = 1000;
+                productionTime = 24;
                 break;
             case "Copper Mine":
                 unlockCost = 80000;
                 outputResource = "Copper Ore";
                 inputResources = new string[] {};
                 baseCost = 6000;
+                productionTime = 28;
                 break;
             case "Tin Mine":
                 unlockCost = 80000;
                 outputResource = "Tin Ore";
                 inputResources = new string[] {};
                 baseCost = 6000;
+                productionTime = 28;
                 break;
             case "Smelter":
                 unlockCost = 200000;
                 outputResource = "Bronze Ingot";
                 inputResources = new string[] {"Copper Ore", "Tin Ore", "Wood"};
                 baseCost = 10000;
+                productionTime = 30;
                 break;
             case "Wind Mill":
                 unlockCost = 80000;
                 outputResource = "Flour";
                 inputResources = new string[] {"Wheat"};
                 baseCost = 6000;
+                productionTime = 26;
                 break;
             case "Bakery":
                 unlockCost = 200000;
                 outputResource = "Bread";
                 inputResources = new string[] {"Flour"};
                 baseCost = 10000;
+                productionTime = 30;
                 break;
             case "Furniture Factory":
                 unlockCost = 800000;
                 outputResource = "Furniture";
                 inputResources = new string[] {"Lumber", "Bronze Ingot"};
                 baseCost = 50000;
+                productionTime = 32;
                 break;
         }
 
@@ -173,7 +186,7 @@ public class Building : MonoBehaviour, Unlockable
             arrow3.SetActive(true);
         }
 
-        outputResourceButton.InitValues(outputResource);
+        outputResourceButton.InitValues(outputResource, productionTime);
         TextMeshProUGUI nameText = transform.Find("NameText").GetComponent<TextMeshProUGUI>();
         nameText.text = buildingName;
         if (!GameManager.instance.productionTimers.ContainsKey(outputResource))
