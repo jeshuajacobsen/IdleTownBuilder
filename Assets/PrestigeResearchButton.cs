@@ -12,9 +12,15 @@ public class PrestigeResearchButton : MonoBehaviour
     [SerializeField] private string description;
     [SerializeField] private int baseCost;
 
+    [SerializeField] private bool isBuilding;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (isBuilding)
+        {
+            level = ResearchManager.instance.buildingLevels.ContainsKey(title) ? ResearchManager.instance.buildingLevels[title] : 0;
+        }
         transform.Find("levelText").GetComponent<TextMeshProUGUI>().text = "" + level + "/" + maxLevel;
     }
 
@@ -28,7 +34,7 @@ public class PrestigeResearchButton : MonoBehaviour
     {
         ResearchInfoPanel researchPanel = transform.parent.parent.Find("SelectedResearchBackground")
             .Find("ResearchInfoPanel").GetComponent<ResearchInfoPanel>();
-        researchPanel.Setup(title, description, baseCost, level, maxLevel);
+        researchPanel.Setup(title, description, baseCost, level, maxLevel, isBuilding);
         researchPanel.onUpgrade.AddListener(Upgrade);
     }
 

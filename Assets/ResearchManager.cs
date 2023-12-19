@@ -1,19 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ResearchManager : MonoBehaviour
 {
 
     public static ResearchManager instance;
 
-    public float farmMultiplier = 1;
-    public float woodMultiplier = 1;
-    public float incomeMiltiplier = 1;
-    public float farmCostMultiplier = 1;
-    public float peasentPrestigeMultiplier = 1;
+    public float farmMultiplier = 0;
+    public float woodMultiplier = 0;
+    public float incomeMultiplier = 0;
+    public float farmCostMultiplier = 0;
+    public float peasentPrestigeMultiplier = 0;
     public float farmSpeedUp = 0;
     public float peasantWheatDecrease = 0;
+    public float humanTechMultiplier = 0;
+
+    public Dictionary<string, int> buildingLevels = new Dictionary<string, int>();
+
+    public UnityEvent<string> addBuilding;
 
     void Awake()
     {
@@ -21,6 +27,11 @@ public class ResearchManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            BuildingUpgrade("Farm");
+            BuildingUpgrade("Forester");
+            BuildingUpgrade("Clay Pit");
+            BuildingUpgrade("Lumber Mill");
+            BuildingUpgrade("Potter");
         }
         else
         {
@@ -51,7 +62,7 @@ public class ResearchManager : MonoBehaviour
                 woodMultiplier += .1f;
                 break;
             case "Market":
-                incomeMiltiplier += .1f;
+                incomeMultiplier += .1f;
                 break;
             case "Fertilizer":
                 farmCostMultiplier -= .1f;
@@ -65,6 +76,22 @@ public class ResearchManager : MonoBehaviour
             case "Foraging":
                 peasantWheatDecrease += 1;
                 break;
+            case "Chopping":
+                woodMultiplier += .1f;
+                break;
+            case "Human Tech":
+                humanTechMultiplier += .1f;
+                break;
+        }
+    }
+
+    public void BuildingUpgrade(string upgradeTitle) 
+    {
+        if (buildingLevels.ContainsKey(upgradeTitle)) {
+            buildingLevels[upgradeTitle] += 1;
+        } else {
+            buildingLevels.Add(upgradeTitle, 1);
+            addBuilding.Invoke(upgradeTitle);
         }
     }
 }

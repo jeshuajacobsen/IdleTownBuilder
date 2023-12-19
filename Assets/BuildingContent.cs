@@ -18,8 +18,17 @@ public class BuildingContent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ResearchManager.instance.addBuilding.AddListener(AddBuilding);
         GameManager.instance.resetCity.AddListener(Reset);
+    }
+
+    public void AddBuilding(string buildingName)
+    {
+        Building building = Instantiate(BuildingPrefab, contentTransform);
+        building.transform.SetParent(transform, false);
+        building.InitValues(buildingName);
+        building.onProductionClick.AddListener(HandleProductionClick);
+        buildings.Add(building);
     }
 
     void Reset(string newCityName)
@@ -34,77 +43,83 @@ public class BuildingContent : MonoBehaviour
         }
         
         buildings = new List<Building>();
-        Building building = Instantiate(BuildingPrefab, contentTransform);
-        building.transform.SetParent(transform, false);
-        building.InitValues("Farm");
-        building.onProductionClick.AddListener(HandleProductionClick);
-        buildings.Add(building);
 
-        building = Instantiate(BuildingPrefab, contentTransform);
-        building.transform.SetParent(transform, false);
-        building.InitValues("Forester");
-        building.onProductionClick.AddListener(HandleProductionClick);
-        buildings.Add(building);
+        foreach(string buildingName in ResearchManager.instance.buildingLevels.Keys)
+        {
+            Building building = Instantiate(BuildingPrefab, contentTransform);
+            building.transform.SetParent(transform, false);
+            building.InitValues(buildingName);
+            building.onProductionClick.AddListener(HandleProductionClick);
+            buildings.Add(building);
+        }
 
-        building = Instantiate(BuildingPrefab, contentTransform);
-        building.transform.SetParent(transform, false);
-        building.InitValues("Clay Pit");
-        building.onProductionClick.AddListener(HandleProductionClick);
-        buildings.Add(building);
+        
 
-        building = Instantiate(BuildingPrefab, contentTransform);
-        building.transform.SetParent(transform, false);
-        building.InitValues("Lumber Mill");
-        building.onProductionClick.AddListener(HandleProductionClick);
-        buildings.Add(building);
+        // building = Instantiate(BuildingPrefab, contentTransform);
+        // building.transform.SetParent(transform, false);
+        // building.InitValues("Forester");
+        // building.onProductionClick.AddListener(HandleProductionClick);
+        // buildings.Add(building);
 
-        building = Instantiate(BuildingPrefab, contentTransform);
-        building.transform.SetParent(transform, false);
-        building.InitValues("Potter");
-        building.onProductionClick.AddListener(HandleProductionClick);
-        buildings.Add(building);
+        // building = Instantiate(BuildingPrefab, contentTransform);
+        // building.transform.SetParent(transform, false);
+        // building.InitValues("Clay Pit");
+        // building.onProductionClick.AddListener(HandleProductionClick);
+        // buildings.Add(building);
 
-        building = Instantiate(BuildingPrefab, contentTransform);
-        building.transform.SetParent(transform, false);
-        building.InitValues("Vegetable Farm");
-        building.onProductionClick.AddListener(HandleProductionClick);
-        buildings.Add(building);
+        // building = Instantiate(BuildingPrefab, contentTransform);
+        // building.transform.SetParent(transform, false);
+        // building.InitValues("Lumber Mill");
+        // building.onProductionClick.AddListener(HandleProductionClick);
+        // buildings.Add(building);
 
-        building = Instantiate(BuildingPrefab, contentTransform);
-        building.transform.SetParent(transform, false);
-        building.InitValues("Wind Mill");
-        building.onProductionClick.AddListener(HandleProductionClick);
-        buildings.Add(building);
+        // building = Instantiate(BuildingPrefab, contentTransform);
+        // building.transform.SetParent(transform, false);
+        // building.InitValues("Potter");
+        // building.onProductionClick.AddListener(HandleProductionClick);
+        // buildings.Add(building);
 
-        building = Instantiate(BuildingPrefab, contentTransform);
-        building.transform.SetParent(transform, false);
-        building.InitValues("Copper Mine");
-        building.onProductionClick.AddListener(HandleProductionClick);
-        buildings.Add(building);
+        // building = Instantiate(BuildingPrefab, contentTransform);
+        // building.transform.SetParent(transform, false);
+        // building.InitValues("Vegetable Farm");
+        // building.onProductionClick.AddListener(HandleProductionClick);
+        // buildings.Add(building);
 
-        building = Instantiate(BuildingPrefab, contentTransform);
-        building.transform.SetParent(transform, false);
-        building.InitValues("Tin Mine");
-        building.onProductionClick.AddListener(HandleProductionClick);
-        buildings.Add(building);
+        // building = Instantiate(BuildingPrefab, contentTransform);
+        // building.transform.SetParent(transform, false);
+        // building.InitValues("Wind Mill");
+        // building.onProductionClick.AddListener(HandleProductionClick);
+        // buildings.Add(building);
 
-        building = Instantiate(BuildingPrefab, contentTransform);
-        building.transform.SetParent(transform, false);
-        building.InitValues("Bakery");
-        building.onProductionClick.AddListener(HandleProductionClick);
-        buildings.Add(building);
+        // building = Instantiate(BuildingPrefab, contentTransform);
+        // building.transform.SetParent(transform, false);
+        // building.InitValues("Copper Mine");
+        // building.onProductionClick.AddListener(HandleProductionClick);
+        // buildings.Add(building);
 
-        building = Instantiate(BuildingPrefab, contentTransform);
-        building.transform.SetParent(transform, false);
-        building.InitValues("Smelter");
-        building.onProductionClick.AddListener(HandleProductionClick);
-        buildings.Add(building);
+        // building = Instantiate(BuildingPrefab, contentTransform);
+        // building.transform.SetParent(transform, false);
+        // building.InitValues("Tin Mine");
+        // building.onProductionClick.AddListener(HandleProductionClick);
+        // buildings.Add(building);
 
-        building = Instantiate(BuildingPrefab, contentTransform);
-        building.transform.SetParent(transform, false);
-        building.InitValues("Furniture Factory");
-        building.onProductionClick.AddListener(HandleProductionClick);
-        buildings.Add(building);
+        // building = Instantiate(BuildingPrefab, contentTransform);
+        // building.transform.SetParent(transform, false);
+        // building.InitValues("Bakery");
+        // building.onProductionClick.AddListener(HandleProductionClick);
+        // buildings.Add(building);
+
+        // building = Instantiate(BuildingPrefab, contentTransform);
+        // building.transform.SetParent(transform, false);
+        // building.InitValues("Smelter");
+        // building.onProductionClick.AddListener(HandleProductionClick);
+        // buildings.Add(building);
+
+        // building = Instantiate(BuildingPrefab, contentTransform);
+        // building.transform.SetParent(transform, false);
+        // building.InitValues("Furniture Factory");
+        // building.onProductionClick.AddListener(HandleProductionClick);
+        // buildings.Add(building);
         
 
         starting = true;

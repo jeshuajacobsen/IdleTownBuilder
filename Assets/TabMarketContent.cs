@@ -61,10 +61,12 @@ public class TabMarketContent : MonoBehaviour
 
     private int calculateSellAmount(string resourceName)
     {
+        float multiplier = 1;
+        multiplier += ResearchManager.instance.incomeMultiplier;
         return (int)(quantitySlider.slider.value * 
                 GameManager.instance.resources[resourceName] * 
                 GameManager.instance.resourcePrices[resourceName] *
-                ResearchManager.instance.incomeMiltiplier);
+                multiplier);
     }
 
     private void Tick()

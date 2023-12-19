@@ -15,6 +15,8 @@ public class ResearchInfoPanel : MonoBehaviour
     int maxLevel;
     public UnityEvent<string> onUpgrade;
 
+    bool isBuilding;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,7 @@ public class ResearchInfoPanel : MonoBehaviour
         
     }
 
-    public void Setup(string title, string description, int baseCost, int level, int maxLevel)
+    public void Setup(string title, string description, int baseCost, int level, int maxLevel, bool isBuilding)
     {
         titleText.text = title;
         descriptionText.text = description;
@@ -35,6 +37,7 @@ public class ResearchInfoPanel : MonoBehaviour
         this.baseCost = baseCost;
         this.level = level;
         this.maxLevel = maxLevel;
+        this.isBuilding = isBuilding;
         costText.text = "" + getCost();
         currentLevelText.text = level + "/" + maxLevel;
     }
@@ -43,7 +46,13 @@ public class ResearchInfoPanel : MonoBehaviour
     {
         if (GameManager.instance.HasEnoughPrestige(getCost()) && level < maxLevel)
         {
-            ResearchManager.instance.Upgrade(titleText.text);
+            if (this.isBuilding)
+            {
+                ResearchManager.instance.BuildingUpgrade(titleText.text);
+            } else {
+                ResearchManager.instance.Upgrade(titleText.text);
+            }
+            
             GameManager.instance.SubtractCollectedPrestige(getCost());
             level++;
             currentLevelText.text = level + "/" + maxLevel;

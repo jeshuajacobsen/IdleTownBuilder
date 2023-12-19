@@ -249,12 +249,13 @@ public class Building : MonoBehaviour, Unlockable
         float multiplier = 1;
         if (buildingName == "Farm")
         {
-            multiplier = ResearchManager.instance.farmMultiplier;
+            multiplier += ResearchManager.instance.farmMultiplier;
         } 
         else if (buildingName == "Forester")
         {
-            multiplier = ResearchManager.instance.woodMultiplier;
+            multiplier += ResearchManager.instance.woodMultiplier;
         }
+        multiplier += ResearchManager.instance.humanTechMultiplier;
         return (int)(level * multiplier);
     }
 
