@@ -39,5 +39,13 @@ public class SaveData
     public Dictionary<string, bool> autosellSettings;
 
     //population content
-
+    public Dictionary<string, int> demographicLevels;
+    public void SetDemographicSaveData(List<Demographic> demos)
+    {
+        demographicLevels = new Dictionary<string, int>();
+        foreach(Demographic demo in demos)
+        {
+            demographicLevels.Add(demo.Name, demo.Level);
+        }
+    }
 }

@@ -112,6 +112,7 @@ public class TimeManager : MonoBehaviour
         ResearchManager.instance.PrepForSave(saveData);
         buildingContent.PrepForSave(saveData);
         marketContent.PrepForSave(saveData);
+        popContent.PrepForSave(saveData);
         string jsonData = JsonConvert.SerializeObject(saveData);
         System.IO.File.WriteAllText(Application.persistentDataPath + "/savefile.json", jsonData);
         Debug.Log(jsonData);
@@ -131,6 +132,7 @@ public class TimeManager : MonoBehaviour
             ResearchManager.instance.LoadSavedData(saveData);
             buildingContent.LoadSavedData(saveData);
             marketContent.LoadSavedData(saveData);
+            popContent.LoadSavedData(saveData);
             Debug.Log("Loaded from: " + Application.persistentDataPath + "/savefile.json");
         } else {
             GameManager.instance.StartNewGame();

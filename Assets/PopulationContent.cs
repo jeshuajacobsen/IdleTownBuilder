@@ -46,15 +46,59 @@ public class PopulationContent : MonoBehaviour
             }
         }
         demographics = new List<Demographic>();
+        
 
+        switch(newCityName)
+        {
+            case "Peasantry":
+                AddDemographic("Peasants");
+                AddDemographic("Commoners");
+                break;
+            case "Aquias":
+                AddDemographic("Peasants");
+                AddDemographic("Commoners");
+                break;
+            case "Dwarvary":
+                AddDemographic("Peasants");
+                AddDemographic("Commoners");
+                break;
+            case "Harmony":
+                AddDemographic("Peasants");
+                AddDemographic("Commoners");
+                break;
+        }
+
+        
+    }
+
+    private void AddDemographic(string demoName)
+    {
         Demographic demo = Instantiate(demoPrefab, contentTransform);
         demo.transform.SetParent(transform, false);
-        demo.InitValues("Peasants", 3, 40, 20);
+        demo.InitValues(demoName);
         demographics.Add(demo);
+    }
 
-        demo = Instantiate(demoPrefab, contentTransform);
-        demo.transform.SetParent(transform, false);
-        demo.InitValues("Commoners", 40, 4000, 800);
-        demographics.Add(demo);
+    public void PrepForSave(SaveData saveData)
+    {
+       saveData.SetDemographicSaveData(demographics);
+    }
+
+    public void LoadSavedData(SaveData saveData) 
+    {
+        foreach (string key in saveData.demographicLevels.Keys)
+        {
+            Demographic demo = demographics.Find(demo => demo.Name == key);
+            if (demo != null)
+            {
+                if (saveData.demographicLevels[key] > 0)
+                {
+                    demo.Unlock();
+                }
+                demo.Level = saveData.demographicLevels[key];
+            } else {
+                Debug.Log("Couldn't find demographic to load. " + key);
+            }
+        }
     }
 }

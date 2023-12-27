@@ -7,7 +7,25 @@ public class Demographic : MonoBehaviour, Unlockable
 {
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI nameText;
-    public int level = 1;
+    public string Name
+    {
+        get { return nameText.text; }
+        set 
+        { 
+            nameText.text = value;
+        }
+    }
+    private int level;
+    public int Level
+    {
+        get { return level; }
+        set 
+        { 
+            level = value;
+            levelText.text = "Level: " + level;
+            transform.Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + CalculateCost();
+        }
+    }
     private int unlockCost = 1;
     private int baseCost = 1;
     private int basePrestigeGenerated;
@@ -24,13 +42,24 @@ public class Demographic : MonoBehaviour, Unlockable
         
     }
 
-    public void InitValues(string newName, int prestigeGenerated, int newUnlockCost, int newBaseCost)
+    public void InitValues(string newName)
     {
-        unlockCost = newUnlockCost;
-        baseCost = newBaseCost;
-        levelText.text = "Level: " + level;
-        nameText.text = newName;
-        basePrestigeGenerated = prestigeGenerated;
+        Level = 0;
+        Name = newName;
+
+        switch(newName)
+        {
+            case "Peasants":
+                unlockCost = 40;
+                baseCost = 20;
+                basePrestigeGenerated = 3;
+                break;
+            case "Commoners":
+                unlockCost = 4000;
+                baseCost = 2000;
+                basePrestigeGenerated = 250;
+                break;
+        }
 
         transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().InitValues(newName);
         transform.Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + CalculateCost();
@@ -41,13 +70,11 @@ public class Demographic : MonoBehaviour, Unlockable
         int cost = CalculateCost();
         if (GameManager.instance.HasEnoughCoin(cost))
         {
-            level++;
-            levelText.text = "Level: " + level;
+            Level = Level + 1;
             GameManager.instance.SubtractCoins(cost);
-            transform.Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + CalculateCost();
             foreach (Requirement requirement in transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().requirements)
             {
-                requirement.level = level;
+                requirement.level = Level;
             }
         }
     }
@@ -59,12 +86,13 @@ public class Demographic : MonoBehaviour, Unlockable
         {
             multiplier += ResearchManager.instance.multipliers.ContainsKey("Peasentry") ? ResearchManager.instance.multipliers["Peasentry"] : 0;
         }
-        return (level * basePrestigeGenerated * multiplier);
+        return (Level * basePrestigeGenerated * multiplier);
     }
 
     public void Unlock()
     {
         transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().Unlock();
+        transform.Find("LockedPanel").gameObject.SetActive(false);
     }
 
     public int GetUnlockCost()
@@ -74,7 +102,7 @@ public class Demographic : MonoBehaviour, Unlockable
 
     public int CalculateCost()
     {
-        return (int)(baseCost * level * 1.6);
+        return (int)(baseCost * Level * 1.6);
     }
 
     public void Tick()

@@ -16,6 +16,7 @@ public class Building : MonoBehaviour, Unlockable
         { 
             level = value; 
             levelText.text = "Level: " + level;
+            transform.Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + CalculateCost();
         }
     }
     public ProductionInput inputResourceButton1;
@@ -211,7 +212,6 @@ public class Building : MonoBehaviour, Unlockable
             Level = Level + 1;
             
             GameManager.instance.SubtractCoins(cost);
-            transform.Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + CalculateCost();
         }
     }
 
