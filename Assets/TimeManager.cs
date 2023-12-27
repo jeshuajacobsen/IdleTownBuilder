@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Events;
+using Newtonsoft.Json;
 
 public class TimeManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class TimeManager : MonoBehaviour
     public Dictionary<string, int> timeAwayResources = new Dictionary<string, int>(); 
     [SerializeField] private BuildingContent buildingContent;
     [SerializeField] private PopulationContent popContent;
+    [SerializeField] private MarketContent marketContent;
+    private SaveData saveData = new SaveData();
 
     void Awake()
     {
@@ -31,6 +34,7 @@ public class TimeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Load();
         LoadTime("ExitTime");
     }
 
@@ -43,6 +47,7 @@ public class TimeManager : MonoBehaviour
     void OnApplicationQuit()
     {
         SaveTime("ExitTime");
+        Save();
     }
 
     void OnApplicationPause(bool pauseStatus)
@@ -50,6 +55,7 @@ public class TimeManager : MonoBehaviour
         if (pauseStatus)
         {
             SaveTime("PauseTime");
+            Save();
         }
         else
         {
@@ -100,4 +106,35 @@ public class TimeManager : MonoBehaviour
         Debug.Log($"You have been away for {difference.TotalMinutes} minutes.");
     }
 
+    public void Save()
+    {
+        GameManager.instance.PrepForSave(saveData);
+        ResearchManager.instance.PrepForSave(saveData);
+        buildingContent.PrepForSave(saveData);
+        marketContent.PrepForSave(saveData);
+        string jsonData = JsonConvert.SerializeObject(saveData);
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/savefile.json", jsonData);
+        Debug.Log(jsonData);
+        Debug.Log("Saved data to: " + Application.persistentDataPath + "/savefile.json");
+
+    }
+
+    public void Load()
+    {
+        string path = Application.persistentDataPath + "/savefile.json";
+        if (System.IO.File.Exists(path))
+        {
+            string jsonData = System.IO.File.ReadAllText(path);
+            Debug.Log(jsonData);
+            saveData = JsonConvert.DeserializeObject<SaveData>(jsonData);
+            GameManager.instance.LoadSavedData(saveData);
+            ResearchManager.instance.LoadSavedData(saveData);
+            buildingContent.LoadSavedData(saveData);
+            marketContent.LoadSavedData(saveData);
+            Debug.Log("Loaded from: " + Application.persistentDataPath + "/savefile.json");
+        } else {
+            GameManager.instance.StartNewGame();
+            ResearchManager.instance.StartNewGame();
+        }
+    }
 }

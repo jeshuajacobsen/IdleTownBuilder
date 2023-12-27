@@ -81,7 +81,7 @@ public class CityResearchInfoPanel : MonoBehaviour
         if (canAffordUpgrade)
         {
             level++;
-            ResearchManager.instance.Upgrade(titleText.text);
+            ResearchManager.instance.CityResearchUpgrade(titleText.text);
             foreach (ResourceCost cost in resourceCosts)
             {
                 GameManager.instance.SubtractResources(cost.resourceName.text, cost.requiredAmount);

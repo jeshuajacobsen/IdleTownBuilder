@@ -22,6 +22,7 @@ public class CityResearchButton : MonoBehaviour
         researchedRatioText.text = "" + level + "/" + maxLevel;
         Button button = transform.GetComponent<Button>();
         button.onClick.AddListener(OpenInSelectedResearch);
+        ResearchManager.instance.setScienceResearch.AddListener(SetLevel);
     }
 
     // Update is called once per frame
@@ -52,7 +53,7 @@ public class CityResearchButton : MonoBehaviour
                 Debug.Log($"Failed to parse: {substring}");
             }
         }
-        researchPanel.Setup(title, description, level, maxLevel, new List<string>(resourceCostNames.Split(' ')), intCostList);
+        researchPanel.Setup(title, description, level, maxLevel, new List<string>(resourceCostNames.Split(',')), intCostList);
         researchPanel.onUpgrade.RemoveAllListeners();
         researchPanel.onUpgrade.AddListener(Upgrade);
     }
@@ -62,6 +63,15 @@ public class CityResearchButton : MonoBehaviour
         if (title == titleToUpgrade)
         {
             level++;
+            researchedRatioText.text = "" + level + "/" + maxLevel;
+        }
+    }
+
+    private void SetLevel(string titleToUpgrade, int level)
+    {
+        if (title == titleToUpgrade)
+        {
+            this.level = level;
             researchedRatioText.text = "" + level + "/" + maxLevel;
         }
     }

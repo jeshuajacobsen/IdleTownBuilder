@@ -49,7 +49,7 @@ public class ProductionOutput : MonoBehaviour
             productionTimer++;
             if (resource == "Wheat" || resource == "Vegetables")
             {
-                productionTimer += ResearchManager.instance.farmSpeedUp;
+                productionTimer += ResearchManager.instance.multipliers.ContainsKey("Fast Crops") ? ResearchManager.instance.multipliers["Fast Crops"] : 0;
             }
             if (productionTimer >= requiredTime)
             {
@@ -95,7 +95,7 @@ public class ProductionOutput : MonoBehaviour
         if (building.inputResourceButton1.gameObject.activeSelf)
         {
             if (!GameManager.instance.resources.ContainsKey(building.inputResourceButton1.resource) || 
-                building.inputResourceButton1.requiredAmount * building.level > GameManager.instance.resources[building.inputResourceButton1.resource])
+                building.inputResourceButton1.requiredAmount * building.Level > GameManager.instance.resources[building.inputResourceButton1.resource])
             {
                 canStart = false;
             }
@@ -103,7 +103,7 @@ public class ProductionOutput : MonoBehaviour
         if (building.inputResourceButton2.gameObject.activeSelf)
         {
             if (!GameManager.instance.resources.ContainsKey(building.inputResourceButton2.resource) ||
-                building.inputResourceButton2.requiredAmount * building.level > GameManager.instance.resources[building.inputResourceButton2.resource])
+                building.inputResourceButton2.requiredAmount * building.Level > GameManager.instance.resources[building.inputResourceButton2.resource])
             {
                 canStart = false;
             }
@@ -111,7 +111,7 @@ public class ProductionOutput : MonoBehaviour
         if (building.inputResourceButton3.gameObject.activeSelf)
         {
             if (!GameManager.instance.resources.ContainsKey(building.inputResourceButton3.resource) ||
-                building.inputResourceButton3.requiredAmount * building.level > GameManager.instance.resources[building.inputResourceButton3.resource])
+                building.inputResourceButton3.requiredAmount * building.Level > GameManager.instance.resources[building.inputResourceButton3.resource])
             {
                 canStart = false;
             }
@@ -124,15 +124,15 @@ public class ProductionOutput : MonoBehaviour
         producing = true;
         if (building.inputResourceButton1.gameObject.activeSelf)
         {
-            GameManager.instance.SubtractResources(building.inputResourceButton1.resource, building.inputResourceButton1.requiredAmount * building.level);
+            GameManager.instance.SubtractResources(building.inputResourceButton1.resource, building.inputResourceButton1.requiredAmount * building.Level);
         }
         if (building.inputResourceButton2.gameObject.activeSelf)
         {
-            GameManager.instance.SubtractResources(building.inputResourceButton2.resource, building.inputResourceButton2.requiredAmount * building.level);
+            GameManager.instance.SubtractResources(building.inputResourceButton2.resource, building.inputResourceButton2.requiredAmount * building.Level);
         }
         if (building.inputResourceButton3.gameObject.activeSelf)
         {
-            GameManager.instance.SubtractResources(building.inputResourceButton3.resource, building.inputResourceButton3.requiredAmount * building.level);
+            GameManager.instance.SubtractResources(building.inputResourceButton3.resource, building.inputResourceButton3.requiredAmount * building.Level);
         }
     }
 

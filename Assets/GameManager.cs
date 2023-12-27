@@ -10,9 +10,29 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     private int coins = 1;
+
+    private int Coins
+    {
+        get { return coins; }
+        set 
+        { 
+            coins = value; 
+            coinsText.text = "" + coins;
+        }
+    }
     public TextMeshProUGUI coinsText;
     public int cityPrestige = 0;
+    private int CityPrestige
+    {
+        get { return cityPrestige; }
+        set 
+        { 
+            cityPrestige = value; 
+            cityPrestigeText.text = "" + cityPrestige;
+        }
+    }
     private int collectedPrestige = 0;
+    public string cityName;
     [SerializeField] private TextMeshProUGUI cityPrestigeText;
 
     public UnityEvent<string, int> onResourcesChanged;
@@ -53,15 +73,12 @@ public class GameManager : MonoBehaviour
         }
         onResourcesChanged = new UnityEvent<string, int>();
         onResourcesAdded = new UnityEvent<string, int>();
-        UpdateCoinsText();
-        UpdateCityPrestigeText();
-        AddResources("Wheat", 1);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        StartNewCity("Peasantville");
+        StartNewCity("Peasantry");
     }
 
     // Update is called once per frame
@@ -70,32 +87,19 @@ public class GameManager : MonoBehaviour
         
     }
 
-    void UpdateCoinsText()
-    {
-        coinsText.text = "" + coins;
-    }
-
     public void AddCoins(int quantity)
     {
-        coins += quantity;
-        UpdateCoinsText();
+        Coins = Coins + quantity;
     }
 
     public void SubtractCoins(int quantity)
     {
-        coins -= quantity;
-        UpdateCoinsText();
-    }
-
-    void UpdateCityPrestigeText()
-    {
-        cityPrestigeText.text = "" + cityPrestige;
+        Coins = Coins - quantity;
     }
 
     public void AddCityPrestige(float quantity)
     {
-        cityPrestige += (int)quantity;
-        UpdateCityPrestigeText();
+        CityPrestige += (int)quantity;
     }
 
     public void AddCollectedPrestige(int quantity)
@@ -153,13 +157,41 @@ public class GameManager : MonoBehaviour
 
     public void StartNewCity(string newCityName)
     {
-        AddCollectedPrestige(cityPrestige);
-        cityPrestige = 0;
-        UpdateCityPrestigeText();
+        AddCollectedPrestige(CityPrestige);
+        CityPrestige = 0;
         resources = new Dictionary<string, int>();
         AddResources("Wheat", 1);
-        coins = 1;
+        Coins = 1;
+        this.cityName = newCityName;
         resetCity.Invoke(newCityName);
         
+    }
+
+    public void PrepForSave(SaveData saveData)
+    {
+        saveData.coins = coins;
+        saveData.cityPrestige = CityPrestige;
+        saveData.collectedPrestige = collectedPrestige;
+        saveData.resources = resources;
+        saveData.cityName = cityName;
+    }
+
+    public void LoadSavedData(SaveData saveData)
+    {
+        Coins = saveData.coins;
+        CityPrestige = saveData.cityPrestige;
+        collectedPrestige = saveData.collectedPrestige;
+        resources = saveData.resources;
+        cityName = saveData.cityName;
+        resetCity.Invoke(cityName);
+    }
+
+    public void StartNewGame()
+    {
+        Coins = 5;
+        CityPrestige = 0;
+        resources = new Dictionary<string, int>();
+        AddResources("Wheat", 1);
+        cityName = "Peasantry";
     }
 }

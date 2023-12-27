@@ -29,7 +29,7 @@ public class CityOption : MonoBehaviour, Unlockable
 
         switch(cityName)
         {
-            case "Peasantville":
+            case "Peasantry":
                 Unlock();
                 break;
             case "Aquias":

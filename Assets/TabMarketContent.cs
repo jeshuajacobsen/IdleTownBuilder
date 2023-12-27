@@ -9,20 +9,19 @@ using UnityEngine.Events;
 public class TabMarketContent : MonoBehaviour
 {
     private SimpleSlider quantitySlider;
-    MarketContent marketContent;
+    [SerializeField] private MarketContent marketContent;
 
-    void Start()
+    void Awake()
     {
         Button button = transform.Find("SellButton").GetComponent<Button>();
+        button.onClick.AddListener(SellSelectedResources);
         quantitySlider = transform.Find("SellQuantitySlider").GetComponent<SimpleSlider>();
         quantitySlider.slider.value = 100;
-
-        button.onClick.AddListener(SellSelectedResources);
-
-        marketContent = GameObject.FindWithTag("MarketContent").GetComponent<MarketContent>();
-        marketContent.onSelectedResourceChange.AddListener(UpdateSellText);
-
         InvokeRepeating("Tick", 1.0f, 1.0f);
+    }
+    void Start()
+    {
+        marketContent.onSelectedResourceChange.AddListener(UpdateSellText);
     }
 
     void Update()
@@ -62,7 +61,7 @@ public class TabMarketContent : MonoBehaviour
     private int calculateSellAmount(string resourceName)
     {
         float multiplier = 1;
-        multiplier += ResearchManager.instance.incomeMultiplier;
+        multiplier += ResearchManager.instance.multipliers.ContainsKey("Market") ? ResearchManager.instance.multipliers["Market"] : 0;
         return (int)(quantitySlider.slider.value * 
                 GameManager.instance.resources[resourceName] * 
                 GameManager.instance.resourcePrices[resourceName] *
@@ -73,7 +72,7 @@ public class TabMarketContent : MonoBehaviour
     {
         foreach (ResourceListItem item in marketContent.resources)
         {
-            if(item.transform.Find("Toggle").GetComponent<Toggle>().isOn)
+            if(item.transform.Find("AutosellToggle").GetComponent<Toggle>().isOn)
             {
                 SellResources(item);
             }

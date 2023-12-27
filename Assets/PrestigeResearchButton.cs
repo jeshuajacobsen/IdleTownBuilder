@@ -19,9 +19,11 @@ public class PrestigeResearchButton : MonoBehaviour
     {
         if (isBuilding)
         {
-            level = ResearchManager.instance.buildingLevels.ContainsKey(title) ? ResearchManager.instance.buildingLevels[title] : 0;
+            level = ResearchManager.instance.buildingResearchLevels.ContainsKey(title) ? ResearchManager.instance.buildingResearchLevels[title] : 0;
         }
         transform.Find("levelText").GetComponent<TextMeshProUGUI>().text = "" + level + "/" + maxLevel;
+
+        ResearchManager.instance.setResearch.AddListener(SetLevel);
     }
 
     // Update is called once per frame
@@ -43,6 +45,15 @@ public class PrestigeResearchButton : MonoBehaviour
         if (title == titleToUpgrade)
         {
             level++;
+            transform.Find("levelText").GetComponent<TextMeshProUGUI>().text = "" + level + "/" + maxLevel;
+        }
+    }
+
+    public void SetLevel(string titleToUpgrade, int level)
+    {
+        if (title == titleToUpgrade)
+        {
+            this.level = level;
             transform.Find("levelText").GetComponent<TextMeshProUGUI>().text = "" + level + "/" + maxLevel;
         }
     }

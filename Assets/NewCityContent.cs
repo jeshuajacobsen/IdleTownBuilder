@@ -13,7 +13,7 @@ public class NewCityContent : MonoBehaviour
     {
         CityOption city = Instantiate(cityOptionPrefab, contentTransform);
         city.transform.SetParent(transform, false);
-        city.InitValues("Peasantville");
+        city.InitValues("Peasantry");
 
         city = Instantiate(cityOptionPrefab, contentTransform);
         city.transform.SetParent(transform, false);

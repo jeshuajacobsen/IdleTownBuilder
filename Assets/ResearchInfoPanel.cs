@@ -48,9 +48,9 @@ public class ResearchInfoPanel : MonoBehaviour
         {
             if (this.isBuilding)
             {
-                ResearchManager.instance.BuildingUpgrade(titleText.text);
+                ResearchManager.instance.BuildingResearchUpgrade(titleText.text);
             } else {
-                ResearchManager.instance.Upgrade(titleText.text);
+                ResearchManager.instance.PrestigeResearchUpgrade(titleText.text);
             }
             
             GameManager.instance.SubtractCollectedPrestige(getCost());

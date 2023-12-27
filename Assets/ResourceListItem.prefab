@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 4416816605509348296}
   - component: {fileID: 1536354786505965648}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: AutosellToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

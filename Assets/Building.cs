@@ -8,7 +8,16 @@ using SharpUI.Source.Common.UI.Elements.Loading;
 
 public class Building : MonoBehaviour, Unlockable
 {
-    public int level = 1;
+    private int level = 0;
+    public int Level
+    {
+        get { return level; }
+        set 
+        { 
+            level = value; 
+            levelText.text = "Level: " + level;
+        }
+    }
     public ProductionInput inputResourceButton1;
     public ProductionInput inputResourceButton2;
     public ProductionInput inputResourceButton3;
@@ -62,7 +71,6 @@ public class Building : MonoBehaviour, Unlockable
         {
             case "Farm":
                 Unlock();
-                transform.Find("LockedPanel").gameObject.SetActive(false);
                 outputResource = "Wheat";
                 baseCost = 1;
                 unlockCost = 1;
@@ -200,8 +208,8 @@ public class Building : MonoBehaviour, Unlockable
         int cost = CalculateCost();
         if (GameManager.instance.HasEnoughCoin(cost))
         {
-            level++;
-            levelText.text = "Level: " + level;
+            Level = Level + 1;
+            
             GameManager.instance.SubtractCoins(cost);
             transform.Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + CalculateCost();
         }
@@ -212,7 +220,7 @@ public class Building : MonoBehaviour, Unlockable
         float multiplier = 1;
         if (buildingName == "Farm")
         {
-            multiplier = ResearchManager.instance.farmCostMultiplier;
+            multiplier -= ResearchManager.instance.multipliers.ContainsKey("Fertilizer") ? ResearchManager.instance.multipliers["Fertilizer"] : 0;
         }
         return (int)(baseCost * level * 1.6 * multiplier);
     }
@@ -247,21 +255,20 @@ public class Building : MonoBehaviour, Unlockable
     public int GetProductionQuantity()
     {
         float multiplier = 1;
-        if (buildingName == "Farm")
+
+        if (buildingName == "Forester")
         {
-            multiplier += ResearchManager.instance.farmMultiplier;
-        } 
-        else if (buildingName == "Forester")
-        {
-            multiplier += ResearchManager.instance.woodMultiplier;
+            multiplier += ResearchManager.instance.multipliers.ContainsKey("Forestry") ? ResearchManager.instance.multipliers["Forestry"] : 0;
         }
-        multiplier += ResearchManager.instance.humanTechMultiplier;
+        multiplier += ResearchManager.instance.multipliers.ContainsKey("Foraging") ? ResearchManager.instance.multipliers["Foraging"] : 0;
         return (int)(level * multiplier);
     }
 
     public void Unlock()
     {
+        Level = 1;
         locked = false;
+        transform.Find("LockedPanel").gameObject.SetActive(false);
         Transform display = transform.Find("ProductionDisplay");
         display.Find("OutputProductionButton").GetComponent<ProductionOutput>().Unlock();
         display.Find("InputProductionButton1").GetComponent<ProductionInput>().Unlock();

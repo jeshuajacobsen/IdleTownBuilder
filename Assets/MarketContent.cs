@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 
 public class MarketContent : MonoBehaviour
@@ -84,5 +85,28 @@ public class MarketContent : MonoBehaviour
         resources.Add(resource);
         resource.transform.SetParent(transform, false);
         resource.InitValues(resourceName, GameManager.instance.resources[resourceName], GameManager.instance.resourcePrices[resourceName]);
+    }
+
+    public void PrepForSave(SaveData saveData)
+    {
+        saveData.autosellSettings = new Dictionary<string, bool>();
+        foreach (ResourceListItem resource in resources)
+        {
+            saveData.autosellSettings[resource.resourceName] = resource.transform.Find("AutosellToggle").GetComponent<Toggle>().isOn;
+        }
+    }
+
+    public void LoadSavedData(SaveData saveData) 
+    {
+        foreach (string key in saveData.autosellSettings.Keys)
+        {
+            ResourceListItem resource = resources.Find(resource => resource.resourceName == key);
+            if (resource != null)
+            {
+                resource.transform.Find("AutosellToggle").GetComponent<Toggle>().isOn = saveData.autosellSettings[key];
+            } else {
+                Debug.Log("Couldn't find building to load. " + key);
+            }
+        }
     }
 }
