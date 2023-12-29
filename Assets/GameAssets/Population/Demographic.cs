@@ -29,6 +29,8 @@ public class Demographic : MonoBehaviour, Unlockable
     private int unlockCost = 1;
     private int baseCost = 1;
     private int basePrestigeGenerated;
+    public string race = "Human";
+    public Canvas canvas;
 
 
     // Start is called before the first frame update

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuildingContent : MonoBehaviour
 {
@@ -12,14 +13,15 @@ public class BuildingContent : MonoBehaviour
 
     void Awake()
     {
-        Reset("Peasantry");
-        ResearchManager.instance.addBuilding.AddListener(AddBuilding);
+        ///Reset("Peasantry");
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
         GameManager.instance.resetCity.AddListener(Reset);
+        ResearchManager.instance.addBuilding.AddListener(AddBuilding);
     }
 
     public void AddBuilding(string buildingName)
@@ -35,7 +37,7 @@ public class BuildingContent : MonoBehaviour
         }
     }
 
-    void Reset(string newCityName)
+    public void Reset(string newCityName)
     {
         if (buildings != null)
         {
@@ -47,7 +49,6 @@ public class BuildingContent : MonoBehaviour
         }
         
         buildings = new List<Building>();
-
         foreach(string buildingName in ResearchManager.instance.buildingResearchLevels.Keys)
         {
             Building building = Instantiate(BuildingPrefab, contentTransform);
@@ -170,5 +171,25 @@ public class BuildingContent : MonoBehaviour
                 Debug.Log("Couldn't find building to load. " + key);
             }
         }
+    }
+
+    public void FilterBuildings(string race)
+    {
+        foreach (Building building in buildings)
+        {
+            if (building.race == race)
+            {
+                building.canvas.enabled = true;
+                
+                RectTransform rectTransform = building.gameObject.GetComponent<RectTransform>();
+                rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, 320);
+            } else {
+                building.canvas.enabled = false;
+
+                RectTransform rectTransform = building.gameObject.GetComponent<RectTransform>();
+                rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, 0);
+            }
+        }
+        LayoutRebuilder.ForceRebuildLayoutImmediate(transform.GetComponent<RectTransform>());
     }
 }

@@ -16,6 +16,8 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private BuildingContent buildingContent;
     [SerializeField] private PopulationContent popContent;
     [SerializeField] private MarketContent marketContent;
+    [SerializeField] private RaceButtons buildingRaceButtons;
+    [SerializeField] private RaceButtons populationRaceButtons;
     private SaveData saveData = new SaveData();
 
     void Awake()
@@ -123,20 +125,30 @@ public class TimeManager : MonoBehaviour
     public void Load()
     {
         string path = Application.persistentDataPath + "/savefile.json";
-        if (System.IO.File.Exists(path))
+        if (!System.IO.File.Exists(path))
         {
             string jsonData = System.IO.File.ReadAllText(path);
             Debug.Log(jsonData);
             saveData = JsonConvert.DeserializeObject<SaveData>(jsonData);
             GameManager.instance.LoadSavedData(saveData);
             ResearchManager.instance.LoadSavedData(saveData);
+            buildingContent.Reset(saveData.cityName);
             buildingContent.LoadSavedData(saveData);
+            marketContent.Reset(saveData.cityName);
             marketContent.LoadSavedData(saveData);
+            popContent.Reset(saveData.cityName);
             popContent.LoadSavedData(saveData);
+            buildingRaceButtons.Reset(saveData.cityName);
+            populationRaceButtons.Reset(saveData.cityName);
             Debug.Log("Loaded from: " + Application.persistentDataPath + "/savefile.json");
         } else {
             GameManager.instance.StartNewGame();
             ResearchManager.instance.StartNewGame();
+            buildingContent.Reset("Peasantry");
+            marketContent.Reset("Peasantry");
+            popContent.Reset("Peasantry");
+            buildingRaceButtons.Reset("Peasantry");
+            populationRaceButtons.Reset("Peasantry");
         }
     }
 }

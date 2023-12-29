@@ -39,7 +39,7 @@ public class MarketContent : MonoBehaviour
         
     }
 
-    void Reset(string newCityName)
+    public void Reset(string newCityName)
     {
         if (selectedHighlight == null)
         {

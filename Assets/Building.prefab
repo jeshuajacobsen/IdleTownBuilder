@@ -431,6 +431,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3980352077661407133}
   - component: {fileID: 54021773524411663}
+  - component: {fileID: 5476922726624054700}
+  - component: {fileID: 6064383733593540639}
   m_Layer: 5
   m_Name: Building
   m_TagString: Untagged
@@ -476,17 +478,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec31b61dcff1dd4ebad72db299221a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
   inputResourceButton1: {fileID: 226438610320648234}
   inputResourceButton2: {fileID: 1638575962314821195}
   inputResourceButton3: {fileID: 3697525568092736678}
   outputResourceButton: {fileID: 3606843959307323408}
   buildingName: 
   locked: 1
+  race: Human
   levelText: {fileID: 1290920283615119314}
   onProductionClick:
     m_PersistentCalls:
       m_Calls: []
+  canvas: {fileID: 6064383733593540639}
+--- !u!222 &5476922726624054700
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3652675201316709432}
+  m_CullTransparentMesh: 1
+--- !u!223 &6064383733593540639
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3652675201316709432}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &4840266695454442217
 GameObject:
   m_ObjectHideFlags: 0

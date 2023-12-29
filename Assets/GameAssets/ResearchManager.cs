@@ -116,5 +116,6 @@ public class ResearchManager : MonoBehaviour
         BuildingResearchUpgrade("Clay Pit");
         BuildingResearchUpgrade("Lumber Mill");
         BuildingResearchUpgrade("Potter");
+        BuildingResearchUpgrade("Kelpery");
     }
 }

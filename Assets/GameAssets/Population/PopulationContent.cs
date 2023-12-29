@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PopulationContent : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class PopulationContent : MonoBehaviour
         }
     }
 
-    void Reset(string newCityName)
+    public void Reset(string newCityName)
     {
         if (demographics != null)
         {
@@ -100,5 +101,25 @@ public class PopulationContent : MonoBehaviour
                 Debug.Log("Couldn't find demographic to load. " + key);
             }
         }
+    }
+
+    public void FilterDemographics(string raceName)
+    {
+        foreach (Demographic demo in demographics)
+        {
+            if (demo.race == raceName)
+            {
+                demo.canvas.enabled = true;
+                
+                RectTransform rectTransform = demo.gameObject.GetComponent<RectTransform>();
+                rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, 320);
+            } else {
+                demo.canvas.enabled = false;
+
+                RectTransform rectTransform = demo.gameObject.GetComponent<RectTransform>();
+                rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, 0);
+            }
+        }
+        LayoutRebuilder.ForceRebuildLayoutImmediate(transform.GetComponent<RectTransform>());
     }
 }

@@ -183,7 +183,6 @@ public class GameManager : MonoBehaviour
         collectedPrestige = saveData.collectedPrestige;
         resources = saveData.resources;
         cityName = saveData.cityName;
-        resetCity.Invoke(cityName);
     }
 
     public void StartNewGame()

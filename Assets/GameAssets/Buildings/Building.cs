@@ -29,9 +29,13 @@ public class Building : MonoBehaviour, Unlockable
     private int unlockCost = 1;
     private int baseCost = 1;
 
+    public string race = "Human";
+
     public TextMeshProUGUI levelText;
 
     public UnityEvent<string> onProductionClick;
+
+    public Canvas canvas;
 
     void Awake()
     {
@@ -151,6 +155,14 @@ public class Building : MonoBehaviour, Unlockable
                 inputResources = new string[] {"Lumber", "Bronze Ingot"};
                 baseCost = 50000;
                 productionTime = 32;
+                break;
+            case "Kelpery":
+                unlockCost = 100;
+                outputResource = "Kelp";
+                inputResources = new string[] {};
+                baseCost = 30;
+                productionTime = 10;
+                race = "Merfolk";
                 break;
         }
 
