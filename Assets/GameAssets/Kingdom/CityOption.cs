@@ -6,7 +6,7 @@ using TMPro;
 
 public class CityOption : MonoBehaviour, Unlockable
 {
-    string cityName;
+    public string cityName;
     int unlockCost = 1;
 
     // Start is called before the first frame update

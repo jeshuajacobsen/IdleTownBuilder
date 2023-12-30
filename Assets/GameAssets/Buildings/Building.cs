@@ -157,11 +157,35 @@ public class Building : MonoBehaviour, Unlockable
                 productionTime = 32;
                 break;
             case "Kelpery":
-                unlockCost = 100;
+                unlockCost = 1000;
                 outputResource = "Kelp";
                 inputResources = new string[] {};
-                baseCost = 30;
+                baseCost = 300;
                 productionTime = 10;
+                race = "Merfolk";
+                break;
+            case "Reef":
+                unlockCost = 5000;
+                outputResource = "Coral";
+                inputResources = new string[] {};
+                baseCost = 2000;
+                productionTime = 12;
+                race = "Merfolk";
+                break;
+            case "Fishery":
+                unlockCost = 20000;
+                outputResource = "Fish";
+                inputResources = new string[] {};
+                baseCost = 15000;
+                productionTime = 14;
+                race = "Merfolk";
+                break;
+            case "Oystery":
+                unlockCost = 100000;
+                outputResource = "Pearl";
+                inputResources = new string[] {};
+                baseCost = 30000;
+                productionTime = 18;
                 race = "Merfolk";
                 break;
         }

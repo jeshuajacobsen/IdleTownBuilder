@@ -62,6 +62,12 @@ public class GameManager : MonoBehaviour
         resourcePrices["Bread"] = 2000;
         resourcePrices["Furniture"] = 5000;
 
+        //merfolk
+        resourcePrices["Kelp"] = 200;
+        resourcePrices["Coral"] = 500;
+        resourcePrices["Fish"] = 2000;
+        resourcePrices["Pearl"] = 8000;
+
         if (instance == null)
         {
             instance = this;

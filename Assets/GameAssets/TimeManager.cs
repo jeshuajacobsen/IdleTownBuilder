@@ -18,6 +18,8 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private MarketContent marketContent;
     [SerializeField] private RaceButtons buildingRaceButtons;
     [SerializeField] private RaceButtons populationRaceButtons;
+
+    [SerializeField] private NewCityContent newCityContent;
     private SaveData saveData = new SaveData();
 
     void Awake()
@@ -115,6 +117,7 @@ public class TimeManager : MonoBehaviour
         buildingContent.PrepForSave(saveData);
         marketContent.PrepForSave(saveData);
         popContent.PrepForSave(saveData);
+        newCityContent.PrepForSave(saveData);
         string jsonData = JsonConvert.SerializeObject(saveData);
         System.IO.File.WriteAllText(Application.persistentDataPath + "/savefile.json", jsonData);
         Debug.Log(jsonData);
@@ -140,6 +143,7 @@ public class TimeManager : MonoBehaviour
             popContent.LoadSavedData(saveData);
             buildingRaceButtons.Reset(saveData.cityName);
             populationRaceButtons.Reset(saveData.cityName);
+            newCityContent.LoadSavedData(saveData);
             Debug.Log("Loaded from: " + Application.persistentDataPath + "/savefile.json");
         } else {
             GameManager.instance.StartNewGame();

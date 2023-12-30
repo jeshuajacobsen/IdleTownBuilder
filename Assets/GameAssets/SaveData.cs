@@ -48,4 +48,7 @@ public class SaveData
             demographicLevels.Add(demo.Name, demo.Level);
         }
     }
+
+    //kingdom content
+    public Dictionary<string, bool> cityOptionLocks;
 }

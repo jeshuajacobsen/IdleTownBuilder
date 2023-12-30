@@ -58,6 +58,7 @@ public class PopulationContent : MonoBehaviour
             case "Aquias":
                 AddDemographic("Peasants");
                 AddDemographic("Commoners");
+                AddDemographic("Surfs");
                 break;
             case "Dwarvary":
                 AddDemographic("Peasants");

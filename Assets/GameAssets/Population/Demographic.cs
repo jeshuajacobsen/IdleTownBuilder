@@ -59,7 +59,15 @@ public class Demographic : MonoBehaviour, Unlockable
             case "Commoners":
                 unlockCost = 4000;
                 baseCost = 2000;
-                basePrestigeGenerated = 250;
+                basePrestigeGenerated = 180;
+                break;
+
+            //merfolk
+            case "Surfs":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Merfolk";
                 break;
         }
 
