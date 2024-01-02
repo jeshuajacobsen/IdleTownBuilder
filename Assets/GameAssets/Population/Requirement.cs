@@ -41,7 +41,7 @@ public class Requirement : MonoBehaviour
         resource = newResource;
         cost = newCost;
         BigInteger resourceInStock = GameManager.instance.resources.ContainsKey(resource) ? GameManager.instance.resources[resource] : 0;
-        transform.Find("resourceImage").GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(newResource);
+        transform.Find("Mask").Find("Image").GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(newResource);
         
         transform.Find("costText").GetComponent<TextMeshProUGUI>().text = "" + resourceInStock + "/" + cost * level;
     }

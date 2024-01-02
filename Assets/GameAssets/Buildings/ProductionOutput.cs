@@ -39,7 +39,7 @@ public class ProductionOutput : MonoBehaviour
         requiredTime = newRequiredTime;
         resource = newResource;
         GameManager.instance.productionTimers[newResource] = 0;
-        transform.GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(newResource);
+        transform.Find("Mask").Find("Image").GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(newResource);
     }
 
     public void Tick()

@@ -39,7 +39,7 @@ public class ProductionInput : MonoBehaviour
     {
         resource = newResource;
         requiredAmount = 1;
-        transform.GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(newResource);
+        transform.Find("Mask").Find("Image").GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(newResource);
     }
 
     public void Tick()

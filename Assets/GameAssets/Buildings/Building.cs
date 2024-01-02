@@ -55,7 +55,7 @@ public class Building : MonoBehaviour, Unlockable
         inputResourceButton3.onProductionClick.AddListener(ProductionClick);
         outputResourceButton.onProductionClick.AddListener(ProductionClick);
 
-        transform.Find("BuildingImage").GetComponent<Image>().sprite = SpriteManager.instance.GetBuildingSprite(buildingName);
+        transform.Find("Mask").Find("BuildingImage").GetComponent<Image>().sprite = SpriteManager.instance.GetBuildingSprite(buildingName);
     }
 
     void Update()

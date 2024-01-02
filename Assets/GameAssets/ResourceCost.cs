@@ -57,6 +57,6 @@ public class ResourceCost : MonoBehaviour
             resourceCost.text = "0/" + requiredAmount;
             resourceCost.color = Color.red;
         }
-        transform.Find("Image").GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(newResourceName);
+        transform.Find("Mask").Find("Image").GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(newResourceName);
     }
 }

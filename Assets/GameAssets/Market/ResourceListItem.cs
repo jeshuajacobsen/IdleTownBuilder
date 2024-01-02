@@ -26,7 +26,7 @@ public class ResourceListItem : MonoBehaviour
         resourceText = transform.Find("ResourceText").GetComponent<TextMeshProUGUI>();
         quantityText = transform.Find("QuantityText").GetComponent<TextMeshProUGUI>();
         priceText = transform.Find("PriceText").GetComponent<TextMeshProUGUI>();
-        transform.Find("ResourceIcon").GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(resourceName);
+        transform.Find("Mask").Find("Image").GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(resourceName);
 
         GameManager.instance.onResourcesChanged.AddListener(UpdateQuantity);
         quantity = GameManager.instance.resources[resourceName];
