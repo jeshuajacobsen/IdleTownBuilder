@@ -129,7 +129,7 @@ public class TimeManager : MonoBehaviour
     public void Load()
     {
         string path = Application.persistentDataPath + "/savefile.json";
-        if (!System.IO.File.Exists(path))
+        if (System.IO.File.Exists(path))
         {
             string jsonData = System.IO.File.ReadAllText(path);
             Debug.Log(jsonData);
@@ -144,6 +144,7 @@ public class TimeManager : MonoBehaviour
             popContent.LoadSavedData(saveData);
             buildingRaceButtons.Reset(saveData.cityName);
             populationRaceButtons.Reset(saveData.cityName);
+            newCityContent.Setup();
             newCityContent.LoadSavedData(saveData);
             Debug.Log("Loaded from: " + Application.persistentDataPath + "/savefile.json");
         } else {
@@ -154,6 +155,7 @@ public class TimeManager : MonoBehaviour
             popContent.Reset("Peasantry");
             buildingRaceButtons.Reset("Peasantry");
             populationRaceButtons.Reset("Peasantry");
+            newCityContent.Setup();
         }
     }
 }

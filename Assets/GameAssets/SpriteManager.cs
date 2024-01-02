@@ -19,6 +19,33 @@ public class SpriteManager : MonoBehaviour
     public Sprite wheat;
     public Sprite wood;
 
+    //merfolk
+    public Sprite kelp;
+    public Sprite coral;
+    public Sprite fish;
+    public Sprite pearl;
+    public Sprite meriteOre;
+    public Sprite magmaSlug;
+    public Sprite fireSlime;
+    public Sprite meriteIngot;
+
+    //dwarf
+    public Sprite mushroom;
+    public Sprite mana;
+    public Sprite mechanicalParts;
+    public Sprite artifact;
+    public Sprite golem;
+
+
+    //Buildings
+    //human
+    public Sprite clayPit;
+    public Sprite farm;
+    public Sprite forester;
+    public Sprite lumberMill;
+    public Sprite potter;
+    public Sprite vegetableFarm;
+
     void Awake() 
     {
         if (instance == null)
@@ -70,7 +97,56 @@ public class SpriteManager : MonoBehaviour
                 return wheat;
             case "Wood":
                 return wood;
+
+            //merfolk
+            case "Kelp":
+                return kelp;
+            case "Coral":
+                return coral;
+            case "Fish":
+                return fish;
+            case "Pearl":
+                return pearl;
+            case "Merite Ore":
+                return meriteOre;
+            case "Magma Slug":
+                return magmaSlug;
+            case "Fire Slime":
+                return fireSlime;
+            case "Merite Ingot":
+                return meriteIngot;
+
+            //dwarf
+            case "Mushroom":
+                return mushroom;
+            case "Mana":
+                return mana;
+            case "Mechanical Parts":
+                return mechanicalParts;
+            case "Artifact":
+                return artifact;
+            case "Golem":
+                return golem;
+
         }
         return wheat;
     }
+
+    public Sprite GetBuildingSprite(string name)
+    {
+        switch (name) {
+            case "Clay Pit":
+                return clayPit;
+            case "Farm":
+                return farm;
+            case "Forester":
+                return forester;
+            case "Lumber Mill":
+                return lumberMill;
+            case "Vegetable Farm":
+                return vegetableFarm;
+        }
+        return farm;
+    }
+
 }

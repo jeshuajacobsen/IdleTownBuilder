@@ -13,6 +13,11 @@ public class NewCityContent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+    }
+
+    public void Setup()
+    {
         CityOption city = Instantiate(cityOptionPrefab, contentTransform);
         city.transform.SetParent(transform, false);
         city.InitValues("Peasantry");
@@ -45,7 +50,7 @@ public class NewCityContent : MonoBehaviour
         saveData.cityOptionLocks = new Dictionary<string, bool>();
         foreach (CityOption city in cityOptions)
         {
-            saveData.cityOptionLocks[city.cityName] = city.transform.Find("LockedPanel").gameObject.active;
+            saveData.cityOptionLocks[city.cityName] = city.transform.Find("LockedPanel").gameObject.activeSelf;
         }
     }
 

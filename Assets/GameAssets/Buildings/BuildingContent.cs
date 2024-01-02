@@ -59,6 +59,7 @@ public class BuildingContent : MonoBehaviour
         }
 
         starting = true;
+        FilterBuildings(buildings[0].race);
     }
 
     // Update is called once per frame
@@ -171,6 +172,7 @@ public class BuildingContent : MonoBehaviour
                 Debug.Log("Couldn't find building to load. " + key);
             }
         }
+        FilterBuildings(buildings[0].race);
     }
 
     public void FilterBuildings(string race)

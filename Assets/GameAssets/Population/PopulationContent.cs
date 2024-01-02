@@ -70,7 +70,7 @@ public class PopulationContent : MonoBehaviour
                 break;
         }
 
-        
+        FilterDemographics(demographics[0].race);
     }
 
     private void AddDemographic(string demoName)
@@ -102,6 +102,7 @@ public class PopulationContent : MonoBehaviour
                 Debug.Log("Couldn't find demographic to load. " + key);
             }
         }
+        FilterDemographics(demographics[0].race);
     }
 
     public void FilterDemographics(string raceName)

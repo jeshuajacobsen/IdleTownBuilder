@@ -33,6 +33,16 @@ public class GameManager : MonoBehaviour
         }
     }
     private BigInteger collectedPrestige = 0;
+    public BigInteger CollectedPrestige
+    {
+        get { return collectedPrestige; }
+        set 
+        { 
+            collectedPrestige = value; 
+            collectedPrestigeText.text = "" + collectedPrestige;
+        }
+    }
+    [SerializeField] private TextMeshProUGUI collectedPrestigeText;
     public string cityName;
     [SerializeField] private TextMeshProUGUI cityPrestigeText;
 
@@ -111,17 +121,12 @@ public class GameManager : MonoBehaviour
 
     public void AddCollectedPrestige(BigInteger quantity)
     {
-        collectedPrestige += quantity;
-        if ( GameObject.FindWithTag("CollectedPrestige") != null)
-        {
-           GameObject.FindWithTag("CollectedPrestige").transform.GetComponent<TextMeshProUGUI>().text = "" + collectedPrestige;
-        }
+        CollectedPrestige += quantity;
     }
 
     public void SubtractCollectedPrestige(BigInteger quantity)
     {
-        collectedPrestige -= quantity;
-        GameObject.FindWithTag("CollectedPrestige").transform.GetComponent<TextMeshProUGUI>().text = "" + collectedPrestige;
+        CollectedPrestige -= quantity;
     }
 
     public bool HasEnoughCoin(BigInteger amount)
@@ -131,7 +136,7 @@ public class GameManager : MonoBehaviour
 
     public bool HasEnoughPrestige(BigInteger amount)
     {
-        return collectedPrestige >= amount;
+        return CollectedPrestige >= amount;
     }
 
     public void AddResources(string resourceName, BigInteger quantity)
@@ -178,7 +183,7 @@ public class GameManager : MonoBehaviour
     {
         saveData.coins = coins;
         saveData.cityPrestige = CityPrestige;
-        saveData.collectedPrestige = collectedPrestige;
+        saveData.collectedPrestige = CollectedPrestige;
         saveData.resources = resources;
         saveData.cityName = cityName;
     }
@@ -187,7 +192,7 @@ public class GameManager : MonoBehaviour
     {
         Coins = saveData.coins;
         CityPrestige = saveData.cityPrestige;
-        collectedPrestige = saveData.collectedPrestige;
+        CollectedPrestige = saveData.collectedPrestige;
         resources = saveData.resources;
         cityName = saveData.cityName;
     }
