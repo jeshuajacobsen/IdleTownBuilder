@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SharpUI.Source.Common.UI.Elements.Loading;
+using System.Numerics;
 
 public class ConsumptionPanel : MonoBehaviour
 {
@@ -82,14 +83,17 @@ public class ConsumptionPanel : MonoBehaviour
         loadingBar.UpdatePercentage(productionTimer / requiredTime * 100);
     }
 
-    public float GetPrestigeGenerated()
+    public BigInteger GetPrestigeGenerated()
     {
-        float totalPrestige = 0;
+        BigInteger totalPrestige = 0;
         Demographic currentDemo = transform.parent.GetComponent<Demographic>();
         foreach (Requirement req in requirements)
         {
             //Debug.Log(req.PercentMet());
-            totalPrestige += req.PercentMet() * currentDemo.GetPrestigeGenerated() / requirements.Count;
+            totalPrestige += new BigInteger((int)req.PercentMet()) * 
+                new BigInteger((int)currentDemo.GetPrestigeGenerated()) / 
+                new BigInteger(requirements.Count) / 
+                new BigInteger(100);
         }
         return totalPrestige;
     }

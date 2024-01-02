@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using System.Numerics;
 
 public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance;
 
-    private int coins = 1;
+    private BigInteger coins = 1;
 
-    private int Coins
+    private BigInteger Coins
     {
         get { return coins; }
         set 
@@ -21,8 +22,8 @@ public class GameManager : MonoBehaviour
         }
     }
     public TextMeshProUGUI coinsText;
-    public int cityPrestige = 0;
-    private int CityPrestige
+    public BigInteger cityPrestige = 0;
+    private BigInteger CityPrestige
     {
         get { return cityPrestige; }
         set 
@@ -31,24 +32,24 @@ public class GameManager : MonoBehaviour
             cityPrestigeText.text = "" + cityPrestige;
         }
     }
-    private int collectedPrestige = 0;
+    private BigInteger collectedPrestige = 0;
     public string cityName;
     [SerializeField] private TextMeshProUGUI cityPrestigeText;
 
-    public UnityEvent<string, int> onResourcesChanged;
-    public UnityEvent<string, int> onResourcesAdded;
+    public UnityEvent<string, BigInteger> onResourcesChanged;
+    public UnityEvent<string, BigInteger> onResourcesAdded;
 
-    public Dictionary<string, int> resources = new Dictionary<string, int>();
-    public Dictionary<string, float> productionTimers = new Dictionary<string, float>();
+    public Dictionary<string, BigInteger> resources = new Dictionary<string, BigInteger>();
+    public Dictionary<string, double> productionTimers = new Dictionary<string, double>();
 
     
-    public Dictionary<string, int> resourcePrices;
+    public Dictionary<string, BigInteger> resourcePrices;
 
     public UnityEvent<string> resetCity;
 
     void Awake()
     {
-        resourcePrices = new Dictionary<string, int>();
+        resourcePrices = new Dictionary<string, BigInteger>();
         resourcePrices["Wheat"] = 1;
         resourcePrices["Wood"] = 4;
         resourcePrices["Clay"] = 10;
@@ -77,8 +78,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        onResourcesChanged = new UnityEvent<string, int>();
-        onResourcesAdded = new UnityEvent<string, int>();
+        onResourcesChanged = new UnityEvent<string, BigInteger>();
+        onResourcesAdded = new UnityEvent<string, BigInteger>();
     }
 
     // Start is called before the first frame update
@@ -93,22 +94,22 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void AddCoins(int quantity)
+    public void AddCoins(BigInteger quantity)
     {
         Coins = Coins + quantity;
     }
 
-    public void SubtractCoins(int quantity)
+    public void SubtractCoins(BigInteger quantity)
     {
         Coins = Coins - quantity;
     }
 
-    public void AddCityPrestige(float quantity)
+    public void AddCityPrestige(BigInteger quantity)
     {
-        CityPrestige += (int)quantity;
+        CityPrestige += quantity;
     }
 
-    public void AddCollectedPrestige(int quantity)
+    public void AddCollectedPrestige(BigInteger quantity)
     {
         collectedPrestige += quantity;
         if ( GameObject.FindWithTag("CollectedPrestige") != null)
@@ -117,23 +118,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SubtractCollectedPrestige(int quantity)
+    public void SubtractCollectedPrestige(BigInteger quantity)
     {
         collectedPrestige -= quantity;
         GameObject.FindWithTag("CollectedPrestige").transform.GetComponent<TextMeshProUGUI>().text = "" + collectedPrestige;
     }
 
-    public bool HasEnoughCoin(int amount)
+    public bool HasEnoughCoin(BigInteger amount)
     {
         return coins >= amount;
     }
 
-    public bool HasEnoughPrestige(int amount)
+    public bool HasEnoughPrestige(BigInteger amount)
     {
         return collectedPrestige >= amount;
     }
 
-    public void AddResources(string resourceName, int quantity)
+    public void AddResources(string resourceName, BigInteger quantity)
     {
         if (resources.ContainsKey(resourceName))
         {
@@ -145,7 +146,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SubtractResources(string resourceName, int quantity)
+    public void SubtractResources(string resourceName, BigInteger quantity)
     {
         if (resources.ContainsKey(resourceName))
         {
@@ -165,7 +166,7 @@ public class GameManager : MonoBehaviour
     {
         AddCollectedPrestige(CityPrestige);
         CityPrestige = 0;
-        resources = new Dictionary<string, int>();
+        resources = new Dictionary<string, BigInteger>();
         AddResources("Wheat", 1);
         Coins = 1;
         this.cityName = newCityName;
@@ -195,7 +196,7 @@ public class GameManager : MonoBehaviour
     {
         Coins = 5;
         CityPrestige = 0;
-        resources = new Dictionary<string, int>();
+        resources = new Dictionary<string, BigInteger>();
         AddResources("Wheat", 1);
         cityName = "Peasantry";
     }

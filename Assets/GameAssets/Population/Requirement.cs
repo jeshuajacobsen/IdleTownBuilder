@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Numerics;
 
 public class Requirement : MonoBehaviour
 {
     public string resource;
-    public int cost;
+    public BigInteger cost;
     public int level = 1;
     [SerializeField] private Image resourceImage;
     [SerializeField] private TextMeshProUGUI costText;
@@ -35,21 +36,21 @@ public class Requirement : MonoBehaviour
         }
     }
 
-    public void InitValues(string newResource, int newCost)
+    public void InitValues(string newResource, BigInteger newCost)
     {
         resource = newResource;
         cost = newCost;
-        int resourceInStock = GameManager.instance.resources.ContainsKey(resource) ? GameManager.instance.resources[resource] : 0;
+        BigInteger resourceInStock = GameManager.instance.resources.ContainsKey(resource) ? GameManager.instance.resources[resource] : 0;
         transform.Find("resourceImage").GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(newResource);
         
         transform.Find("costText").GetComponent<TextMeshProUGUI>().text = "" + resourceInStock + "/" + cost * level;
     }
 
-    public float PercentMet()
+    public BigInteger PercentMet()
     {
         if (GameManager.instance.resources.ContainsKey(resource))
         {
-            return Math.Min((float)GameManager.instance.resources[resource], cost * level) / (cost * level);
+            return Min(GameManager.instance.resources[resource], cost * level) / (cost * level) * 100;
         }
         return 0;
     }
@@ -58,9 +59,16 @@ public class Requirement : MonoBehaviour
     {
         if (GameManager.instance.resources.ContainsKey(resource))
         {
-            GameManager.instance.SubtractResources(resource, Math.Min(GameManager.instance.resources[resource], cost * level));
-            return (int)(Math.Min(GameManager.instance.resources[resource], cost * level));
+            GameManager.instance.SubtractResources(resource, Min(GameManager.instance.resources[resource], cost * level));
+            return (int)(Min(GameManager.instance.resources[resource], cost * level));
         }
         return 0;
     }
+
+    private BigInteger Min(BigInteger a, BigInteger b)
+    {
+        return a < b ? a : b;
+    }
 }
+
+

@@ -4,20 +4,21 @@ using UnityEngine.Events;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Numerics;
 
 [System.Serializable]
 public class SaveData
 {
     //game
-    public int coins = 0;
-    public int cityPrestige = 0;
-    public int collectedPrestige = 0;
+    public BigInteger coins = 0;
+    public BigInteger cityPrestige = 0;
+    public BigInteger collectedPrestige = 0;
 
     public string cityName;
-    public Dictionary<string, int> resources;
+    public Dictionary<string, BigInteger> resources;
 
     //research
-    public Dictionary<string, float> multipliers;
+    public Dictionary<string, double> multipliers;
     public Dictionary<string, int> buildingResearchLevels;
     
     //building content

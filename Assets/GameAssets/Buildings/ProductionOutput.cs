@@ -8,7 +8,7 @@ using SharpUI.Source.Common.UI.Elements.Loading;
 public class ProductionOutput : MonoBehaviour
 {
 
-    private float productionTimer = 0;
+    private double productionTimer = 0;
     public int requiredTime = 10;
     public string resource = "";
     public UnityEvent<string> onProductionClick;
@@ -76,7 +76,7 @@ public class ProductionOutput : MonoBehaviour
         }
 
         GameManager.instance.productionTimers[resource] = productionTimer; 
-        loadingBar.UpdatePercentage(productionTimer / requiredTime * 100);
+        loadingBar.UpdatePercentage((float)(productionTimer / requiredTime * 100));
     }
 
     public void ProductionClick()

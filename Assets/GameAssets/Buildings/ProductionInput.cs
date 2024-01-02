@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using SharpUI.Source.Common.UI.Elements.Loading;
+using System.Numerics;
 
 public class ProductionInput : MonoBehaviour
 {
 
-    private float productionTimer = 0;
-    private const float requiredTime = 10;
+    private double productionTimer = 0;
+    private const double requiredTime = 10;
     public string resource = "";
-    public int requiredAmount = 1;
+    public BigInteger requiredAmount = 1;
     public UnityEvent<string> onProductionClick;
     public bool locked = true;
 
@@ -53,7 +54,7 @@ public class ProductionInput : MonoBehaviour
         //    productionTimer -= requiredTime;
         //    GameManager.instance.AddResources(resource, 1);
        // }
-        loadingBar.UpdatePercentage(productionTimer / requiredTime * 100);
+        loadingBar.UpdatePercentage((float)(productionTimer / requiredTime * 100));
     }
 
     public void ProductionClick()

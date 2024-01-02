@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
+using System.Numerics;
 
 public class ResourceListItem : MonoBehaviour
 {
 
     public string resourceName = "";
-    int quantity = 0;
-    int price = 0;
+    BigInteger quantity = 0;
+    BigInteger price = 0;
     [SerializeField] private TextMeshProUGUI resourceText;
     [SerializeField] private TextMeshProUGUI quantityText;
     [SerializeField] private TextMeshProUGUI priceText;
@@ -38,7 +39,7 @@ public class ResourceListItem : MonoBehaviour
         
     }
 
-    private void UpdateQuantity(string resourceChanged, int newQuantity)
+    private void UpdateQuantity(string resourceChanged, BigInteger newQuantity)
     {
         if (resourceChanged == resourceName)
         {
@@ -47,7 +48,7 @@ public class ResourceListItem : MonoBehaviour
         }
     }
 
-    public void InitValues(string newName, int newQuantity, int newPrice)
+    public void InitValues(string newName, BigInteger newQuantity, BigInteger newPrice)
     {
         resourceName = newName;
         quantity = newQuantity;

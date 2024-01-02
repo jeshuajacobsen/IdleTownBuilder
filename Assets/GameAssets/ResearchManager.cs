@@ -9,7 +9,7 @@ public class ResearchManager : MonoBehaviour
     public static ResearchManager instance;
 
     public float peasantWheatDecrease = 0;
-    public Dictionary<string, float> multipliers = new Dictionary<string, float>();
+    public Dictionary<string, double> multipliers = new Dictionary<string, double>();
     public Dictionary<string, int> buildingResearchLevels = new Dictionary<string, int>();
 
     public Dictionary<string, int> prestigeResearchLevels = new Dictionary<string, int>();

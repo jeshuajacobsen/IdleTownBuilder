@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Numerics;
 
 public class TimeAwayContent : MonoBehaviour
 {
@@ -21,19 +22,19 @@ public class TimeAwayContent : MonoBehaviour
         
     }
 
-    void UpdateListItems(int secondsAway, Dictionary<string, int> gainedResources, int gainedPrestige)
+    void UpdateListItems(int secondsAway, Dictionary<string, BigInteger> gainedResources, BigInteger gainedPrestige)
     {
         foreach (GainedResourceListItem resource in resources)
         {
             Destroy(resource.gameObject);
         }
-        foreach (KeyValuePair<string, int> resourceKV in TimeManager.instance.timeAwayResources)
+        foreach (KeyValuePair<string, BigInteger> resourceKV in TimeManager.instance.timeAwayResources)
         {
             AddResourceListItem(resourceKV.Key, resourceKV.Value);
         }
     }
 
-    public void AddResourceListItem(string resourceName, int quantity)
+    public void AddResourceListItem(string resourceName, BigInteger quantity)
     {
         GainedResourceListItem resource = Instantiate(gainedResourceListItemPrefab, contentTransform);
         resource.transform.SetParent(transform, false);

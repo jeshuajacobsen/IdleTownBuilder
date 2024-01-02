@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System.Numerics;
 
 public class MarketContent : MonoBehaviour
 {
@@ -52,7 +53,7 @@ public class MarketContent : MonoBehaviour
             Destroy(item.gameObject);
         }
         resources = new List<ResourceListItem>();
-        foreach (KeyValuePair<string, int> resourceKV in GameManager.instance.resources)
+        foreach (KeyValuePair<string, BigInteger> resourceKV in GameManager.instance.resources)
         {
             AddResourceListItem(resourceKV.Key, resourceKV.Value);
         }
@@ -79,7 +80,7 @@ public class MarketContent : MonoBehaviour
         
     }
 
-    public void AddResourceListItem(string resourceName, int quantity)
+    public void AddResourceListItem(string resourceName, BigInteger quantity)
     {
         ResourceListItem resource = Instantiate(ResourceListItemPrefab, contentTransform);
         resources.Add(resource);

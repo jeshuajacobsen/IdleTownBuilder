@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
 using SharpUI.Source.Common.UI.Elements.Loading;
+using System.Numerics;
 
 public class Building : MonoBehaviour, Unlockable
 {
@@ -26,8 +27,8 @@ public class Building : MonoBehaviour, Unlockable
 
     public string buildingName = "";
     public bool locked = true;
-    private int unlockCost = 1;
-    private int baseCost = 1;
+    private BigInteger unlockCost = 1;
+    private BigInteger baseCost = 1;
 
     public string race = "Human";
 
@@ -156,6 +157,8 @@ public class Building : MonoBehaviour, Unlockable
                 baseCost = 50000;
                 productionTime = 32;
                 break;
+
+                //merfolk
             case "Kelpery":
                 unlockCost = 1000;
                 outputResource = "Kelp";
@@ -188,6 +191,80 @@ public class Building : MonoBehaviour, Unlockable
                 productionTime = 18;
                 race = "Merfolk";
                 break;
+            case "Merite Cave":
+                unlockCost = 1000000;
+                outputResource = "Merite Ore";
+                inputResources = new string[] {};
+                baseCost = 300000;
+                productionTime = 18;
+                race = "Merfolk";
+                break;
+            case "Thermal Vents":
+                unlockCost = 10000000;
+                outputResource = "Magma Slug";
+                inputResources = new string[] {};
+                baseCost = 3000000;
+                productionTime = 18;
+                race = "Merfolk";
+                break;
+            case "Slime Milker":
+                unlockCost = 100000000;
+                outputResource = "Fire Slime";
+                inputResources = new string[] {"Magma Slug"};
+                baseCost = 30000000;
+                productionTime = 18;
+                race = "Merfolk";
+                break;
+            case "Aquaforge":
+                unlockCost = 1000000000;
+                outputResource = "Merite Ingot";
+                inputResources = new string[] {"Fire Slime", "Merite Ore"};
+                baseCost = 3000000000;
+                productionTime = 18;
+                race = "Merfolk";
+                break;
+
+            //Dwarves
+            case "Mushroom Cave":
+                unlockCost = 1000000000;
+                outputResource = "Mushroom";
+                inputResources = new string[] {};
+                baseCost = 3000000000;
+                productionTime = 18;
+                race = "Dwarf";
+                break;  
+            case "Mana Well":
+                unlockCost = 1000000000;
+                outputResource = "Mana";
+                inputResources = new string[] {};
+                baseCost = 3000000000;
+                productionTime = 18;
+                race = "Dwarf";
+                break;
+            case "Gear Works":
+                unlockCost = 1000000000;
+                outputResource = "Mechanical Parts";
+                inputResources = new string[] {"Wood", "Iron Ingot"};
+                baseCost = 3000000000;
+                productionTime = 18;
+                race = "Dwarf";
+                break;
+            case "Artificer":
+                unlockCost = 1000000000;
+                outputResource = "Artifact";
+                inputResources = new string[] {"Mechanical Parts", "Mana"};
+                baseCost = 3000000000;
+                productionTime = 18;
+                race = "Dwarf";
+                break;
+            case "Manufactury":
+                unlockCost = 1000000000;
+                outputResource = "Golem";
+                inputResources = new string[] {"Mechanical Parts", "Mana", "Clay"};
+                baseCost = 3000000000;
+                productionTime = 18;
+                race = "Dwarf";
+                break;              
         }
 
         if (inputResources.Length == 0)
@@ -242,7 +319,7 @@ public class Building : MonoBehaviour, Unlockable
 
     public void LevelUp()
     {
-        int cost = CalculateCost();
+        BigInteger cost = CalculateCost();
         if (GameManager.instance.HasEnoughCoin(cost))
         {
             Level = Level + 1;
@@ -251,14 +328,14 @@ public class Building : MonoBehaviour, Unlockable
         }
     }
 
-    public int CalculateCost()
+    public BigInteger CalculateCost()
     {
-        float multiplier = 1;
+        double multiplier = 1;
         if (buildingName == "Farm")
         {
             multiplier -= ResearchManager.instance.multipliers.ContainsKey("Fertilizer") ? ResearchManager.instance.multipliers["Fertilizer"] : 0;
         }
-        return (int)(baseCost * level * 1.6 * multiplier);
+        return new BigInteger((int)(baseCost * level * (int)(1.6 * multiplier * 100) / 100));
     }
 
     public void ProductionClick(string resource)
@@ -290,7 +367,7 @@ public class Building : MonoBehaviour, Unlockable
 
     public int GetProductionQuantity()
     {
-        float multiplier = 1;
+        double multiplier = 1;
 
         if (buildingName == "Forester")
         {
@@ -312,7 +389,7 @@ public class Building : MonoBehaviour, Unlockable
         display.Find("InputProductionButton3").GetComponent<ProductionInput>().Unlock();
     }
 
-    public int GetUnlockCost()
+    public BigInteger GetUnlockCost()
     {
         return unlockCost;
     }

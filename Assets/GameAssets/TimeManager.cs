@@ -4,15 +4,16 @@ using UnityEngine;
 using System;
 using UnityEngine.Events;
 using Newtonsoft.Json;
+using System.Numerics;
 
 public class TimeManager : MonoBehaviour
 {
 
     public static TimeManager instance;
 
-    public UnityEvent<int, Dictionary<string, int>, int> timeAwayShowing;
+    public UnityEvent<int, Dictionary<string, BigInteger>, BigInteger> timeAwayShowing;
     public UnityEvent<bool> timeAwayHidden;
-    public Dictionary<string, int> timeAwayResources = new Dictionary<string, int>(); 
+    public Dictionary<string, BigInteger> timeAwayResources = new Dictionary<string, BigInteger>(); 
     [SerializeField] private BuildingContent buildingContent;
     [SerializeField] private PopulationContent popContent;
     [SerializeField] private MarketContent marketContent;
@@ -85,8 +86,8 @@ public class TimeManager : MonoBehaviour
         // Calculate the difference
         TimeSpan difference = now - oldDateTime;
 
-        Dictionary<string, int> oldResources = new Dictionary<string, int>(GameManager.instance.resources);
-        int oldPrestige = GameManager.instance.cityPrestige;
+        Dictionary<string, BigInteger> oldResources = new Dictionary<string, BigInteger>(GameManager.instance.resources);
+        BigInteger oldPrestige = GameManager.instance.cityPrestige;
 
         if (difference.TotalMinutes >= 1)
         {
@@ -95,11 +96,11 @@ public class TimeManager : MonoBehaviour
                 buildingContent.TickAll();
                 popContent.TickAll();
             }
-            timeAwayResources = new Dictionary<string, int>();
+            timeAwayResources = new Dictionary<string, BigInteger>();
             foreach (string resource in GameManager.instance.resources.Keys)
             {
-                int oldAmount = oldResources.TryGetValue(resource, out int value) ? oldResources[resource] : 0;
-                timeAwayResources[resource] = (int)(GameManager.instance.resources[resource] - oldAmount);
+                BigInteger oldAmount = oldResources.TryGetValue(resource, out BigInteger value) ? oldResources[resource] : 0;
+                timeAwayResources[resource] = GameManager.instance.resources[resource] - oldAmount;
             }
             timeAwayShowing.Invoke((int)difference.TotalSeconds, timeAwayResources, GameManager.instance.cityPrestige - oldPrestige);
         } else {

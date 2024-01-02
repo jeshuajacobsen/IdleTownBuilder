@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Numerics;
 
 public class CityOption : MonoBehaviour, Unlockable
 {
@@ -54,7 +55,7 @@ public class CityOption : MonoBehaviour, Unlockable
         transform.Find("LockedPanel").gameObject.SetActive(false);
     }
 
-    public int GetUnlockCost()
+    public BigInteger GetUnlockCost()
     {
         return unlockCost;
     }

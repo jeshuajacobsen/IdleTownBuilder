@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using SharpUI.Source.Common.UI.Elements.Sliders;
 using TMPro;
 using UnityEngine.Events;
+using System.Numerics;
 
 public class TabMarketContent : MonoBehaviour
 {
@@ -40,7 +41,7 @@ public class TabMarketContent : MonoBehaviour
         
         if (resource != null && GameManager.instance.resources.ContainsKey(resource.resourceName))
         {
-            int amountSold = calculateSellAmount(resource.resourceName);
+            BigInteger amountSold = calculateSellAmount(resource.resourceName);
 
             GameManager.instance.SubtractResources(resource.resourceName, amountSold);
 
@@ -58,14 +59,15 @@ public class TabMarketContent : MonoBehaviour
             "$" + calculateSellAmount(selectedResource);
     }
 
-    private int calculateSellAmount(string resourceName)
+    private BigInteger calculateSellAmount(string resourceName)
     {
-        float multiplier = 1;
-        multiplier += ResearchManager.instance.multipliers.ContainsKey("Market") ? ResearchManager.instance.multipliers["Market"] : 0;
-        return (int)(quantitySlider.slider.value * 
-                GameManager.instance.resources[resourceName] * 
+        BigInteger multiplier = 100;
+        multiplier += ResearchManager.instance.multipliers.ContainsKey("Market") ? new BigInteger(ResearchManager.instance.multipliers["Market"] * 100) : 0;
+        return new BigInteger((int)quantitySlider.slider.value * 
+                (int)(GameManager.instance.resources[resourceName] * 
                 GameManager.instance.resourcePrices[resourceName] *
-                multiplier);
+                multiplier /
+                100));
     }
 
     private void Tick()

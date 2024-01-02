@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Numerics;
 
 public class Demographic : MonoBehaviour, Unlockable
 {
@@ -26,8 +27,8 @@ public class Demographic : MonoBehaviour, Unlockable
             transform.Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + CalculateCost();
         }
     }
-    private int unlockCost = 1;
-    private int baseCost = 1;
+    private BigInteger unlockCost = 1;
+    private BigInteger baseCost = 1;
     private int basePrestigeGenerated;
     public string race = "Human";
     public Canvas canvas;
@@ -61,6 +62,31 @@ public class Demographic : MonoBehaviour, Unlockable
                 baseCost = 2000;
                 basePrestigeGenerated = 180;
                 break;
+            case "Tradesmen":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                break;
+            case "Patricians":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                break;
+            case "Wizards":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                break;
+            case "Nobles":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                break;
+            case "Royalty":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                break;
 
             //merfolk
             case "Surfs":
@@ -68,6 +94,69 @@ public class Demographic : MonoBehaviour, Unlockable
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Merfolk";
+                break;
+            case "Middle Mer":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Merfolk";
+                break;
+            case "Sea Witches":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Merfolk";
+                break;
+            case "Mer-chants":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Merfolk";
+                break;
+            case "High Mer":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Merfolk";
+                break;
+            case "Tritons":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Merfolk";
+                break;
+
+
+            //Dwarves
+            case "Miners":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Dwarf";
+                break;
+            case "Workers":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Dwarf";
+                break;
+            case "Mages":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Dwarf";
+                break;
+            case "Artificers":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Dwarf";
+                break;
+            case "Dwarf Lords":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Dwarf";
                 break;
         }
 
@@ -77,7 +166,7 @@ public class Demographic : MonoBehaviour, Unlockable
 
     public void LevelUp()
     {
-        int cost = CalculateCost();
+        BigInteger cost = CalculateCost();
         if (GameManager.instance.HasEnoughCoin(cost))
         {
             Level = Level + 1;
@@ -89,30 +178,31 @@ public class Demographic : MonoBehaviour, Unlockable
         }
     }
 
-    public float GetPrestigeGenerated()
+    public BigInteger GetPrestigeGenerated()
     {
-        float multiplier = 1;
+        double multiplier = 1;
         if (nameText.text == "Peasant")
         {
             multiplier += ResearchManager.instance.multipliers.ContainsKey("Peasentry") ? ResearchManager.instance.multipliers["Peasentry"] : 0;
         }
-        return (Level * basePrestigeGenerated * multiplier);
+        return new BigInteger(Level * basePrestigeGenerated * multiplier);
     }
 
     public void Unlock()
     {
+        Level = 1;
         transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().Unlock();
         transform.Find("LockedPanel").gameObject.SetActive(false);
     }
 
-    public int GetUnlockCost()
+    public BigInteger GetUnlockCost()
     {
         return unlockCost;
     }
 
-    public int CalculateCost()
+    public BigInteger CalculateCost()
     {
-        return (int)(baseCost * Level * 1.6);
+        return (baseCost * new BigInteger(Level * 1.6));
     }
 
     public void Tick()
