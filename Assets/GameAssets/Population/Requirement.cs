@@ -27,7 +27,7 @@ public class Requirement : MonoBehaviour
         {
             if (resource != null && GameManager.instance.resources.ContainsKey(resource))
             {
-                costText.text = "" + GameManager.instance.resources[resource] + "/" + cost * level;
+                costText.text = GameManager.BigIntToExponentString(GameManager.instance.resources[resource]) + "/" + GameManager.BigIntToExponentString(cost * level);
             }
             else
             {

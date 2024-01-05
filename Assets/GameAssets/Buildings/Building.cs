@@ -17,7 +17,8 @@ public class Building : MonoBehaviour, Unlockable
         { 
             level = value; 
             levelText.text = "Level: " + level;
-            transform.Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + CalculateCost();
+            transform.Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = 
+                "$" + GameManager.BigIntToExponentString(CalculateCost());
         }
     }
     public ProductionInput inputResourceButton1;
@@ -48,7 +49,8 @@ public class Building : MonoBehaviour, Unlockable
         levelText = transform.Find("LevelText").GetComponent<TextMeshProUGUI>();
         Button button = transform.Find("UpgradeButton").GetComponent<Button>();
         button.onClick.AddListener(LevelUp);
-        transform.Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + CalculateCost();
+        transform.Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = 
+            "$" + GameManager.BigIntToExponentString(CalculateCost());
 
         inputResourceButton1.onProductionClick.AddListener(ProductionClick);
         inputResourceButton2.onProductionClick.AddListener(ProductionClick);

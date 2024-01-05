@@ -55,8 +55,8 @@ public class ResourceListItem : MonoBehaviour
         price = newPrice;
 
         resourceText.text = resourceName;
-        quantityText.text = "" + quantity;
-        priceText.text = "$" + price;
+        quantityText.text = GameManager.BigIntToExponentString(quantity);
+        priceText.text = "$" + GameManager.BigIntToExponentString(price);
     }
 
     public void SelectResource()

@@ -3631,18 +3631,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ee1034c42d1584bb71d27508c2f52d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bread: {fileID: 21300000, guid: f591ed58e46aa384d9dc12c67994d63c, type: 3}
-  bronzeIngot: {fileID: 21300000, guid: cec7598a466576541a4023a246389a75, type: 3}
-  clay: {fileID: 21300000, guid: 37c6301b17b7a7f4e9971b8ac36c66f8, type: 3}
-  copperOre: {fileID: 21300000, guid: 9e59d4006c463634ca8ee295c6d4d3ad, type: 3}
-  flour: {fileID: 21300000, guid: 17ef8a6cf35bda7438a3434529fcf3c9, type: 3}
-  furniture: {fileID: 21300000, guid: 676ad3af4227685449ad2fc4462dd609, type: 3}
+  bread: {fileID: 21300000, guid: 8943e40c954f9f44f9106fad8b0aabe5, type: 3}
+  bronzeIngot: {fileID: 21300000, guid: 7741ba25b1c7b1e458ee8ee91cffc440, type: 3}
+  clay: {fileID: 21300000, guid: 2398289ae3a940843a64e64ce55e1a12, type: 3}
+  copperOre: {fileID: 21300000, guid: b979bb61125b02743afa31bb15bb0497, type: 3}
+  flour: {fileID: 21300000, guid: eb3eb24d0d0ad9f4293ddbd74f0f2ec8, type: 3}
+  furniture: {fileID: 21300000, guid: c084d5b20d0c5174e811beb74ab509c6, type: 3}
   lumber: {fileID: 21300000, guid: 1ae35753f6121ef4fb1782efcd93cb99, type: 3}
-  pottery: {fileID: 21300000, guid: 6c1c32658b691744192aa8c8a800d57d, type: 3}
+  pottery: {fileID: 21300000, guid: af066a7f22d21c8438a2e5002ce75a4a, type: 3}
   tinOre: {fileID: 21300000, guid: 5437f5e5fcc038e41926138988a238ae, type: 3}
-  vegetables: {fileID: 21300000, guid: 9b8d87b957b34d54c9e9c0c9905ec211, type: 3}
-  wheat: {fileID: 21300000, guid: f438cd44a2d082a419077e6e99d0f9b9, type: 3}
-  wood: {fileID: 21300000, guid: 2472501b76d9365419d42b93bf619e03, type: 3}
+  vegetables: {fileID: 21300000, guid: 6dd1e630fc59e2a49bfc7eb454f8e9a6, type: 3}
+  wheat: {fileID: 21300000, guid: deea2f6445c5206448a092e8f44c2dad, type: 3}
+  wood: {fileID: 21300000, guid: c270ec7ee68339949934c9ffd9a33691, type: 3}
   kelp: {fileID: 21300000, guid: c856bed5fbfed50409b90ee144ff8561, type: 3}
   coral: {fileID: 21300000, guid: be9066df761928c438839f9c7a873d4f, type: 3}
   fish: {fileID: 21300000, guid: f6ddc2af25a782040a454c7e5af61913, type: 3}

@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
         set 
         { 
             coins = value; 
-            coinsText.text = "" + coins;
+            coinsText.text = "" + GameManager.BigIntToExponentString(coins);
         }
     }
     public TextMeshProUGUI coinsText;
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         set 
         { 
             cityPrestige = value; 
-            cityPrestigeText.text = "" + cityPrestige;
+            cityPrestigeText.text = "" + GameManager.BigIntToExponentString(cityPrestige);
         }
     }
     private BigInteger collectedPrestige = 0;
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         set 
         { 
             collectedPrestige = value; 
-            collectedPrestigeText.text = "" + collectedPrestige;
+            collectedPrestigeText.text = "" + GameManager.BigIntToExponentString(collectedPrestige);
         }
     }
     [SerializeField] private TextMeshProUGUI collectedPrestigeText;
@@ -102,6 +102,31 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public static string BigIntToExponentString(BigInteger bigInteger)
+    {
+        string intString = bigInteger.ToString();
+        if (intString.Length <= 3)
+        {
+            return intString;
+        } else if (intString.Length <= 6) {
+            return intString.Substring(0, intString.Length % 3) + "," + intString.Substring(intString.Length % 3, 3);
+        }
+        int exponentBrackets = (int)(intString.Length / 3);
+        exponentBrackets -= 2;
+        if (exponentBrackets % 3 == 0)
+        {
+            exponentBrackets--;
+        }
+        return intString.Substring(0, 3) + "." + intString.Substring(3, 2) + ExponentLetters(exponentBrackets);
+    }
+
+    private static string ExponentLetters(int exponentBrackets)
+    {
+        string[] letters = new string[] {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", 
+            "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+        return letters[exponentBrackets / letters.Length] + letters[exponentBrackets % letters.Length];
     }
 
     public void AddCoins(BigInteger quantity)
