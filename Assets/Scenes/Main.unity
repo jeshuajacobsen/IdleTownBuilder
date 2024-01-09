@@ -3909,6 +3909,13 @@ MonoBehaviour:
   lumberMill: {fileID: 21300000, guid: 89a77caf28e2ae44d8087b3ab6b2e5f3, type: 3}
   potter: {fileID: 21300000, guid: 613cf64fd145b3e43aa3db68cf390a9e, type: 3}
   vegetableFarm: {fileID: 21300000, guid: c2d91a46dccaae242956dcd702cf4f2c, type: 3}
+  peasant: {fileID: 21300000, guid: 654089154e5d1be488c7a231f73320ee, type: 3}
+  commoner: {fileID: 21300000, guid: 80a04a2989e8b5e4f8636a03c82cd07d, type: 3}
+  tradesman: {fileID: 21300000, guid: 0f9233162f46c11479b877380deeeaf6, type: 3}
+  patrician: {fileID: 21300000, guid: 2af7d997b7394584495760d53aa66f8b, type: 3}
+  wizard: {fileID: 21300000, guid: 05ea9f458937abe4fb1e070b0b8b4245, type: 3}
+  noble: {fileID: 21300000, guid: fd7383c703699a44badfb9b6c809933e, type: 3}
+  royalty: {fileID: 21300000, guid: dca6ac75f748af443be4a4b3beea71bb, type: 3}
 --- !u!4 &573126296
 Transform:
   m_ObjectHideFlags: 0

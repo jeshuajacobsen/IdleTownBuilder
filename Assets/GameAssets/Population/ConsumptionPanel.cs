@@ -53,7 +53,12 @@ public class ConsumptionPanel : MonoBehaviour
         {
             AddRequirement("Kelp", 20);
             AddRequirement("Fish", 5);
-            AddRequirement("Pearl", 2);
+        }
+        else if (demoName == "Middle Mer")
+        {
+            AddRequirement("Coral", 30);
+            AddRequirement("Fish", 20);
+            AddRequirement("Pearl", 5);
         }
     }
 

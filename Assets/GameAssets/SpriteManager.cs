@@ -46,6 +46,17 @@ public class SpriteManager : MonoBehaviour
     public Sprite potter;
     public Sprite vegetableFarm;
 
+    //Demos
+    //Human
+    public Sprite peasant;
+    public Sprite commoner;
+    public Sprite tradesman;
+    public Sprite patrician;
+    public Sprite wizard;
+    public Sprite noble;
+    public Sprite royalty;
+
+
     void Awake() 
     {
         if (instance == null)
@@ -145,6 +156,27 @@ public class SpriteManager : MonoBehaviour
                 return lumberMill;
             case "Vegetable Farm":
                 return vegetableFarm;
+        }
+        return farm;
+    }
+
+    public Sprite GetDemoSprite(string name)
+    {
+        switch (name) {
+            case "Peasants":
+                return peasant;
+            case "Commoners":
+                return commoner;
+            case "Tradesmen":
+                return tradesman;
+            case "Patricians":
+                return patrician;
+            case "Wizards":
+                return wizard;
+            case "Nobles":
+                return noble;
+            case "Royalty":
+                return royalty;
         }
         return farm;
     }
