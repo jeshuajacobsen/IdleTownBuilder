@@ -27,7 +27,8 @@ public class Requirement : MonoBehaviour
         {
             if (resource != null && GameManager.instance.resources.ContainsKey(resource))
             {
-                costText.text = GameManager.BigIntToExponentString(GameManager.instance.resources[resource]) + "/" + GameManager.BigIntToExponentString(cost * level);
+                costText.text = GameManager.BigIntToExponentString(GameManager.instance.resources[resource]) +
+                    "/" + GameManager.BigIntToExponentString(cost * level);
             }
             else
             {
@@ -50,7 +51,7 @@ public class Requirement : MonoBehaviour
     {
         if (GameManager.instance.resources.ContainsKey(resource))
         {
-            return Min(GameManager.instance.resources[resource], cost * level) / (cost * level) * 100;
+            return new BigInteger((float)Min(GameManager.instance.resources[resource], cost * level) / (float)(cost * level) * 100);
         }
         return 0;
     }

@@ -59,7 +59,10 @@ public class BuildingContent : MonoBehaviour
         }
 
         starting = true;
-        FilterBuildings(buildings[0].race);
+        if (buildings.Count > 0)
+        {
+            FilterBuildings(buildings[0].race);
+        }
     }
 
     // Update is called once per frame

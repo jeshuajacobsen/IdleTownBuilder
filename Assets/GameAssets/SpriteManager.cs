@@ -154,6 +154,8 @@ public class SpriteManager : MonoBehaviour
                 return forester;
             case "Lumber Mill":
                 return lumberMill;
+            case "Potter":
+                return potter;
             case "Vegetable Farm":
                 return vegetableFarm;
         }

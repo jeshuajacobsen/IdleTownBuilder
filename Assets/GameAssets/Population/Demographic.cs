@@ -37,6 +37,7 @@ public class Demographic : MonoBehaviour, Unlockable
     // Start is called before the first frame update
     void Start()
     {
+        //transform.Find("Mask").Find("BuildingImage").GetComponent<Image>().sprite = SpriteManager.instance.GetBuildingSprite(buildingName);
     }
 
     // Update is called once per frame

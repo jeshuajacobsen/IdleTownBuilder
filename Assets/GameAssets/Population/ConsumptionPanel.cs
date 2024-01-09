@@ -94,9 +94,8 @@ public class ConsumptionPanel : MonoBehaviour
         Demographic currentDemo = transform.parent.GetComponent<Demographic>();
         foreach (Requirement req in requirements)
         {
-            //Debug.Log(req.PercentMet());
             totalPrestige += new BigInteger((int)req.PercentMet()) * 
-                new BigInteger((int)currentDemo.GetPrestigeGenerated()) / 
+                currentDemo.GetPrestigeGenerated() / 
                 new BigInteger(requirements.Count) / 
                 new BigInteger(100);
         }
