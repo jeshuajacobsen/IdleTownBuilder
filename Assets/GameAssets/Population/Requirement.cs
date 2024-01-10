@@ -10,6 +10,19 @@ public class Requirement : MonoBehaviour
 {
     public string resource;
     public BigInteger cost;
+    public BigInteger Cost
+    {
+        get 
+        { 
+            double multiplier = 1;
+            multiplier -= resource == "Wheat" && ResearchManager.instance.scienceResearchLevels.ContainsKey("Foraging")? ResearchManager.instance.scienceResearchLevels["Foraging"] * .1f : 0; 
+            return cost * new BigInteger(multiplier * 100) / 100;
+        }
+        set 
+        { 
+            this.cost = value;
+        }
+    }
     public int level = 1;
     [SerializeField] private Image resourceImage;
     [SerializeField] private TextMeshProUGUI costText;
@@ -28,11 +41,11 @@ public class Requirement : MonoBehaviour
             if (resource != null && GameManager.instance.resources.ContainsKey(resource))
             {
                 costText.text = GameManager.BigIntToExponentString(GameManager.instance.resources[resource]) +
-                    "/" + GameManager.BigIntToExponentString(cost * level);
+                    "/" + GameManager.BigIntToExponentString(Cost * level);
             }
             else
             {
-                costText.text = "0" + "/" + cost;
+                costText.text = "0" + "/" + GameManager.BigIntToExponentString(Cost);
             }
         }
     }
@@ -40,18 +53,18 @@ public class Requirement : MonoBehaviour
     public void InitValues(string newResource, BigInteger newCost)
     {
         resource = newResource;
-        cost = newCost;
+        Cost = newCost;
         BigInteger resourceInStock = GameManager.instance.resources.ContainsKey(resource) ? GameManager.instance.resources[resource] : 0;
         transform.Find("Mask").Find("Image").GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(newResource);
         
-        transform.Find("costText").GetComponent<TextMeshProUGUI>().text = "" + resourceInStock + "/" + cost * level;
+        transform.Find("costText").GetComponent<TextMeshProUGUI>().text = "" + resourceInStock + "/" + Cost * level;
     }
 
     public BigInteger PercentMet()
     {
         if (GameManager.instance.resources.ContainsKey(resource))
         {
-            return new BigInteger((float)Min(GameManager.instance.resources[resource], cost * level) / (float)(cost * level) * 100);
+            return new BigInteger((float)Min(GameManager.instance.resources[resource], Cost * level) / (float)(Cost * level) * 100);
         }
         return 0;
     }
@@ -60,8 +73,8 @@ public class Requirement : MonoBehaviour
     {
         if (GameManager.instance.resources.ContainsKey(resource))
         {
-            GameManager.instance.SubtractResources(resource, Min(GameManager.instance.resources[resource], cost * level));
-            return (int)(Min(GameManager.instance.resources[resource], cost * level));
+            GameManager.instance.SubtractResources(resource, Min(GameManager.instance.resources[resource], Cost * level));
+            return (int)(Min(GameManager.instance.resources[resource], Cost * level));
         }
         return 0;
     }

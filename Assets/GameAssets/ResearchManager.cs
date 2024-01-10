@@ -9,7 +9,6 @@ public class ResearchManager : MonoBehaviour
     public static ResearchManager instance;
 
     public float peasantWheatDecrease = 0;
-    public Dictionary<string, double> multipliers = new Dictionary<string, double>();
     public Dictionary<string, int> buildingResearchLevels = new Dictionary<string, int>();
 
     public Dictionary<string, int> prestigeResearchLevels = new Dictionary<string, int>();
@@ -48,24 +47,20 @@ public class ResearchManager : MonoBehaviour
 
     public void CityResearchUpgrade(string upgradeTitle)
     {
-        if (multipliers.ContainsKey(upgradeTitle)) {
-            multipliers[upgradeTitle] += .1f;
+        if (scienceResearchLevels.ContainsKey(upgradeTitle)) {
             scienceResearchLevels[upgradeTitle] += 1;
             
         } else {
-            multipliers.Add(upgradeTitle, .1f);
             scienceResearchLevels.Add(upgradeTitle, 1);
         }
     }
 
     public void PrestigeResearchUpgrade(string upgradeTitle)
     {
-        if (multipliers.ContainsKey(upgradeTitle)) {
-            multipliers[upgradeTitle] += .1f;
+        if (prestigeResearchLevels.ContainsKey(upgradeTitle)) {
             prestigeResearchLevels[upgradeTitle] += 1;
             
         } else {
-            multipliers.Add(upgradeTitle, .1f);
             prestigeResearchLevels.Add(upgradeTitle, 1);
         }
     }
@@ -82,7 +77,6 @@ public class ResearchManager : MonoBehaviour
 
     public void PrepForSave(SaveData saveData)
     {
-        saveData.multipliers = multipliers;
         saveData.buildingResearchLevels = buildingResearchLevels;
         saveData.prestigeResearchLevels = prestigeResearchLevels;
         saveData.scienceResearchLevels = scienceResearchLevels;
@@ -90,7 +84,6 @@ public class ResearchManager : MonoBehaviour
 
     public void LoadSavedData(SaveData saveData)
     {
-        multipliers = saveData.multipliers;
         buildingResearchLevels = saveData.buildingResearchLevels;
         prestigeResearchLevels = saveData.prestigeResearchLevels;
         scienceResearchLevels = saveData.scienceResearchLevels;

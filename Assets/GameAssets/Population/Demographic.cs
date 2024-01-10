@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using System.Numerics;
 
@@ -37,7 +38,7 @@ public class Demographic : MonoBehaviour, Unlockable
     // Start is called before the first frame update
     void Start()
     {
-        //transform.Find("Mask").Find("BuildingImage").GetComponent<Image>().sprite = SpriteManager.instance.GetBuildingSprite(buildingName);
+        transform.Find("DemoImage").GetComponent<Image>().sprite = SpriteManager.instance.GetDemoSprite(nameText.text);
     }
 
     // Update is called once per frame
@@ -184,7 +185,7 @@ public class Demographic : MonoBehaviour, Unlockable
         double multiplier = 1;
         if (nameText.text == "Peasant")
         {
-            multiplier += ResearchManager.instance.multipliers.ContainsKey("Peasentry") ? ResearchManager.instance.multipliers["Peasentry"] : 0;
+            multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Peasentry") ? ResearchManager.instance.prestigeResearchLevels["Peasentry"] * .1f : 0;
         }
         return new BigInteger(Level * basePrestigeGenerated * multiplier);
     }

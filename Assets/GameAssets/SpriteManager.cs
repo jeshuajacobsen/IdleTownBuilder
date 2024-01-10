@@ -40,11 +40,34 @@ public class SpriteManager : MonoBehaviour
     //Buildings
     //human
     public Sprite clayPit;
+    public Sprite copperMine;
     public Sprite farm;
     public Sprite forester;
     public Sprite lumberMill;
     public Sprite potter;
     public Sprite vegetableFarm;
+    public Sprite bakery;
+    public Sprite furnitureFactory;
+    public Sprite tinMine;
+    public Sprite windMill;
+
+    //merfolk
+    public Sprite aquaforge;
+    public Sprite fishery;
+    public Sprite kelpery;
+    public Sprite meriteCave;
+    public Sprite oystery;
+    public Sprite reef;
+    public Sprite slimeMilker;
+    public Sprite thermalVents;
+
+    //dwarves
+    public Sprite artificer;
+    public Sprite gearWorks;
+    public Sprite golemManufactory;
+    public Sprite manaWell;
+    public Sprite mushroomCave;
+    
 
     //Demos
     //Human
@@ -158,6 +181,48 @@ public class SpriteManager : MonoBehaviour
                 return potter;
             case "Vegetable Farm":
                 return vegetableFarm;
+            case "Bakery":
+                return bakery;
+            case "Copper Mine":
+                return copperMine;
+            case "Furniture Factory":
+                return furnitureFactory;
+            case "Tin Mine":
+                return tinMine;
+            case "Wind Mill":
+                return windMill;
+
+
+            //merfolk
+            case "Aquaforge":
+                return aquaforge;
+            case "Fishery":
+                return fishery;
+            case "Kelpery":
+                return kelpery;
+            case "Merite Cave":
+                return meriteCave;
+            case "Oystery":
+                return oystery;
+            case "Reef":
+                return reef;
+            case "Slime Milker":
+                return slimeMilker;
+            case "Thermal Vents":
+                return thermalVents;
+
+            //dwarves
+            case "Artificer":
+                return artificer;
+            case "Gear Works":
+                return gearWorks;
+            case "Golem Manufactory":
+                return golemManufactory;
+            case "Mana Well":
+                return manaWell;
+            case "Mushroom Cave":
+                return mushroomCave;
+            
         }
         return farm;
     }

@@ -1449,7 +1449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &309228454
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3884,9 +3884,9 @@ MonoBehaviour:
   copperOre: {fileID: 21300000, guid: b979bb61125b02743afa31bb15bb0497, type: 3}
   flour: {fileID: 21300000, guid: eb3eb24d0d0ad9f4293ddbd74f0f2ec8, type: 3}
   furniture: {fileID: 21300000, guid: c084d5b20d0c5174e811beb74ab509c6, type: 3}
-  lumber: {fileID: 21300000, guid: 1ae35753f6121ef4fb1782efcd93cb99, type: 3}
+  lumber: {fileID: 21300000, guid: 36211686ba3908c49996344e1da88b29, type: 3}
   pottery: {fileID: 21300000, guid: af066a7f22d21c8438a2e5002ce75a4a, type: 3}
-  tinOre: {fileID: 21300000, guid: 5437f5e5fcc038e41926138988a238ae, type: 3}
+  tinOre: {fileID: 21300000, guid: b1de1208139b1734ca9d76800ea1d811, type: 3}
   vegetables: {fileID: 21300000, guid: 6dd1e630fc59e2a49bfc7eb454f8e9a6, type: 3}
   wheat: {fileID: 21300000, guid: deea2f6445c5206448a092e8f44c2dad, type: 3}
   wood: {fileID: 21300000, guid: c270ec7ee68339949934c9ffd9a33691, type: 3}
@@ -3904,11 +3904,29 @@ MonoBehaviour:
   artifact: {fileID: 21300000, guid: 358c72355cf198148b6b38ff6429568a, type: 3}
   golem: {fileID: 21300000, guid: 1e96a73f2cabcf74ab84fcc5e58ba8fe, type: 3}
   clayPit: {fileID: 21300000, guid: c0793df46c84696468275525dc9fd596, type: 3}
+  copperMine: {fileID: 21300000, guid: 632e344052cf2d74e8e1479f36bee416, type: 3}
   farm: {fileID: 21300000, guid: 1d02c2610ee19554c924502cc29283cf, type: 3}
   forester: {fileID: 21300000, guid: 6fc40dd4578dca34e848e51d6ab1027c, type: 3}
   lumberMill: {fileID: 21300000, guid: 89a77caf28e2ae44d8087b3ab6b2e5f3, type: 3}
   potter: {fileID: 21300000, guid: 613cf64fd145b3e43aa3db68cf390a9e, type: 3}
   vegetableFarm: {fileID: 21300000, guid: c2d91a46dccaae242956dcd702cf4f2c, type: 3}
+  bakery: {fileID: 21300000, guid: b603748f6c5c12a48a9cd0de43369e82, type: 3}
+  furnitureFactory: {fileID: 21300000, guid: 5fb675b74b2d8024e91887f99262b2df, type: 3}
+  tinMine: {fileID: 21300000, guid: 711fd1cc9aaaf024d8caf10f507c4873, type: 3}
+  windMill: {fileID: 21300000, guid: 5d6022b725ce6684cbd47e6b6459405a, type: 3}
+  aquaforge: {fileID: 21300000, guid: 60b379683396164428ab08fa5769635d, type: 3}
+  fishery: {fileID: 21300000, guid: dc44fe2dd38c6be4b8ecc722562a911f, type: 3}
+  kelpery: {fileID: 21300000, guid: 7fd3c662ea8ad70439ae2b666d145e94, type: 3}
+  meriteCave: {fileID: 21300000, guid: ca84e3fb609d60e4b911d85ac34e7940, type: 3}
+  oystery: {fileID: 21300000, guid: addf67c095aab41469671d5d2478b2ae, type: 3}
+  reef: {fileID: 21300000, guid: 62a7f39fa94fb8c4fa01cb5ac840a781, type: 3}
+  slimeMilker: {fileID: 21300000, guid: 5031fc3b57d515748a80649b2fc1bd2f, type: 3}
+  thermalVents: {fileID: 21300000, guid: 09a2dcbb8b445ab4d847e00e1392c2c7, type: 3}
+  artificer: {fileID: 21300000, guid: 161671ebcfabb174eb722ccdbdb667b1, type: 3}
+  gearWorks: {fileID: 21300000, guid: 66badd7fc7733a64dbe527de85f11230, type: 3}
+  golemManufactory: {fileID: 21300000, guid: 1c6b624717710b345b18ead94687347f, type: 3}
+  manaWell: {fileID: 21300000, guid: a7653cfdabef0744c9a4f129059938bb, type: 3}
+  mushroomCave: {fileID: 21300000, guid: 10549543f46c6a547a6584906872b536, type: 3}
   peasant: {fileID: 21300000, guid: 654089154e5d1be488c7a231f73320ee, type: 3}
   commoner: {fileID: 21300000, guid: 80a04a2989e8b5e4f8636a03c82cd07d, type: 3}
   tradesman: {fileID: 21300000, guid: 0f9233162f46c11479b877380deeeaf6, type: 3}

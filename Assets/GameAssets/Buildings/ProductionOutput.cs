@@ -49,7 +49,7 @@ public class ProductionOutput : MonoBehaviour
             productionTimer++;
             if (resource == "Wheat" || resource == "Vegetables")
             {
-                productionTimer += ResearchManager.instance.multipliers.ContainsKey("Fast Crops") ? ResearchManager.instance.multipliers["Fast Crops"] : 0;
+                productionTimer += ResearchManager.instance.scienceResearchLevels.ContainsKey("Fast Crops") ? ResearchManager.instance.scienceResearchLevels["Fast Crops"] * .1f: 0;
             }
             if (productionTimer >= requiredTime)
             {

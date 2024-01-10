@@ -260,7 +260,7 @@ public class Building : MonoBehaviour, Unlockable
                 productionTime = 18;
                 race = "Dwarf";
                 break;
-            case "Manufactury":
+            case "Manufactory":
                 unlockCost = 1000000000;
                 outputResource = "Golem";
                 inputResources = new string[] {"Mechanical Parts", "Mana", "Clay"};
@@ -336,7 +336,7 @@ public class Building : MonoBehaviour, Unlockable
         double multiplier = 1;
         if (buildingName == "Farm")
         {
-            multiplier -= ResearchManager.instance.multipliers.ContainsKey("Fertilizer") ? ResearchManager.instance.multipliers["Fertilizer"] : 0;
+            multiplier -= ResearchManager.instance.prestigeResearchLevels.ContainsKey("Fertilizer") ? ResearchManager.instance.prestigeResearchLevels["Fertilizer"] * .1f : 0;
         }
         return new BigInteger((int)(baseCost * level * (int)(1.6 * multiplier * 100) / 100));
     }
@@ -374,9 +374,12 @@ public class Building : MonoBehaviour, Unlockable
 
         if (buildingName == "Forester")
         {
-            multiplier += ResearchManager.instance.multipliers.ContainsKey("Forestry") ? ResearchManager.instance.multipliers["Forestry"] : 0;
+            multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Forestry") ? ResearchManager.instance.prestigeResearchLevels["Forestry"] * .1f : 0;
         }
-        multiplier += ResearchManager.instance.multipliers.ContainsKey("Foraging") ? ResearchManager.instance.multipliers["Foraging"] : 0;
+        if (ResearchManager.instance.buildingResearchLevels.ContainsKey(buildingName))
+        {
+            multiplier += ResearchManager.instance.buildingResearchLevels[buildingName] * .1f; 
+        }
         return (int)(level * multiplier);
     }
 

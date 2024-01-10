@@ -62,7 +62,7 @@ public class TabMarketContent : MonoBehaviour
     private BigInteger calculateSellAmount(string resourceName)
     {
         BigInteger multiplier = 100;
-        multiplier += ResearchManager.instance.multipliers.ContainsKey("Market") ? new BigInteger(ResearchManager.instance.multipliers["Market"] * 100) : 0;
+        multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Market") ? new BigInteger(ResearchManager.instance.prestigeResearchLevels["Market"] * 100 * .1f) : 0;
         return new BigInteger((int)quantitySlider.slider.value * 
                 (int)(GameManager.instance.resources[resourceName] * 
                 GameManager.instance.resourcePrices[resourceName] *
