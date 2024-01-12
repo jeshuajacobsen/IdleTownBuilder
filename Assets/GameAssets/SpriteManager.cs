@@ -79,6 +79,35 @@ public class SpriteManager : MonoBehaviour
     public Sprite noble;
     public Sprite royalty;
 
+    //Merfolk
+    public Sprite surfs;
+    public Sprite middleMer;
+    public Sprite seaWitches;
+    public Sprite merchants;
+    public Sprite highMer;
+    public Sprite tritons;
+
+    //dwarf
+    public Sprite miners;
+    public Sprite workers;
+    public Sprite mages;
+    public Sprite artificer;
+    public Sprite dwarfLord;
+
+    //Fairy
+    public Sprite changelings;
+    public Sprite brownies;
+    public Sprite leprechauns;
+    public Sprite selkies;
+    public Sprite clurichauns;
+    public Sprite aosSi;
+
+    //Elf
+    public Sprite workerElves;
+    public Sprite houseElves;
+    public Sprite druids;
+    public Sprite highElves;
+    public Sprite perfects;
 
     void Awake() 
     {
@@ -244,6 +273,58 @@ public class SpriteManager : MonoBehaviour
                 return noble;
             case "Royalty":
                 return royalty;
+            
+            //Merfolk
+            case "Surfs":
+                return surfs;
+            case "Middle Mer":
+                return middleMer;
+            case "Sea Witches":
+                return seaWitches;
+            case "Mer-chants":
+                return merchants;
+            case "High Mer":
+                return highMer;
+            case "Tritons":
+                return tritons;
+
+            //Dwarf
+            case "Miners":
+                return miners;
+            case "Workers":
+                return workers;
+            case "Mages":
+                return mages;
+            case "Artificers":
+                return artificer;
+            case "Dwarf Lords":
+                return dwarfLord;
+
+            //Fairy
+            case "Changelings":
+                return changelings;
+            case "Brownies":
+                return brownies;
+            case "Leprechauns":
+                return leprechauns;
+            case "Selkies":
+                return selkies;
+            case "Clurichaun":
+                return clurichauns;
+            case "Aos Si":
+                return aosSi;
+
+            //elf
+            case "Worker Elves":
+                return workerElves;
+            case "House Elves":
+                return houseElves;
+            case "Druids":
+                return druids;
+            case "High Elves":
+                return highElves;
+            case "Perfects":
+                return perfects;
         }
         return farm;
     }

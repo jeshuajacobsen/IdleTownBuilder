@@ -111,6 +111,13 @@ public class Building : MonoBehaviour, Unlockable
                 baseCost = 600;
                 productionTime = 22;
                 break;
+            case "Stone Quarry":
+                unlockCost = 6000;
+                outputResource = "Stone";
+                inputResources = new string[] {};
+                baseCost = 600;
+                productionTime = 22;
+                break;
             case "Vegetable Farm":
                 unlockCost = 10000;
                 outputResource = "Vegetables";
@@ -153,10 +160,38 @@ public class Building : MonoBehaviour, Unlockable
                 baseCost = 10000;
                 productionTime = 30;
                 break;
+            case "Orchard":
+                unlockCost = 200000;
+                outputResource = "Fruit";
+                inputResources = new string[] {};
+                baseCost = 10000;
+                productionTime = 30;
+                break;
+            case "Vineyard":
+                unlockCost = 800000;
+                outputResource = "Grapes";
+                inputResources = new string[] {};
+                baseCost = 50000;
+                productionTime = 32;
+                break;
             case "Furniture Factory":
                 unlockCost = 800000;
                 outputResource = "Furniture";
                 inputResources = new string[] {"Lumber", "Bronze Ingot"};
+                baseCost = 50000;
+                productionTime = 32;
+                break;
+            case "Barrel Maker":
+                unlockCost = 800000;
+                outputResource = "Barrel";
+                inputResources = new string[] {"Lumber", "Iron Ingot"};
+                baseCost = 50000;
+                productionTime = 32;
+                break;
+            case "Winery":
+                unlockCost = 800000;
+                outputResource = "Wine";
+                inputResources = new string[] {"Grapes", "Barrel"};
                 baseCost = 50000;
                 productionTime = 32;
                 break;
@@ -194,6 +229,14 @@ public class Building : MonoBehaviour, Unlockable
                 productionTime = 18;
                 race = "Merfolk";
                 break;
+            case "Sand Banks":
+                unlockCost = 100000;
+                outputResource = "Sand";
+                inputResources = new string[] {};
+                baseCost = 30000;
+                productionTime = 18;
+                race = "Merfolk";
+                break;
             case "Merite Cave":
                 unlockCost = 1000000;
                 outputResource = "Merite Ore";
@@ -201,6 +244,13 @@ public class Building : MonoBehaviour, Unlockable
                 baseCost = 300000;
                 productionTime = 18;
                 race = "Merfolk";
+                break;
+            case "Crab Pots":
+                unlockCost = 800000;
+                outputResource = "Crab";
+                inputResources = new string[] {};
+                baseCost = 50000;
+                productionTime = 32;
                 break;
             case "Thermal Vents":
                 unlockCost = 10000000;
@@ -244,6 +294,46 @@ public class Building : MonoBehaviour, Unlockable
                 productionTime = 18;
                 race = "Dwarf";
                 break;
+            case "Coal Mine":
+                unlockCost = 1000000000;
+                outputResource = "Coal";
+                inputResources = new string[] {};
+                baseCost = 3000000000;
+                productionTime = 18;
+                race = "Dwarf";
+                break;
+            case "Iron Mine":
+                unlockCost = 1000000000;
+                outputResource = "Iron Ore";
+                inputResources = new string[] {};
+                baseCost = 3000000000;
+                productionTime = 18;
+                race = "Dwarf";
+                break;
+            case "Apiary":
+                unlockCost = 1000000000;
+                outputResource = "Honey";
+                inputResources = new string[] {};
+                baseCost = 3000000000;
+                productionTime = 18;
+                race = "Dwarf";
+                break;
+            case "Iron Smelter":
+                unlockCost = 1000000000;
+                outputResource = "Iron Ingot";
+                inputResources = new string[] {"Coal", "Iron Ore"};
+                baseCost = 3000000000;
+                productionTime = 18;
+                race = "Dwarf";
+                break;
+            case "Meadery":
+                unlockCost = 1000000000;
+                outputResource = "Golem";
+                inputResources = new string[] {"Honey"};
+                baseCost = 3000000000;
+                productionTime = 18;
+                race = "Dwarf";
+                break;
             case "Gear Works":
                 unlockCost = 1000000000;
                 outputResource = "Mechanical Parts";
@@ -252,10 +342,58 @@ public class Building : MonoBehaviour, Unlockable
                 productionTime = 18;
                 race = "Dwarf";
                 break;
+            case "Blacksmith":
+                unlockCost = 1000000000;
+                outputResource = "Tools";
+                inputResources = new string[] {"Coal", "Iron Ore", "Wood"};
+                baseCost = 3000000000;
+                productionTime = 18;
+                race = "Dwarf";
+                break;
+            case "Hops Farm":
+                unlockCost = 1000000000;
+                outputResource = "Hops";
+                inputResources = new string[] {};
+                baseCost = 3000000000;
+                productionTime = 18;
+                race = "Dwarf";
+                break;
+            case "Gold Mine":
+                unlockCost = 1000000000;
+                outputResource = "Gold Ore";
+                inputResources = new string[] {"Tools"};
+                baseCost = 3000000000;
+                productionTime = 18;
+                race = "Dwarf";
+                break;
+            case "Glass Blower":
+                unlockCost = 1000000000;
+                outputResource = "Glass";
+                inputResources = new string[] {"Sand"};
+                baseCost = 3000000000;
+                productionTime = 18;
+                race = "Dwarf";
+                break;                
+            case "Brewery":
+                unlockCost = 1000000000;
+                outputResource = "Beer";
+                inputResources = new string[] {"Wheat", "Hops", "Bottles"};
+                baseCost = 3000000000;
+                productionTime = 18;
+                race = "Dwarf";
+                break;
+            case "Gold Smelter":
+                unlockCost = 1000000000;
+                outputResource = "Gold Ingot";
+                inputResources = new string[] {"Coal", "Iron Ore"};
+                baseCost = 3000000000;
+                productionTime = 18;
+                race = "Dwarf";
+                break;
             case "Artificer":
                 unlockCost = 1000000000;
                 outputResource = "Artifact";
-                inputResources = new string[] {"Mechanical Parts", "Mana"};
+                inputResources = new string[] {"Mechanical Parts", "Mana", "Gold"};
                 baseCost = 3000000000;
                 productionTime = 18;
                 race = "Dwarf";
@@ -267,7 +405,132 @@ public class Building : MonoBehaviour, Unlockable
                 baseCost = 3000000000;
                 productionTime = 18;
                 race = "Dwarf";
-                break;              
+                break;  
+            case "Rune Workshop":
+                unlockCost = 800000;
+                outputResource = "Rune";
+                inputResources = new string[] {"Mana", "Stone"};
+                baseCost = 50000;
+                productionTime = 32;
+                race = "Dwarf";
+                break;  
+            case "Deep Mine":
+                unlockCost = 1000000000;
+                outputResource = "Mithril Ore";
+                inputResources = new string[] {"Tools", "Golem"};
+                baseCost = 3000000000;
+                productionTime = 18;
+                race = "Dwarf";
+                break;
+            case "Volcanic Forge":
+                unlockCost = 1000000000;
+                outputResource = "Mithril Ingots";
+                inputResources = new string[] {};
+                baseCost = 3000000000;
+                productionTime = 18;
+                race = "Dwarf";
+                break;
+            case "Mithril Smith":
+                unlockCost = 1000000000;
+                outputResource = "Mithril Armor";
+                inputResources = new string[] {"Mithril Ingots"};
+                baseCost = 3000000000;
+                productionTime = 18;
+                race = "Dwarf";
+                break;  
+
+            //Fairies
+            case "Garden":
+                unlockCost = 800000;
+                outputResource = "Flowers";
+                inputResources = new string[] {};
+                baseCost = 50000;
+                productionTime = 32;
+                race = "Fairy";
+                break;
+            case "Fairy Circle":
+                unlockCost = 800000;
+                outputResource = "Magic Mushrooms";
+                inputResources = new string[] {};
+                baseCost = 50000;
+                productionTime = 32;
+                race = "Fairy";
+                break;
+            case "Dustery":
+                unlockCost = 800000;
+                outputResource = "Fairy Dust";
+                inputResources = new string[] {"Magic Mushrooms"};
+                baseCost = 50000;
+                productionTime = 32;
+                race = "Fairy";
+                break;       
+            case "Mana Siphon":
+                unlockCost = 800000;
+                outputResource = "Mana";
+                inputResources = new string[] {};
+                baseCost = 50000;
+                productionTime = 32;
+                race = "Fairy";
+                break;
+            case "Rainbow":
+                unlockCost = 800000;
+                outputResource = "Luck Charm";
+                inputResources = new string[] {"Mana", "Iron Ingot"};
+                baseCost = 50000;
+                productionTime = 32;
+                race = "Fairy";
+                break;
+            case "Illusionist":
+                unlockCost = 800000;
+                outputResource = "Beauty Charm";
+                inputResources = new string[] {"Mana", "Living Wood", "Fairy Dust"};
+                baseCost = 50000;
+                productionTime = 32;
+                race = "Fairy";
+                break;
+            case "Luminous Garden":
+                unlockCost = 800000;
+                outputResource = "Light Bulb";
+                inputResources = new string[] {};
+                baseCost = 50000;
+                productionTime = 32;
+                race = "Fairy";
+                break;
+
+            
+            //elf
+            case "Anima Tree":
+                unlockCost = 800000;
+                outputResource = "Anima Fruit";
+                inputResources = new string[] {};
+                baseCost = 50000;
+                productionTime = 32;
+                race = "Elf";
+                break;
+            case "Treant Grove":
+                unlockCost = 800000;
+                outputResource = "Living Wood";
+                inputResources = new string[] {};
+                baseCost = 50000;
+                productionTime = 32;
+                race = "Elf";
+                break;
+            case "Unicorn Stable":
+                unlockCost = 800000;
+                outputResource = "Unicorn Hair";
+                inputResources = new string[] {"Wheat"};
+                baseCost = 50000;
+                productionTime = 32;
+                race = "Elf";
+                break;
+            case "Druid Circle":
+                unlockCost = 800000;
+                outputResource = "Enchantment";
+                inputResources = new string[] {"Mana", "Living Wood"};
+                baseCost = 50000;
+                productionTime = 32;
+                race = "Elf";
+                break;
         }
 
         if (inputResources.Length == 0)

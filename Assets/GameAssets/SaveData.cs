@@ -18,7 +18,6 @@ public class SaveData
     public Dictionary<string, BigInteger> resources;
 
     //research
-    public Dictionary<string, double> multipliers;
     public Dictionary<string, int> buildingResearchLevels;
     
     //building content

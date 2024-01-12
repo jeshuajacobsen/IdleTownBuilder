@@ -160,6 +160,77 @@ public class Demographic : MonoBehaviour, Unlockable
                 basePrestigeGenerated = 20;
                 race = "Dwarf";
                 break;
+
+            //Fairies
+            case "Changelings":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Fairy";
+                break;
+            case "Brownies":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Fairy";
+                break;
+            case "Leprechauns":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Fairy";
+                break;
+            case "Selkies":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Fairy";
+                break;
+            case "Clurichaun":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Fairy";
+                break;
+            case "Aos Si":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Fairy";
+                break;
+
+
+            //Elf
+            case "Worker Elves":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Elf";
+                break;
+            case "House Elves":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Elf";
+                break;
+            case "Druids":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Elf";
+                break;
+            case "High Elves":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Elf";
+                break;
+            case "Perfects":
+                unlockCost = 400;
+                baseCost = 200;
+                basePrestigeGenerated = 20;
+                race = "Elf";
+                break;
         }
 
         transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().InitValues(newName);
