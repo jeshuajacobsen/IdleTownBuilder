@@ -91,7 +91,7 @@ public class SpriteManager : MonoBehaviour
     public Sprite miners;
     public Sprite workers;
     public Sprite mages;
-    public Sprite artificer;
+    public Sprite artificers;
     public Sprite dwarfLord;
 
     //Fairy
@@ -296,7 +296,7 @@ public class SpriteManager : MonoBehaviour
             case "Mages":
                 return mages;
             case "Artificers":
-                return artificer;
+                return artificers;
             case "Dwarf Lords":
                 return dwarfLord;
 

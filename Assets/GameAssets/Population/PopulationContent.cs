@@ -63,10 +63,16 @@ public class PopulationContent : MonoBehaviour
             case "Dwarvary":
                 AddDemographic("Peasants");
                 AddDemographic("Commoners");
+                AddDemographic("Miners");
                 break;
-            case "Harmony":
+            case "place":
                 AddDemographic("Peasants");
                 AddDemographic("Commoners");
+                AddDemographic("Tradesmen"); 
+                AddDemographic("Surfs");
+                AddDemographic("Middle Mer");
+                AddDemographic("Miners");
+                AddDemographic("Workers");
                 break;
         }
 

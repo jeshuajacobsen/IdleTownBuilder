@@ -12,7 +12,6 @@ public class ConsumptionPanel : MonoBehaviour
     [SerializeField] private Requirement requirementPrefab;
     private Transform contentTransform;
     [SerializeField] private LoadingBar loadingBar;
-    private int unlockCost = 1;
     public bool locked = true;
 
     void Awake()
@@ -33,36 +32,7 @@ public class ConsumptionPanel : MonoBehaviour
         
     }
 
-    public void InitValues(string demoName)
-    {
-        requirements = new List<Requirement>();
-        if (demoName == "Peasants")
-        {
-            AddRequirement("Wheat", 20);
-            AddRequirement("Pottery", 5);
-            AddRequirement("Vegetables", 2);
-        }
-        else if (demoName == "Commoners")
-        {
-            AddRequirement("Bread", 10);
-            AddRequirement("Pottery", 10);
-            AddRequirement("Vegetables", 20);
-            AddRequirement("Furniture", 5);
-        }
-        else if (demoName == "Surfs")
-        {
-            AddRequirement("Kelp", 20);
-            AddRequirement("Fish", 5);
-        }
-        else if (demoName == "Middle Mer")
-        {
-            AddRequirement("Coral", 30);
-            AddRequirement("Fish", 20);
-            AddRequirement("Pearl", 5);
-        }
-    }
-
-    private void AddRequirement(string resourceName, int resourceAmount)
+    public void AddRequirement(string resourceName, int resourceAmount)
     {
         Requirement requirement = Instantiate(requirementPrefab, contentTransform);
         requirement.transform.SetParent(transform.Find("RequirementsPanel"), false);
@@ -106,10 +76,5 @@ public class ConsumptionPanel : MonoBehaviour
     {
         InvokeRepeating("Tick", 1.0f, 1.0f);
         locked = false;
-    }
-
-    public int GetUnlockCost()
-    {
-        return unlockCost;
     }
 }

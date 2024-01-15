@@ -44,7 +44,7 @@ public class ResourceListItem : MonoBehaviour
         if (resourceChanged == resourceName)
         {
             quantity = newQuantity;
-            quantityText.text = "" + quantity;
+            quantityText.text = GameManager.BigIntToExponentString(quantity);
         }
     }
 

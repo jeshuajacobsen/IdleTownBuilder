@@ -18,24 +18,17 @@ public class NewCityContent : MonoBehaviour
 
     public void Setup()
     {
+        this.AddCity("Peasantry");
+        this.AddCity("Aquias");
+        this.AddCity("Dwarvary");
+        this.AddCity("Harmony");
+    }
+
+    private void AddCity(string cityName)
+    {
         CityOption city = Instantiate(cityOptionPrefab, contentTransform);
         city.transform.SetParent(transform, false);
-        city.InitValues("Peasantry");
-        cityOptions.Add(city);
-
-        city = Instantiate(cityOptionPrefab, contentTransform);
-        city.transform.SetParent(transform, false);
-        city.InitValues("Aquias");
-        cityOptions.Add(city);
-
-        city = Instantiate(cityOptionPrefab, contentTransform);
-        city.transform.SetParent(transform, false);
-        city.InitValues("Dwarvary");
-        cityOptions.Add(city);
-
-        city = Instantiate(cityOptionPrefab, contentTransform);
-        city.transform.SetParent(transform, false);
-        city.InitValues("Harmony");
+        city.InitValues(cityName);
         cityOptions.Add(city);
     }
 

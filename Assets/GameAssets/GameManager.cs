@@ -111,6 +111,10 @@ public class GameManager : MonoBehaviour
         {
             return intString;
         } else if (intString.Length <= 6) {
+            if (intString.Length == 6) 
+            {
+                return intString.Substring(0, 3) + "," + intString.Substring(3, 3);
+            }
             return intString.Substring(0, intString.Length % 3) + "," + intString.Substring(intString.Length % 3, 3);
         }
         int exponentBrackets = (int)(intString.Length / 3);
