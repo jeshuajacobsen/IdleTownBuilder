@@ -17,6 +17,8 @@ public class ProductionOutput : MonoBehaviour
     public LoadingBar loadingBar;
     public Building building;
 
+    [SerializeField] private Toggle pauseToggle;
+
     void Awake()
     {
         onProductionClick = new UnityEvent<string>();
@@ -44,40 +46,47 @@ public class ProductionOutput : MonoBehaviour
 
     public void Tick(bool fromTap)
     {
-        if (producing)
+        if (fromTap)
         {
-            productionTimer++;
-            productionTimer += ResearchManager.instance.scienceResearchLevels.ContainsKey("Tapping") && fromTap ? ResearchManager.instance.scienceResearchLevels["Tapping"] * .2f: 0;
-            if (resource == "Wheat" || resource == "Vegetables")
+            pauseToggle.isOn = false;
+        }
+        if (!pauseToggle.isOn)
+        {
+            if (producing)
             {
-                productionTimer += ResearchManager.instance.scienceResearchLevels.ContainsKey("Fast Crops") ? ResearchManager.instance.scienceResearchLevels["Fast Crops"] * .1f: 0;
-            }
-            if (productionTimer >= requiredTime)
-            {
-                productionTimer -= requiredTime;
-                GameManager.instance.AddResources(resource, building.GetProductionQuantity());
-
-                if (!CanStartNextProduction())
+                productionTimer++;
+                productionTimer += ResearchManager.instance.scienceResearchLevels.ContainsKey("Tapping") && fromTap ? ResearchManager.instance.scienceResearchLevels["Tapping"] * .2f: 0;
+                if (resource == "Wheat" || resource == "Vegetables")
                 {
-                    productionTimer = 0;
-                    producing = false;
+                    productionTimer += ResearchManager.instance.scienceResearchLevels.ContainsKey("Fast Crops") ? ResearchManager.instance.scienceResearchLevels["Fast Crops"] * .1f: 0;
                 }
-                else
+                if (productionTimer >= requiredTime)
+                {
+                    productionTimer -= requiredTime;
+                    GameManager.instance.AddResources(resource, building.GetProductionQuantity());
+
+                    if (!CanStartNextProduction())
+                    {
+                        productionTimer = 0;
+                        producing = false;
+                    }
+                    else
+                    {
+                        StartNextProduction();
+                    }
+                }
+            }
+            else
+            {
+                if (CanStartNextProduction())
                 {
                     StartNextProduction();
                 }
             }
-        }
-        else
-        {
-            if (CanStartNextProduction())
-            {
-                StartNextProduction();
-            }
-        }
 
-        GameManager.instance.productionTimers[resource] = productionTimer; 
-        loadingBar.UpdatePercentage((float)(productionTimer / requiredTime * 100));
+            GameManager.instance.productionTimers[resource] = productionTimer; 
+            loadingBar.UpdatePercentage((float)(productionTimer / requiredTime * 100));
+        }
     }
 
     private void Tick()

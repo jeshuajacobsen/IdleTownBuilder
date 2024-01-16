@@ -555,7 +555,7 @@ public class Building : MonoBehaviour, Unlockable
         {
             multiplier -= ResearchManager.instance.prestigeResearchLevels.ContainsKey("Fertilizer") ? ResearchManager.instance.prestigeResearchLevels["Fertilizer"] * .1f : 0;
         }
-        return baseCost * (int)(multiplier * 100) / 100 * GameManager.Pow(level + 1, 2);
+        return baseCost * GameManager.Pow(level + 1, 2) * (int)(multiplier * 100) / 100;
     }
 
     public void ProductionClick(string resource)
@@ -636,9 +636,9 @@ public class Building : MonoBehaviour, Unlockable
 
     public void Tick()
     {
-        outputResourceButton.Tick(false);
-        inputResourceButton1.Tick();
-        inputResourceButton2.Tick();
-        inputResourceButton3.Tick();
+        if (transform.Find("ProductionDisplay").Find("PauseToggle").GetComponent<Toggle>().isOn == false)
+        {
+            outputResourceButton.Tick(false);
+        }
     }
 }

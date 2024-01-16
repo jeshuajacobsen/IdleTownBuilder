@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using SharpUI.Source.Common.UI.Elements.Loading;
 using System.Numerics;
 
@@ -12,6 +13,7 @@ public class ConsumptionPanel : MonoBehaviour
     [SerializeField] private Requirement requirementPrefab;
     private Transform contentTransform;
     [SerializeField] private LoadingBar loadingBar;
+    [SerializeField] private Toggle pauseToggle;
     public bool locked = true;
 
     void Awake()
@@ -42,20 +44,23 @@ public class ConsumptionPanel : MonoBehaviour
 
     public void Tick()
     {
-        productionTimer++;
-    
-        if (productionTimer >= requiredTime)
+        if (!pauseToggle.isOn)
         {
-            productionTimer -= requiredTime;
-            GameManager.instance.AddCityPrestige(GetPrestigeGenerated());
-
-            foreach (Requirement requirement in requirements)
+            productionTimer++;
+        
+            if (productionTimer >= requiredTime)
             {
-                requirement.ConsumeResource();
+                productionTimer -= requiredTime;
+                GameManager.instance.AddCityPrestige(GetPrestigeGenerated());
+
+                foreach (Requirement requirement in requirements)
+                {
+                    requirement.ConsumeResource();
+                }
             }
+    
+            loadingBar.UpdatePercentage(productionTimer / requiredTime * 100);
         }
- 
-        loadingBar.UpdatePercentage(productionTimer / requiredTime * 100);
     }
 
     public BigInteger GetPrestigeGenerated()
