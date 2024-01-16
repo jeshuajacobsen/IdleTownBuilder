@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using System.Numerics;
 
 public class ResearchInfoPanel : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class ResearchInfoPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private TextMeshProUGUI costText;
     [SerializeField] private TextMeshProUGUI currentLevelText;
-    int baseCost;
+    BigInteger baseCost;
     int level;
     int maxLevel;
     public UnityEvent<string> onUpgrade;
@@ -29,7 +31,7 @@ public class ResearchInfoPanel : MonoBehaviour
         
     }
 
-    public void Setup(string title, string description, int baseCost, int level, int maxLevel, bool isBuilding)
+    public void Setup(string title, string description, BigInteger baseCost, int level, int maxLevel, bool isBuilding)
     {
         titleText.text = title;
         descriptionText.text = description;
@@ -62,8 +64,8 @@ public class ResearchInfoPanel : MonoBehaviour
         
     }
 
-    private int getCost()
+    private BigInteger getCost()
     {
-        return (int)(baseCost * (level + 1) * 2.5);
+        return baseCost * GameManager.Pow(level + 1, 2);
     }
 }

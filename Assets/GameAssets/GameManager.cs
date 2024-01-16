@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -65,19 +66,41 @@ public class GameManager : MonoBehaviour
         resourcePrices["Clay"] = 10;
         resourcePrices["Lumber"] = 100;
         resourcePrices["Pottery"] = 160;
-        resourcePrices["Vegetables"] = 200;
+        resourcePrices["Stone"] = 300;
+        resourcePrices["Vegetables"] = 400;
+        resourcePrices["Hemp"] = 400;
+        resourcePrices["Clothes"] = 600;
         resourcePrices["Copper Ore"] = 700;
-        resourcePrices["Tin Ore"] = 700;
-        resourcePrices["Flour"] = 600;
-        resourcePrices["Bronze Ingot"] = 4000;
-        resourcePrices["Bread"] = 2000;
+        resourcePrices["Fruit"] = 900;
+        resourcePrices["Tin Ore"] = 9000;
+        resourcePrices["Bronze Ingot"] = 100000;
+        resourcePrices["Flour"] = new BigInteger(Math.Pow(10, 7));
+        resourcePrices["Bread"] = new BigInteger(Math.Pow(10, 10));
+        resourcePrices["Grapes"] = 160;
         resourcePrices["Furniture"] = 5000;
+        resourcePrices["Barrel"] = 160;
+        resourcePrices["Wine"] = 160;
 
         //merfolk
         resourcePrices["Kelp"] = 200;
         resourcePrices["Coral"] = 500;
         resourcePrices["Fish"] = 2000;
         resourcePrices["Pearl"] = 8000;
+        resourcePrices["Sand"] = 10000;
+        resourcePrices["Merite Ore"] = 500000;
+        resourcePrices["Crab"] = new BigInteger(Math.Pow(10, 8));
+        resourcePrices["Magma Slug"] = new BigInteger(Math.Pow(10, 12));
+        resourcePrices["Fire Slime"] = 8000;
+        resourcePrices["Merite Ingot"] = 8000;
+
+        //Dwarf
+        resourcePrices["Mushroom"] = 200;
+        resourcePrices["Mana"] = 600;
+        resourcePrices["Coal"] = 2000;
+        resourcePrices["Iron Ore"] = 8000;
+        resourcePrices["Honey"] = 10000;
+        resourcePrices["Iron Ingot"] = 1000000;
+        resourcePrices["Mead"] = new BigInteger(Math.Pow(10, 9));
 
         if (instance == null)
         {
@@ -131,6 +154,24 @@ public class GameManager : MonoBehaviour
         string[] letters = new string[] {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", 
             "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
         return letters[exponentBrackets / letters.Length] + letters[exponentBrackets % letters.Length];
+    }
+
+    public static BigInteger Pow(BigInteger baseValue, int exponent)
+    {
+        if (exponent < 0)
+            throw new ArgumentException("Exponent cannot be negative", nameof(exponent));
+
+        BigInteger result = BigInteger.One;
+        while (exponent > 0)
+        {
+            if ((exponent & 1) == 1)
+                result *= baseValue;
+
+            baseValue *= baseValue;
+            exponent >>= 1;
+        }
+
+        return result;
     }
 
     public void AddCoins(BigInteger quantity)

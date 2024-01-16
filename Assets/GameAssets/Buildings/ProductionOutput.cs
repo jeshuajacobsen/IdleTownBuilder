@@ -42,11 +42,12 @@ public class ProductionOutput : MonoBehaviour
         transform.Find("Mask").Find("Image").GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(newResource);
     }
 
-    public void Tick()
+    public void Tick(bool fromTap)
     {
         if (producing)
         {
             productionTimer++;
+            productionTimer += ResearchManager.instance.scienceResearchLevels.ContainsKey("Tapping") && fromTap ? ResearchManager.instance.scienceResearchLevels["Tapping"] * .2f: 0;
             if (resource == "Wheat" || resource == "Vegetables")
             {
                 productionTimer += ResearchManager.instance.scienceResearchLevels.ContainsKey("Fast Crops") ? ResearchManager.instance.scienceResearchLevels["Fast Crops"] * .1f: 0;
@@ -79,6 +80,11 @@ public class ProductionOutput : MonoBehaviour
         loadingBar.UpdatePercentage((float)(productionTimer / requiredTime * 100));
     }
 
+    private void Tick()
+    {
+        Tick(false);
+    }
+
     public void ProductionClick()
     {
         onProductionClick.Invoke(resource);
@@ -86,7 +92,7 @@ public class ProductionOutput : MonoBehaviour
 
     public void HandleProductionClick()
     {
-        Tick();
+        Tick(true);
     }
 
     private bool CanStartNextProduction()

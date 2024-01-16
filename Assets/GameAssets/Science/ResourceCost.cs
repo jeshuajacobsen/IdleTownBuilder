@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Numerics;
+using System;
 
 public class ResourceCost : MonoBehaviour
 {
     public TextMeshProUGUI resourceName;
     public TextMeshProUGUI resourceCost;
 
-    public int requiredAmount = 1;
+    private BigInteger requiredAmount = 1;
+    public int level;
+    public BigInteger GetRequiredAmount(int level)
+    {
+        return requiredAmount * GameManager.Pow(level + 1, 2);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -22,13 +29,13 @@ public class ResourceCost : MonoBehaviour
     {
         if (!GameManager.instance.resources.ContainsKey(resourceName.text))
         {
-            resourceCost.text =  "0/" + requiredAmount;
+            resourceCost.text =  "0/" + GetRequiredAmount(level);
             resourceCost.color = Color.red;
         } 
         else 
         {
-            resourceCost.text = "" + GameManager.instance.resources[resourceName.text] + "/" + requiredAmount;
-            if (requiredAmount > GameManager.instance.resources[resourceName.text])
+            resourceCost.text = "" + GameManager.instance.resources[resourceName.text] + "/" + GetRequiredAmount(level);
+            if (GetRequiredAmount(level) > GameManager.instance.resources[resourceName.text])
             {
                 resourceCost.color = Color.red;
             } else {
@@ -37,15 +44,16 @@ public class ResourceCost : MonoBehaviour
         }
     }
 
-    public void InitValues(string newResourceName, int newRequiredAmount)
+    public void InitValues(string newResourceName, int newRequiredAmount, int level)
     {
         requiredAmount = newRequiredAmount;
         resourceName.text = newResourceName;
+        this.level = level;
         if (GameManager.instance.resources.ContainsKey(newResourceName))
         {
-            resourceCost.text = "" + GameManager.instance.resources[newResourceName] + "/" + requiredAmount;
+            resourceCost.text = "" + GameManager.instance.resources[newResourceName] + "/" + GetRequiredAmount(level);
 
-            if (requiredAmount > GameManager.instance.resources[newResourceName])
+            if (GetRequiredAmount(level) > GameManager.instance.resources[newResourceName])
             {
                 resourceCost.color = Color.red;
             } else {
@@ -54,7 +62,7 @@ public class ResourceCost : MonoBehaviour
         }
         else
         {
-            resourceCost.text = "0/" + requiredAmount;
+            resourceCost.text = "0/" + GetRequiredAmount(level);
             resourceCost.color = Color.red;
         }
         transform.Find("Mask").Find("Image").GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(newResourceName);

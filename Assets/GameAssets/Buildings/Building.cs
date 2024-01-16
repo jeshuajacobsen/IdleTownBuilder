@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -97,13 +98,13 @@ public class Building : MonoBehaviour, Unlockable
                 outputResource = "Lumber";
                 inputResources = new string[] {"Wood"};
                 baseCost = 100;
-                productionTime = 20;
+                productionTime = 16;
                 break;
             case "Potter":
                 outputResource = "Pottery";
                 inputResources = new string[] {"Clay"};
                 baseCost = 600;
-                productionTime = 22;
+                productionTime = 18;
                 break;
             case "Stone Quarry":
                 outputResource = "Stone";
@@ -126,7 +127,7 @@ public class Building : MonoBehaviour, Unlockable
             case "Weaver":
                 outputResource = "Clothes";
                 inputResources = new string[] {"Hemp"};
-                baseCost = 1000;
+                baseCost = 4000;
                 productionTime = 24;
                 break;
             case "Copper Mine":
@@ -168,25 +169,25 @@ public class Building : MonoBehaviour, Unlockable
             case "Vineyard":
                 outputResource = "Grapes";
                 inputResources = new string[] {};
-                baseCost = 10 ^ 6;
+                baseCost = new BigInteger(Math.Pow(10, 6));
                 productionTime = 32;
                 break;
             case "Furniture Factory":
                 outputResource = "Furniture";
                 inputResources = new string[] {"Lumber", "Bronze Ingot"};
-                baseCost = 10 ^ 7;
+                baseCost = new BigInteger(Math.Pow(10, 7));
                 productionTime = 32;
                 break;
             case "Barrel Maker":
                 outputResource = "Barrel";
                 inputResources = new string[] {"Lumber", "Iron Ingot"};
-                baseCost = 10 ^ 8;
+                baseCost = new BigInteger(Math.Pow(10, 8));
                 productionTime = 32;
                 break;
             case "Winery":
                 outputResource = "Wine";
                 inputResources = new string[] {"Grapes", "Barrel"};
-                baseCost = 10 ^ 9;
+                baseCost = new BigInteger(Math.Pow(10, 11));
                 productionTime = 32;
                 break;
 
@@ -194,7 +195,7 @@ public class Building : MonoBehaviour, Unlockable
             case "Kelpery":
                 outputResource = "Kelp";
                 inputResources = new string[] {};
-                baseCost = 300;
+                baseCost = 200;
                 productionTime = 10;
                 race = "Merfolk";
                 break;
@@ -215,49 +216,49 @@ public class Building : MonoBehaviour, Unlockable
             case "Oystery":
                 outputResource = "Pearl";
                 inputResources = new string[] {};
-                baseCost = 30000;
+                baseCost = 60000;
                 productionTime = 18;
                 race = "Merfolk";
                 break;
             case "Sand Banks":
                 outputResource = "Sand";
                 inputResources = new string[] {};
-                baseCost = 30000;
+                baseCost = 6 * new BigInteger(Math.Pow(10, 5));
                 productionTime = 18;
                 race = "Merfolk";
                 break;
             case "Merite Cave":
                 outputResource = "Merite Ore";
                 inputResources = new string[] {};
-                baseCost = 300000;
+                baseCost = new BigInteger(Math.Pow(10, 9));
                 productionTime = 18;
                 race = "Merfolk";
                 break;
             case "Crab Pots":
                 outputResource = "Crab";
                 inputResources = new string[] {};
-                baseCost = 50000;
+                baseCost = new BigInteger(Math.Pow(10, 12));
                 productionTime = 32;
                 break;
             case "Thermal Vents":
                 outputResource = "Magma Slug";
                 inputResources = new string[] {};
                 baseCost = 3000000;
-                productionTime = 18;
+                productionTime = 34;
                 race = "Merfolk";
                 break;
             case "Slime Milker":
                 outputResource = "Fire Slime";
                 inputResources = new string[] {"Magma Slug"};
                 baseCost = 30000000;
-                productionTime = 18;
+                productionTime = 36;
                 race = "Merfolk";
                 break;
             case "Aquaforge":
                 outputResource = "Merite Ingot";
                 inputResources = new string[] {"Fire Slime", "Merite Ore"};
                 baseCost = 3000000000;
-                productionTime = 18;
+                productionTime = 38;
                 race = "Merfolk";
                 break;
 
@@ -265,57 +266,57 @@ public class Building : MonoBehaviour, Unlockable
             case "Mushroom Cave":
                 outputResource = "Mushroom";
                 inputResources = new string[] {};
-                baseCost = 3000000000;
-                productionTime = 18;
+                baseCost = 200;
+                productionTime = 10;
                 race = "Dwarf";
                 break;  
             case "Mana Well":
                 outputResource = "Mana";
                 inputResources = new string[] {};
-                baseCost = 3000000000;
-                productionTime = 18;
+                baseCost = 2000;
+                productionTime = 12;
                 race = "Dwarf";
                 break;
             case "Coal Mine":
                 outputResource = "Coal";
                 inputResources = new string[] {};
-                baseCost = 3000000000;
-                productionTime = 18;
+                baseCost = 20000;
+                productionTime = 14;
                 race = "Dwarf";
                 break;
             case "Iron Mine":
                 outputResource = "Iron Ore";
                 inputResources = new string[] {};
-                baseCost = 3000000000;
+                baseCost = new BigInteger(Math.Pow(10, 6));
                 productionTime = 18;
                 race = "Dwarf";
                 break;
             case "Apiary":
                 outputResource = "Honey";
                 inputResources = new string[] {};
-                baseCost = 3000000000;
+                baseCost = new BigInteger(Math.Pow(10, 7));
                 productionTime = 18;
                 race = "Dwarf";
                 break;
             case "Iron Smelter":
                 outputResource = "Iron Ingot";
                 inputResources = new string[] {"Coal", "Iron Ore"};
-                baseCost = 3000000000;
+                baseCost = new BigInteger(Math.Pow(10, 10));
                 productionTime = 18;
-                race = "Dwarf";
+                race = "Dwarf"; 
                 break;
             case "Meadery":
-                outputResource = "Golem";
+                outputResource = "Mead";
                 inputResources = new string[] {"Honey"};
-                baseCost = 3000000000;
-                productionTime = 18;
+                baseCost = new BigInteger(Math.Pow(10, 13));
+                productionTime = 20;
                 race = "Dwarf";
                 break;
             case "Gear Works":
                 outputResource = "Mechanical Parts";
                 inputResources = new string[] {"Wood", "Iron Ingot"};
                 baseCost = 3000000000;
-                productionTime = 18;
+                productionTime = 24;
                 race = "Dwarf";
                 break;
             case "Blacksmith":
@@ -550,11 +551,11 @@ public class Building : MonoBehaviour, Unlockable
     public BigInteger CalculateCost()
     {
         double multiplier = 1;
-        if (buildingName == "Farm")
+        if (buildingName == "Farm" || buildingName == "Vegetable Farm" || buildingName == "Orchard" || buildingName == "Vineyard")
         {
             multiplier -= ResearchManager.instance.prestigeResearchLevels.ContainsKey("Fertilizer") ? ResearchManager.instance.prestigeResearchLevels["Fertilizer"] * .1f : 0;
         }
-        return new BigInteger((int)(baseCost * level * (int)(1.6 * multiplier * 100) / 100));
+        return baseCost * (int)(multiplier * 100) / 100 * GameManager.Pow(level + 1, 2);
     }
 
     public void ProductionClick(string resource)
@@ -596,6 +597,18 @@ public class Building : MonoBehaviour, Unlockable
         {
             multiplier += ResearchManager.instance.buildingResearchLevels[buildingName] * .1f; 
         }
+        if (race == "Human")
+        {
+            multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Human Tech") ? ResearchManager.instance.prestigeResearchLevels["Human Tech"] * .1f : 0;
+        } else if (race == "Merfolk") {
+            multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Merfolk Tech") ? ResearchManager.instance.prestigeResearchLevels["Human Tech"] * .1f : 0;
+        } else if (race == "Dwarf") {
+            multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Dwarf Tech") ? ResearchManager.instance.prestigeResearchLevels["Human Tech"] * .1f : 0;
+        } else if (race == "Fairy") {
+            multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Fairy Tech") ? ResearchManager.instance.prestigeResearchLevels["Human Tech"] * .1f : 0;
+        } else if (race == "Elf") {
+            multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Elf Tech") ? ResearchManager.instance.prestigeResearchLevels["Human Tech"] * .1f : 0;
+        }
         return (int)(level * multiplier);
     }
 
@@ -613,12 +626,17 @@ public class Building : MonoBehaviour, Unlockable
 
     public BigInteger GetUnlockCost()
     {
-        return baseCost * 3;
+        BigInteger baseUnlock = baseCost * 3;
+        if (ResearchManager.instance.scienceResearchLevels.ContainsKey("Architecture"))
+        {
+            baseUnlock -= baseUnlock * ResearchManager.instance.scienceResearchLevels["Architecture"] / 10;
+        }
+        return baseUnlock;
     }
 
     public void Tick()
     {
-        outputResourceButton.Tick();
+        outputResourceButton.Tick(false);
         inputResourceButton1.Tick();
         inputResourceButton2.Tick();
         inputResourceButton3.Tick();

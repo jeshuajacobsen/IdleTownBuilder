@@ -56,7 +56,7 @@ public class CityResearchInfoPanel : MonoBehaviour
         {
             ResourceCost resourceCost = Instantiate(resourceCostPrefab, contentTransform);
             resourceCost.transform.SetParent(resourceCostPanel.transform, false);
-            resourceCost.InitValues(resources[i], costs[i] * (level * 10 + 1));
+            resourceCost.InitValues(resources[i], costs[i], level);
             resourceCosts.Add(resourceCost);
         }
     }
@@ -68,7 +68,7 @@ public class CityResearchInfoPanel : MonoBehaviour
         {
             if (GameManager.instance.resources.ContainsKey(cost.resourceName.text))
             {
-                if (GameManager.instance.resources[cost.resourceName.text] < cost.requiredAmount)
+                if (GameManager.instance.resources[cost.resourceName.text] < cost.GetRequiredAmount(level))
                 {
                     canAffordUpgrade = false;
                 }
@@ -78,14 +78,14 @@ public class CityResearchInfoPanel : MonoBehaviour
                 canAffordUpgrade = false;
             }
         }
-        if (canAffordUpgrade)
+        if (canAffordUpgrade && level < maxLevel)
         {
             level++;
             ResearchManager.instance.CityResearchUpgrade(titleText.text);
             foreach (ResourceCost cost in resourceCosts)
             {
-                GameManager.instance.SubtractResources(cost.resourceName.text, cost.requiredAmount);
-                cost.InitValues(cost.resourceName.text, cost.requiredAmount * 10);
+                GameManager.instance.SubtractResources(cost.resourceName.text, cost.GetRequiredAmount(level));
+                cost.level++;
             }
             
             currentLevelText.text = level + "/" + maxLevel;

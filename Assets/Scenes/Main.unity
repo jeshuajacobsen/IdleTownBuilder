@@ -136,6 +136,10 @@ PrefabInstance:
       value: Kelpery
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: baseCost
+      value: 420
+      objectReference: {fileID: 0}
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
       value: 1
       objectReference: {fileID: 0}
@@ -251,7 +255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: baseCost
-      value: 50000
+      value: 1000000000
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
@@ -1029,6 +1033,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1130782043}
     m_Modifications:
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: title
+      value: Elf Tech
+      objectReference: {fileID: 0}
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: baseCost
+      value: 100000
+      objectReference: {fileID: 0}
     - target: {fileID: 924800349370884723, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1395,6 +1407,10 @@ PrefabInstance:
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: title
       value: Copper Mine
+      objectReference: {fileID: 0}
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: baseCost
+      value: 1000000
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
@@ -1888,6 +1904,10 @@ PrefabInstance:
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: title
       value: Lumber Mill
+      objectReference: {fileID: 0}
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: baseCost
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
@@ -4350,7 +4370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: baseCost
-      value: 300
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
@@ -4850,6 +4870,144 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &523096186
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1836804999}
+    m_Modifications:
+    - target: {fileID: 660901477057699919, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_Name
+      value: CityResearchButtonTapping
+      objectReference: {fileID: 0}
+    - target: {fileID: 1203802887040437469, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_text
+      value: Tapping
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 159.839
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 239
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 305
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: title
+      value: Tapping
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: maxLevel
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: description
+      value: Tapping a resource adds 20% more progress.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: resourceCostNames
+      value: Wine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: resourceCostPrices
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+--- !u!224 &523096187 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+  m_PrefabInstance: {fileID: 523096186}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &526101423 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3613257357719121980, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
@@ -6010,7 +6168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: baseCost
-      value: 50000
+      value: 200000
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
@@ -6127,6 +6285,10 @@ PrefabInstance:
       value: Potter
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: baseCost
+      value: 420
+      objectReference: {fileID: 0}
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
       value: 1
       objectReference: {fileID: 0}
@@ -6241,6 +6403,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1130782043}
     m_Modifications:
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: title
+      value: Fairy Tech
+      objectReference: {fileID: 0}
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: baseCost
+      value: 100000
+      objectReference: {fileID: 0}
     - target: {fileID: 924800349370884723, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -7216,7 +7386,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: title
-      value: Peasentry
+      value: Peasanting
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: baseCost
@@ -7312,7 +7482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4190818875894117809, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: m_Name
-      value: PrestigeResearchPeasantry
+      value: PrestigeResearchPeasanting
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8432,7 +8602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: baseCost
-      value: 50000
+      value: 30000
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
@@ -9567,7 +9737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: baseCost
-      value: 50000
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: maxLevel
@@ -9680,11 +9850,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 660901477057699919, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: m_Name
-      value: CityResearchButtonHumanTech
+      value: CityResearchButtonGleaning
       objectReference: {fileID: 0}
     - target: {fileID: 1203802887040437469, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: m_text
-      value: Human Tech
+      value: Gleaning
       objectReference: {fileID: 0}
     - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: m_Pivot.x
@@ -9780,7 +9950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: title
-      value: Human Tech
+      value: Gleaning
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: maxLevel
@@ -9788,7 +9958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
-      value: Increases output of all human buildings by 10%.
+      value: Commoners consume 10% less Vegetables.
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: resourceCostNames
@@ -10092,7 +10262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: baseCost
-      value: 1000
+      value: 8000
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
@@ -10513,6 +10683,10 @@ PrefabInstance:
       value: Clay Pit
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: baseCost
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
       value: 1
       objectReference: {fileID: 0}
@@ -10740,6 +10914,10 @@ PrefabInstance:
       value: Vineyard
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: baseCost
+      value: 1000000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
       value: 1
       objectReference: {fileID: 0}
@@ -10934,6 +11112,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1130782043}
     m_Modifications:
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: title
+      value: Merfolk Tech
+      objectReference: {fileID: 0}
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: baseCost
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 924800349370884723, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -11323,6 +11509,10 @@ PrefabInstance:
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: title
       value: Vegetable Farm
+      objectReference: {fileID: 0}
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: baseCost
+      value: 40000
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
@@ -12214,6 +12404,10 @@ PrefabInstance:
       value: Bakery
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: baseCost
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
       value: 1
       objectReference: {fileID: 0}
@@ -12939,6 +13133,10 @@ PrefabInstance:
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: title
       value: Furniture Factory
+      objectReference: {fileID: 0}
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: baseCost
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
@@ -14437,7 +14635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: baseCost
-      value: 50000
+      value: 50000000
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
@@ -15225,7 +15423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: baseCost
-      value: 50000
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
@@ -15755,6 +15953,144 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684871833}
   m_CullTransparentMesh: 0
+--- !u!1001 &1691818000
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1836804999}
+    m_Modifications:
+    - target: {fileID: 660901477057699919, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_Name
+      value: CityResearchButtonArchitecture
+      objectReference: {fileID: 0}
+    - target: {fileID: 1203802887040437469, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_text
+      value: Architecture
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 159.839
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 227
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: title
+      value: Architecture
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: maxLevel
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: description
+      value: Unlocking a building costs 10% less.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: resourceCostNames
+      value: Merite Ore,Iron Ore
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: resourceCostPrices
+      value: 10 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+--- !u!224 &1691818001 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+  m_PrefabInstance: {fileID: 1691818000}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1693077637
 GameObject:
   m_ObjectHideFlags: 0
@@ -16111,7 +16447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: baseCost
-      value: 50000
+      value: 420
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
@@ -16258,6 +16594,10 @@ PrefabInstance:
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: title
       value: Stone Quarry
+      objectReference: {fileID: 0}
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: baseCost
+      value: 4000
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
@@ -16748,6 +17088,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1130782043}
     m_Modifications:
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: title
+      value: Human Tech
+      objectReference: {fileID: 0}
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: baseCost
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 924800349370884723, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -17282,7 +17630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: baseCost
-      value: 50000
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
@@ -17769,6 +18117,8 @@ RectTransform:
   - {fileID: 1760910796}
   - {fileID: 1831745928}
   - {fileID: 1742845696}
+  - {fileID: 523096187}
+  - {fileID: 1691818001}
   m_Father: {fileID: 1975788015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -18067,7 +18417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: baseCost
-      value: 50000
+      value: 10000000
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
@@ -19094,6 +19444,10 @@ PrefabInstance:
       value: Forester
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: baseCost
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
       value: 1
       objectReference: {fileID: 0}
@@ -19296,6 +19650,10 @@ PrefabInstance:
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: title
       value: Orchard
+      objectReference: {fileID: 0}
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: baseCost
+      value: 100000000
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: isBuilding
@@ -19649,6 +20007,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1130782043}
     m_Modifications:
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: title
+      value: Dwarf Tech
+      objectReference: {fileID: 0}
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: baseCost
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 924800349370884723, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: m_Sprite
       value: 

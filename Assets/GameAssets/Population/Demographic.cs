@@ -243,7 +243,7 @@ public class Demographic : MonoBehaviour, Unlockable
         double multiplier = 1;
         if (nameText.text == "Peasant")
         {
-            multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Peasentry") ? ResearchManager.instance.prestigeResearchLevels["Peasentry"] * .1f : 0;
+            multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Peasanting") ? ResearchManager.instance.prestigeResearchLevels["Peasanting"] * .1f : 0;
         }
         return new BigInteger(Level * basePrestigeGenerated * multiplier);
     }
