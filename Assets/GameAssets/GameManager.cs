@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
 using System.Numerics;
@@ -9,6 +10,7 @@ using System.Numerics;
 public class GameManager : MonoBehaviour
 {
 
+    private const int managerPrice = 50;
     public static GameManager instance;
 
     private BigInteger coins = 1;
@@ -22,7 +24,19 @@ public class GameManager : MonoBehaviour
             coinsText.text = "" + GameManager.BigIntToExponentString(coins);
         }
     }
+
+    private BigInteger gems = 0;
+    private BigInteger Gems
+    {
+        get { return gems; }
+        set 
+        { 
+            gems = value; 
+            gemsText.text = "" + GameManager.BigIntToExponentString(gems);
+        }
+    }
     public TextMeshProUGUI coinsText;
+    public TextMeshProUGUI gemsText;
     public BigInteger cityPrestige = 0;
     private BigInteger CityPrestige
     {
@@ -57,6 +71,13 @@ public class GameManager : MonoBehaviour
     public Dictionary<string, BigInteger> resourcePrices;
 
     public UnityEvent<string> resetCity;
+
+    public List<Manager> managers = new List<Manager>();
+    public ManagersPanel managersPanel;
+    public Manager ManagerPrefab;
+    public Transform contentTransform;
+
+    public BuildingContent buildingContent;
 
     void Awake()
     {
@@ -237,6 +258,33 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void PurchaseGems(int quantity, int cost)
+    {
+        Gems += quantity;
+    }
+
+    public void PurchaseManager()
+    {
+        Gems -= managerPrice;
+        Manager manager = Instantiate(ManagerPrefab, contentTransform);
+        manager.InitValues("", 1);
+        Manager existingManager = managers.Find((currentManager) => {return manager.nameText.text == currentManager.nameText.text;});
+        if (existingManager != null)
+        {
+            existingManager.level++;
+        }
+        else
+        {
+            managers.Add(manager);
+            managersPanel.AddManagerToView(manager);
+        }
+    }
+
+    public void UnassignManagerFromOtherBuilding(Manager manager)
+    {
+        buildingContent.UnassignManagerFromOtherBuilding(manager);
+    }
+
     public void StartNewCity(string newCityName)
     {
         AddCollectedPrestige(CityPrestige);
@@ -251,25 +299,38 @@ public class GameManager : MonoBehaviour
 
     public void PrepForSave(SaveData saveData)
     {
-        saveData.coins = coins;
+        saveData.coins = Coins;
+        saveData.gems = Gems;
         saveData.cityPrestige = CityPrestige;
         saveData.collectedPrestige = CollectedPrestige;
         saveData.resources = resources;
         saveData.cityName = cityName;
+
+        saveData.SetManagerSaveData(managers);
     }
 
     public void LoadSavedData(SaveData saveData)
     {
         Coins = saveData.coins;
+        Gems = saveData.gems;
         CityPrestige = saveData.cityPrestige;
         CollectedPrestige = saveData.collectedPrestige;
         resources = saveData.resources;
         cityName = saveData.cityName;
+
+        foreach (string key in saveData.managerLevels.Keys)
+        {
+            Manager manager = Instantiate(ManagerPrefab, contentTransform);
+            manager.InitValues(key, saveData.managerLevels[key]);
+            managers.Add(manager);
+            managersPanel.AddManagerToView(manager);
+        }
     }
 
     public void StartNewGame()
     {
         Coins = 5;
+        Gems = 0;
         CityPrestige = 0;
         resources = new Dictionary<string, BigInteger>();
         AddResources("Wheat", 1);

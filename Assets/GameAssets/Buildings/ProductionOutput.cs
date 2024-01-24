@@ -55,6 +55,9 @@ public class ProductionOutput : MonoBehaviour
             if (producing)
             {
                 productionTimer++;
+                productionTimer += building.Manager != null && 
+                    (building.Manager.effect1Type == "ProductionSpeed" || building.Manager.effect1Type == "ProductionSpeed") 
+                    ? building.Manager.GetEffectMagnitude("ProductionSpeed") : 0;
                 productionTimer += ResearchManager.instance.scienceResearchLevels.ContainsKey("Tapping") && fromTap ? ResearchManager.instance.scienceResearchLevels["Tapping"] * .2f: 0;
                 if (resource == "Wheat" || resource == "Vegetables")
                 {

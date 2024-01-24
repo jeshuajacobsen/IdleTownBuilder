@@ -171,6 +171,11 @@ public class BuildingContent : MonoBehaviour
                     building.Unlock();
                 }
                 building.Level = saveData.buildingLevels[key];
+
+                if (saveData.equippedManagers.ContainsKey(key))
+                {
+                    building.Manager = GameManager.instance.managers.Find((manager) => {return manager.nameText.text == saveData.equippedManagers[key];});
+                }
             } else {
                 Debug.Log("Couldn't find building to load. " + key);
             }
@@ -196,5 +201,16 @@ public class BuildingContent : MonoBehaviour
             }
         }
         LayoutRebuilder.ForceRebuildLayoutImmediate(transform.GetComponent<RectTransform>());
+    }
+
+    public void UnassignManagerFromOtherBuilding(Manager manager)
+    {
+        foreach (Building building in buildings)
+        {
+            if (building.Manager == manager)
+            {
+                building.Manager = null;
+            }
+        }
     }
 }

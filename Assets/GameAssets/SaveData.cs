@@ -11,6 +11,7 @@ public class SaveData
 {
     //game
     public BigInteger coins = 0;
+    public BigInteger gems = 0;
     public BigInteger cityPrestige = 0;
     public BigInteger collectedPrestige = 0;
 
@@ -26,12 +27,28 @@ public class SaveData
     public Dictionary<string, int> scienceResearchLevels;
     public Dictionary<string, int> prestigeResearchLevels;
 
+    public Dictionary<string, int> managerLevels;
+    public void SetManagerSaveData(List<Manager> managers)
+    {
+        managerLevels = new Dictionary<string, int>();
+        foreach(Manager manager in managers)
+        {
+            managerLevels.Add(manager.nameText.text, manager.level);
+        }
+    }
+    public Dictionary<string, string> equippedManagers;
+
     public void SetBuildingSaveData(List<Building> buildings)
     {
         buildingLevels = new Dictionary<string, int>();
+        equippedManagers = new Dictionary<string, string>();
         foreach(Building building in buildings)
         {
             buildingLevels.Add(building.buildingName, building.Level);
+            if (building.Manager != null)
+            {
+                equippedManagers.Add(building.buildingName, building.Manager.nameText.text);
+            }
         }
     }
 

@@ -39,6 +39,22 @@ public class Building : MonoBehaviour, Unlockable
 
     public Canvas canvas;
 
+    private Manager manager;
+    public Manager Manager
+    {
+        get { return manager; }
+        set 
+        { 
+            this.manager = value;
+            if (this.manager != null)
+            {
+                transform.Find("ManagerButton").Find("Text").GetComponent<TextMeshProUGUI>().text = manager.nameText.text;
+            } else {
+                transform.Find("ManagerButton").Find("Text").GetComponent<TextMeshProUGUI>().text = "";
+            }
+        }
+    }
+
     void Awake()
     {
         onProductionClick = new UnityEvent<string>();
@@ -56,6 +72,9 @@ public class Building : MonoBehaviour, Unlockable
         inputResourceButton2.onProductionClick.AddListener(ProductionClick);
         inputResourceButton3.onProductionClick.AddListener(ProductionClick);
         outputResourceButton.onProductionClick.AddListener(ProductionClick);
+
+
+        transform.Find("ManagerButton").GetComponent<Button>().onClick.AddListener(OpenManagerPanel);
 
         transform.Find("Mask").Find("BuildingImage").GetComponent<Image>().sprite = SpriteManager.instance.GetBuildingSprite(buildingName);
     }
@@ -537,6 +556,12 @@ public class Building : MonoBehaviour, Unlockable
         }
     }
 
+    public void OpenManagerPanel()
+    {
+        GameManager.instance.managersPanel.Open(this);
+    }
+
+
     public void LevelUp()
     {
         BigInteger cost = CalculateCost();
@@ -554,6 +579,10 @@ public class Building : MonoBehaviour, Unlockable
         if (buildingName == "Farm" || buildingName == "Vegetable Farm" || buildingName == "Orchard" || buildingName == "Vineyard")
         {
             multiplier -= ResearchManager.instance.prestigeResearchLevels.ContainsKey("Fertilizer") ? ResearchManager.instance.prestigeResearchLevels["Fertilizer"] * .1f : 0;
+        }
+        if (Manager != null)
+        {
+            multiplier -= Manager.effect1Type == "LessConsumption" || Manager.effect2Type == "LessConsumption" ? Manager.GetEffectMagnitude("LessConsumption") : 0;
         }
         return baseCost * GameManager.Pow(level + 1, 2) * (int)(multiplier * 100) / 100;
     }
@@ -609,6 +638,7 @@ public class Building : MonoBehaviour, Unlockable
         } else if (race == "Elf") {
             multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Elf Tech") ? ResearchManager.instance.prestigeResearchLevels["Human Tech"] * .1f : 0;
         }
+        multiplier += Manager != null && (Manager.effect1Type == "ProductionQuantity" || Manager.effect2Type == "ProductionQuantity") ? Manager.GetEffectMagnitude("ProductionQuantity") : 0;
         return (int)(level * multiplier);
     }
 
