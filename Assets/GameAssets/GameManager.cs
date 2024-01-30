@@ -161,13 +161,15 @@ public class GameManager : MonoBehaviour
             }
             return intString.Substring(0, intString.Length % 3) + "," + intString.Substring(intString.Length % 3, 3);
         }
-        int exponentBrackets = (int)(intString.Length / 3);
-        exponentBrackets -= 2;
-        if (exponentBrackets % 3 == 0)
+        int exponentBrackets = (int)((intString.Length - 6) / 3);
+        if (intString.Length % 3 == 1)
         {
-            exponentBrackets--;
+            return intString.Substring(0, 1) + "." + intString.Substring(1, 2) + ExponentLetters(exponentBrackets);
+        } else if (intString.Length % 3 == 2) {
+            return intString.Substring(0, 2) + "." + intString.Substring(2, 1) + ExponentLetters(exponentBrackets);
+        } else {
+            return intString.Substring(0, 3) + ExponentLetters(exponentBrackets);
         }
-        return intString.Substring(0, 3) + "." + intString.Substring(3, 2) + ExponentLetters(exponentBrackets);
     }
 
     private static string ExponentLetters(int exponentBrackets)

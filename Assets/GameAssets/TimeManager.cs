@@ -40,7 +40,7 @@ public class TimeManager : MonoBehaviour
     void Start()
     {
         Load();
-        LoadTime("ExitTime");
+        LoadTime("ExitTime", false);
     }
 
     // Update is called once per frame
@@ -64,7 +64,7 @@ public class TimeManager : MonoBehaviour
         }
         else
         {
-            LoadTime("PauseTime");
+            LoadTime("PauseTime", false);
         }
     }
 
@@ -75,7 +75,7 @@ public class TimeManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    void LoadTime(string key)
+    public void LoadTime(string key, bool isTimeWarping)
     {
         string oldTime = PlayerPrefs.GetString(key, DateTime.UtcNow.ToString());
         DateTime oldDateTime = DateTime.Parse(oldTime);
@@ -86,12 +86,16 @@ public class TimeManager : MonoBehaviour
         // Calculate the difference
         TimeSpan difference = now - oldDateTime;
 
+        int processSeconds = isTimeWarping ? (int)TimeSpan.FromHours(2).TotalSeconds : (int)difference.TotalSeconds;
+
+        Debug.Log(difference.TotalMinutes);
+
         Dictionary<string, BigInteger> oldResources = new Dictionary<string, BigInteger>(GameManager.instance.resources);
         BigInteger oldPrestige = GameManager.instance.cityPrestige;
 
         if (difference.TotalMinutes >= 1)
         {
-            for (int i = 0; i < difference.TotalSeconds; i++)
+            for (int i = 0; i < processSeconds; i++)
             {
                 buildingContent.TickAll();
                 popContent.TickAll();
@@ -102,7 +106,7 @@ public class TimeManager : MonoBehaviour
                 BigInteger oldAmount = oldResources.TryGetValue(resource, out BigInteger value) ? oldResources[resource] : 0;
                 timeAwayResources[resource] = GameManager.instance.resources[resource] - oldAmount;
             }
-            timeAwayShowing.Invoke((int)difference.TotalSeconds, timeAwayResources, GameManager.instance.cityPrestige - oldPrestige);
+            timeAwayShowing.Invoke((int)processSeconds, timeAwayResources, GameManager.instance.cityPrestige - oldPrestige);
         } else {
             timeAwayHidden.Invoke(true);
         }

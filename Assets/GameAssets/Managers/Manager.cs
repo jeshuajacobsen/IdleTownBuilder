@@ -36,15 +36,29 @@ public class Manager : MonoBehaviour
 
     public double GetEffectMagnitude(string effectType)
     {
-        return level * .1f;
+        if (level >= 1 && level < 3)
+        {
+            return .1f;
+        } 
+        else if (level >= 3 && level < 5) 
+        {
+            return .2f;
+        }
+        else if (level >= 5 && level < 8) 
+        {
+            return .3f;
+        }
+        else
+        {
+            return .4f;
+        }
     }
 
     public void InitValues(string name, int level)
     {
         this.level = level;
         string[] names = {"Wedge", "Biggs"};
-        int index = random.Next(names.Length); // Generates a random index within the bounds of the array
-
+        int index = random.Next(names.Length);
         name = name == "" ? names[index] : name;
         nameText.text = name;
         switch(name)
