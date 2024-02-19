@@ -10,6 +10,7 @@ public class TimeManager : MonoBehaviour
 {
 
     public static TimeManager instance;
+    private int maxAwayTime = (int)TimeSpan.FromHours(2).TotalSeconds;
 
     public UnityEvent<int, Dictionary<string, BigInteger>, BigInteger> timeAwayShowing;
     public UnityEvent<bool> timeAwayHidden;
@@ -86,9 +87,8 @@ public class TimeManager : MonoBehaviour
         // Calculate the difference
         TimeSpan difference = now - oldDateTime;
 
-        int processSeconds = isTimeWarping ? (int)TimeSpan.FromHours(2).TotalSeconds : (int)difference.TotalSeconds;
-
-        Debug.Log(difference.TotalMinutes);
+        int processSeconds = isTimeWarping ? 
+            (int)TimeSpan.FromHours(2).TotalSeconds : Math.Min((int)difference.TotalSeconds, maxAwayTime);
 
         Dictionary<string, BigInteger> oldResources = new Dictionary<string, BigInteger>(GameManager.instance.resources);
         BigInteger oldPrestige = GameManager.instance.cityPrestige;
@@ -139,6 +139,7 @@ public class TimeManager : MonoBehaviour
             Debug.Log(jsonData);
             saveData = JsonConvert.DeserializeObject<SaveData>(jsonData);
             GameManager.instance.LoadSavedData(saveData);
+            ResearchManager.instance.Reset(saveData.cityName);
             ResearchManager.instance.LoadSavedData(saveData);
             buildingContent.Reset(saveData.cityName);
             buildingContent.LoadSavedData(saveData);

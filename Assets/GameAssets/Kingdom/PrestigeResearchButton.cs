@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
+using System.Numerics;
 
 public class PrestigeResearchButton : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class PrestigeResearchButton : MonoBehaviour
     [SerializeField] private int maxLevel;
     [SerializeField] private string title;
     [SerializeField] private string description;
-    [SerializeField] private int baseCost;
+    [SerializeField] private BigInteger baseCost;
 
     [SerializeField] private bool isBuilding;
 
@@ -20,10 +22,20 @@ public class PrestigeResearchButton : MonoBehaviour
         if (isBuilding)
         {
             level = ResearchManager.instance.buildingResearchLevels.ContainsKey(title) ? ResearchManager.instance.buildingResearchLevels[title] : 0;
+            baseCost = GameManager.instance.gameData.GetBuildingData(title).researchBaseCost;
+        }
+        else
+        {
+            baseCost = 100;
         }
         transform.Find("levelText").GetComponent<TextMeshProUGUI>().text = "" + level + "/" + maxLevel;
-
+        if (isBuilding)
+        {
+            transform.Find("Mask").Find("Image").GetComponent<Image>().sprite = SpriteManager.instance.GetBuildingSprite(title);
+        }
         ResearchManager.instance.setResearch.AddListener(SetLevel);
+        
+        
     }
 
     // Update is called once per frame

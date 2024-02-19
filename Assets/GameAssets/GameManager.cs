@@ -9,7 +9,7 @@ using System.Numerics;
 
 public class GameManager : MonoBehaviour
 {
-
+    public GameData gameData = new GameData();
     private const int managerPrice = 50;
     public static GameManager instance;
 
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
     
     public Dictionary<string, BigInteger> resourcePrices;
 
-    public UnityEvent<string> resetCity;
+    public UnityEvent<string> resetCity = new UnityEvent<string>();
 
     public List<Manager> managers = new List<Manager>();
     public ManagersPanel managersPanel;
@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
     public Transform contentTransform;
 
     public BuildingContent buildingContent;
+    public GameObject tabMarketContentGameObject;
 
     void Awake()
     {
@@ -99,20 +100,38 @@ public class GameManager : MonoBehaviour
         resourcePrices["Bread"] = new BigInteger(Math.Pow(10, 10));
         resourcePrices["Grapes"] = 160;
         resourcePrices["Furniture"] = 5000;
+        resourcePrices["Cow"] = 5000;
+        resourcePrices["Milk"] = 5000;
         resourcePrices["Barrel"] = 160;
         resourcePrices["Wine"] = 160;
+        resourcePrices["Beef"] = 500;
+        resourcePrices["Leather"] = 5000;
+        resourcePrices["Paper"] = 5000;
+        resourcePrices["Leather Clothes"] = 5000;
+        resourcePrices["Human Jewelry"] = 5000;
+        resourcePrices["High Arcana "] = 5000;
 
         //merfolk
         resourcePrices["Kelp"] = 200;
         resourcePrices["Coral"] = 500;
         resourcePrices["Fish"] = 2000;
+        resourcePrices["Reed"] = 4000;
         resourcePrices["Pearl"] = 8000;
+        resourcePrices["Basket"] = 9000;
         resourcePrices["Sand"] = 10000;
-        resourcePrices["Merite Ore"] = 500000;
+        resourcePrices["Manatee"] = 10000;
+        resourcePrices["Merite Ore"] = 50000;
+        //resourcePrices["Milk"] = 10000;
+        resourcePrices["Eye Of Newt"] = 10000;
+        resourcePrices["Ink"] = 10000;
         resourcePrices["Crab"] = new BigInteger(Math.Pow(10, 8));
         resourcePrices["Magma Slug"] = new BigInteger(Math.Pow(10, 12));
+        resourcePrices["Rice"] = 10000;
         resourcePrices["Fire Slime"] = 8000;
         resourcePrices["Merite Ingot"] = 8000;
+        resourcePrices["Mer Jewelry"] = 10000;
+        resourcePrices["Mermail"] = 10000;
+        resourcePrices["Trident"] = 10000;
 
         //Dwarf
         resourcePrices["Mushroom"] = 200;
@@ -122,6 +141,57 @@ public class GameManager : MonoBehaviour
         resourcePrices["Honey"] = 10000;
         resourcePrices["Iron Ingot"] = 1000000;
         resourcePrices["Mead"] = new BigInteger(Math.Pow(10, 9));
+        resourcePrices["Mechanical Parts"] = 10000;
+        resourcePrices["Tools"] = 10000;
+        resourcePrices["Hops"] = 10000;
+        resourcePrices["Gold Ore"] = 10000;
+        resourcePrices["Glass"] = 10000;
+        resourcePrices["Beer"] = 10000;
+        resourcePrices["Gold Ingot"] = 10000;
+        resourcePrices["Artifact"] = 10000;
+        resourcePrices["Jewel"] = 10000;
+        resourcePrices["Book"] = 10000;
+        resourcePrices["Golem"] = 10000;
+        resourcePrices["Rune"] = 10000;
+        resourcePrices["Mithril Ore"] = 10000;
+        resourcePrices["Mithril Ingot"] = 10000;
+        resourcePrices["Mithril Armor"] = 10000;
+
+        //Fairy
+        resourcePrices["Flowers"] = 10000;
+        resourcePrices["Magic Mushroom"] = 10000;
+        resourcePrices["Berry"] = 10000;
+        resourcePrices["Fairy Dust"] = 10000;
+        //resourcePrices["Mana"] = 10000;
+        resourcePrices["Shoes"] = 10000;
+        resourcePrices["Luck Charm"] = 10000;
+        resourcePrices["Beauty Charm"] = 10000;
+        resourcePrices["Light Bulb"] = 10000;
+        resourcePrices["Tea"] = 10000;
+        resourcePrices["Silk"] = 10000;
+        resourcePrices["Fairyelium"] = 10000;
+        resourcePrices["Whisper Silk"] = 10000;
+        resourcePrices["Fairy Crystal"] = 10000;
+        resourcePrices["Invisibility Cloak"] = 10000;
+        resourcePrices["Fairy Jewelry"] = 10000;
+
+        //elf
+        resourcePrices["Anima Fruit"] = 10000;
+        resourcePrices["Living Wood"] = 10000;
+        resourcePrices["Egg"] = 10000;
+        resourcePrices["Cotton"] = 10000;
+        resourcePrices["Unicorn Hair"] = 10000;
+        resourcePrices["Cotton Clothes"] = 10000;
+        resourcePrices["Chicken"] = 10000;
+        resourcePrices["Enchantment"] = 10000;
+        resourcePrices["Sugar"] = 10000;
+        resourcePrices["Cake"] = 10000;
+        resourcePrices["Wand"] = 10000;
+        resourcePrices["Coffee"] = 10000;
+        resourcePrices["Dark Wood"] = 10000;
+        resourcePrices["Liqour"] = 10000;
+        resourcePrices["Life Gem"] = 10000;
+        resourcePrices["Elvish Jewelry"] = 10000;
 
         if (instance == null)
         {
@@ -139,6 +209,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        tabMarketContentGameObject.SetActive(true);
+        tabMarketContentGameObject.SetActive(false);
         StartNewCity("Peasantry");
     }
 

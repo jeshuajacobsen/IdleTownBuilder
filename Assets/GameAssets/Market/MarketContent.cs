@@ -20,6 +20,9 @@ public class MarketContent : MonoBehaviour
     void Awake()
     {
         onSelectedResourceChange = new UnityEvent<string>();
+
+        GameManager.instance.onResourcesAdded.AddListener(AddResourceListItem);       
+
         GameManager.instance.resetCity.AddListener(Reset);
     }
 
@@ -27,11 +30,6 @@ public class MarketContent : MonoBehaviour
     void Start()
     {
         
-        GameManager.instance.onResourcesAdded.AddListener(AddResourceListItem);
-
-        SetSelectedResource(resources[0].resourceName);        
-
-        GameManager.instance.resetCity.AddListener(Reset);
     }
 
     // Update is called once per frame

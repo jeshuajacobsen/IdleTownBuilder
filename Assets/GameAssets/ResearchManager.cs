@@ -37,6 +37,7 @@ public class ResearchManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.instance.resetCity.AddListener(Reset);
     }
 
     // Update is called once per frame
@@ -110,5 +111,10 @@ public class ResearchManager : MonoBehaviour
         BuildingResearchUpgrade("Lumber Mill");
         BuildingResearchUpgrade("Potter");
         BuildingResearchUpgrade("Kelpery");
+    }
+
+    public void Reset(string newCityName)
+    {
+        scienceResearchLevels = new Dictionary<string, int>();
     }
 }

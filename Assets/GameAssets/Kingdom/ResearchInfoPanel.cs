@@ -58,7 +58,7 @@ public class ResearchInfoPanel : MonoBehaviour
             GameManager.instance.SubtractCollectedPrestige(getCost());
             level++;
             currentLevelText.text = level + "/" + maxLevel;
-            costText.text = "" + getCost();
+            costText.text = "" + GameManager.BigIntToExponentString(getCost());
             onUpgrade.Invoke(titleText.text);
         }
         

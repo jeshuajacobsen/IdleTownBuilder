@@ -57,15 +57,15 @@ public class Demographic : MonoBehaviour, Unlockable
             case "Peasants":
                 baseCost = 20;
                 basePrestigeGenerated = 4;
-                consumptionPanel.AddRequirement("Wheat", 20);
-                consumptionPanel.AddRequirement("Pottery", 5);
+                consumptionPanel.AddRequirement("Wheat", 30);
+                consumptionPanel.AddRequirement("Pottery", 3);
                 break;
             case "Commoners":
                 baseCost = 2000;
                 basePrestigeGenerated = 180;
-                consumptionPanel.AddRequirement("Pottery", 10);
-                consumptionPanel.AddRequirement("Vegetables", 7);
-                consumptionPanel.AddRequirement("Clothes", 5);
+                consumptionPanel.AddRequirement("Pottery", 8);
+                consumptionPanel.AddRequirement("Vegetables", 5);
+                consumptionPanel.AddRequirement("Clothes", 3);
                 break;
             case "Tradesmen":
                 baseCost = 20000;
@@ -80,20 +80,32 @@ public class Demographic : MonoBehaviour, Unlockable
                 basePrestigeGenerated = 2000;
                 consumptionPanel.AddRequirement("Bread", 20);
                 consumptionPanel.AddRequirement("Furniture", 10);
-                consumptionPanel.AddRequirement("Luck Charm", 5);
-                consumptionPanel.AddRequirement("Enchantment", 2);
+                consumptionPanel.AddRequirement("Basket", 5);
+                consumptionPanel.AddRequirement("Mead", 5);
                 break;
             case "Wizards":
-                baseCost = 200;
+                baseCost = 8000000;
                 basePrestigeGenerated = 20;
+                consumptionPanel.AddRequirement("Milk", 20);
+                consumptionPanel.AddRequirement("Artifact", 10);
+                consumptionPanel.AddRequirement("Fairy Dust", 5);
+                consumptionPanel.AddRequirement("Wand", 5);
                 break;
             case "Nobles":
                 baseCost = 200;
                 basePrestigeGenerated = 20;
+                consumptionPanel.AddRequirement("Beef", 20);
+                consumptionPanel.AddRequirement("Light Bulb", 10);
+                consumptionPanel.AddRequirement("Cake", 5);
+                consumptionPanel.AddRequirement("Tea", 5);
                 break;
             case "Royalty":
                 baseCost = 200;
                 basePrestigeGenerated = 20;
+                consumptionPanel.AddRequirement("Human Jewelry", 20);
+                consumptionPanel.AddRequirement("Elvish Jewelry", 10);
+                consumptionPanel.AddRequirement("Fairy Jewelry", 5);
+                consumptionPanel.AddRequirement("Mer Jewelry", 5);
                 break;
 
             //merfolk
@@ -108,7 +120,7 @@ public class Demographic : MonoBehaviour, Unlockable
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Merfolk";
-                consumptionPanel.AddRequirement("Pottery", 20);
+                consumptionPanel.AddRequirement("Pottery", 5);
                 consumptionPanel.AddRequirement("Pearl", 10);
                 consumptionPanel.AddRequirement("Crab", 7);
                 break;
@@ -116,21 +128,36 @@ public class Demographic : MonoBehaviour, Unlockable
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Merfolk";
+                consumptionPanel.AddRequirement("Beauty Charm", 5);
+                consumptionPanel.AddRequirement("Rune", 10);
+                consumptionPanel.AddRequirement("Eye Of Newt", 7);
                 break;
             case "Mer-chants":
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Merfolk";
+                consumptionPanel.AddRequirement("Mer Jewelry", 5);
+                consumptionPanel.AddRequirement("Luck Charm", 5);
+                consumptionPanel.AddRequirement("Beer", 10);
+                consumptionPanel.AddRequirement("Rice", 7);
                 break;
             case "High Mer":
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Merfolk";
+                consumptionPanel.AddRequirement("Mer Jewelry", 5);
+                consumptionPanel.AddRequirement("Artifact", 5);
+                consumptionPanel.AddRequirement("Light Bulb", 10);
+                consumptionPanel.AddRequirement("Liqour", 7);
                 break;
             case "Tritons":
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Merfolk";
+                consumptionPanel.AddRequirement("Mermail", 5);
+                consumptionPanel.AddRequirement("Trident", 5);
+                consumptionPanel.AddRequirement("Wine", 10);
+                consumptionPanel.AddRequirement("Liqour", 7);
                 break;
 
 
@@ -139,26 +166,42 @@ public class Demographic : MonoBehaviour, Unlockable
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Dwarf";
+                consumptionPanel.AddRequirement("Mushroom", 15);
+                consumptionPanel.AddRequirement("Mead", 5);
                 break;
             case "Workers":
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Dwarf";
+                consumptionPanel.AddRequirement("Tools", 5);
+                consumptionPanel.AddRequirement("Milk", 5);
+                consumptionPanel.AddRequirement("Beer", 1);
                 break;
             case "Mages":
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Dwarf";
+                consumptionPanel.AddRequirement("Rune", 5);
+                consumptionPanel.AddRequirement("Magic Mushrooms", 15);
+                consumptionPanel.AddRequirement("Wine", 10);
+                consumptionPanel.AddRequirement("Enchantment", 7);
                 break;
             case "Artificers":
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Dwarf";
+                consumptionPanel.AddRequirement("Book", 5);
+                consumptionPanel.AddRequirement("Golem", 15);
+                consumptionPanel.AddRequirement("Cake", 10);
+                consumptionPanel.AddRequirement("Leather Clothes", 7);
                 break;
             case "Dwarf Lords":
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Dwarf";
+                consumptionPanel.AddRequirement("Mithril Armor", 5);
+                consumptionPanel.AddRequirement("Invisibility Cloak", 15);
+                consumptionPanel.AddRequirement("Liqour", 10);
                 break;
 
             //Fairies
@@ -166,31 +209,52 @@ public class Demographic : MonoBehaviour, Unlockable
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Fairy";
+                consumptionPanel.AddRequirement("Flowers", 5);
+                consumptionPanel.AddRequirement("Honey", 15);
+                consumptionPanel.AddRequirement("Bread", 10);
                 break;
             case "Brownies":
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Fairy";
+                consumptionPanel.AddRequirement("Flowers", 5);
+                consumptionPanel.AddRequirement("Shoes", 15);
+                consumptionPanel.AddRequirement("Berries", 10);
                 break;
             case "Leprechauns":
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Fairy";
+                consumptionPanel.AddRequirement("Luck Charm", 5);
+                consumptionPanel.AddRequirement("Sugar", 15);
+                consumptionPanel.AddRequirement("Milk", 10);
                 break;
             case "Selkies":
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Fairy";
+                consumptionPanel.AddRequirement("Fish", 5);
+                consumptionPanel.AddRequirement("Rice", 15);
+                consumptionPanel.AddRequirement("Mana", 10);
+                consumptionPanel.AddRequirement("Egg", 10);
                 break;
             case "Clurichaun":
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Fairy";
+                consumptionPanel.AddRequirement("Light Bulb", 5);
+                consumptionPanel.AddRequirement("Beer", 15);
+                consumptionPanel.AddRequirement("Wine", 10);
+                consumptionPanel.AddRequirement("Liqour", 10);
                 break;
             case "Aos Si":
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Fairy";
+                consumptionPanel.AddRequirement("Fairy Jewelry", 5);
+                consumptionPanel.AddRequirement("Coffee", 15);
+                consumptionPanel.AddRequirement("Wine", 10);
+                consumptionPanel.AddRequirement("Liqour", 10);
                 break;
 
 
@@ -199,26 +263,43 @@ public class Demographic : MonoBehaviour, Unlockable
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Elf";
+                consumptionPanel.AddRequirement("Anima Fruit", 15);
+                consumptionPanel.AddRequirement("Egg", 5);
                 break;
             case "House Elves":
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Elf";
+                consumptionPanel.AddRequirement("Cotton Clothes", 15);
+                consumptionPanel.AddRequirement("Shoes", 5);
+                consumptionPanel.AddRequirement("Fish", 5);
                 break;
             case "Druids":
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Elf";
+                consumptionPanel.AddRequirement("Chicken", 15);
+                consumptionPanel.AddRequirement("Enchantment", 5);
+                consumptionPanel.AddRequirement("Rune", 5);
+                consumptionPanel.AddRequirement("Curse", 5);
                 break;
             case "High Elves":
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Elf";
+                consumptionPanel.AddRequirement("Beauty Charm", 15);
+                consumptionPanel.AddRequirement("Coffee", 5);
+                consumptionPanel.AddRequirement("Rice", 5);
+                consumptionPanel.AddRequirement("Liqour", 5);
                 break;
             case "Perfects":
                 baseCost = 200;
                 basePrestigeGenerated = 20;
                 race = "Elf";
+                consumptionPanel.AddRequirement("Elvish Jewelry", 15);
+                consumptionPanel.AddRequirement("Fairy Jewelry", 5);
+                consumptionPanel.AddRequirement("Book", 5);
+                consumptionPanel.AddRequirement("High Arcana", 5);
                 break;
         }
         transform.Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + CalculateCost();

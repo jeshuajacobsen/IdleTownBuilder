@@ -104,7 +104,7 @@ RectTransform:
   m_GameObject: {fileID: 3437025866330175437}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6825457777193219993}
@@ -171,6 +171,9 @@ MonoBehaviour:
   nameText: {fileID: 4483013439593303763}
   effect1Text: {fileID: 485423593456712811}
   effect2Text: {fileID: 5431601291493059429}
+  effect1Type: 
+  effect2Type: 
+  level: 0
 --- !u!114 &8543295721687715329
 MonoBehaviour:
   m_ObjectHideFlags: 0
