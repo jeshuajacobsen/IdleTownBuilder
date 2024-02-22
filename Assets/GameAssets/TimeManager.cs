@@ -117,23 +117,26 @@ public class TimeManager : MonoBehaviour
 
     public void Save()
     {
-        GameManager.instance.PrepForSave(saveData);
-        ResearchManager.instance.PrepForSave(saveData);
-        buildingContent.PrepForSave(saveData);
-        marketContent.PrepForSave(saveData);
-        popContent.PrepForSave(saveData);
-        newCityContent.PrepForSave(saveData);
-        string jsonData = JsonConvert.SerializeObject(saveData);
-        System.IO.File.WriteAllText(Application.persistentDataPath + "/savefile.json", jsonData);
-        Debug.Log(jsonData);
-        Debug.Log("Saved data to: " + Application.persistentDataPath + "/savefile.json");
-
+        if (Environment.GetEnvironmentVariable("RUNNING_TESTS") != "true")
+        {
+            GameManager.instance.PrepForSave(saveData);
+            ResearchManager.instance.PrepForSave(saveData);
+            buildingContent.PrepForSave(saveData);
+            marketContent.PrepForSave(saveData);
+            popContent.PrepForSave(saveData);
+            newCityContent.PrepForSave(saveData);
+            string jsonData = JsonConvert.SerializeObject(saveData);
+        
+            System.IO.File.WriteAllText(Application.persistentDataPath + "/savefile.json", jsonData);
+            Debug.Log(jsonData);
+            Debug.Log("Saved data to: " + Application.persistentDataPath + "/savefile.json");
+        }
     }
 
     public void Load()
     {
         string path = Application.persistentDataPath + "/savefile.json";
-        if (System.IO.File.Exists(path))
+        if (System.IO.File.Exists(path) && Environment.GetEnvironmentVariable("RUNNING_TESTS") != "true")
         {
             string jsonData = System.IO.File.ReadAllText(path);
             Debug.Log(jsonData);

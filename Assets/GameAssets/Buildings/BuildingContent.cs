@@ -7,7 +7,7 @@ public class BuildingContent : MonoBehaviour
 {
     public Building BuildingPrefab;
     public Transform contentTransform;
-    private List<Building> buildings;
+    public List<Building> buildings;
 
     private bool starting = false;
 

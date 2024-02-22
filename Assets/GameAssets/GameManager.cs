@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     private BigInteger coins = 1;
 
-    private BigInteger Coins
+    public BigInteger Coins
     {
         get { return coins; }
         set 
