@@ -96,7 +96,6 @@ public class Building : MonoBehaviour, Unlockable
         string[] inputResources = {};
         string outputResource = "";
         int productionTime = 10;
-        string category = "";
 
         switch(newName)
         {
@@ -968,7 +967,7 @@ public class Building : MonoBehaviour, Unlockable
         double multiplier = 1;
         if (buildingName == "Farm" || buildingName == "Vegetable Farm" || buildingName == "Orchard" || buildingName == "Vineyard")
         {
-            multiplier -= ResearchManager.instance.prestigeResearchLevels.ContainsKey("Fertilizer") ? ResearchManager.instance.prestigeResearchLevels["Fertilizer"] * .1f : 0;
+            multiplier -= ResearchManager.instance.prestigeResearchLevels.ContainsKey("Fertilizer") ? ResearchManager.instance.prestigeResearchLevels["Fertilizer"] * .1 : 0;
         }
         if (Manager != null)
         {
@@ -1008,13 +1007,17 @@ public class Building : MonoBehaviour, Unlockable
     {
         double multiplier = 1;
 
-        if (buildingName == "Forester")
+        if (category == "Gathering")
         {
-            multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Forestry") ? ResearchManager.instance.prestigeResearchLevels["Forestry"] * .1f : 0;
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Gathering") ? ResearchManager.instance.scienceResearchLevels["Gathering"] * .1f : 0;
+        }
+        if (category == "Mine")
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Mining") ? ResearchManager.instance.scienceResearchLevels["Mining"] * .1f : 0;
         }
         if (ResearchManager.instance.buildingResearchLevels.ContainsKey(buildingName))
         {
-            multiplier += ResearchManager.instance.buildingResearchLevels[buildingName] * .1f; 
+            multiplier += (ResearchManager.instance.buildingResearchLevels[buildingName] - 1) * .1f; 
         }
         if (race == "Human")
         {

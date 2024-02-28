@@ -12790,6 +12790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuildingPrefab: {fileID: 54021773524411663, guid: 5dc5d910db564d84282f357d4bf10e0b, type: 3}
   contentTransform: {fileID: 871398045}
+  buildings: []
 --- !u!114 &871398047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14058,6 +14059,7 @@ MonoBehaviour:
   contentTransform: {fileID: 960517640}
   buildingContent: {fileID: 871398046}
   tabMarketContentGameObject: {fileID: 801320601}
+  popContent: {fileID: 1084745142}
 --- !u!4 &960517640
 Transform:
   m_ObjectHideFlags: 0
@@ -25405,7 +25407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
-      value: Decreases wheat consumed by tier 1 demographics.
+      value: Decreases wheat consumed by Peasants.
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: resourceCostNames
@@ -31426,11 +31428,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 535117344852880804, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: m_text
-      value: Fertilizer
+      value: Fast Crops
       objectReference: {fileID: 0}
     - target: {fileID: 660901477057699919, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: m_Name
-      value: CityResearchButtonFertilizer
+      value: CityResearchButtonFastCrops
       objectReference: {fileID: 0}
     - target: {fileID: 875685228804221380, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: m_Sprite
@@ -31526,7 +31528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: title
-      value: Fertilizer
+      value: Fast Crops
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: maxLevel
@@ -31534,7 +31536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
-      value: Increases the speed of production for all farms.
+      value: Increases production speed for farms.
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: resourceCostNames

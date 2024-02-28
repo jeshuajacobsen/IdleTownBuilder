@@ -17,6 +17,7 @@ public class Requirement : MonoBehaviour
             double multiplier = 1;
             multiplier -= resource == "Wheat" && ResearchManager.instance.scienceResearchLevels.ContainsKey("Foraging")? ResearchManager.instance.scienceResearchLevels["Foraging"] * .1f : 0;
             multiplier -= resource == "Vegetables" && ResearchManager.instance.scienceResearchLevels.ContainsKey("Gleaning")? ResearchManager.instance.scienceResearchLevels["Gleaning"] * .1f : 0; 
+            multiplier = Math.Round(multiplier, 2);
             return cost * new BigInteger(multiplier * 100) / 100;
         }
         set 

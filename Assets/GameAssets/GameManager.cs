@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
 
     public BuildingContent buildingContent;
     public GameObject tabMarketContentGameObject;
+    public PopulationContent popContent;
 
     void Awake()
     {
