@@ -34,6 +34,18 @@ public class Demographic : MonoBehaviour, Unlockable
     public Canvas canvas;
     public int tier;
 
+    private double happiness = 1;
+    public double Happiness
+    {
+        get { return happiness; }
+        set 
+        { 
+            happiness = value;
+        }
+    }
+    private int capacityLevel = 1;
+    private int growthLevel = 1;
+
 
     // Start is called before the first frame update
     void Start()

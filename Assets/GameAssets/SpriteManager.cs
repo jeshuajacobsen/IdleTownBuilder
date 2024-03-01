@@ -194,6 +194,13 @@ public class SpriteManager : MonoBehaviour
     public Sprite highElves;
     public Sprite perfects;
 
+
+
+    //interface
+    public Sprite fillBarGreen;
+    public Sprite fillBarYellow;
+    public Sprite fillBarRed;
+
     void Awake() 
     {
         if (instance == null)
@@ -216,6 +223,19 @@ public class SpriteManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public Sprite GetInterfaceSprite(string name)
+    {
+        switch (name) {
+            case "FillBarGreen":
+                return fillBarGreen;
+            case "FillBarYellow":
+                return fillBarYellow;
+            case "FillBarRed":
+                return fillBarRed;
+        }
+        return fillBarGreen;
     }
 
     public Sprite GetResourceSprite(string name)

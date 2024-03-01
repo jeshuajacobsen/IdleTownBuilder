@@ -52,11 +52,13 @@ public class ConsumptionPanel : MonoBehaviour
             {
                 productionTimer -= requiredTime;
                 GameManager.instance.AddCityPrestige(GetPrestigeGenerated());
-
+                Demographic currentDemo = transform.parent.GetComponent<Demographic>();
+                currentDemo.Happiness = calculateHappiness();
                 foreach (Requirement requirement in requirements)
                 {
                     requirement.ConsumeResource();
                 }
+                
             }
     
             loadingBar.UpdatePercentage(productionTimer / requiredTime * 100);
@@ -69,13 +71,23 @@ public class ConsumptionPanel : MonoBehaviour
         Demographic currentDemo = transform.parent.GetComponent<Demographic>();
         foreach (Requirement req in requirements)
         {
-            totalPrestige += new BigInteger((int)req.PercentMet()) * 
+            totalPrestige += new BigInteger(req.PercentMet()) * 
                 currentDemo.GetPrestigeGenerated() / 
                 new BigInteger(requirements.Count) / 
                 new BigInteger(100);
         }
         return totalPrestige;
     }
+
+    public int calculateHappiness()
+    {
+        int totalHappiness = 0;
+        foreach (Requirement req in requirements)
+        {
+            totalHappiness += req.PercentMet() / requirements.Count;
+        }
+        return totalHappiness;
+    }    
 
     public void Unlock()
     {

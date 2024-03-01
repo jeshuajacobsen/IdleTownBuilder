@@ -62,11 +62,11 @@ public class Requirement : MonoBehaviour
         transform.Find("costText").GetComponent<TextMeshProUGUI>().text = "" + resourceInStock + "/" + Cost * level;
     }
 
-    public BigInteger PercentMet()
+    public int PercentMet()
     {
         if (GameManager.instance.resources.ContainsKey(resource))
         {
-            return new BigInteger((float)Min(GameManager.instance.resources[resource], Cost * level) / (float)(Cost * level) * 100);
+            return (int)((float)Min(GameManager.instance.resources[resource], Cost * level) / (float)(Cost * level) * 100);
         }
         return 0;
     }

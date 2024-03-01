@@ -52,6 +52,7 @@ public class NewTestScript
     public void TearDown()
     {
         var unloadOperation = SceneManager.UnloadSceneAsync("Main");
+        Environment.SetEnvironmentVariable("RUNNING_TESTS", "false");
         // Note: You cannot yield return here to wait for it to complete
     }
 
