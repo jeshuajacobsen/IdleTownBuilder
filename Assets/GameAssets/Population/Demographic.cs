@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Numerics;
+using System.Transactions;
 
 public class Demographic : MonoBehaviour, Unlockable
 {
@@ -15,17 +16,6 @@ public class Demographic : MonoBehaviour, Unlockable
         set 
         { 
             nameText.text = value;
-        }
-    }
-    private int level;
-    public int Level
-    {
-        get { return level; }
-        set 
-        { 
-            level = value;
-            levelText.text = "Level: " + level;
-            transform.Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + CalculateCost();
         }
     }
     private BigInteger baseCost = 1;
@@ -44,8 +34,43 @@ public class Demographic : MonoBehaviour, Unlockable
         }
     }
     private int capacityLevel = 1;
+    public int CapacityLevel
+    {
+        get { return capacityLevel; }
+        set 
+        { 
+            capacityLevel = value;
+            transform.Find("CapacityPanel").Find("CapacityText").GetComponent<TextMeshProUGUI>().text = CalculateCapacity(false).ToString() + " -> " + CalculateCapacity(true).ToString();
+            transform.Find("CapacityPanel").Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + CalculateCapacityCost();
+        }
+    }
     private int growthLevel = 1;
 
+    public int GrowthLevel
+    {
+        get { return growthLevel; }
+        set 
+        { 
+            growthLevel = value;
+            transform.Find("GrowthPanel").Find("GrowthText").GetComponent<TextMeshProUGUI>().text = CalculateGrowth(false).ToString() + " -> " + CalculateGrowth(true).ToString();
+            transform.Find("GrowthPanel").Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + CalculateGrowthCost();
+        }
+    }
+
+    private int population = 0;
+    public int Population
+    {
+        get { return population; }
+        set 
+        { 
+            foreach (Requirement requirement in transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().requirements)
+            {
+                requirement.population = value;
+            }
+            population = value;
+            transform.Find("PopulationText").GetComponent<TextMeshProUGUI>().text = "Pop: " + population.ToString();
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +86,8 @@ public class Demographic : MonoBehaviour, Unlockable
 
     public void InitValues(string newName)
     {
-        Level = 0;
+        GrowthLevel = 0;
+        CapacityLevel = 0;
         Name = newName;
         ConsumptionPanel consumptionPanel = transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>();
 
@@ -344,20 +370,62 @@ public class Demographic : MonoBehaviour, Unlockable
                 tier = 5;
                 break;
         }
-        transform.Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + CalculateCost();
     }
 
-    public void LevelUp()
+    public void GrowPopulation()
     {
-        BigInteger cost = CalculateCost();
+        if (Population < CalculateCapacity(false))
+        {
+            Population += GrowthLevel * (int)happiness / 100;
+        }
+    }
+
+    public int CalculateCapacity(bool nextLevel)
+    {
+        if (nextLevel)
+        {
+            return (int)(CapacityLevel + 1);
+        }
+        return (int)(CapacityLevel);
+    }
+
+    public int CalculateGrowth(bool nextLevel)
+    {
+        if (nextLevel)
+        {
+            return (int)(GrowthLevel + 1);
+        }
+        return (int)(GrowthLevel);
+    }
+
+    public BigInteger CalculateCapacityCost()
+    {
+        return (baseCost * new BigInteger(CapacityLevel * 1.6));
+    }
+
+    public BigInteger CalculateGrowthCost()
+    {
+        return (baseCost * new BigInteger(GrowthLevel * 1.6));
+    }
+
+    public void GrowthLevelUp()
+    {
+        BigInteger cost = CalculateGrowthCost();
         if (GameManager.instance.HasEnoughCoin(cost))
         {
-            Level = Level + 1;
+            GrowthLevel = GrowthLevel + 1;
             GameManager.instance.SubtractCoins(cost);
-            foreach (Requirement requirement in transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().requirements)
-            {
-                requirement.level = Level;
-            }
+        }
+    }
+
+    public void CapacityLevelUp()
+    {
+        BigInteger cost = CalculateGrowthCost();
+        if (GameManager.instance.HasEnoughCoin(cost))
+        {
+            CapacityLevel = CapacityLevel + 1;
+            GameManager.instance.SubtractCoins(cost);
+            transform.Find("CapacityPanel").Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + CalculateCapacityCost();
         }
     }
 
@@ -368,12 +436,14 @@ public class Demographic : MonoBehaviour, Unlockable
         {
             multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Peasanting") ? ResearchManager.instance.prestigeResearchLevels["Peasanting"] * .1f : 0;
         }
-        return new BigInteger(Level * basePrestigeGenerated * multiplier);
+        return new BigInteger(population * basePrestigeGenerated * multiplier);
     }
 
     public void Unlock()
     {
-        Level = 1;
+        Population = 1;
+        GrowthLevel = 1;
+        CapacityLevel = 1;
         transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().Unlock();
         transform.Find("LockedPanel").gameObject.SetActive(false);
     }
@@ -381,11 +451,6 @@ public class Demographic : MonoBehaviour, Unlockable
     public BigInteger GetUnlockCost()
     {
         return baseCost * 3;
-    }
-
-    public BigInteger CalculateCost()
-    {
-        return (baseCost * new BigInteger(Level * 1.6));
     }
 
     public void Tick()

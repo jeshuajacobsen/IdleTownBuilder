@@ -136,7 +136,7 @@ public class TimeManager : MonoBehaviour
     public void Load()
     {
         string path = Application.persistentDataPath + "/savefile.json";
-        if (System.IO.File.Exists(path) && Environment.GetEnvironmentVariable("RUNNING_TESTS") != "true")
+        if (!System.IO.File.Exists(path) && Environment.GetEnvironmentVariable("RUNNING_TESTS") != "true")
         {
             string jsonData = System.IO.File.ReadAllText(path);
             Debug.Log(jsonData);

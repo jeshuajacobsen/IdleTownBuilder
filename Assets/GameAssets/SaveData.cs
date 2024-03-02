@@ -56,16 +56,32 @@ public class SaveData
     public Dictionary<string, bool> autosellSettings;
 
     //population content
-    public Dictionary<string, int> demographicLevels;
+    public Dictionary<string, DemographicSaveData> demographicLevels;
     public void SetDemographicSaveData(List<Demographic> demos)
     {
-        demographicLevels = new Dictionary<string, int>();
+        demographicLevels = new Dictionary<string, DemographicSaveData>();
         foreach(Demographic demo in demos)
         {
-            demographicLevels.Add(demo.Name, demo.Level);
+            demographicLevels.Add(demo.Name, new DemographicSaveData(demo.Name, demo.CapacityLevel, demo.GrowthLevel, demo.Population));
         }
     }
 
     //kingdom content
     public Dictionary<string, bool> cityOptionLocks;
+
+    public class DemographicSaveData
+    {
+        public string name;
+        public int capacityLevel;
+        public int growthLevel;
+        public int population;
+
+        public DemographicSaveData(string name, int capacity, int growth, int population)
+        {
+            this.name = name;
+            capacityLevel = capacity;
+            growthLevel = growth;
+            this.population = 0;
+        }
+    }
 }

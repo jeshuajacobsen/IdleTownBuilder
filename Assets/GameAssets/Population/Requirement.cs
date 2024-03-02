@@ -25,7 +25,7 @@ public class Requirement : MonoBehaviour
             this.cost = value;
         }
     }
-    public int level = 1;
+    public int population = 1;
     [SerializeField] private Image resourceImage;
     [SerializeField] private TextMeshProUGUI costText;
 
@@ -43,11 +43,11 @@ public class Requirement : MonoBehaviour
             if (resource != null && GameManager.instance.resources.ContainsKey(resource))
             {
                 costText.text = GameManager.BigIntToExponentString(GameManager.instance.resources[resource]) +
-                    "/" + GameManager.BigIntToExponentString(Cost * level);
+                    "/" + GameManager.BigIntToExponentString(Cost * population);
             }
             else
             {
-                costText.text = "0" + "/" + GameManager.BigIntToExponentString(Cost);
+                costText.text = "0" + "/" + GameManager.BigIntToExponentString(Cost * population);
             }
         }
     }
@@ -59,14 +59,14 @@ public class Requirement : MonoBehaviour
         BigInteger resourceInStock = GameManager.instance.resources.ContainsKey(resource) ? GameManager.instance.resources[resource] : 0;
         transform.Find("Mask").Find("Image").GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(newResource);
         
-        transform.Find("costText").GetComponent<TextMeshProUGUI>().text = "" + resourceInStock + "/" + Cost * level;
+        transform.Find("costText").GetComponent<TextMeshProUGUI>().text = "" + resourceInStock + "/" + Cost * population;
     }
 
     public int PercentMet()
     {
         if (GameManager.instance.resources.ContainsKey(resource))
         {
-            return (int)((float)Min(GameManager.instance.resources[resource], Cost * level) / (float)(Cost * level) * 100);
+            return (int)((float)Min(GameManager.instance.resources[resource], Cost * population) / (float)(Cost * population) * 100);
         }
         return 0;
     }
@@ -75,8 +75,8 @@ public class Requirement : MonoBehaviour
     {
         if (GameManager.instance.resources.ContainsKey(resource))
         {
-            GameManager.instance.SubtractResources(resource, Min(GameManager.instance.resources[resource], Cost * level));
-            return (int)(Min(GameManager.instance.resources[resource], Cost * level));
+            GameManager.instance.SubtractResources(resource, Min(GameManager.instance.resources[resource], Cost * population));
+            return (int)(Min(GameManager.instance.resources[resource], Cost * population));
         }
         return 0;
     }

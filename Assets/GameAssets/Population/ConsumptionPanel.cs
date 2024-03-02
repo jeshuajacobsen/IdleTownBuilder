@@ -54,11 +54,12 @@ public class ConsumptionPanel : MonoBehaviour
                 GameManager.instance.AddCityPrestige(GetPrestigeGenerated());
                 Demographic currentDemo = transform.parent.GetComponent<Demographic>();
                 currentDemo.Happiness = calculateHappiness();
+                
                 foreach (Requirement requirement in requirements)
                 {
                     requirement.ConsumeResource();
                 }
-                
+                currentDemo.GrowPopulation();
             }
     
             loadingBar.UpdatePercentage(productionTimer / requiredTime * 100);
