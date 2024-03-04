@@ -74,9 +74,9 @@ public class SaveData
         public string name;
         public int capacityLevel;
         public int growthLevel;
-        public int population;
+        public BigInteger population;
 
-        public DemographicSaveData(string name, int capacity, int growth, int population)
+        public DemographicSaveData(string name, int capacity, int growth, BigInteger population)
         {
             this.name = name;
             capacityLevel = capacity;

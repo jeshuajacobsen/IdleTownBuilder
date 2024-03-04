@@ -25,7 +25,7 @@ public class Requirement : MonoBehaviour
             this.cost = value;
         }
     }
-    public int population = 1;
+    public BigInteger population = 1;
     [SerializeField] private Image resourceImage;
     [SerializeField] private TextMeshProUGUI costText;
 

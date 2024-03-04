@@ -37,8 +37,8 @@ public class GameManager : MonoBehaviour
     }
     public TextMeshProUGUI coinsText;
     public TextMeshProUGUI gemsText;
-    public BigInteger cityPrestige = 0;
-    private BigInteger CityPrestige
+    private  BigInteger cityPrestige = 0;
+    public BigInteger CityPrestige
     {
         get { return cityPrestige; }
         set 

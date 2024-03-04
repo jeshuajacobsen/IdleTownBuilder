@@ -57,8 +57,8 @@ public class Demographic : MonoBehaviour, Unlockable
         }
     }
 
-    private int population = 0;
-    public int Population
+    private BigInteger population = 0;
+    public BigInteger Population
     {
         get { return population; }
         set 
@@ -86,8 +86,9 @@ public class Demographic : MonoBehaviour, Unlockable
 
     public void InitValues(string newName)
     {
-        GrowthLevel = 0;
-        CapacityLevel = 0;
+        GrowthLevel = 1;
+        CapacityLevel = 1;
+        Population = 1;
         Name = newName;
         ConsumptionPanel consumptionPanel = transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>();
 
@@ -380,22 +381,42 @@ public class Demographic : MonoBehaviour, Unlockable
         }
     }
 
-    public int CalculateCapacity(bool nextLevel)
+    public BigInteger CalculateCapacity(bool nextLevel)
     {
-        if (nextLevel)
+        int capLevel = nextLevel ? CapacityLevel + 1 : CapacityLevel;
+        double multiplier = 1;
+        if (tier == 1 || tier == 2)
+        { 
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Housing") ? ResearchManager.instance.scienceResearchLevels["Housing"] * .1f : 0;
+        } 
+        else if (tier == 3 || tier == 4)
         {
-            return (int)(CapacityLevel + 1);
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Neighborhood") ? ResearchManager.instance.scienceResearchLevels["Neighborhood"] * .1f : 0;
         }
-        return (int)(CapacityLevel);
+        else if (tier == 5 || tier == 6)
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Estates") ? ResearchManager.instance.scienceResearchLevels["Estates"] * .1f : 0;
+        }
+        return capLevel * (int)(100 * multiplier) / 100;
     }
 
-    public int CalculateGrowth(bool nextLevel)
+    public BigInteger CalculateGrowth(bool nextLevel)
     {
-        if (nextLevel)
+        int growLevel = nextLevel ? GrowthLevel + 1 : GrowthLevel;
+        double multiplier = 1;
+        if (tier == 1 || tier == 2)
+        { 
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Immigration") ? ResearchManager.instance.scienceResearchLevels["Immigration"] * .1f : 0;
+        } 
+        else if (tier == 3 || tier == 4)
         {
-            return (int)(GrowthLevel + 1);
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Child Care") ? ResearchManager.instance.scienceResearchLevels["Child Care"] * .1f : 0;
         }
-        return (int)(GrowthLevel);
+        else if (tier == 5 || tier == 6)
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Fertility Rites") ? ResearchManager.instance.scienceResearchLevels["Fertility Rites"] * .1f : 0;
+        }
+        return growLevel * (int)(100 * multiplier) / 100;
     }
 
     public BigInteger CalculateCapacityCost()
@@ -436,7 +457,7 @@ public class Demographic : MonoBehaviour, Unlockable
         {
             multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Peasanting") ? ResearchManager.instance.prestigeResearchLevels["Peasanting"] * .1f : 0;
         }
-        return new BigInteger(population * basePrestigeGenerated * multiplier);
+        return population * (int)(basePrestigeGenerated * multiplier * 100) / 100;
     }
 
     public void Unlock()

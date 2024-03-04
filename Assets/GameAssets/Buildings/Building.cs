@@ -200,7 +200,7 @@ public class Building : MonoBehaviour, Unlockable
                 inputResources = new string[] {"Flour"};
                 baseCost = new BigInteger(Math.Pow(10, 8));;
                 productionTime = 30;
-                category = "crafting";
+                category = "Crafting";
                 break;
             case "Vineyard":
                 outputResource = "Grapes";
@@ -1015,6 +1015,31 @@ public class Building : MonoBehaviour, Unlockable
         {
             multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Mining") ? ResearchManager.instance.scienceResearchLevels["Mining"] * .1f : 0;
         }
+        if (category == "Farm")
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Farming") ? ResearchManager.instance.scienceResearchLevels["Farming"] * .1f : 0;
+        }
+        if (category == "Crafting")
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Crafting") ? ResearchManager.instance.scienceResearchLevels["Crafting"] * .1f : 0;
+        }
+        if (category == "Processing")
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Processing") ? ResearchManager.instance.scienceResearchLevels["Processing"] * .1f : 0;
+        }
+        if (category == "Manufacturing")
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Manufacturing") ? ResearchManager.instance.scienceResearchLevels["Manufacturing"] * .1f : 0;
+        }
+        if (category == "Jeweler")
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Jeweler") ? ResearchManager.instance.scienceResearchLevels["Jeweler"] * .1f : 0;
+        }
+        if (category == "Magic")
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Magic") ? ResearchManager.instance.scienceResearchLevels["Magic"] * .1f : 0;
+        }
+
         if (ResearchManager.instance.buildingResearchLevels.ContainsKey(buildingName))
         {
             multiplier += (ResearchManager.instance.buildingResearchLevels[buildingName] - 1) * .1f; 

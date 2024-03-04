@@ -91,7 +91,7 @@ public class TimeManager : MonoBehaviour
             (int)TimeSpan.FromHours(2).TotalSeconds : Math.Min((int)difference.TotalSeconds, maxAwayTime);
 
         Dictionary<string, BigInteger> oldResources = new Dictionary<string, BigInteger>(GameManager.instance.resources);
-        BigInteger oldPrestige = GameManager.instance.cityPrestige;
+        BigInteger oldPrestige = GameManager.instance.CityPrestige;
 
         if (difference.TotalMinutes >= 1)
         {
@@ -106,7 +106,7 @@ public class TimeManager : MonoBehaviour
                 BigInteger oldAmount = oldResources.TryGetValue(resource, out BigInteger value) ? oldResources[resource] : 0;
                 timeAwayResources[resource] = GameManager.instance.resources[resource] - oldAmount;
             }
-            timeAwayShowing.Invoke((int)processSeconds, timeAwayResources, GameManager.instance.cityPrestige - oldPrestige);
+            timeAwayShowing.Invoke((int)processSeconds, timeAwayResources, GameManager.instance.CityPrestige - oldPrestige);
         } else {
             timeAwayHidden.Invoke(true);
         }

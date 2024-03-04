@@ -79,7 +79,7 @@ public class PopulationContent : MonoBehaviour
         FilterDemographics(demographics[0].race);
     }
 
-    private void AddDemographic(string demoName)
+    public void AddDemographic(string demoName)
     {
         Demographic demo = Instantiate(demoPrefab, contentTransform);
         demo.transform.SetParent(transform, false);

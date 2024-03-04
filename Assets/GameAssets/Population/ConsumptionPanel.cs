@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using SharpUI.Source.Common.UI.Elements.Loading;
 using System.Numerics;
+using UnityEditor.Rendering;
 
 public class ConsumptionPanel : MonoBehaviour
 {
@@ -53,7 +54,7 @@ public class ConsumptionPanel : MonoBehaviour
                 productionTimer -= requiredTime;
                 GameManager.instance.AddCityPrestige(GetPrestigeGenerated());
                 Demographic currentDemo = transform.parent.GetComponent<Demographic>();
-                currentDemo.Happiness = calculateHappiness();
+                currentDemo.Happiness = CalculateHappiness();
                 
                 foreach (Requirement requirement in requirements)
                 {
@@ -80,14 +81,28 @@ public class ConsumptionPanel : MonoBehaviour
         return totalPrestige;
     }
 
-    public int calculateHappiness()
+    public int CalculateHappiness()
     {
         int totalHappiness = 0;
         foreach (Requirement req in requirements)
         {
             totalHappiness += req.PercentMet() / requirements.Count;
         }
-        return totalHappiness;
+        int tier = transform.parent.GetComponent<Demographic>().tier;
+        double multiplier = 1;
+        if (tier == 1 || tier == 2)
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Wells") ? ResearchManager.instance.scienceResearchLevels["Wells"] * .1f : 0;
+        }
+        else if (tier == 3 || tier == 4)
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Fountains") ? ResearchManager.instance.scienceResearchLevels["Fountains"] * .1f : 0;
+        }
+        else if (tier == 5 || tier == 6)
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Baths") ? ResearchManager.instance.scienceResearchLevels["Baths"] * .1f : 0;
+        }
+        return totalHappiness * (int)(multiplier * 100) / 100;
     }    
 
     public void Unlock()

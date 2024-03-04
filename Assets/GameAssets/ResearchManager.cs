@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -48,6 +49,19 @@ public class ResearchManager : MonoBehaviour
 
     public void CityResearchUpgrade(string upgradeTitle)
     {
+        if (upgradeTitle == "Festival")
+        {
+            PopulationContent popContent = GameManager.instance.popContent;
+            BigInteger gainedPrestige = 0;
+            foreach (Demographic demo in popContent.demographics)
+            {
+                if (demo.tier == 1 || demo.tier == 2)
+                {
+                    gainedPrestige += 10 * demo.Population;
+                }
+            }
+            GameManager.instance.AddCityPrestige(gainedPrestige);
+        }
         if (scienceResearchLevels.ContainsKey(upgradeTitle)) {
             scienceResearchLevels[upgradeTitle] += 1;
             
