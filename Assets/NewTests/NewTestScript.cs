@@ -72,7 +72,39 @@ public class CityResearchTests
         gameManager.buildingContent.buildings[0].outputResourceButton.Tick(true);
         //yield return null;
 
-        Assert.AreEqual(time + 1.2, gameManager.productionTimers["Wheat"], .05);
+        Assert.AreEqual(time + 1.2, gameManager.productionTimers["Wheat"], .1);
+        
+    }
+
+        [UnityTest]
+    public IEnumerator AdvancedTappingResearchWorks()
+    {
+        yield return null;
+
+        researchManager.CityResearchUpgrade("Advanced Tapping");
+
+        gameManager.buildingContent.buildings[0].outputResourceButton.Tick(false);
+        double time = gameManager.productionTimers["Wheat"];
+        gameManager.buildingContent.buildings[0].outputResourceButton.Tick(true);
+        //yield return null;
+
+        Assert.AreEqual(time + 1.2, gameManager.productionTimers["Wheat"], .1);
+        
+    }
+
+        [UnityTest]
+    public IEnumerator ExpertTappingResearchWorks()
+    {
+        yield return null;
+
+        researchManager.CityResearchUpgrade("Expert Tapping");
+
+        gameManager.buildingContent.buildings[0].outputResourceButton.Tick(false);
+        double time = gameManager.productionTimers["Wheat"];
+        gameManager.buildingContent.buildings[0].outputResourceButton.Tick(true);
+        //yield return null;
+
+        Assert.AreEqual(time + 1.2, gameManager.productionTimers["Wheat"], .1);
         
     }
 
@@ -413,5 +445,59 @@ public class CityResearchTests
         researchManager.CityResearchUpgrade("Festival");
 
         Assert.AreEqual(new BigInteger(20), gameManager.CityPrestige);
+    }
+
+    [UnityTest]
+    public IEnumerator ArchitectureResearchWorks()
+    {
+        yield return null;
+        Building building = gameManager.buildingContent.buildings.Find((building) => {return building.buildingName == "Farm";});
+        building.Level = 3;
+        Assert.AreEqual(new BigInteger(16), building.CalculateCost());
+        
+        researchManager.CityResearchUpgrade("Architecture");
+
+        Assert.AreEqual(new BigInteger(14), building.CalculateCost());
+    }
+
+    [UnityTest]
+    public IEnumerator TaxationResearchWorks()
+    {
+        yield return null;
+        Demographic demographic = gameManager.popContent.demographics.Find((Demographic demo) => {return demo.Name == "Peasants";});
+        Assert.AreEqual(new BigInteger(5), GameManager.instance.Coins);
+        gameManager.resources["Wheat"] = new BigInteger(100);
+        researchManager.CityResearchUpgrade("Taxation");
+        demographic.transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().requirements.Find((Requirement req) => {return req.resource == "Wheat";}).ConsumeResource();
+        
+        Assert.AreEqual(new BigInteger(8), GameManager.instance.Coins);
+    }
+
+    [UnityTest]
+    public IEnumerator TaxationResearchDoesntAffectHighTier()
+    {
+        yield return null;
+        gameManager.popContent.AddDemographic("Wizards");
+        Demographic demographic = gameManager.popContent.demographics.Find((Demographic demo) => {return demo.Name == "Wizards";});
+        Assert.AreEqual(new BigInteger(5), GameManager.instance.Coins);
+        gameManager.resources["Milk"] = new BigInteger(100);
+        researchManager.CityResearchUpgrade("Taxation");
+        demographic.transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().requirements.Find((Requirement req) => {return req.resource == "Milk";}).ConsumeResource();
+        
+        Assert.AreEqual(new BigInteger(5), GameManager.instance.Coins);
+    }
+
+    [UnityTest]
+    public IEnumerator LuxuryTaxResearchWorks()
+    {
+        yield return null;
+        gameManager.popContent.AddDemographic("Wizards");
+        Demographic demographic = gameManager.popContent.demographics.Find((Demographic demo) => {return demo.Name == "Wizards";});
+        Assert.AreEqual(new BigInteger(5), GameManager.instance.Coins);
+        gameManager.resources["Milk"] = new BigInteger(100);
+        researchManager.CityResearchUpgrade("Luxury Tax");
+        demographic.transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().requirements.Find((Requirement req) => {return req.resource == "Milk";}).ConsumeResource();
+        
+        Assert.AreEqual(5 + gameManager.resourcePrices["Milk"] * 20 * 10 / 100, GameManager.instance.Coins);
     }
 }

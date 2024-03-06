@@ -965,10 +965,13 @@ public class Building : MonoBehaviour, Unlockable
     public BigInteger CalculateCost()
     {
         double multiplier = 1;
-        if (buildingName == "Farm" || buildingName == "Vegetable Farm" || buildingName == "Orchard" || buildingName == "Vineyard")
+        if (category == "Farm")
         {
             multiplier -= ResearchManager.instance.prestigeResearchLevels.ContainsKey("Fertilizer") ? ResearchManager.instance.prestigeResearchLevels["Fertilizer"] * .1 : 0;
         }
+
+        multiplier -= ResearchManager.instance.scienceResearchLevels.ContainsKey("Architecture") ? ResearchManager.instance.scienceResearchLevels["Architecture"] * .1 : 0;
+
         if (Manager != null)
         {
             multiplier -= Manager.effect1Type == "LessConsumption" || Manager.effect2Type == "LessConsumption" ? Manager.GetEffectMagnitude("LessConsumption") : 0;

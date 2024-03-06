@@ -59,6 +59,9 @@ public class ProductionOutput : MonoBehaviour
                     (building.Manager.effect1Type == "ProductionSpeed" || building.Manager.effect1Type == "ProductionSpeed") 
                     ? building.Manager.GetEffectMagnitude("ProductionSpeed") : 0;
                 productionTimer += ResearchManager.instance.scienceResearchLevels.ContainsKey("Tapping") && fromTap ? ResearchManager.instance.scienceResearchLevels["Tapping"] * .2f: 0;
+                productionTimer += ResearchManager.instance.scienceResearchLevels.ContainsKey("Advanced Tapping") && fromTap ? ResearchManager.instance.scienceResearchLevels["Advanced Tapping"] * .2f: 0;
+                productionTimer += ResearchManager.instance.scienceResearchLevels.ContainsKey("Expert Tapping") && fromTap ? ResearchManager.instance.scienceResearchLevels["Expert Tapping"] * .2f: 0;
+                
                 if (resource == "Wheat" || resource == "Vegetables")
                 {
                     productionTimer += ResearchManager.instance.scienceResearchLevels.ContainsKey("Fast Crops") ? ResearchManager.instance.scienceResearchLevels["Fast Crops"] * .1f: 0;

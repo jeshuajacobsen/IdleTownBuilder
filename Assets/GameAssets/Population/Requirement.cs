@@ -76,7 +76,19 @@ public class Requirement : MonoBehaviour
         if (GameManager.instance.resources.ContainsKey(resource))
         {
             GameManager.instance.SubtractResources(resource, Min(GameManager.instance.resources[resource], Cost * population));
-            return (int)(Min(GameManager.instance.resources[resource], Cost * population));
+            int quantity = (int)Min(GameManager.instance.resources[resource], Cost * population);
+            if (ResearchManager.instance.scienceResearchLevels.ContainsKey("Taxation") && 
+                transform.parent.parent.parent.GetComponent<Demographic>().tier < 4 && 
+                quantity > 0)
+            {
+                GameManager.instance.AddCoins(quantity * GameManager.instance.resourcePrices[resource] * 10 / 100);
+            } else if (ResearchManager.instance.scienceResearchLevels.ContainsKey("Luxury Tax") && 
+                transform.parent.parent.parent.GetComponent<Demographic>().tier > 3 && 
+                quantity > 0)
+            {
+                GameManager.instance.AddCoins(quantity * GameManager.instance.resourcePrices[resource] * 10 / 100);
+            }
+            return quantity;
         }
         return 0;
     }
