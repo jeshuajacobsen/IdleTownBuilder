@@ -207,6 +207,15 @@ public class GameManager : MonoBehaviour
         onResourcesAdded = new UnityEvent<string, BigInteger>();
     }
 
+    public BigInteger GetResourcePrice(string resourceName)
+    {
+        BigInteger multiplier = 100;
+        multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Marketing") ? new BigInteger(ResearchManager.instance.prestigeResearchLevels["Marketing"] * 100 * .1f) : 0;
+        multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Economics") ? new BigInteger(ResearchManager.instance.scienceResearchLevels["Economics"] * 100 * .1f) : 0;
+        multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Market") ? new BigInteger(ResearchManager.instance.scienceResearchLevels["Market"] * 100 * .1f) : 0;
+        return resourcePrices[resourceName] * multiplier / 100;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

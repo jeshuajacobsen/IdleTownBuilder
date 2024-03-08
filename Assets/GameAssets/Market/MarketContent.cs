@@ -83,7 +83,7 @@ public class MarketContent : MonoBehaviour
         ResourceListItem resource = Instantiate(ResourceListItemPrefab, contentTransform);
         resources.Add(resource);
         resource.transform.SetParent(transform, false);
-        resource.InitValues(resourceName, GameManager.instance.resources[resourceName], GameManager.instance.resourcePrices[resourceName]);
+        resource.InitValues(resourceName, GameManager.instance.resources[resourceName], GameManager.instance.GetResourcePrice(resourceName));
     }
 
     public void PrepForSave(SaveData saveData)

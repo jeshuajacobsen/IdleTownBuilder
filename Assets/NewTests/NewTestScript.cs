@@ -226,6 +226,7 @@ public class CityResearchTests
         Assert.AreEqual(11, building.GetProductionQuantity());
         
     }
+
     [UnityTest]
     public IEnumerator ManufacturingResearchWorks()
     {
@@ -498,6 +499,49 @@ public class CityResearchTests
         researchManager.CityResearchUpgrade("Luxury Tax");
         demographic.transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().requirements.Find((Requirement req) => {return req.resource == "Milk";}).ConsumeResource();
         
-        Assert.AreEqual(5 + gameManager.resourcePrices["Milk"] * 20 * 10 / 100, GameManager.instance.Coins);
+        Assert.AreEqual(5 + gameManager.GetResourcePrice("Milk") * 20 * 10 / 100, GameManager.instance.Coins);
+    }
+
+    [UnityTest]
+    public IEnumerator EconomicsResearchWorks()
+    {
+        yield return null;
+
+        Assert.AreEqual(new BigInteger(5), GameManager.instance.Coins);
+        gameManager.AddResources("Milk", 10);
+        BigInteger price = gameManager.GetResourcePrice("Milk");
+        researchManager.CityResearchUpgrade("Economics");
+        
+        gameManager.tabMarketContentGameObject.GetComponent<TabMarketContent>().SellResources("Milk");
+        
+        Assert.AreEqual(price + price * 10 / 100, gameManager.GetResourcePrice("Milk"));
+        Assert.AreEqual(5 + gameManager.GetResourcePrice("Milk") * 10, GameManager.instance.Coins);
+    }
+
+    [UnityTest]
+    public IEnumerator MarketResearchWorks()
+    {
+        yield return null;
+
+        Assert.AreEqual(new BigInteger(5), GameManager.instance.Coins);
+        gameManager.AddResources("Milk", 10);
+        BigInteger price = gameManager.GetResourcePrice("Milk");
+        researchManager.CityResearchUpgrade("Market");
+        
+        gameManager.tabMarketContentGameObject.GetComponent<TabMarketContent>().SellResources("Milk");
+        
+        Assert.AreEqual(price + price * 10 / 100, gameManager.GetResourcePrice("Milk"));
+        Assert.AreEqual(5 + gameManager.GetResourcePrice("Milk") * 10, GameManager.instance.Coins);
+    }
+
+    [UnityTest]
+    public IEnumerator LevyResearchWorks()
+    {
+        yield return null;
+        GameManager.instance.resources["Wheat"] = new BigInteger(0);
+
+        researchManager.CityResearchUpgrade("Levy");
+        
+        Assert.AreEqual(new BigInteger(5), GameManager.instance.resources["Wheat"]);
     }
 }

@@ -38,7 +38,6 @@ public class TabMarketContent : MonoBehaviour
 
     private void SellResources(ResourceListItem resource) 
     {
-        
         if (resource != null && GameManager.instance.resources.ContainsKey(resource.resourceName))
         {
             BigInteger amountSold = calculateSellAmount(resource.resourceName);
@@ -46,11 +45,18 @@ public class TabMarketContent : MonoBehaviour
             GameManager.instance.SubtractResources(resource.resourceName, amountSold);
 
             resource.InitValues(resource.resourceName, GameManager.instance.resources[resource.resourceName],
-                GameManager.instance.resourcePrices[resource.resourceName]);
+                GameManager.instance.GetResourcePrice(resource.resourceName));
 
             GameManager.instance.AddCoins(amountSold);
             UpdateSellText(resource.resourceName);
         }
+    }
+
+    public void SellResources(string resource)
+    {
+        ResourceListItem selectedResource = marketContent.resources.Find(x => {
+            return x.resourceName == resource;});
+        SellResources(selectedResource);
     }
 
     public void UpdateSellText(string selectedResource)
@@ -62,10 +68,10 @@ public class TabMarketContent : MonoBehaviour
     private BigInteger calculateSellAmount(string resourceName)
     {
         BigInteger multiplier = 100;
-        multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Market") ? new BigInteger(ResearchManager.instance.prestigeResearchLevels["Market"] * 100 * .1f) : 0;
+
         return new BigInteger((int)quantitySlider.slider.value * 
                 (int)(GameManager.instance.resources[resourceName] * 
-                GameManager.instance.resourcePrices[resourceName] *
+                GameManager.instance.GetResourcePrice(resourceName) *
                 multiplier /
                 100));
     }
@@ -74,6 +80,7 @@ public class TabMarketContent : MonoBehaviour
     {
         foreach (ResourceListItem item in marketContent.resources)
         {
+            
             if(item.transform.Find("AutosellToggle").GetComponent<Toggle>().isOn)
             {
                 SellResources(item);

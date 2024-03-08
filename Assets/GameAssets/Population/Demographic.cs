@@ -453,11 +453,12 @@ public class Demographic : MonoBehaviour, Unlockable
     public BigInteger GetPrestigeGenerated()
     {
         double multiplier = 1;
-        if (nameText.text == "Peasant")
+        int addToBase = 0;
+        if (nameText.text == "Peasants")
         {
-            multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Peasanting") ? ResearchManager.instance.prestigeResearchLevels["Peasanting"] * .1f : 0;
+            addToBase += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Peasanting") ? ResearchManager.instance.prestigeResearchLevels["Peasanting"] * 1 : 0;
         }
-        return population * (int)(basePrestigeGenerated * multiplier * 100) / 100;
+        return population * (int)((basePrestigeGenerated + addToBase) * multiplier * 100) / 100;
     }
 
     public void Unlock()

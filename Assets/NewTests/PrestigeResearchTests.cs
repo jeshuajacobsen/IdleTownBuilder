@@ -83,5 +83,48 @@ public class PrestigeResearchTests
 
         Assert.AreEqual((cost * 90) / 100, gameManager.buildingContent.buildings[0].CalculateCost());
     }
-    
+
+    [UnityTest]
+    public IEnumerator TapPowerResearchWorks()
+    {
+        yield return null;
+
+        researchManager.PrestigeResearchUpgrade("Tap Power");
+
+        gameManager.buildingContent.buildings[0].outputResourceButton.Tick(false);
+        double time = gameManager.productionTimers["Wheat"];
+        gameManager.buildingContent.buildings[0].outputResourceButton.Tick(true);
+        //yield return null;
+
+        Assert.AreEqual(time + 1.1, gameManager.productionTimers["Wheat"], .05);
+        
+    }
+
+    [UnityTest]
+    public IEnumerator MarketingResearchWorks()
+    {
+        yield return null;
+
+        Assert.AreEqual(new BigInteger(5), GameManager.instance.Coins);
+        gameManager.AddResources("Milk", 10);
+        BigInteger price = gameManager.GetResourcePrice("Milk");
+        researchManager.PrestigeResearchUpgrade("Marketing");
+        
+        gameManager.tabMarketContentGameObject.GetComponent<TabMarketContent>().SellResources("Milk");
+        
+        Assert.AreEqual(price + price * 10 / 100, gameManager.GetResourcePrice("Milk"));
+        Assert.AreEqual(5 + gameManager.GetResourcePrice("Milk") * 10, GameManager.instance.Coins);
+    }
+
+    [UnityTest]
+    public IEnumerator PeasantingResearchWorks()
+    {
+        yield return null;
+        Demographic demographic = gameManager.popContent.demographics.Find((Demographic demo) => {return demo.Name == "Peasants";});
+        Assert.AreEqual(new BigInteger(4), demographic.GetPrestigeGenerated());
+   
+        researchManager.PrestigeResearchUpgrade("Peasanting");
+
+        Assert.AreEqual(new BigInteger(5), demographic.GetPrestigeGenerated());
+    }
 }

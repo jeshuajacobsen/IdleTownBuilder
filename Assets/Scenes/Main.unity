@@ -3162,7 +3162,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
-      value: When researched gain resources equal to each unlocked buildings output.
+      value: When researched gain resources equal to each unlocked buildings output
+        X5.
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: resourceCostNames
@@ -6729,152 +6730,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
   m_PrefabInstance: {fileID: 471177796}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &473932088
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1836804999}
-    m_Modifications:
-    - target: {fileID: 535117344852880804, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_text
-      value: Gathering
-      objectReference: {fileID: 0}
-    - target: {fileID: 660901477057699919, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_Name
-      value: CityResearchButtonResources
-      objectReference: {fileID: 0}
-    - target: {fileID: 875685228804221380, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: afd73c5fe4a021946ba54e5b88ed1a02, type: 3}
-    - target: {fileID: 1203802887040437469, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_text
-      value: Gathering
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 160
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 159.839
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -460
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -62
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: title
-      value: Resources
-      objectReference: {fileID: 0}
-    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: maxLevel
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: description
-      value: All buildings that don't consume resources produce 10% faster.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: resourceCostNames
-      value: Merite Ore,Iron Ore
-      objectReference: {fileID: 0}
-    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-      propertyPath: resourceCostPrices
-      value: 10 30
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
---- !u!224 &473932089 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
-  m_PrefabInstance: {fileID: 473932088}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &484200082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9230,7 +9085,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &583760702
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12246,7 +12101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: description
-      value: Increases peasant prestige output by 10%.
+      value: Increases peasant base prestige output by 1.
       objectReference: {fileID: 0}
     - target: {fileID: 924800349370884723, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: m_Sprite
@@ -13553,7 +13408,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: title
-      value: Market
+      value: Marketing
       objectReference: {fileID: 0}
     - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: baseCost
@@ -13649,7 +13504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4190818875894117809, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: m_Name
-      value: PrestigeResearchMarket
+      value: PrestigeResearchMarketing
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22547,7 +22402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 660901477057699919, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: m_Name
-      value: CityResearchButtonMarketing
+      value: CityResearchButtonMarket
       objectReference: {fileID: 0}
     - target: {fileID: 875685228804221380, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: m_Sprite
@@ -22651,7 +22506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: title
-      value: Marketing
+      value: Market
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: maxLevel
@@ -24422,7 +24277,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1684871834
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27462,7 +27317,6 @@ RectTransform:
   - {fileID: 1233169040}
   - {fileID: 1533301701}
   - {fileID: 244418348}
-  - {fileID: 473932089}
   m_Father: {fileID: 1975788015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -32402,6 +32256,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1130782043}
     m_Modifications:
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: title
+      value: Tap Power
+      objectReference: {fileID: 0}
+    - target: {fileID: 248078402282300219, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
+      propertyPath: description
+      value: Increases tapping power by 10%.
+      objectReference: {fileID: 0}
     - target: {fileID: 924800349370884723, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -32488,7 +32350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4190818875894117809, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
       propertyPath: m_Name
-      value: PrestigeResearchFarming
+      value: PrestigeResearchTapPower
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -81,12 +81,12 @@ public class Requirement : MonoBehaviour
                 transform.parent.parent.parent.GetComponent<Demographic>().tier < 4 && 
                 quantity > 0)
             {
-                GameManager.instance.AddCoins(quantity * GameManager.instance.resourcePrices[resource] * 10 / 100);
+                GameManager.instance.AddCoins(quantity * GameManager.instance.GetResourcePrice(resource) * 10 / 100);
             } else if (ResearchManager.instance.scienceResearchLevels.ContainsKey("Luxury Tax") && 
                 transform.parent.parent.parent.GetComponent<Demographic>().tier > 3 && 
                 quantity > 0)
             {
-                GameManager.instance.AddCoins(quantity * GameManager.instance.resourcePrices[resource] * 10 / 100);
+                GameManager.instance.AddCoins(quantity * GameManager.instance.GetResourcePrice(resource) * 10 / 100);
             }
             return quantity;
         }

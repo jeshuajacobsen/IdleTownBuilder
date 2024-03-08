@@ -52,6 +52,7 @@ public class ResearchManager : MonoBehaviour
         if (upgradeTitle == "Festival")
         {
             PopulationContent popContent = GameManager.instance.popContent;
+            BuildingContent buildingContent = GameManager.instance.buildingContent;
             BigInteger gainedPrestige = 0;
             foreach (Demographic demo in popContent.demographics)
             {
@@ -61,6 +62,13 @@ public class ResearchManager : MonoBehaviour
                 }
             }
             GameManager.instance.AddCityPrestige(gainedPrestige);
+        } 
+        if (upgradeTitle == "Levy")
+        {
+            foreach (Building building in GameManager.instance.buildingContent.buildings)
+            {
+                GameManager.instance.AddResources(building.outputResourceButton.resource, building.GetProductionQuantity() * 5);
+            }
         }
         if (scienceResearchLevels.ContainsKey(upgradeTitle)) {
             scienceResearchLevels[upgradeTitle] += 1;
