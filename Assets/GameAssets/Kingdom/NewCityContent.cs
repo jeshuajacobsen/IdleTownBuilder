@@ -21,7 +21,9 @@ public class NewCityContent : MonoBehaviour
         this.AddCity("Peasantry");
         this.AddCity("Aquias");
         this.AddCity("Dwarvary");
-        this.AddCity("Harmony");
+        this.AddCity("Mountain Port");
+        this.AddCity("Fairia");
+        this.AddCity("Elveryn");
     }
 
     private void AddCity(string cityName)

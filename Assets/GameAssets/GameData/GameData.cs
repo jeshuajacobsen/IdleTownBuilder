@@ -8,118 +8,119 @@ public class GameData
     private Dictionary<string, BuildingData> buildingsData;
     public GameData()
     {
-        buildingsData = new Dictionary<string, BuildingData>();
-    
-        buildingsData.Add("Farm", new BuildingData("Farm"));
-        buildingsData.Add("Forester", new BuildingData("Forester"));
-        buildingsData.Add("Clay Pit", new BuildingData("Clay Pit"));
-        buildingsData.Add("Lumber Mill", new BuildingData("Lumber Mill"));
-        buildingsData.Add("Potter", new BuildingData("Potter"));
-        buildingsData.Add("Stone Quarry", new BuildingData("Stone Quarry"));
-        buildingsData.Add("Vegetable Farm", new BuildingData("Vegetable Farm"));
-        buildingsData.Add("Hemp Farm", new BuildingData("Hemp Farm"));
-        buildingsData.Add("Weaver", new BuildingData("Weaver"));
-        buildingsData.Add("Copper Mine", new BuildingData("Copper Mine"));
-        buildingsData.Add("Orchard", new BuildingData("Orchard"));
-        buildingsData.Add("Tin Mine", new BuildingData("Tin Mine"));
-        buildingsData.Add("Smelter", new BuildingData("Smelter"));
-        buildingsData.Add("Wind Mill", new BuildingData("Wind Mill"));
-        buildingsData.Add("Bakery", new BuildingData("Bakery"));
-        buildingsData.Add("Vineyard", new BuildingData("Vineyard"));
-        buildingsData.Add("Furniture Factory", new BuildingData("Furniture Factory"));
-        buildingsData.Add("Pasture", new BuildingData("Pasture"));
-        buildingsData.Add("Dairy", new BuildingData("Dairy"));
-        buildingsData.Add("Barrel Maker", new BuildingData("Barrel Maker"));
-        buildingsData.Add("Winery", new BuildingData("Winery"));
-        buildingsData.Add("Butcher", new BuildingData("Butcher"));
-        buildingsData.Add("Tannery", new BuildingData("Tannery"));
-        buildingsData.Add("Paper Mill", new BuildingData("Paper Mill"));
-        buildingsData.Add("Leather Shop", new BuildingData("Leather Shop"));
-        buildingsData.Add("Human Jeweler", new BuildingData("Human Jeweler"));
-        buildingsData.Add("Wizard University", new BuildingData("Wizard University"));
-        
-        //merfolk
-        buildingsData.Add("Kelpery", new BuildingData("Kelpery"));
-        buildingsData.Add("Reef", new BuildingData("Reef"));
-        buildingsData.Add("Fishery", new BuildingData("Fishery"));
-        buildingsData.Add("Reeds", new BuildingData("Reeds"));
-        buildingsData.Add("Oystery", new BuildingData("Oystery"));
-        buildingsData.Add("Basket Weaver", new BuildingData("Basket Weaver"));
-        buildingsData.Add("Sand Banks", new BuildingData("Sand Banks"));
-        buildingsData.Add("Manatee Pasture", new BuildingData("Manatee Pasture"));
-        buildingsData.Add("Merite Cave", new BuildingData("Merite Cave"));
-        buildingsData.Add("Manatee Dairy", new BuildingData("Manatee Dairy"));
-        buildingsData.Add("Newt Swamp", new BuildingData("Newt Swamp"));
-        buildingsData.Add("Squid Traps", new BuildingData("Squid Traps"));
-        buildingsData.Add("Witch Hut", new BuildingData("Witch Hut"));
-        buildingsData.Add("Crab Pots", new BuildingData("Crab Pots"));
-        buildingsData.Add("Thermal Vents", new BuildingData("Thermal Vents"));
-        buildingsData.Add("Rice Patties", new BuildingData("Rice Patties"));
-        buildingsData.Add("Slime Milker", new BuildingData("Slime Milker"));
-        buildingsData.Add("Aqua Forge", new BuildingData("Aqua Forge"));
-        buildingsData.Add("Aqua Jeweler", new BuildingData("Aqua Jeweler"));
-        buildingsData.Add("Aqua Armorer", new BuildingData("Aqua Armorer"));
-        buildingsData.Add("Aqua Smith", new BuildingData("Aqua Smith"));
+        buildingsData = new Dictionary<string, BuildingData>
+        {
+            { "Farm", new BuildingData("Farm") },
+            { "Forester", new BuildingData("Forester") },
+            { "Clay Pit", new BuildingData("Clay Pit") },
+            { "Lumber Mill", new BuildingData("Lumber Mill") },
+            { "Potter", new BuildingData("Potter") },
+            { "Stone Quarry", new BuildingData("Stone Quarry") },
+            { "Vegetable Farm", new BuildingData("Vegetable Farm") },
+            { "Hemp Farm", new BuildingData("Hemp Farm") },
+            { "Weaver", new BuildingData("Weaver") },
+            { "Copper Mine", new BuildingData("Copper Mine") },
+            { "Orchard", new BuildingData("Orchard") },
+            { "Tin Mine", new BuildingData("Tin Mine") },
+            { "Smelter", new BuildingData("Smelter") },
+            { "Wind Mill", new BuildingData("Wind Mill") },
+            { "Bakery", new BuildingData("Bakery") },
+            { "Vineyard", new BuildingData("Vineyard") },
+            { "Furniture Factory", new BuildingData("Furniture Factory") },
+            { "Pasture", new BuildingData("Pasture") },
+            { "Dairy", new BuildingData("Dairy") },
+            { "Barrel Maker", new BuildingData("Barrel Maker") },
+            { "Winery", new BuildingData("Winery") },
+            { "Butcher", new BuildingData("Butcher") },
+            { "Tannery", new BuildingData("Tannery") },
+            { "Paper Mill", new BuildingData("Paper Mill") },
+            { "Leather Shop", new BuildingData("Leather Shop") },
+            { "Human Jeweler", new BuildingData("Human Jeweler") },
+            { "Wizard University", new BuildingData("Wizard University") },
 
-        //dwarf
-        buildingsData.Add("Mushroom Cave", new BuildingData("Mushroom Cave"));
-        buildingsData.Add("Mana Well", new BuildingData("Mana Well"));
-        buildingsData.Add("Coal Mine", new BuildingData("Coal Mine"));
-        buildingsData.Add("Iron Mine", new BuildingData("Iron Mine"));
-        buildingsData.Add("Apiary", new BuildingData("Apiary"));
-        buildingsData.Add("Iron Smelter", new BuildingData("Iron Smelter"));
-        buildingsData.Add("Meadery", new BuildingData("Meadery"));
-        buildingsData.Add("Gear Works", new BuildingData("Gear Works"));
-        buildingsData.Add("Blacksmith", new BuildingData("Blacksmith"));
-        buildingsData.Add("Hops Farm", new BuildingData("Hops Farm"));
-        buildingsData.Add("Gold Mine", new BuildingData("Gold Mine"));
-        buildingsData.Add("Glass Blower", new BuildingData("Glass Blower"));
-        buildingsData.Add("Brewery", new BuildingData("Brewery"));
-        buildingsData.Add("Gold Smelter", new BuildingData("Gold Smelter"));
-        buildingsData.Add("Artificer", new BuildingData("Artificer"));
-        buildingsData.Add("Jewel Mine", new BuildingData("Jewel Mine"));
-        buildingsData.Add("Printing Press", new BuildingData("Printing Press"));
-        buildingsData.Add("Manufactory", new BuildingData("Manufactory"));
-        buildingsData.Add("Rune Workshop", new BuildingData("Rune Workshop"));
-        buildingsData.Add("Deep Mine", new BuildingData("Deep Mine"));
-        buildingsData.Add("Volcanic Forge", new BuildingData("Volcanic Forge"));
-        buildingsData.Add("Mithril Smith", new BuildingData("Mithril Smith"));
+            //merfolk
+            { "Kelpery", new BuildingData("Kelpery") },
+            { "Reef", new BuildingData("Reef") },
+            { "Fishery", new BuildingData("Fishery") },
+            { "Reeds", new BuildingData("Reeds") },
+            { "Oystery", new BuildingData("Oystery") },
+            { "Basket Weaver", new BuildingData("Basket Weaver") },
+            { "Sand Banks", new BuildingData("Sand Banks") },
+            { "Manatee Pasture", new BuildingData("Manatee Pasture") },
+            { "Merite Cave", new BuildingData("Merite Cave") },
+            { "Manatee Dairy", new BuildingData("Manatee Dairy") },
+            { "Newt Swamp", new BuildingData("Newt Swamp") },
+            { "Squid Traps", new BuildingData("Squid Traps") },
+            { "Witch Hut", new BuildingData("Witch Hut") },
+            { "Crab Pots", new BuildingData("Crab Pots") },
+            { "Thermal Vents", new BuildingData("Thermal Vents") },
+            { "Rice Patties", new BuildingData("Rice Patties") },
+            { "Slime Milker", new BuildingData("Slime Milker") },
+            { "Aqua Forge", new BuildingData("Aqua Forge") },
+            { "Aqua Jeweler", new BuildingData("Aqua Jeweler") },
+            { "Aqua Armorer", new BuildingData("Aqua Armorer") },
+            { "Aqua Smith", new BuildingData("Aqua Smith") },
 
-        //fairy
-        buildingsData.Add("Garden", new BuildingData("Garden"));
-        buildingsData.Add("Fairy Circle", new BuildingData("Fairy Circle"));
-        buildingsData.Add("Berry Field", new BuildingData("Berry Field"));
-        buildingsData.Add("Dustery", new BuildingData("Dustery"));
-        buildingsData.Add("Mana Siphon", new BuildingData("Mana Siphon"));
-        buildingsData.Add("Cobbler", new BuildingData("Cobbler"));
-        buildingsData.Add("Rainbow", new BuildingData("Rainbow"));
-        buildingsData.Add("Illusionist", new BuildingData("Illusionist"));
-        buildingsData.Add("Luminous Garden", new BuildingData("Luminous Garden"));
-        buildingsData.Add("Tea Farm", new BuildingData("Tea Farm"));
-        buildingsData.Add("Worm Forest", new BuildingData("Worm Forest"));
-        buildingsData.Add("Fairy Alchemist", new BuildingData("Fairy Alchemist"));
-        buildingsData.Add("Spell Weaver", new BuildingData("Spell Weaver"));
-        buildingsData.Add("Crystalizer", new BuildingData("Crystalizer"));
-        buildingsData.Add("Fairy Seamstress", new BuildingData("Fairy Seamstress"));
-        buildingsData.Add("Fairy Jeweler", new BuildingData("Fairy Jeweler"));
+            //dwarf
+            { "Mushroom Cave", new BuildingData("Mushroom Cave") },
+            { "Mana Well", new BuildingData("Mana Well") },
+            { "Coal Mine", new BuildingData("Coal Mine") },
+            { "Iron Mine", new BuildingData("Iron Mine") },
+            { "Apiary", new BuildingData("Apiary") },
+            { "Iron Smelter", new BuildingData("Iron Smelter") },
+            { "Meadery", new BuildingData("Meadery") },
+            { "Gear Works", new BuildingData("Gear Works") },
+            { "Blacksmith", new BuildingData("Blacksmith") },
+            { "Hops Farm", new BuildingData("Hops Farm") },
+            { "Gold Mine", new BuildingData("Gold Mine") },
+            { "Glass Blower", new BuildingData("Glass Blower") },
+            { "Brewery", new BuildingData("Brewery") },
+            { "Gold Smelter", new BuildingData("Gold Smelter") },
+            { "Artificer", new BuildingData("Artificer") },
+            { "Jewel Mine", new BuildingData("Jewel Mine") },
+            { "Printing Press", new BuildingData("Printing Press") },
+            { "Manufactory", new BuildingData("Manufactory") },
+            { "Rune Workshop", new BuildingData("Rune Workshop") },
+            { "Deep Mine", new BuildingData("Deep Mine") },
+            { "Volcanic Forge", new BuildingData("Volcanic Forge") },
+            { "Mithril Smith", new BuildingData("Mithril Smith") },
 
-        //elf
-        buildingsData.Add("Anima Tree", new BuildingData("Anima Tree"));
-        buildingsData.Add("Treant Grove", new BuildingData("Treant Grove"));
-        buildingsData.Add("Chicken Coup", new BuildingData("Chicken Coup"));
-        buildingsData.Add("Cotton Plantation", new BuildingData("Cotton Plantation"));
-        buildingsData.Add("Unicorn Stable", new BuildingData("Unicorn Stable"));
-        buildingsData.Add("Cotton Weaver", new BuildingData("Cotton Weaver"));
-        buildingsData.Add("Hatchery", new BuildingData("Hatchery"));
-        buildingsData.Add("Druid Circle", new BuildingData("Druid Circle"));
-        buildingsData.Add("Sugarcane Plantation", new BuildingData("Sugarcane Plantation"));
-        buildingsData.Add("Cake Bakery", new BuildingData("Cake Bakery"));
-        buildingsData.Add("Wand Maker", new BuildingData("Wand Maker"));
-        buildingsData.Add("Coffee Farm", new BuildingData("Coffee Farm"));
-        buildingsData.Add("Dark Wood Forest", new BuildingData("Dark Wood Forest"));
-        buildingsData.Add("Distillery", new BuildingData("Distillery"));
-        buildingsData.Add("Life Condenser", new BuildingData("Life Condenser"));
-        buildingsData.Add("Elvish Jeweler", new BuildingData("Elvish Jeweler"));
+            //fairy
+            { "Garden", new BuildingData("Garden") },
+            { "Fairy Circle", new BuildingData("Fairy Circle") },
+            { "Berry Field", new BuildingData("Berry Field") },
+            { "Dustery", new BuildingData("Dustery") },
+            { "Mana Siphon", new BuildingData("Mana Siphon") },
+            { "Cobbler", new BuildingData("Cobbler") },
+            { "Rainbow", new BuildingData("Rainbow") },
+            { "Illusionist", new BuildingData("Illusionist") },
+            { "Luminous Garden", new BuildingData("Luminous Garden") },
+            { "Tea Farm", new BuildingData("Tea Farm") },
+            { "Worm Forest", new BuildingData("Worm Forest") },
+            { "Fairy Alchemist", new BuildingData("Fairy Alchemist") },
+            { "Spell Weaver", new BuildingData("Spell Weaver") },
+            { "Crystalizer", new BuildingData("Crystalizer") },
+            { "Fairy Seamstress", new BuildingData("Fairy Seamstress") },
+            { "Fairy Jeweler", new BuildingData("Fairy Jeweler") },
+
+            //elf
+            { "Anima Tree", new BuildingData("Anima Tree") },
+            { "Treant Grove", new BuildingData("Treant Grove") },
+            { "Chicken Coup", new BuildingData("Chicken Coup") },
+            { "Cotton Plantation", new BuildingData("Cotton Plantation") },
+            { "Unicorn Stable", new BuildingData("Unicorn Stable") },
+            { "Cotton Weaver", new BuildingData("Cotton Weaver") },
+            { "Hatchery", new BuildingData("Hatchery") },
+            { "Druid Circle", new BuildingData("Druid Circle") },
+            { "Sugarcane Plantation", new BuildingData("Sugarcane Plantation") },
+            { "Cake Bakery", new BuildingData("Cake Bakery") },
+            { "Wand Maker", new BuildingData("Wand Maker") },
+            { "Coffee Farm", new BuildingData("Coffee Farm") },
+            { "Dark Wood Forest", new BuildingData("Dark Wood Forest") },
+            { "Distillery", new BuildingData("Distillery") },
+            { "Life Condenser", new BuildingData("Life Condenser") },
+            { "Elvish Jeweler", new BuildingData("Elvish Jeweler") }
+        };
 
     }
 

@@ -19,6 +19,7 @@ public class ResearchManager : MonoBehaviour
     public UnityEvent<string> addBuilding;
     public UnityEvent<string, int> setResearch;
     public UnityEvent<string, int> setScienceResearch;
+    public UnityEvent resetScienceResearch;
 
     void Awake()
     {
@@ -133,10 +134,12 @@ public class ResearchManager : MonoBehaviour
         BuildingResearchUpgrade("Lumber Mill");
         BuildingResearchUpgrade("Potter");
         BuildingResearchUpgrade("Kelpery");
+        BuildingResearchUpgrade("Mushroom Cave");
     }
 
     public void Reset(string newCityName)
     {
         scienceResearchLevels = new Dictionary<string, int>();
+        resetScienceResearch.Invoke();
     }
 }

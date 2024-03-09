@@ -39,7 +39,13 @@ public class CityOption : MonoBehaviour, Unlockable
             case "Dwarvary":
                 unlockCost = 1000;
                 break;
-            case "Harmony":
+            case "Mountain Port":
+                unlockCost = 5000;
+                break;
+            case "Fairia":
+                unlockCost = 5000;
+                break;
+            case "Elveryn":
                 unlockCost = 5000;
                 break;
         }

@@ -1051,13 +1051,13 @@ public class Building : MonoBehaviour, Unlockable
         {
             multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Human Tech") ? ResearchManager.instance.prestigeResearchLevels["Human Tech"] * .1f : 0;
         } else if (race == "Merfolk") {
-            multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Merfolk Tech") ? ResearchManager.instance.prestigeResearchLevels["Human Tech"] * .1f : 0;
+            multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Merfolk Tech") ? ResearchManager.instance.prestigeResearchLevels["Merfolk Tech"] * .1f : 0;
         } else if (race == "Dwarf") {
-            multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Dwarf Tech") ? ResearchManager.instance.prestigeResearchLevels["Human Tech"] * .1f : 0;
+            multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Dwarf Tech") ? ResearchManager.instance.prestigeResearchLevels["Dwarf Tech"] * .1f : 0;
         } else if (race == "Fairy") {
-            multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Fairy Tech") ? ResearchManager.instance.prestigeResearchLevels["Human Tech"] * .1f : 0;
+            multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Fairy Tech") ? ResearchManager.instance.prestigeResearchLevels["Fairy Tech"] * .1f : 0;
         } else if (race == "Elf") {
-            multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Elf Tech") ? ResearchManager.instance.prestigeResearchLevels["Human Tech"] * .1f : 0;
+            multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Elf Tech") ? ResearchManager.instance.prestigeResearchLevels["Elf Tech"] * .1f : 0;
         }
         multiplier += Manager != null && (Manager.effect1Type == "ProductionQuantity" || Manager.effect2Type == "ProductionQuantity") ? Manager.GetEffectMagnitude("ProductionQuantity") : 0;
         return (int)(level * multiplier);

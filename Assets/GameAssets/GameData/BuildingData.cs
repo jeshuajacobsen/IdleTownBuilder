@@ -44,7 +44,7 @@ public class BuildingData
             inputResources = new string[] {"Wood"};
             baseCost = 200;
             productionTime = 16;
-            researchBaseCost = 100;
+            researchBaseCost = 60;
             category = "Processing";
             break;
         case "Potter":
@@ -52,7 +52,7 @@ public class BuildingData
             inputResources = new string[] {"Clay"};
             baseCost = 600;
             productionTime = 18;
-            researchBaseCost = 300;
+            researchBaseCost = 80;
             category = "Crafting";
             break;
         case "Stone Quarry":
@@ -60,7 +60,7 @@ public class BuildingData
             inputResources = new string[] {};
             baseCost = 1800;
             productionTime = 22;
-            researchBaseCost = 1000;
+            researchBaseCost = 100;
             category = "Gathering";
             break;
         case "Vegetable Farm":
@@ -68,7 +68,7 @@ public class BuildingData
             inputResources = new string[] {};
             baseCost = 6000;
             productionTime = 24;
-            researchBaseCost = 3000;
+            researchBaseCost = 300;
             category = "Farm";
             break;
         case "Hemp Farm":
@@ -76,7 +76,7 @@ public class BuildingData
             inputResources = new string[] {};
             baseCost = 20000;
             productionTime = 24;
-            researchBaseCost = 10000;
+            researchBaseCost = 1000;
             category = "Farm";
             break;
         case "Weaver":
@@ -84,7 +84,7 @@ public class BuildingData
             inputResources = new string[] {"Hemp"};
             baseCost = 80000;
             productionTime = 24;
-            researchBaseCost = 50000;
+            researchBaseCost = 5000;
             category = "Crafting";
             break;
         case "Copper Mine":
@@ -92,7 +92,7 @@ public class BuildingData
             inputResources = new string[] {};
             baseCost = 320000;
             productionTime = 28;
-            researchBaseCost = 300000;
+            researchBaseCost = 30000;
             category = "Mine";
             break;
         case "Orchard":
@@ -100,7 +100,7 @@ public class BuildingData
             inputResources = new string[] {};
             baseCost = 1000000;
             productionTime = 30;
-            researchBaseCost = new BigInteger(Math.Pow(10, 6));
+            researchBaseCost = new BigInteger(Math.Pow(10, 5));
             category = "Farm";
             break;
         case "Tin Mine":
@@ -108,7 +108,7 @@ public class BuildingData
             inputResources = new string[] {};
             baseCost = 5000000;
             productionTime = 28;
-            researchBaseCost = new BigInteger(Math.Pow(10, 7));
+            researchBaseCost = new BigInteger(Math.Pow(10, 6));
             category = "Mine";
             break;
         case "Smelter":
@@ -116,7 +116,7 @@ public class BuildingData
             inputResources = new string[] {"Copper Ore", "Tin Ore", "Wood"};
             baseCost = 25000000;
             productionTime = 30;
-            researchBaseCost = new BigInteger(Math.Pow(10, 8));
+            researchBaseCost = new BigInteger(Math.Pow(10, 7));
             category = "Processing";
             break;
         case "Wind Mill":
@@ -124,7 +124,7 @@ public class BuildingData
             inputResources = new string[] {"Wheat"};
             baseCost = new BigInteger(Math.Pow(10, 7));
             productionTime = 26;
-            researchBaseCost = new BigInteger(Math.Pow(10, 9));
+            researchBaseCost = new BigInteger(Math.Pow(10, 8));
             category = "Processing";
             break;
         case "Bakery":
@@ -132,7 +132,7 @@ public class BuildingData
             inputResources = new string[] {"Flour"};
             baseCost = new BigInteger(Math.Pow(10, 8));;
             productionTime = 30;
-            researchBaseCost = new BigInteger(Math.Pow(10, 10));
+            researchBaseCost = new BigInteger(Math.Pow(10, 9));
             category = "Crafting";
             break;
         case "Vineyard":
@@ -140,7 +140,7 @@ public class BuildingData
             inputResources = new string[] {};
             baseCost = new BigInteger(Math.Pow(10, 9));
             productionTime = 32;
-            researchBaseCost = new BigInteger(Math.Pow(10, 11));
+            researchBaseCost = new BigInteger(Math.Pow(10, 10));
             category = "Farm";
             break;
         case "Furniture Factory":

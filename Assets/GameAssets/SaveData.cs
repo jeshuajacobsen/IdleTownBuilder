@@ -81,7 +81,7 @@ public class SaveData
             this.name = name;
             capacityLevel = capacity;
             growthLevel = growth;
-            this.population = 0;
+            this.population = population;
         }
     }
 }

@@ -65,7 +65,7 @@ public class PopulationContent : MonoBehaviour
                 AddDemographic("Commoners");
                 AddDemographic("Miners");
                 break;
-            case "place":
+            case "Mountain Port":
                 AddDemographic("Peasants");
                 AddDemographic("Commoners");
                 AddDemographic("Tradesmen"); 
@@ -73,6 +73,42 @@ public class PopulationContent : MonoBehaviour
                 AddDemographic("Middle Mer");
                 AddDemographic("Miners");
                 AddDemographic("Workers");
+                break;
+            case "Fairia":
+                AddDemographic("Peasants");
+                AddDemographic("Commoners");
+                AddDemographic("Tradesmen"); 
+                AddDemographic("Patricians");
+                AddDemographic("Wizards");  
+                AddDemographic("Surfs");
+                AddDemographic("Middle Mer");
+                AddDemographic("Sea Witches"); 
+                AddDemographic("Mer-chants"); 
+                AddDemographic("Miners");
+                AddDemographic("Workers");
+                AddDemographic("Mages"); 
+                AddDemographic("Artificers");
+                AddDemographic("Changelings");
+                AddDemographic("Brownies");
+                AddDemographic("Leprechauns");    
+                break;
+            case "Elveryn":
+                AddDemographic("Peasants");
+                AddDemographic("Commoners");
+                AddDemographic("Tradesmen"); 
+                AddDemographic("Patricians");
+                AddDemographic("Wizards");  
+                AddDemographic("Surfs");
+                AddDemographic("Middle Mer");
+                AddDemographic("Sea Witches"); 
+                AddDemographic("Mer-chants"); 
+                AddDemographic("Miners");
+                AddDemographic("Workers");
+                AddDemographic("Mages"); 
+                AddDemographic("Artificers");
+                AddDemographic("Worker Elves");
+                AddDemographic("House Elves");
+                AddDemographic("Druids");    
                 break;
         }
 

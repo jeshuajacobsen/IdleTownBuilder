@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class HappinessPanel : MonoBehaviour
 {
 
-    private int width = 250;
+    private int width = 200;
 
     // Start is called before the first frame update
     void Start()
     {
-        width = (int)transform.GetComponent<RectTransform>().sizeDelta.x;
+        width = (int)transform.Find("BarFill").GetComponent<RectTransform>().sizeDelta.x;
     }
 
     // Update is called once per frame

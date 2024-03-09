@@ -58,10 +58,22 @@ public class RaceButtons : MonoBehaviour
                 AddRace("Human");
                 AddRace("Dwarves");
                 break;
-            case "Harmony":
+            case "Mountain Port":
                 AddRace("Human");
                 AddRace("Merfolk");
                 AddRace("Dwarves");
+                break;
+            case "Fairia":
+                AddRace("Human");
+                AddRace("Merfolk");
+                AddRace("Dwarves");
+                AddRace("Fairies");
+                break;
+            case "Elveryn":
+                AddRace("Human");
+                AddRace("Merfolk");
+                AddRace("Dwarves");
+                AddRace("Elves");
                 break;
         }
     }

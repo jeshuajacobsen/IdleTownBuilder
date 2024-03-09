@@ -56,6 +56,14 @@ public class CityResearchButton : MonoBehaviour
         researchPanel.Setup(title, description, level, maxLevel, new List<string>(resourceCostNames.Split(',')), intCostList);
         researchPanel.onUpgrade.RemoveAllListeners();
         researchPanel.onUpgrade.AddListener(Upgrade);
+
+        ResearchManager.instance.resetScienceResearch.AddListener(Reset);
+    }
+
+    private void Reset()
+    {
+        level = 0;
+        researchedRatioText.text = "" + level + "/" + maxLevel;
     }
 
     public void Upgrade(string titleToUpgrade)

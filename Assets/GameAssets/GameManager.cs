@@ -125,6 +125,7 @@ public class GameManager : MonoBehaviour
         //resourcePrices["Milk"] = 10000;
         resourcePrices["Eye Of Newt"] = 10000;
         resourcePrices["Ink"] = 10000;
+        resourcePrices["Curse"] = 100000;
         resourcePrices["Crab"] = new BigInteger(Math.Pow(10, 8));
         resourcePrices["Magma Slug"] = new BigInteger(Math.Pow(10, 12));
         resourcePrices["Rice"] = 10000;

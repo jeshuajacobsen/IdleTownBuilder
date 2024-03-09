@@ -8,7 +8,6 @@ using System.Transactions;
 
 public class Demographic : MonoBehaviour, Unlockable
 {
-    [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI nameText;
     public string Name
     {
@@ -63,14 +62,17 @@ public class Demographic : MonoBehaviour, Unlockable
         get { return population; }
         set 
         { 
+            //TODO - this is a hack to get the requirements to update.  Need to refactor
             foreach (Requirement requirement in transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().requirements)
             {
                 requirement.population = value;
             }
             population = value;
-            transform.Find("PopulationText").GetComponent<TextMeshProUGUI>().text = "Pop: " + population.ToString();
+            transform.Find("PopulationPanel").Find("PopulationText").GetComponent<TextMeshProUGUI>().text = "Pop: " + population.ToString();
         }
     }
+
+    private double popGrowthPercentComplete = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -97,8 +99,8 @@ public class Demographic : MonoBehaviour, Unlockable
             case "Peasants":
                 baseCost = 20;
                 basePrestigeGenerated = 4;
-                consumptionPanel.AddRequirement("Wheat", 30);
-                consumptionPanel.AddRequirement("Pottery", 3);
+                consumptionPanel.AddRequirement("Wheat", 5);
+                consumptionPanel.AddRequirement("Pottery", 1);
                 tier = 1;
                 break;
             case "Commoners":
@@ -375,10 +377,28 @@ public class Demographic : MonoBehaviour, Unlockable
 
     public void GrowPopulation()
     {
-        if (Population < CalculateCapacity(false))
-        {
-            Population += GrowthLevel * (int)happiness / 100;
+        if (Population < CalculateCapacity(false) || popGrowthPercentComplete <= 100)
+        {   
+            popGrowthPercentComplete += GrowthLevel * Happiness / 100;
+            if (Population < CalculateCapacity(false) && popGrowthPercentComplete >= 100)
+            {
+                Population += 1;
+                popGrowthPercentComplete -= 100;
+            } else if (popGrowthPercentComplete > 100) {
+                popGrowthPercentComplete = 100;
+            }
+            SetPopGrowthProgress();
         }
+    }
+
+    private void SetPopGrowthProgress()
+    {
+        const int width = 200;
+        RectTransform rectTransform = transform.Find("PopulationPanel").Find("BarFill").GetComponent<RectTransform>();
+        float desiredWidth = (float)popGrowthPercentComplete / 100 * width;
+        rectTransform.sizeDelta = new UnityEngine.Vector2(desiredWidth, rectTransform.sizeDelta.y);
+
+        rectTransform.anchoredPosition = new UnityEngine.Vector2(-width / 2 + desiredWidth / 2, rectTransform.anchoredPosition.y);
     }
 
     public BigInteger CalculateCapacity(bool nextLevel)
@@ -464,6 +484,7 @@ public class Demographic : MonoBehaviour, Unlockable
     public void Unlock()
     {
         Population = 1;
+        SetPopGrowthProgress();
         GrowthLevel = 1;
         CapacityLevel = 1;
         transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().Unlock();
