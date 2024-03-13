@@ -108,6 +108,7 @@ public class ResearchManager : MonoBehaviour
 
     public void LoadSavedData(SaveData saveData)
     {
+        Debug.Log("Loading research data");
         buildingResearchLevels = saveData.buildingResearchLevels;
         prestigeResearchLevels = saveData.prestigeResearchLevels;
         scienceResearchLevels = saveData.scienceResearchLevels;

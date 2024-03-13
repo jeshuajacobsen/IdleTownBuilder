@@ -80,14 +80,14 @@ public class CityResearchInfoPanel : MonoBehaviour
         }
         if (canAffordUpgrade && level < maxLevel)
         {
-            level++;
+            
             ResearchManager.instance.CityResearchUpgrade(titleText.text);
             foreach (ResourceCost cost in resourceCosts)
             {
                 GameManager.instance.SubtractResources(cost.resourceName.text, cost.GetRequiredAmount(level));
                 cost.level++;
             }
-            
+            level++;
             currentLevelText.text = level + "/" + maxLevel;
 
             onUpgrade.Invoke(titleText.text);

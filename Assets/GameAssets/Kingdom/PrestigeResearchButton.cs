@@ -49,6 +49,7 @@ public class PrestigeResearchButton : MonoBehaviour
         ResearchInfoPanel researchPanel = transform.parent.parent.Find("SelectedResearchBackground")
             .Find("ResearchInfoPanel").GetComponent<ResearchInfoPanel>();
         researchPanel.Setup(title, description, baseCost, level, maxLevel, isBuilding);
+        researchPanel.onUpgrade.RemoveAllListeners();
         researchPanel.onUpgrade.AddListener(Upgrade);
     }
 

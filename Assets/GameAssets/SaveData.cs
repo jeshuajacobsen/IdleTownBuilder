@@ -62,7 +62,7 @@ public class SaveData
         demographicLevels = new Dictionary<string, DemographicSaveData>();
         foreach(Demographic demo in demos)
         {
-            demographicLevels.Add(demo.Name, new DemographicSaveData(demo.Name, demo.CapacityLevel, demo.GrowthLevel, demo.Population));
+            demographicLevels.Add(demo.Name, new DemographicSaveData(demo.Name, demo.CapacityLevel, demo.GrowthLevel, demo.Population, demo.PopGrowthPercentComplete));
         }
     }
 
@@ -76,12 +76,15 @@ public class SaveData
         public int growthLevel;
         public BigInteger population;
 
-        public DemographicSaveData(string name, int capacity, int growth, BigInteger population)
+        public double popGrowthPercentComplete;
+
+        public DemographicSaveData(string name, int capacity, int growth, BigInteger population, double popGrowthPercentComplete)
         {
             this.name = name;
             capacityLevel = capacity;
             growthLevel = growth;
             this.population = population;
+            this.popGrowthPercentComplete = popGrowthPercentComplete;
         }
     }
 }

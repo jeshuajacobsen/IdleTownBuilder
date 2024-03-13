@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 using System.Numerics;
 using System.Transactions;
+using System;
+using UnityEngine.Events;
 
 public class Demographic : MonoBehaviour, Unlockable
 {
@@ -74,6 +76,15 @@ public class Demographic : MonoBehaviour, Unlockable
 
     private double popGrowthPercentComplete = 0;
 
+    public double PopGrowthPercentComplete
+    {
+        get { return popGrowthPercentComplete; }
+        set 
+        { 
+            popGrowthPercentComplete = value;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -90,7 +101,7 @@ public class Demographic : MonoBehaviour, Unlockable
     {
         GrowthLevel = 1;
         CapacityLevel = 1;
-        Population = 1;
+        Population = 0;
         Name = newName;
         ConsumptionPanel consumptionPanel = transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>();
 
@@ -106,16 +117,16 @@ public class Demographic : MonoBehaviour, Unlockable
             case "Commoners":
                 baseCost = 2000;
                 basePrestigeGenerated = 180;
-                consumptionPanel.AddRequirement("Pottery", 8);
-                consumptionPanel.AddRequirement("Vegetables", 5);
-                consumptionPanel.AddRequirement("Clothes", 3);
+                consumptionPanel.AddRequirement("Vegetables", 4);
+                consumptionPanel.AddRequirement("Clothes", 2);
+                consumptionPanel.AddRequirement("Fruit", 1);
                 tier = 2;
                 break;
             case "Tradesmen":
                 baseCost = 20000;
                 basePrestigeGenerated = 400;
-                consumptionPanel.AddRequirement("Clothes", 20);
-                consumptionPanel.AddRequirement("Fruit", 10);
+                consumptionPanel.AddRequirement("Flour", 2);
+                consumptionPanel.AddRequirement("Fruit", 1);
                 consumptionPanel.AddRequirement("Fish", 5);
                 consumptionPanel.AddRequirement("Honey", 2);
                 tier = 3;
@@ -159,7 +170,7 @@ public class Demographic : MonoBehaviour, Unlockable
 
             //merfolk
             case "Surfs":
-                baseCost = 4000;
+                baseCost = 200;
                 basePrestigeGenerated = 200;
                 race = "Merfolk";
                 consumptionPanel.AddRequirement("Kelp", 20);
@@ -167,7 +178,7 @@ public class Demographic : MonoBehaviour, Unlockable
                 tier = 1;
                 break;
             case "Middle Mer":
-                baseCost = 200;
+                baseCost = 400;
                 basePrestigeGenerated = 20;
                 race = "Merfolk";
                 consumptionPanel.AddRequirement("Pottery", 5);
@@ -176,7 +187,7 @@ public class Demographic : MonoBehaviour, Unlockable
                 tier = 2;
                 break;
             case "Sea Witches":
-                baseCost = 200;
+                baseCost = 1000;
                 basePrestigeGenerated = 20;
                 race = "Merfolk";
                 consumptionPanel.AddRequirement("Beauty Charm", 5);
@@ -185,7 +196,7 @@ public class Demographic : MonoBehaviour, Unlockable
                 tier = 3;
                 break;
             case "Mer-chants":
-                baseCost = 200;
+                baseCost = 4000;
                 basePrestigeGenerated = 20;
                 race = "Merfolk";
                 consumptionPanel.AddRequirement("Mer Jewelry", 5);
@@ -441,12 +452,12 @@ public class Demographic : MonoBehaviour, Unlockable
 
     public BigInteger CalculateCapacityCost()
     {
-        return (baseCost * new BigInteger(CapacityLevel * 1.6));
+         return baseCost * new BigInteger(Math.Pow(capacityLevel, 1.6));
     }
 
     public BigInteger CalculateGrowthCost()
     {
-        return (baseCost * new BigInteger(GrowthLevel * 1.6));
+        return baseCost * new BigInteger(Math.Pow(GrowthLevel, 1.6));
     }
 
     public void GrowthLevelUp()

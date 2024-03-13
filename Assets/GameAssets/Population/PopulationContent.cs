@@ -135,13 +135,15 @@ public class PopulationContent : MonoBehaviour
             Demographic demo = demographics.Find(demo => demo.Name == key);
             if (demo != null)
             {
-                if (saveData.demographicLevels[key].capacityLevel > 0)
+                if (saveData.demographicLevels[key].population > 0)
                 {
                     demo.Unlock();
+                    demo.CapacityLevel = saveData.demographicLevels[key].capacityLevel;
+                    demo.GrowthLevel = saveData.demographicLevels[key].growthLevel;
+                    demo.Population = saveData.demographicLevels[key].population;
+                    demo.PopGrowthPercentComplete = saveData.demographicLevels[key].popGrowthPercentComplete;
                 }
-                demo.CapacityLevel = saveData.demographicLevels[key].capacityLevel;
-                demo.GrowthLevel = saveData.demographicLevels[key].growthLevel;
-                demo.Population = saveData.demographicLevels[key].population;
+                
             } else {
                 Debug.Log("Couldn't find demographic to load. " + key);
             }

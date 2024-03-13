@@ -16,27 +16,105 @@ public class SpriteManager : MonoBehaviour
     public Sprite furniture;
     public Sprite lumber;
     public Sprite pottery;
+    public Sprite stone;
     public Sprite tinOre;
     public Sprite vegetables;
     public Sprite wheat;
     public Sprite wood;
+    public Sprite hemp;
+    public Sprite clothes;
+    public Sprite fruit;
+    public Sprite grapes;
+    public Sprite cow;
+    public Sprite milk;
+    public Sprite barrel;
+    public Sprite wine;
+    public Sprite beef;
+    public Sprite leather;
+    public Sprite paper;
+    public Sprite leatherClothes;
+    public Sprite humanJewelry;
+    public Sprite highArcana;
 
     //merfolk
     public Sprite kelp;
     public Sprite coral;
     public Sprite fish;
+    public Sprite reed;
     public Sprite pearl;
+    public Sprite basket;
+    public Sprite sand;
+    public Sprite manatee;
     public Sprite meriteOre;
+    public Sprite eyeOfNewt;
+    public Sprite ink;
+    public Sprite curse;
+    public Sprite crab;
     public Sprite magmaSlug;
+    public Sprite rice;
     public Sprite fireSlime;
     public Sprite meriteIngot;
+    public Sprite merJewelry;
+    public Sprite mermail;
+    public Sprite trident;
 
     //dwarf
     public Sprite mushroom;
     public Sprite mana;
+    public Sprite coal;
+    public Sprite ironOre;
+    public Sprite honey;
+    public Sprite ironIngot;
+    public Sprite mead;
     public Sprite mechanicalParts;
+    public Sprite tools;
+    public Sprite hops;
+    public Sprite goldOre;
+    public Sprite glass;
+    public Sprite beer;
+    public Sprite goldIngot;
     public Sprite artifact;
+    public Sprite jewel;
+    public Sprite book;
     public Sprite golem;
+    public Sprite rune;
+    public Sprite mithrilOre;
+    public Sprite mithrilIngot;
+    public Sprite mithrilArmor;
+
+    //Fairies
+    public Sprite flowers;
+    public Sprite magicMushroom;
+    public Sprite berry;
+    public Sprite fairyDust;
+    public Sprite shoes;
+    public Sprite luckCharm;
+    public Sprite beautyCharm;
+    public Sprite lightBulb;
+    public Sprite tea;
+    public Sprite silk;
+    public Sprite fairyelium;
+    public Sprite whisperSilk;
+    public Sprite fairyCrystal;
+    public Sprite invisibilityCloak;
+    public Sprite fairyJewelry;
+
+    public Sprite animaFruit;
+    public Sprite livingWood;
+    public Sprite egg;
+    public Sprite cotton;
+    public Sprite unicornHair;
+    public Sprite cottonClothes;
+    public Sprite chicken;
+    public Sprite enchantment;
+    public Sprite sugar;
+    public Sprite cake;
+    public Sprite wand;
+    public Sprite coffee;
+    public Sprite darkWood;
+    public Sprite liqour;
+    public Sprite lifeGem;
+    public Sprite elvishJewelry;
 
 
     //Buildings
@@ -257,6 +335,8 @@ public class SpriteManager : MonoBehaviour
                 return lumber;
             case "Pottery":
                 return pottery;
+            case "Stone":
+                return stone;
             case "Tin Ore":
                 return tinOre;
             case "Vegetables":
@@ -265,6 +345,34 @@ public class SpriteManager : MonoBehaviour
                 return wheat;
             case "Wood":
                 return wood;
+            case "Hemp":
+                return hemp;
+            case "Clothes":
+                return clothes;
+            case "Fruit":
+                return fruit;
+            case "Grapes":  
+                return grapes;
+            case "Cow":
+                return cow;
+            case "Milk":
+                return milk;
+            case "Barrel":
+                return barrel;
+            case "Wine":
+                return wine;
+            case "Beef":    
+                return beef;
+            case "Leather":
+                return leather;
+            case "Paper":
+                return paper;
+            case "Leather Clothes":
+                return leatherClothes;
+            case "Human Jewelry":
+                return humanJewelry;
+            case "High Arcana":
+                return highArcana;
 
             //merfolk
             case "Kelp":
@@ -273,28 +381,149 @@ public class SpriteManager : MonoBehaviour
                 return coral;
             case "Fish":
                 return fish;
+            case "Reed":
+                return reed;
             case "Pearl":
                 return pearl;
+            case "Basket":
+                return basket;
+            case "Sand":
+                return sand;
+            case "Manatee":
+                return manatee;
             case "Merite Ore":
                 return meriteOre;
+            case "Eye of Newt":
+                return eyeOfNewt;
+            case "Ink":
+                return ink;
+            case "Curse":
+                return curse;
+            case "Crab":
+                return crab;
             case "Magma Slug":
                 return magmaSlug;
+            case "Rice":
+                return rice;
             case "Fire Slime":
                 return fireSlime;
             case "Merite Ingot":
                 return meriteIngot;
+            case "Mer Jewelry":
+                return merJewelry;
+            case "Mermail":
+                return mermail;
+            case "Trident":
+                return trident;
 
             //dwarf
             case "Mushroom":
                 return mushroom;
             case "Mana":
                 return mana;
+            case "Coal":
+                return coal;
+            case "Iron Ore":
+                return ironOre;
+            case "Honey":
+                return honey;
+            case "Iron Ingot":
+                return ironIngot;
+            case "Mead":
+                return mead;
             case "Mechanical Parts":
                 return mechanicalParts;
+            case "Tools":
+                return tools;
+            case "Hops":
+                return hops;
+            case "Gold Ore":
+                return goldOre;
+            case "Glass":
+                return glass;
+            case "Beer":
+                return beer;
+            case "Gold Ingot":
+                return goldIngot;
             case "Artifact":
                 return artifact;
             case "Golem":
                 return golem;
+            case "Rune":
+                return rune;
+            case "Mithril Ore":
+                return mithrilOre;
+            case "Mithril Ingot":
+                return mithrilIngot;
+            case "Mithril Armor":
+                return mithrilArmor;
+
+            //Fairy
+            case "Flowers":
+                return flowers;
+            case "Fairy Circle":    
+                return magicMushroom;
+            case "Berry":
+                return berry;
+            case "Fairy Dust":
+                return fairyDust;
+            case "Shoes":
+                return shoes;
+            case "Luck Charm":  
+                return luckCharm;
+            case "Beauty Charm":
+                return beautyCharm;
+            case "Light Bulb":
+                return lightBulb;
+            case "Tea":
+                return tea;
+            case "Silk":
+                return silk;
+            case "Fairyelium":
+                return fairyelium;
+            case "Whisper Silk":
+                return whisperSilk;
+            case "Fairy Crystal":
+                return fairyCrystal;
+            case "Invisibility Cloak":
+                return invisibilityCloak;
+            case "Fairy Jewelry":
+                return fairyJewelry;
+
+            //elf
+            case "Anima Fruit":
+                return animaFruit;
+            case "Living Wood":
+                return livingWood;
+            case "Egg":
+                return egg;
+            case "Cotton":
+                return cotton;
+            case "Unicorn Hair":
+                return unicornHair;
+            case "Cotton Clothes":
+                return cottonClothes;
+            case "Chicken":
+                return chicken;
+            case "Enchantment":
+                return enchantment;
+            case "Sugar":
+                return sugar;
+            case "Cake":
+                return cake;
+            case "Wand":
+                return wand;
+            case "Coffee":
+                return coffee;
+            case "Dark Wood":
+                return darkWood;
+            case "Liqour":
+                return liqour;
+            case "Life Gem":
+                return lifeGem;
+            case "Elvish Jewelry":
+                return elvishJewelry;
+            
 
         }
         return wheat;
@@ -315,7 +544,7 @@ public class SpriteManager : MonoBehaviour
             case "Potter":
                 return potter;
             case "Stone Quarry":
-                return potter;
+                return stoneQuarry;
             case "Vegetable Farm":
                 return vegetableFarm;
             case "Hemp Farm":

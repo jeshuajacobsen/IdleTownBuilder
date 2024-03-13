@@ -20,6 +20,7 @@ public class BuildingData
         {
         case "Farm":
             outputResource = "Wheat";
+            inputResources = new string[] {};
             baseCost = 1;
             productionTime = 10;
             researchBaseCost = 10;
@@ -27,6 +28,7 @@ public class BuildingData
             break;
         case "Forester":
             outputResource = "Wood";
+            inputResources = new string[] {};
             baseCost = 6;
             productionTime = 12;
             researchBaseCost = 20;
@@ -34,6 +36,7 @@ public class BuildingData
             break;
         case "Clay Pit":
             outputResource = "Clay";
+            inputResources = new string[] {};
             baseCost = 10;
             productionTime = 14;
             researchBaseCost = 40;
@@ -257,7 +260,7 @@ public class BuildingData
             baseCost = 8000;
             productionTime = 14;
             race = "Merfolk";
-            researchBaseCost = 10000;
+            researchBaseCost = 6000;
             category = "Gathering";
             break;
         case "Reeds":

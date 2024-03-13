@@ -511,8 +511,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4281013003
+  m_fontColor: {r: 0.043137256, g: 0.07450981, b: 0.16862746, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2506,12 +2506,28 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6632141325075871602, guid: 7a7207825d33c4b4aa8c774285d0c5e6, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.16862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 6632141325075871602, guid: 7a7207825d33c4b4aa8c774285d0c5e6, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.07450981
+      objectReference: {fileID: 0}
+    - target: {fileID: 6632141325075871602, guid: 7a7207825d33c4b4aa8c774285d0c5e6, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.043137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 6632141325075871602, guid: 7a7207825d33c4b4aa8c774285d0c5e6, type: 3}
       propertyPath: m_fontSizeBase
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6632141325075871602, guid: 7a7207825d33c4b4aa8c774285d0c5e6, type: 3}
       propertyPath: m_textAlignment
       value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 6632141325075871602, guid: 7a7207825d33c4b4aa8c774285d0c5e6, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4281013003
       objectReference: {fileID: 0}
     - target: {fileID: 6632141325075871602, guid: 7a7207825d33c4b4aa8c774285d0c5e6, type: 3}
       propertyPath: m_TextStyleHashCode
@@ -2680,12 +2696,28 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6632141325075871602, guid: 7a7207825d33c4b4aa8c774285d0c5e6, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.16862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 6632141325075871602, guid: 7a7207825d33c4b4aa8c774285d0c5e6, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.07450981
+      objectReference: {fileID: 0}
+    - target: {fileID: 6632141325075871602, guid: 7a7207825d33c4b4aa8c774285d0c5e6, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.043137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 6632141325075871602, guid: 7a7207825d33c4b4aa8c774285d0c5e6, type: 3}
       propertyPath: m_fontSizeBase
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6632141325075871602, guid: 7a7207825d33c4b4aa8c774285d0c5e6, type: 3}
       propertyPath: m_textAlignment
       value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 6632141325075871602, guid: 7a7207825d33c4b4aa8c774285d0c5e6, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4281013003
       objectReference: {fileID: 0}
     - target: {fileID: 6632141325075871602, guid: 7a7207825d33c4b4aa8c774285d0c5e6, type: 3}
       propertyPath: m_TextStyleHashCode
@@ -2845,6 +2877,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5469720881080244506}
     m_Modifications:
+    - target: {fileID: 3166789406485287364, guid: 6003a4013ab39614895830cbff79430b, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.16862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166789406485287364, guid: 6003a4013ab39614895830cbff79430b, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.07450981
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166789406485287364, guid: 6003a4013ab39614895830cbff79430b, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.043137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166789406485287364, guid: 6003a4013ab39614895830cbff79430b, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4281013003
+      objectReference: {fileID: 0}
     - target: {fileID: 5269527129443835592, guid: 6003a4013ab39614895830cbff79430b, type: 3}
       propertyPath: m_Name
       value: LockedPanel
