@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RaceButtons : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class RaceButtons : MonoBehaviour
         raceButton.raceName = raceName;
         raceButton.page = page;
         raceButtons.Add(raceButton);
+        raceButton.transform.GetComponent<Image>().sprite = SpriteManager.instance.GetInterfaceSprite(raceName + "Crest");
     }
 
     public void Reset(string newCityName)

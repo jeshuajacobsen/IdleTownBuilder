@@ -828,7 +828,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6454017e86aafc347bf66575b62f1fe7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6579d6d826df9b247acead1cde1840de, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1844,6 +1844,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3980352077661407133}
     m_Modifications:
+    - target: {fileID: 3166789406485287364, guid: 6003a4013ab39614895830cbff79430b, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.20784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166789406485287364, guid: 6003a4013ab39614895830cbff79430b, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.10588236
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166789406485287364, guid: 6003a4013ab39614895830cbff79430b, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.07450981
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166789406485287364, guid: 6003a4013ab39614895830cbff79430b, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4281670419
+      objectReference: {fileID: 0}
     - target: {fileID: 5269527129443835592, guid: 6003a4013ab39614895830cbff79430b, type: 3}
       propertyPath: m_Name
       value: LockedPanel

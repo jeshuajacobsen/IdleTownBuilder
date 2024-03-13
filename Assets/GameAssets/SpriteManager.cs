@@ -279,6 +279,12 @@ public class SpriteManager : MonoBehaviour
     public Sprite fillBarYellow;
     public Sprite fillBarRed;
 
+    public Sprite humanCrest;
+    public Sprite merfolkCrest;
+    public Sprite dwarfCrest;
+    public Sprite fairyCrest;
+    public Sprite elfCrest;
+
     void Awake() 
     {
         if (instance == null)
@@ -312,6 +318,16 @@ public class SpriteManager : MonoBehaviour
                 return fillBarYellow;
             case "FillBarRed":
                 return fillBarRed;
+            case "HumanCrest":
+                return humanCrest;
+            case "MerfolkCrest":
+                return merfolkCrest;
+            case "DwarfCrest":
+                return dwarfCrest;
+            case "FairyCrest":
+                return fairyCrest;
+            case "ElfCrest":
+                return elfCrest;
         }
         return fillBarGreen;
     }

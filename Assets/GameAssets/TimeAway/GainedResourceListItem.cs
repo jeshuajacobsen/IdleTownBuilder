@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class GainedResourceListItem : MonoBehaviour
 {
@@ -28,5 +29,6 @@ public class GainedResourceListItem : MonoBehaviour
     {
         resourceName.text = newName;
         quantityGained.text = newQuantity;
+        transform.Find("Image").GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(newName);
     }
 }
