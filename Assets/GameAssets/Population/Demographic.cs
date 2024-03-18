@@ -452,12 +452,12 @@ public class Demographic : MonoBehaviour, Unlockable
 
     public BigInteger CalculateCapacityCost()
     {
-         return baseCost * new BigInteger(Math.Pow(capacityLevel, 1.6));
+         return baseCost * GameManager.Pow(capacityLevel, 2);
     }
 
     public BigInteger CalculateGrowthCost()
     {
-        return baseCost * new BigInteger(Math.Pow(GrowthLevel, 1.6));
+        return baseCost * GameManager.Pow(growthLevel, 2);
     }
 
     public void GrowthLevelUp()

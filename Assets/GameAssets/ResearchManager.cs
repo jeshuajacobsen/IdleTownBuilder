@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
 using UnityEngine.Events;
+using Newtonsoft.Json;
 
 public class ResearchManager : MonoBehaviour
 {
@@ -108,7 +109,6 @@ public class ResearchManager : MonoBehaviour
 
     public void LoadSavedData(SaveData saveData)
     {
-        Debug.Log("Loading research data");
         buildingResearchLevels = saveData.buildingResearchLevels;
         prestigeResearchLevels = saveData.prestigeResearchLevels;
         scienceResearchLevels = saveData.scienceResearchLevels;

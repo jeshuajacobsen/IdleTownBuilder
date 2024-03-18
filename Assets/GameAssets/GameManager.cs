@@ -348,21 +348,36 @@ public class GameManager : MonoBehaviour
         Gems += quantity;
     }
 
-    public void PurchaseManager()
+    public Manager PurchaseManager()
     {
         Gems -= managerPrice;
+        string rarity = "Common";
+        if (UnityEngine.Random.Range(0, 100) < 15)
+        {
+            rarity = "Rare";
+        } else if (UnityEngine.Random.Range(0, 100) < 40)
+        {
+            rarity = "Uncommon";
+        } else
+        {
+            rarity = "Common";
+        }
+        
         Manager manager = Instantiate(ManagerPrefab, contentTransform);
-        manager.InitValues("", 1);
+        manager.InitValues("", 0, rarity);
         Manager existingManager = managers.Find((currentManager) => {return manager.nameText.text == currentManager.nameText.text;});
         if (existingManager != null)
         {
-            existingManager.level++;
+            existingManager.Level++;
+            return existingManager;
         }
         else
         {
             managers.Add(manager);
             managersPanel.AddManagerToView(manager);
+            return manager;
         }
+       
     }
 
     public void UnassignManagerFromOtherBuilding(Manager manager)
@@ -399,7 +414,7 @@ public class GameManager : MonoBehaviour
         Coins = saveData.coins;
         Gems = saveData.gems;
         CityPrestige = saveData.cityPrestige;
-        CollectedPrestige = saveData.collectedPrestige;
+        CollectedPrestige = 10000; //saveData.collectedPrestige;
         resources = saveData.resources;
         cityName = saveData.cityName;
 
@@ -414,6 +429,7 @@ public class GameManager : MonoBehaviour
 
     public void StartNewGame()
     {
+        CollectedPrestige = 10000;
         Coins = 5;
         Gems = 0;
         CityPrestige = 0;

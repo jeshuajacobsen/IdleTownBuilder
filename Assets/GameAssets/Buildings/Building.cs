@@ -49,9 +49,9 @@ public class Building : MonoBehaviour, Unlockable
             this.manager = value;
             if (this.manager != null)
             {
-                transform.Find("ManagerButton").Find("Text").GetComponent<TextMeshProUGUI>().text = manager.nameText.text;
+                transform.Find("ManagerButton").GetComponent<Image>().sprite = SpriteManager.instance.GetManagerSprite(manager.nameText.text);
             } else {
-                transform.Find("ManagerButton").Find("Text").GetComponent<TextMeshProUGUI>().text = "";
+                transform.Find("ManagerButton").GetComponent<Image>().sprite = SpriteManager.instance.GetInterfaceSprite("ManagerButton");
             }
         }
     }
@@ -92,6 +92,10 @@ public class Building : MonoBehaviour, Unlockable
         GameObject arrow2 = transform.Find("ProductionDisplay").Find("Arrow2").gameObject;
         GameObject arrow3 = transform.Find("ProductionDisplay").Find("Arrow3").gameObject;
 
+        if (buildingName == "Farm")
+        {
+            Unlock();
+        }
         BuildingData buildingData = GameManager.instance.gameData.GetBuildingData(newName);
         string[] inputResources;
         string outputResource;
@@ -185,7 +189,8 @@ public class Building : MonoBehaviour, Unlockable
         {
             multiplier -= Manager.effect1Type == "LessConsumption" || Manager.effect2Type == "LessConsumption" ? Manager.GetEffectMagnitude("LessConsumption") : 0;
         }
-        return baseCost * GameManager.Pow(level + 1, 2) * (int)(multiplier * 100) / 100;
+        BigInteger cost = baseCost * GameManager.Pow(level, 2) * (int)(multiplier * 100) / 100;
+        return cost > 0 ? cost : 1;
     }
 
     public void ProductionClick(string resource)
@@ -286,7 +291,7 @@ public class Building : MonoBehaviour, Unlockable
 
     public BigInteger GetUnlockCost()
     {
-        BigInteger baseUnlock = baseCost * 3;
+        BigInteger baseUnlock = baseCost * 4;
         if (ResearchManager.instance.scienceResearchLevels.ContainsKey("Architecture"))
         {
             baseUnlock -= baseUnlock * ResearchManager.instance.scienceResearchLevels["Architecture"] / 10;

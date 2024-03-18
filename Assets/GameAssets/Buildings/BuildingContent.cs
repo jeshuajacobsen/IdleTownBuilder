@@ -175,6 +175,7 @@ public class BuildingContent : MonoBehaviour
                 if (saveData.equippedManagers.ContainsKey(key))
                 {
                     building.Manager = GameManager.instance.managers.Find((manager) => {return manager.nameText.text == saveData.equippedManagers[key];});
+                    building.Manager.AssignedBuilding = building;
                 }
             } else {
                 Debug.Log("Couldn't find building to load. " + key);
@@ -209,6 +210,7 @@ public class BuildingContent : MonoBehaviour
         {
             if (building.Manager == manager)
             {
+                building.Manager.AssignedBuilding = null;
                 building.Manager = null;
             }
         }

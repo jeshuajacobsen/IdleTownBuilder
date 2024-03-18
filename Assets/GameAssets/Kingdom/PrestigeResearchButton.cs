@@ -27,14 +27,15 @@ public class PrestigeResearchButton : MonoBehaviour
         else
         {
             baseCost = 100;
+            level = ResearchManager.instance.prestigeResearchLevels.ContainsKey(title) ? ResearchManager.instance.prestigeResearchLevels[title] : 0;
         }
         transform.Find("levelText").GetComponent<TextMeshProUGUI>().text = "" + level + "/" + maxLevel;
         if (isBuilding)
         {
             transform.Find("Mask").Find("Image").GetComponent<Image>().sprite = SpriteManager.instance.GetBuildingSprite(title);
         }
+
         ResearchManager.instance.setResearch.AddListener(SetLevel);
-        
         
     }
 
@@ -64,6 +65,7 @@ public class PrestigeResearchButton : MonoBehaviour
 
     public void SetLevel(string titleToUpgrade, int level)
     {
+        Debug.Log("Setting level for " + title + " to " + level);
         if (title == titleToUpgrade)
         {
             this.level = level;

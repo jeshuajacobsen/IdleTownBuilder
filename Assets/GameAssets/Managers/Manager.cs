@@ -4,18 +4,58 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Codice.Client.Common;
 
 public class Manager : MonoBehaviour
 {
 
     public TextMeshProUGUI nameText;
+    public string Name
+    {
+        get { return nameText.text; }
+        set { nameText.text = value; }
+    }
     [SerializeField] private TextMeshProUGUI effect1Text;
     [SerializeField] private TextMeshProUGUI effect2Text;
 
     public string effect1Type;
     public string effect2Type;
 
-    public int level;
+    private int level;
+    public int Level
+    {
+        get { return level; }
+        set 
+        { 
+            transform.Find("LevelText").GetComponent<TextMeshProUGUI>().text = "Level: " + GetLevelFromExp(value);
+            level = value; 
+            SetExpProgress();
+            
+        }
+    }
+
+    public string rarity;
+
+    public GameObject assignedBuildingMask;
+
+    private Building assignedBuilding;
+    public Building AssignedBuilding
+    {
+        get { return assignedBuilding; }
+        set 
+        { 
+            assignedBuilding = value; 
+            if (assignedBuilding != null)
+            {
+                assignedBuildingMask.SetActive(true);
+                assignedBuildingMask.transform.Find("AssignedBuildingImage").GetComponent<Image>().sprite = SpriteManager.instance.GetBuildingSprite(assignedBuilding.buildingName);
+            } 
+            else
+            {
+                assignedBuildingMask.SetActive(false);
+            }
+        }
+    }
 
     private System.Random random = new System.Random();
 
@@ -32,6 +72,77 @@ public class Manager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private int ExpToNextLevel(int exp)
+    {
+        if (exp < 2)
+        {
+            return 2;
+        } 
+        else if (exp < 5)
+        {
+            return 3;
+        }
+        else if (exp < 10)
+        {
+            return 5;
+        }
+        else
+        {
+            return 10;
+        }
+    }
+
+    private int GetLevelFromExp(int exp)
+    {
+        if (exp < 2)
+        {
+            return 1;
+        } 
+        else if (exp < 5)
+        {
+            return 2;
+        }
+        else if (exp < 10)
+        {
+            return 3;
+        }
+        else
+        {
+            return 4;
+        }
+    }
+
+    private int GetRemainderExp(int exp)
+    {
+        if (exp < 2)
+        {
+            return exp;
+        } 
+        else if (exp < 5)
+        {
+            return exp - 2;
+        }
+        else if (exp < 10)
+        {
+            return exp - 5;
+        }
+        else
+        {
+            return exp - 10;
+        }
+    }
+
+    private void SetExpProgress()
+    {
+        const int width = 110;
+        RectTransform rectTransform = transform.Find("ExpPanel").Find("BarFill").GetComponent<RectTransform>();
+        float desiredWidth = width * GetRemainderExp(Level) / ExpToNextLevel(Level);
+        transform.Find("ExpPanel").Find("ProgressText").GetComponent<TextMeshProUGUI>().text = GetRemainderExp(Level) + "/" + ExpToNextLevel(Level);
+        rectTransform.sizeDelta = new UnityEngine.Vector2(desiredWidth, rectTransform.sizeDelta.y);
+
+        rectTransform.anchoredPosition = new UnityEngine.Vector2(-width / 2 + desiredWidth / 2, rectTransform.anchoredPosition.y);
     }
 
     public double GetEffectMagnitude(string effectType)
@@ -54,28 +165,89 @@ public class Manager : MonoBehaviour
         }
     }
 
-    public void InitValues(string name, int level)
+    public void InitValues(string name, int level, string rarity = "")
     {
-        this.level = level;
-        string[] names = {"Wedge", "Biggs"};
-        int index = random.Next(names.Length);
-        name = name == "" ? names[index] : name;
-        nameText.text = name;
-        switch(name)
-        {
-            case "Wedge":
-                effect1Text.text = "10% Production";
-                effect2Text.text = "10% Speed";
-                effect1Type = "ProductionQuantity";
-                effect2Type = "ProductionSpeed";
-                break;
-            case "Biggs":
-                effect1Text.text = "10% Less Consumption";
-                effect2Text.text = "10% Speed";
-                effect1Type = "LessConsumption";
-                effect2Type = "ProductionSpeed";
-                break;
+        this.rarity = rarity;
+        this.Level = level;
+        string[] commonNames = {"Wedge", "Biggs"};
+        string[] uncommonNames = {"Jessie", "Tifa"};
+        string[] rareNames = {"Aeris", "Cloud"};
 
+        if (rarity == "Common")
+        {
+            transform.GetComponent<Image>().sprite = SpriteManager.instance.GetInterfaceSprite("ManagerBackgroundCommon");
+            int index = random.Next(commonNames.Length);
+            name = name == "" ? commonNames[index] : name;
+            nameText.text = name;
+            switch(name)
+            {
+                case "Wedge":
+                    effect1Text.text = "10% Production";
+                    effect2Text.text = "10% Speed";
+                    effect1Type = "ProductionQuantity";
+                    effect2Type = "ProductionSpeed";
+                    transform.Find("ProfileImage").GetComponent<Image>().sprite = SpriteManager.instance.GetManagerSprite("Wedge");
+                    break;
+                case "Biggs":
+                    effect1Text.text = "10% Less Consumption";
+                    effect2Text.text = "10% Speed";
+                    effect1Type = "LessConsumption";
+                    effect2Type = "ProductionSpeed";
+                    transform.Find("ProfileImage").GetComponent<Image>().sprite = SpriteManager.instance.GetManagerSprite("Biggs");
+                    break;
+
+            }
         }
+        else if (rarity == "Uncommon")
+        {
+            transform.GetComponent<Image>().sprite = SpriteManager.instance.GetInterfaceSprite("ManagerBackgroundUncommon");
+            int index = random.Next(uncommonNames.Length);
+            name = name == "" ? uncommonNames[index] : name;
+            nameText.text = name;
+            switch(name)
+            {
+                case "Jessie":
+                    effect1Text.text = "10% Production";
+                    effect2Text.text = "10% Speed";
+                    effect1Type = "ProductionQuantity";
+                    effect2Type = "ProductionSpeed";
+                    transform.Find("ProfileImage").GetComponent<Image>().sprite = SpriteManager.instance.GetManagerSprite("Wedge");
+                    break;
+                case "Tifa":
+                    effect1Text.text = "10% Less Consumption";
+                    effect2Text.text = "10% Speed";
+                    effect1Type = "LessConsumption";
+                    effect2Type = "ProductionSpeed";
+                    transform.Find("ProfileImage").GetComponent<Image>().sprite = SpriteManager.instance.GetManagerSprite("Biggs");
+                    break;
+
+            }
+        }
+        else if (rarity == "Rare")
+        {
+            transform.GetComponent<Image>().sprite = SpriteManager.instance.GetInterfaceSprite("ManagerBackgroundRare");
+            int index = random.Next(rareNames.Length);
+            name = name == "" ? rareNames[index] : name;
+            nameText.text = name;
+            switch(name)
+            {
+                case "Aeris":
+                    effect1Text.text = "10% Production";
+                    effect2Text.text = "10% Speed";
+                    effect1Type = "ProductionQuantity";
+                    effect2Type = "ProductionSpeed";
+                    transform.Find("ProfileImage").GetComponent<Image>().sprite = SpriteManager.instance.GetManagerSprite("Wedge");
+                    break;
+                case "Cloud":
+                    effect1Text.text = "10% Less Consumption";
+                    effect2Text.text = "10% Speed";
+                    effect1Type = "LessConsumption";
+                    effect2Type = "ProductionSpeed";
+                    transform.Find("ProfileImage").GetComponent<Image>().sprite = SpriteManager.instance.GetManagerSprite("Biggs");
+                    break;
+
+            }
+        }
+        
     }
 }

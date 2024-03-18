@@ -285,6 +285,12 @@ public class SpriteManager : MonoBehaviour
     public Sprite fairyCrest;
     public Sprite elfCrest;
 
+    public Sprite managerButton;
+
+    public Sprite managerBackgroundCommon;
+    public Sprite managerBackgroundUncommon;
+    public Sprite managerBackgroundRare;
+
     void Awake() 
     {
         if (instance == null)
@@ -328,6 +334,14 @@ public class SpriteManager : MonoBehaviour
                 return fairyCrest;
             case "ElfCrest":
                 return elfCrest;
+            case "ManagerButton":
+                return managerButton;
+            case "ManagerBackgroundCommon":
+                return managerBackgroundCommon;
+            case "ManagerBackgroundUncommon":
+                return managerBackgroundUncommon;
+            case "ManagerBackgroundRare":
+                return managerBackgroundRare;
         }
         return fillBarGreen;
     }
@@ -839,6 +853,17 @@ public class SpriteManager : MonoBehaviour
                 return perfects;
         }
         return farm;
+    }
+
+    public Sprite GetManagerSprite(string name)
+    {
+        switch (name) {
+            case "Wedge":
+                return commoner;
+            case "Biggs":
+                return workerElves;
+        }
+        return commoner;
     }
 
     public static string ToCamelCase(string titleCaseStr)

@@ -33,7 +33,7 @@ public class SaveData
         managerLevels = new Dictionary<string, int>();
         foreach(Manager manager in managers)
         {
-            managerLevels.Add(manager.nameText.text, manager.level);
+            managerLevels.Add(manager.nameText.text, manager.Level);
         }
     }
     public Dictionary<string, string> equippedManagers;

@@ -15,7 +15,7 @@ public class ResourceCost : MonoBehaviour
     public int level;
     public BigInteger GetRequiredAmount(int level)
     {
-        return requiredAmount * GameManager.Pow(level + 1, 2);
+        return requiredAmount * GameManager.Pow((level + 1), 2);
     }
 
     // Start is called before the first frame update
@@ -29,7 +29,7 @@ public class ResourceCost : MonoBehaviour
     {
         if (!GameManager.instance.resources.ContainsKey(resourceName.text))
         {
-            resourceCost.text =  "0/" + GetRequiredAmount(level);
+            resourceCost.text =  "0/" + GameManager.BigIntToExponentString(GetRequiredAmount(level));
             resourceCost.color = Color.red;
         } 
         else 
@@ -51,7 +51,7 @@ public class ResourceCost : MonoBehaviour
         this.level = level;
         if (GameManager.instance.resources.ContainsKey(newResourceName))
         {
-            resourceCost.text = "" + GameManager.instance.resources[newResourceName] + "/" + GetRequiredAmount(level);
+            resourceCost.text = "" + GameManager.instance.resources[newResourceName] + "/" + GameManager.BigIntToExponentString(GetRequiredAmount(level));
 
             if (GetRequiredAmount(level) > GameManager.instance.resources[newResourceName])
             {
@@ -62,7 +62,7 @@ public class ResourceCost : MonoBehaviour
         }
         else
         {
-            resourceCost.text = "0/" + GetRequiredAmount(level);
+            resourceCost.text = "0/" + GameManager.BigIntToExponentString(GetRequiredAmount(level));
             resourceCost.color = Color.red;
         }
         transform.Find("Mask").Find("Image").GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(newResourceName);
