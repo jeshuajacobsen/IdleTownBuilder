@@ -291,6 +291,9 @@ public class SpriteManager : MonoBehaviour
     public Sprite managerBackgroundUncommon;
     public Sprite managerBackgroundRare;
 
+    public Sprite starEmpty;
+    public Sprite starFilled;
+
     void Awake() 
     {
         if (instance == null)
@@ -342,6 +345,10 @@ public class SpriteManager : MonoBehaviour
                 return managerBackgroundUncommon;
             case "ManagerBackgroundRare":
                 return managerBackgroundRare;
+            case "StarEmpty":    
+                return starEmpty;
+            case "StarFilled":
+                return starFilled;
         }
         return fillBarGreen;
     }

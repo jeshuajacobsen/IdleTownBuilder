@@ -47,36 +47,11 @@ public class RaceButtons : MonoBehaviour
         
         raceButtons = new List<RaceButton>();
 
-        switch(newCityName)
+        CityData cityData = GameManager.instance.gameData.GetCityData(newCityName);
+        foreach(string raceName in cityData.races)
         {
-            case "Peasantry":
-                AddRace("Human");
-                break;
-            case "Aquias":
-                AddRace("Human");
-                AddRace("Merfolk");
-                break;
-            case "Dwarvary":
-                AddRace("Human");
-                AddRace("Dwarf");
-                break;
-            case "Mountain Port":
-                AddRace("Human");
-                AddRace("Merfolk");
-                AddRace("Dwarf");
-                break;
-            case "Fairia":
-                AddRace("Human");
-                AddRace("Merfolk");
-                AddRace("Dwarf");
-                AddRace("Fairy");
-                break;
-            case "Elveryn":
-                AddRace("Human");
-                AddRace("Merfolk");
-                AddRace("Dwarf");
-                AddRace("Elf");
-                break;
+            AddRace(raceName);
         }
+
     }
 }

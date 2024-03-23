@@ -48,71 +48,11 @@ public class PopulationContent : MonoBehaviour
         }
         demographics = new List<Demographic>();
         
-
-        switch(newCityName)
+        CityData cityData = GameManager.instance.gameData.GetCityData(newCityName);
+        foreach(string demoName in cityData.demographics)
         {
-            case "Peasantry":
-                AddDemographic("Peasants");
-                AddDemographic("Commoners");
-                break;
-            case "Aquias":
-                AddDemographic("Peasants");
-                AddDemographic("Commoners");
-                AddDemographic("Surfs");
-                break;
-            case "Dwarvary":
-                AddDemographic("Peasants");
-                AddDemographic("Commoners");
-                AddDemographic("Miners");
-                break;
-            case "Mountain Port":
-                AddDemographic("Peasants");
-                AddDemographic("Commoners");
-                AddDemographic("Tradesmen"); 
-                AddDemographic("Surfs");
-                AddDemographic("Middle Mer");
-                AddDemographic("Miners");
-                AddDemographic("Workers");
-                break;
-            case "Fairia":
-                AddDemographic("Peasants");
-                AddDemographic("Commoners");
-                AddDemographic("Tradesmen"); 
-                AddDemographic("Patricians");
-                AddDemographic("Wizards");  
-                AddDemographic("Surfs");
-                AddDemographic("Middle Mer");
-                AddDemographic("Sea Witches"); 
-                AddDemographic("Mer-chants"); 
-                AddDemographic("Miners");
-                AddDemographic("Workers");
-                AddDemographic("Mages"); 
-                AddDemographic("Artificers");
-                AddDemographic("Changelings");
-                AddDemographic("Brownies");
-                AddDemographic("Leprechauns");    
-                break;
-            case "Elveryn":
-                AddDemographic("Peasants");
-                AddDemographic("Commoners");
-                AddDemographic("Tradesmen"); 
-                AddDemographic("Patricians");
-                AddDemographic("Wizards");  
-                AddDemographic("Surfs");
-                AddDemographic("Middle Mer");
-                AddDemographic("Sea Witches"); 
-                AddDemographic("Mer-chants"); 
-                AddDemographic("Miners");
-                AddDemographic("Workers");
-                AddDemographic("Mages"); 
-                AddDemographic("Artificers");
-                AddDemographic("Worker Elves");
-                AddDemographic("House Elves");
-                AddDemographic("Druids");    
-                break;
+            AddDemographic(demoName);
         }
-
-        FilterDemographics(demographics[0].race);
     }
 
     public void AddDemographic(string demoName)

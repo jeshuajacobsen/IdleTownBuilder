@@ -395,6 +395,7 @@ public class Demographic : MonoBehaviour, Unlockable
             {
                 Population += 1;
                 popGrowthPercentComplete -= 100;
+                TasksManager.instance.CheckTasks("PopulationGoal", Name, Population);
             } else if (popGrowthPercentComplete > 100) {
                 popGrowthPercentComplete = 100;
             }
@@ -472,7 +473,7 @@ public class Demographic : MonoBehaviour, Unlockable
 
     public void CapacityLevelUp()
     {
-        BigInteger cost = CalculateGrowthCost();
+        BigInteger cost = CalculateCapacityCost();
         if (GameManager.instance.HasEnoughCoin(cost))
         {
             CapacityLevel = CapacityLevel + 1;

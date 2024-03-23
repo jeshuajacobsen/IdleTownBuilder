@@ -22,6 +22,8 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private RaceButtons populationRaceButtons;
 
     [SerializeField] private NewCityContent newCityContent;
+
+    [SerializeField] private TasksPanel tasksPanel;
     private SaveData saveData = new SaveData();
 
     void Awake()
@@ -125,6 +127,7 @@ public class TimeManager : MonoBehaviour
             marketContent.PrepForSave(saveData);
             popContent.PrepForSave(saveData);
             newCityContent.PrepForSave(saveData);
+            saveData.taskCompletion = TasksManager.instance.cityTasksCompletionStatus;
             string jsonData = JsonConvert.SerializeObject(saveData);
         
             System.IO.File.WriteAllText(Application.persistentDataPath + "/savefile.json", jsonData);
@@ -136,7 +139,7 @@ public class TimeManager : MonoBehaviour
     public void Load()
     {
         string path = Application.persistentDataPath + "/savefile.json";
-        if (!System.IO.File.Exists(path) && Environment.GetEnvironmentVariable("RUNNING_TESTS") != "true")
+        if (System.IO.File.Exists(path) && Environment.GetEnvironmentVariable("RUNNING_TESTS") != "true")
         {
             string jsonData = System.IO.File.ReadAllText(path);
             Debug.Log(jsonData);
@@ -154,6 +157,8 @@ public class TimeManager : MonoBehaviour
             populationRaceButtons.Reset(saveData.cityName);
             newCityContent.Setup();
             newCityContent.LoadSavedData(saveData);
+            tasksPanel.InitValues(saveData.cityName);
+            TasksManager.instance.SetupCityTasks(saveData.taskCompletion);
             Debug.Log("Loaded from: " + Application.persistentDataPath + "/savefile.json");
         } else {
             GameManager.instance.StartNewGame();
@@ -164,6 +169,8 @@ public class TimeManager : MonoBehaviour
             buildingRaceButtons.Reset("Peasantry");
             populationRaceButtons.Reset("Peasantry");
             newCityContent.Setup();
+            tasksPanel.InitValues("Peasantry");
+            TasksManager.instance.cityTasksCompletionStatus = new Dictionary<string, bool[]>();
         }
     }
 }

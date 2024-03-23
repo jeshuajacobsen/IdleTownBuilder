@@ -87,4 +87,6 @@ public class SaveData
             this.popGrowthPercentComplete = popGrowthPercentComplete;
         }
     }
+
+    public Dictionary<string, bool[]> taskCompletion;
 }

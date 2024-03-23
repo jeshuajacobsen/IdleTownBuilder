@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     private const int managerPrice = 50;
     public static GameManager instance;
 
-    private BigInteger coins = 1;
+    private BigInteger coins = 100000;
 
     public BigInteger Coins
     {
@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
         { 
             coins = value; 
             coinsText.text = "" + GameManager.BigIntToExponentString(coins);
+            TasksManager.instance.CheckTasks("CoinGoal", "Coins", coins);
         }
     }
 
@@ -80,6 +81,8 @@ public class GameManager : MonoBehaviour
     public BuildingContent buildingContent;
     public GameObject tabMarketContentGameObject;
     public PopulationContent popContent;
+    public string currentCity;
+    public TextMeshProUGUI cityNameText;
 
     void Awake()
     {
@@ -393,8 +396,9 @@ public class GameManager : MonoBehaviour
         AddResources("Wheat", 1);
         Coins = 1;
         this.cityName = newCityName;
+        cityNameText.text = newCityName;
         resetCity.Invoke(newCityName);
-        
+        currentCity = newCityName;
     }
 
     public void PrepForSave(SaveData saveData)
@@ -417,7 +421,8 @@ public class GameManager : MonoBehaviour
         CollectedPrestige = 10000; //saveData.collectedPrestige;
         resources = saveData.resources;
         cityName = saveData.cityName;
-
+        cityNameText.text = saveData.cityName;
+        currentCity = cityName;
         foreach (string key in saveData.managerLevels.Keys)
         {
             Manager manager = Instantiate(ManagerPrefab, contentTransform);
@@ -436,5 +441,7 @@ public class GameManager : MonoBehaviour
         resources = new Dictionary<string, BigInteger>();
         AddResources("Wheat", 1);
         cityName = "Peasantry";
+        cityNameText.text = cityName;
+        currentCity = cityName;
     }
 }

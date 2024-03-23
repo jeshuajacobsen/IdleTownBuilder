@@ -28,27 +28,19 @@ public class CityOption : MonoBehaviour, Unlockable
         transform.Find("BuildButton").GetComponent<Button>().onClick.AddListener(SelectNewCity);
         transform.Find("LockedPanel").GetComponent<LockedPanel>().SetUsePrestige(true);
 
-        switch(cityName)
+        CityData cityData = GameManager.instance.gameData.GetCityData(newName);
+        unlockCost = cityData.unlockCost;
+
+        Transform raceButtonPanel = transform.Find("RaceButtonPanel");
+        foreach (string race in cityData.races)
         {
-            case "Peasantry":
-                Unlock();
-                break;
-            case "Aquias":
-                unlockCost = 300;
-                break;
-            case "Dwarvary":
-                unlockCost = 1000;
-                break;
-            case "Mountain Port":
-                unlockCost = 5000;
-                break;
-            case "Fairia":
-                unlockCost = 5000;
-                break;
-            case "Elveryn":
-                unlockCost = 5000;
-                break;
+            
+            GameObject imageGameObject = new GameObject("RaceButtonImage");
+            imageGameObject.AddComponent<Image>();
+            imageGameObject.GetComponent<Image>().sprite = SpriteManager.instance.GetInterfaceSprite(race + "Crest");
+            imageGameObject.transform.SetParent(raceButtonPanel, false);
         }
+        transform.Find("TasksPanel").GetComponent<TasksPanel>().InitValues(newName);
     }
 
     public void SelectNewCity()

@@ -172,6 +172,7 @@ public class Building : MonoBehaviour, Unlockable
             Level = Level + 1;
             
             GameManager.instance.SubtractCoins(cost);
+            TasksManager.instance.CheckTasks("BuildingGoal", buildingName, Level);
         }
     }
 

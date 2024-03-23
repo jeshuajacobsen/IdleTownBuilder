@@ -6,6 +6,7 @@ using System.Numerics;
 public class GameData
 {
     private Dictionary<string, BuildingData> buildingsData;
+    private Dictionary<string, CityData> cityData;
     public GameData()
     {
         buildingsData = new Dictionary<string, BuildingData>
@@ -122,10 +123,24 @@ public class GameData
             { "Elvish Jeweler", new BuildingData("Elvish Jeweler") }
         };
 
+        cityData = new Dictionary<string, CityData>
+        {
+            { "Peasantry", new CityData("Peasantry") },
+            { "Aquias", new CityData("Aquias") },
+            { "Dwarvary", new CityData("Dwarvary") },
+            { "Mountain Port", new CityData("Mountain Port") },
+            { "Fairia", new CityData("Fairia") },
+            { "Elveryn", new CityData("Elveryn") }
+        };
     }
 
     public BuildingData GetBuildingData(string name)
     {
         return buildingsData[name];
+    }
+
+    public CityData GetCityData(string name)
+    {
+        return cityData[name];
     }
 }
