@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,5 +35,23 @@ public class Task : MonoBehaviour
         {
             transform.GetComponent<Image>().sprite = SpriteManager.instance.GetInterfaceSprite("StarFilled");
         }
+    }
+
+    public void OpenDescription()
+    {
+        string description;
+        if (taskName == "PopulationGoal")
+        {
+            description = "Reach a " + target + " Population of " + quantity;
+        }
+        else if (taskName == "BuildingGoal")
+        {
+            description = "Reach " + target + " level " + quantity;
+        }
+        else
+        {
+            description = "Unknown Task";
+        }
+        TasksManager.instance.OpenTaskDescription(description);
     }
 }

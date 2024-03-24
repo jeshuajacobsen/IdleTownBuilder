@@ -21,7 +21,6 @@ public class TasksPanel : MonoBehaviour
             {
                 return;
             }
-            Debug.Log("Task completed listner");
             tasks[index].completed = true;
             tasks[index].transform.GetComponent<Image>().sprite = SpriteManager.instance.GetInterfaceSprite("StarFilled");
         });

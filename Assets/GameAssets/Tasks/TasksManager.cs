@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +11,7 @@ public class TasksManager : MonoBehaviour
     public Dictionary<string, bool[]> cityTasksCompletionStatus = new Dictionary<string, bool[]>();
     public UnityEvent<string, int> taskCompleted = new UnityEvent<string, int>();
     public TasksPanel tasksPanel;
+    public GameObject taskDescriptionPanel;
 
     void Start()
     {
@@ -32,6 +34,18 @@ public class TasksManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OpenTaskDescription(string description)
+    {
+        TextMeshProUGUI descriptionText = taskDescriptionPanel.transform.Find("Description").GetComponent<TextMeshProUGUI>();
+        if (taskDescriptionPanel.activeSelf && descriptionText.text == description)
+        {
+            taskDescriptionPanel.SetActive(false);
+            return;
+        }
+        taskDescriptionPanel.SetActive(true);
+        descriptionText.text = description;
     }
 
     public void CheckTasks(string type, string target, BigInteger quantity)
