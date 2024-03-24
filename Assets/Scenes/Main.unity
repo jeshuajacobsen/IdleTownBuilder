@@ -32937,6 +32937,7 @@ MonoBehaviour:
   populationRaceButtons: {fileID: 516725767}
   newCityContent: {fileID: 1869968654}
   tasksPanel: {fileID: 898001750}
+  scienceContent: {fileID: 1684871833}
 --- !u!1 &2124663579
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,8 +16,7 @@ public class CityResearchButton : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI researchedRatioText;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         researchedRatioText.text = "" + level + "/" + maxLevel;
         Button button = transform.GetComponent<Button>();
@@ -25,7 +24,6 @@ public class CityResearchButton : MonoBehaviour
         ResearchManager.instance.setScienceResearch.AddListener(SetLevel);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -77,6 +75,7 @@ public class CityResearchButton : MonoBehaviour
 
     private void SetLevel(string titleToUpgrade, int level)
     {
+        Debug.Log("Setting level");
         if (title == titleToUpgrade)
         {
             this.level = level;

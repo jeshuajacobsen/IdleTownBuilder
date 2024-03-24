@@ -4,6 +4,7 @@ using System.Numerics;
 using UnityEngine;
 using UnityEngine.Events;
 using Newtonsoft.Json;
+using UnityEngine.UIElements;
 
 public class ResearchManager : MonoBehaviour
 {
@@ -19,8 +20,9 @@ public class ResearchManager : MonoBehaviour
 
     public UnityEvent<string> addBuilding;
     public UnityEvent<string, int> setResearch;
-    public UnityEvent<string, int> setScienceResearch;
-    public UnityEvent resetScienceResearch;
+    public UnityEvent<string, int> setScienceResearch = new UnityEvent<string, int>();
+    public UnityEvent resetScienceResearch = new UnityEvent();
+
 
     void Awake()
     {

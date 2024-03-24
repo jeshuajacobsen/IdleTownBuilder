@@ -24,6 +24,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private NewCityContent newCityContent;
 
     [SerializeField] private TasksPanel tasksPanel;
+    [SerializeField] private GameObject scienceContent;
     private SaveData saveData = new SaveData();
 
     void Awake()
@@ -145,6 +146,8 @@ public class TimeManager : MonoBehaviour
             Debug.Log(jsonData);
             saveData = JsonConvert.DeserializeObject<SaveData>(jsonData);
             GameManager.instance.LoadSavedData(saveData);
+            scienceContent.SetActive(true);
+            scienceContent.SetActive(false);
             ResearchManager.instance.Reset(saveData.cityName);
             ResearchManager.instance.LoadSavedData(saveData);
             buildingContent.Reset(saveData.cityName);
