@@ -12,6 +12,8 @@ public class TimeManager : MonoBehaviour
     public static TimeManager instance;
     private int maxAwayTime = (int)TimeSpan.FromHours(2).TotalSeconds;
 
+    public double managerTime = 0;
+
     public UnityEvent<int, Dictionary<string, BigInteger>, BigInteger> timeAwayShowing;
     public UnityEvent<bool> timeAwayHidden;
     public Dictionary<string, BigInteger> timeAwayResources = new Dictionary<string, BigInteger>(); 
@@ -38,6 +40,7 @@ public class TimeManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        InvokeRepeating("Tick", 1.0f, 1.0f);
     }
 
     // Start is called before the first frame update
@@ -52,6 +55,17 @@ public class TimeManager : MonoBehaviour
     {
         
     }
+
+    public void Tick()
+    {
+        managerTime++;
+        if (managerTime >= 3600)
+        {
+            managerTime -= 3600;
+            GameManager.instance.ManagerLevelUpTriggered();
+        }
+    }
+    
 
     void OnApplicationQuit()
     {

@@ -65,7 +65,6 @@ public class PrestigeResearchButton : MonoBehaviour
 
     public void SetLevel(string titleToUpgrade, int level)
     {
-        Debug.Log("Setting level for " + title + " to " + level);
         if (title == titleToUpgrade)
         {
             this.level = level;

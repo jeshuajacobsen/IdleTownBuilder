@@ -14,9 +14,7 @@ public class Requirement : MonoBehaviour
     {
         get 
         { 
-            double multiplier = 1;
-            multiplier -= resource == "Wheat" && ResearchManager.instance.scienceResearchLevels.ContainsKey("Foraging")? ResearchManager.instance.scienceResearchLevels["Foraging"] * .1f : 0;
-            multiplier -= resource == "Vegetables" && ResearchManager.instance.scienceResearchLevels.ContainsKey("Gleaning")? ResearchManager.instance.scienceResearchLevels["Gleaning"] * .1f : 0; 
+            double multiplier = 1; 
             multiplier = Math.Round(multiplier, 2);
             return cost * new BigInteger(multiplier * 100) / 100;
         }
@@ -73,20 +71,26 @@ public class Requirement : MonoBehaviour
 
     public int ConsumeResource()
     {
+        double multiplier = 1;
+        multiplier -= resource == "Wheat" && ResearchManager.instance.scienceResearchLevels.ContainsKey("Foraging")? ResearchManager.instance.scienceResearchLevels["Foraging"] * .1f : 0;
+        multiplier -= resource == "Vegetables" && ResearchManager.instance.scienceResearchLevels.ContainsKey("Gleaning")? ResearchManager.instance.scienceResearchLevels["Gleaning"] * .1f : 0; 
         if (GameManager.instance.resources.ContainsKey(resource))
         {
-            GameManager.instance.SubtractResources(resource, Min(GameManager.instance.resources[resource], Cost * population));
-            int quantity = (int)Min(GameManager.instance.resources[resource], Cost * population);
+            int quantity = (int)Min(GameManager.instance.resources[resource], Cost * population * (int)(multiplier * 100) / 100);
+            GameManager.instance.SubtractResources(resource, quantity);
+
             if (ResearchManager.instance.scienceResearchLevels.ContainsKey("Taxation") && 
                 transform.parent.parent.parent.GetComponent<Demographic>().tier < 4 && 
                 quantity > 0)
             {
-                GameManager.instance.AddCoins(quantity * GameManager.instance.GetResourcePrice(resource) * 10 / 100);
+                GameManager.instance.AddCoins(quantity * GameManager.instance.GetResourcePrice(resource) * 
+                    ResearchManager.instance.scienceResearchLevels["Taxation"] * 10 / 100);
             } else if (ResearchManager.instance.scienceResearchLevels.ContainsKey("Luxury Tax") && 
                 transform.parent.parent.parent.GetComponent<Demographic>().tier > 3 && 
                 quantity > 0)
             {
-                GameManager.instance.AddCoins(quantity * GameManager.instance.GetResourcePrice(resource) * 10 / 100);
+                GameManager.instance.AddCoins(quantity * GameManager.instance.GetResourcePrice(resource) *
+                    ResearchManager.instance.scienceResearchLevels["Luxury Tax"] * 10 / 100);
             }
             return quantity;
         }

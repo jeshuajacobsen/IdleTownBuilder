@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Codice.Client.Common;
+using System.Linq;
 
 public class Manager : MonoBehaviour
 {
@@ -49,6 +50,10 @@ public class Manager : MonoBehaviour
             {
                 assignedBuildingMask.SetActive(true);
                 assignedBuildingMask.transform.Find("AssignedBuildingImage").GetComponent<Image>().sprite = SpriteManager.instance.GetBuildingSprite(assignedBuilding.buildingName);
+                if (Name == "Aeris")
+                {
+                    TimeManager.instance.managerTime = 0;
+                }
             } 
             else
             {
@@ -147,7 +152,7 @@ public class Manager : MonoBehaviour
 
     public double GetEffectMagnitude(string effectType)
     {
-        if (level >= 1 && level < 3)
+        if (level < 3)
         {
             return .1f;
         } 
@@ -169,10 +174,27 @@ public class Manager : MonoBehaviour
     {
         this.rarity = rarity;
         this.Level = level;
-        string[] commonNames = {"Wedge", "Biggs"};
+        string[] commonNames = {"Wedge", "Biggs", "Barret"};
         string[] uncommonNames = {"Jessie", "Tifa"};
         string[] rareNames = {"Aeris", "Cloud"};
 
+        if (commonNames.Contains(name))
+        {
+            rarity = "Common";
+        }
+        else if (uncommonNames.Contains(name))
+        {
+            rarity = "Uncommon";
+        }
+        else if (rareNames.Contains(name))
+        {
+            rarity = "Rare";
+        }
+        
+        effect1Type = "";
+        effect2Type = "";
+        effect1Text.text = "";
+        effect2Text.text = "";
         if (rarity == "Common")
         {
             transform.GetComponent<Image>().sprite = SpriteManager.instance.GetInterfaceSprite("ManagerBackgroundCommon");
@@ -182,17 +204,18 @@ public class Manager : MonoBehaviour
             switch(name)
             {
                 case "Wedge":
-                    effect1Text.text = "10% Production";
-                    effect2Text.text = "10% Speed";
+                    effect1Text.text = "10% production quantity";
                     effect1Type = "ProductionQuantity";
-                    effect2Type = "ProductionSpeed";
                     transform.Find("ProfileImage").GetComponent<Image>().sprite = SpriteManager.instance.GetManagerSprite("Wedge");
                     break;
                 case "Biggs":
-                    effect1Text.text = "10% Less Consumption";
-                    effect2Text.text = "10% Speed";
+                    effect1Text.text = "10% less consumption";
                     effect1Type = "LessConsumption";
-                    effect2Type = "ProductionSpeed";
+                    transform.Find("ProfileImage").GetComponent<Image>().sprite = SpriteManager.instance.GetManagerSprite("Biggs");
+                    break;
+                case "Barret":
+                    effect1Text.text = "10% production speed";
+                    effect1Type = "ProductionSpeed";
                     transform.Find("ProfileImage").GetComponent<Image>().sprite = SpriteManager.instance.GetManagerSprite("Biggs");
                     break;
 
@@ -207,18 +230,18 @@ public class Manager : MonoBehaviour
             switch(name)
             {
                 case "Jessie":
-                    effect1Text.text = "10% Production";
-                    effect2Text.text = "10% Speed";
+                    effect1Text.text = "10% production quantity";
+                    effect2Text.text = "10% production speed";
                     effect1Type = "ProductionQuantity";
                     effect2Type = "ProductionSpeed";
-                    transform.Find("ProfileImage").GetComponent<Image>().sprite = SpriteManager.instance.GetManagerSprite("Wedge");
+                    transform.Find("ProfileImage").GetComponent<Image>().sprite = SpriteManager.instance.GetManagerSprite("Jessie");
                     break;
                 case "Tifa":
-                    effect1Text.text = "10% Less Consumption";
-                    effect2Text.text = "10% Speed";
+                    effect1Text.text = "10% less consumption";
+                    effect2Text.text = "10% production speed";
                     effect1Type = "LessConsumption";
                     effect2Type = "ProductionSpeed";
-                    transform.Find("ProfileImage").GetComponent<Image>().sprite = SpriteManager.instance.GetManagerSprite("Biggs");
+                    transform.Find("ProfileImage").GetComponent<Image>().sprite = SpriteManager.instance.GetManagerSprite("Tifa");
                     break;
 
             }
@@ -232,18 +255,14 @@ public class Manager : MonoBehaviour
             switch(name)
             {
                 case "Aeris":
-                    effect1Text.text = "10% Production";
-                    effect2Text.text = "10% Speed";
-                    effect1Type = "ProductionQuantity";
-                    effect2Type = "ProductionSpeed";
-                    transform.Find("ProfileImage").GetComponent<Image>().sprite = SpriteManager.instance.GetManagerSprite("Wedge");
+                    effect1Text.text = "Managed building gains 1 level every hour.";
+                    effect1Type = "BuildingLevelUp";
+                    transform.Find("ProfileImage").GetComponent<Image>().sprite = SpriteManager.instance.GetManagerSprite("Aeris");
                     break;
                 case "Cloud":
-                    effect1Text.text = "10% Less Consumption";
-                    effect2Text.text = "10% Speed";
-                    effect1Type = "LessConsumption";
-                    effect2Type = "ProductionSpeed";
-                    transform.Find("ProfileImage").GetComponent<Image>().sprite = SpriteManager.instance.GetManagerSprite("Biggs");
+                    effect1Text.text = "Managed building does not consume resources.";
+                    effect1Type = "NoConsumption";
+                    transform.Find("ProfileImage").GetComponent<Image>().sprite = SpriteManager.instance.GetManagerSprite("Cloud");
                     break;
 
             }

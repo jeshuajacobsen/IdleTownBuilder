@@ -185,11 +185,7 @@ public class Building : MonoBehaviour, Unlockable
         }
 
         multiplier -= ResearchManager.instance.scienceResearchLevels.ContainsKey("Architecture") ? ResearchManager.instance.scienceResearchLevels["Architecture"] * .1 : 0;
-
-        if (Manager != null)
-        {
-            multiplier -= Manager.effect1Type == "LessConsumption" || Manager.effect2Type == "LessConsumption" ? Manager.GetEffectMagnitude("LessConsumption") : 0;
-        }
+        
         BigInteger cost = baseCost * GameManager.Pow(level, 2) * (int)(multiplier * 100) / 100;
         return cost > 0 ? cost : 1;
     }
@@ -221,7 +217,7 @@ public class Building : MonoBehaviour, Unlockable
         outputResourceButton.HandleProductionClick();
     }
 
-    public int GetProductionQuantity()
+    public BigInteger GetProductionQuantity()
     {
         double multiplier = 1;
 
@@ -275,7 +271,7 @@ public class Building : MonoBehaviour, Unlockable
             multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Elf Tech") ? ResearchManager.instance.prestigeResearchLevels["Elf Tech"] * .1f : 0;
         }
         multiplier += Manager != null && (Manager.effect1Type == "ProductionQuantity" || Manager.effect2Type == "ProductionQuantity") ? Manager.GetEffectMagnitude("ProductionQuantity") : 0;
-        return (int)(level * multiplier);
+        return new BigInteger(level * multiplier);
     }
 
     public void Unlock()

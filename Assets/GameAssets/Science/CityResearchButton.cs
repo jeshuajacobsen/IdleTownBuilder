@@ -75,7 +75,6 @@ public class CityResearchButton : MonoBehaviour
 
     private void SetLevel(string titleToUpgrade, int level)
     {
-        Debug.Log("Setting level");
         if (title == titleToUpgrade)
         {
             this.level = level;

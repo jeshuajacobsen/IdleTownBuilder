@@ -15,6 +15,8 @@ public class CityResearchTests
     ResearchManager researchManager;
     private AsyncOperation unloadOperation;
 
+    TasksManager tasksManager;
+
     [SetUp]
     public void SetUp()
     {
@@ -24,7 +26,7 @@ public class CityResearchTests
     [UnitySetUp]
     public IEnumerator UnitySetUp()
     {
-
+        Environment.SetEnvironmentVariable("RUNNING_TESTS", "true");
         SceneManager.LoadScene("Main", LoadSceneMode.Single);
 
         yield return null; 
@@ -32,6 +34,7 @@ public class CityResearchTests
         //timeManager.Load();
         gameManager = GameObject.Find("GameManager").transform.GetComponent<GameManager>();
         researchManager = GameObject.Find("ResearchManager").transform.GetComponent<ResearchManager>();
+        tasksManager = GameObject.Find("TasksManager").transform.GetComponent<TasksManager>();
     }
 
     [UnityTearDown]
@@ -48,6 +51,10 @@ public class CityResearchTests
         if (researchManager != null)
         {
             GameObject.DestroyImmediate(researchManager.gameObject);
+        }
+        if (tasksManager != null)
+        {
+            GameObject.DestroyImmediate(tasksManager.gameObject);
         }
         SceneManager.UnloadScene("Main");
         if (unloadOperation != null)
@@ -115,11 +122,11 @@ public class CityResearchTests
         
         Demographic demographic = gameManager.popContent.demographics.Find((Demographic demo) => {return demo.Name == "Peasants";});
         Requirement requirement = demographic.transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().requirements.Find((Requirement req) => {return req.resource == "Wheat";});
-        Assert.AreEqual(new BigInteger(30), requirement.Cost);
+        BigInteger cost = requirement.Cost;
 
         researchManager.CityResearchUpgrade("Foraging");
 
-        Assert.AreEqual(new BigInteger(27), requirement.Cost);
+        Assert.AreEqual(cost - cost * 20 / 100, requirement.Cost);
     }
 
     [UnityTest]
@@ -127,6 +134,7 @@ public class CityResearchTests
     {
         yield return null;
 
+        gameManager.productionTimers["Wheat"] = 0;
         gameManager.buildingContent.buildings[0].outputResourceButton.Tick(false);
         double time = gameManager.productionTimers["Wheat"];
         researchManager.CityResearchUpgrade("Fast Crops");
@@ -146,12 +154,12 @@ public class CityResearchTests
 
         Building mine = gameManager.buildingContent.buildings.Find((building) => {return building.buildingName == "Copper Mine";});
         mine.Level = 10;
-        Assert.AreEqual(10, mine.GetProductionQuantity());
+        Assert.AreEqual(new BigInteger(10), mine.GetProductionQuantity());
 
         researchManager.CityResearchUpgrade("Mining");
         
 
-        Assert.AreEqual(11, mine.GetProductionQuantity());
+        Assert.AreEqual(new BigInteger(11), mine.GetProductionQuantity());
         
     }
 
@@ -164,12 +172,12 @@ public class CityResearchTests
 
         Building reef = gameManager.buildingContent.buildings.Find((building) => {return building.buildingName == "Reef";});
         reef.Level = 10;
-        Assert.AreEqual(10, reef.GetProductionQuantity());
+        Assert.AreEqual(new BigInteger(10), reef.GetProductionQuantity());
 
         researchManager.CityResearchUpgrade("Gathering");
         
 
-        Assert.AreEqual(11, reef.GetProductionQuantity());
+        Assert.AreEqual(new BigInteger(11), reef.GetProductionQuantity());
         
     }
 
@@ -182,12 +190,12 @@ public class CityResearchTests
 
         Building butcher = gameManager.buildingContent.buildings.Find((building) => {return building.buildingName == "Butcher";});
         butcher.Level = 10;
-        Assert.AreEqual(10, butcher.GetProductionQuantity());
+        Assert.AreEqual(new BigInteger(10), butcher.GetProductionQuantity());
 
         researchManager.CityResearchUpgrade("Processing");
         
 
-        Assert.AreEqual(11, butcher.GetProductionQuantity());
+        Assert.AreEqual(new BigInteger(11), butcher.GetProductionQuantity());
         
     }
 
@@ -200,12 +208,12 @@ public class CityResearchTests
 
         Building building = gameManager.buildingContent.buildings.Find((building) => {return building.buildingName == "Bakery";});
         building.Level = 10;
-        Assert.AreEqual(10, building.GetProductionQuantity());
+        Assert.AreEqual(new BigInteger(10), building.GetProductionQuantity());
 
         researchManager.CityResearchUpgrade("Crafting");
         
 
-        Assert.AreEqual(11, building.GetProductionQuantity());
+        Assert.AreEqual(new BigInteger(11), building.GetProductionQuantity());
         
     }
 
@@ -218,12 +226,12 @@ public class CityResearchTests
 
         Building building = gameManager.buildingContent.buildings.Find((building) => {return building.buildingName == "Pasture";});
         building.Level = 10;
-        Assert.AreEqual(10, building.GetProductionQuantity());
+        Assert.AreEqual(new BigInteger(10), building.GetProductionQuantity());
 
         researchManager.CityResearchUpgrade("Farming");
         
 
-        Assert.AreEqual(11, building.GetProductionQuantity());
+        Assert.AreEqual(new BigInteger(11), building.GetProductionQuantity());
         
     }
 
@@ -236,12 +244,12 @@ public class CityResearchTests
 
         Building building = gameManager.buildingContent.buildings.Find((building) => {return building.buildingName == "Barrel Maker";});
         building.Level = 10;
-        Assert.AreEqual(10, building.GetProductionQuantity());
+        Assert.AreEqual(new BigInteger(10), building.GetProductionQuantity());
 
         researchManager.CityResearchUpgrade("Manufacturing");
         
 
-        Assert.AreEqual(11, building.GetProductionQuantity());
+        Assert.AreEqual(new BigInteger(11), building.GetProductionQuantity());
         
     }
 
@@ -254,12 +262,12 @@ public class CityResearchTests
 
         Building building = gameManager.buildingContent.buildings.Find((building) => {return building.buildingName == "Human Jeweler";});
         building.Level = 10;
-        Assert.AreEqual(10, building.GetProductionQuantity());
+        Assert.AreEqual(new BigInteger(10), building.GetProductionQuantity());
 
         researchManager.CityResearchUpgrade("Jeweler");
         
 
-        Assert.AreEqual(11, building.GetProductionQuantity());
+        Assert.AreEqual(new BigInteger(11), building.GetProductionQuantity());
         
     }
 
@@ -272,12 +280,12 @@ public class CityResearchTests
 
         Building building = gameManager.buildingContent.buildings.Find((building) => {return building.buildingName == "Wizard University";});
         building.Level = 10;
-        Assert.AreEqual(10, building.GetProductionQuantity());
+        Assert.AreEqual(new BigInteger(10), building.GetProductionQuantity());
 
         researchManager.CityResearchUpgrade("Magic");
         
 
-        Assert.AreEqual(11, building.GetProductionQuantity());
+        Assert.AreEqual(new BigInteger(11), building.GetProductionQuantity());
         
     }
 
@@ -288,12 +296,15 @@ public class CityResearchTests
         
         Demographic demographic = gameManager.popContent.demographics.Find((Demographic demo) => {return demo.Name == "Commoners";});
         Requirement requirement = demographic.transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().requirements.Find((Requirement req) => {return req.resource == "Vegetables";});
-        Assert.AreEqual(new BigInteger(5), requirement.Cost);
+        demographic.Population = 20;
+        gameManager.resources["Vegetables"] = new BigInteger(1000);
+        
 
         researchManager.CityResearchUpgrade("Gleaning");
-        researchManager.CityResearchUpgrade("Gleaning");
 
-        Assert.AreEqual(new BigInteger(4), requirement.Cost);
+        requirement.ConsumeResource();
+
+        Assert.AreEqual(requirement.Cost * 20 * (int)(.9f * 100) / 100, 1000 - gameManager.resources["Vegetables"] + 1);
         
     }
 
@@ -409,7 +420,7 @@ public class CityResearchTests
         yield return null;
         gameManager.popContent.AddDemographic("Tradesmen");
         Demographic demographic = gameManager.popContent.demographics.Find((Demographic demo) => {return demo.Name == "Tradesmen";});
-        gameManager.resources["Clothes"] = new BigInteger(100);
+        gameManager.resources["Flour"] = new BigInteger(100);
         gameManager.resources["Fruit"] = new BigInteger(100);
         ConsumptionPanel consumptionPanel = demographic.transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>();
         Assert.AreEqual(50, consumptionPanel.CalculateHappiness());
@@ -442,10 +453,12 @@ public class CityResearchTests
     {
         yield return null;
         Assert.AreEqual(new BigInteger(0), gameManager.CityPrestige);
+        gameManager.popContent.AddDemographic("Peasants");
+        gameManager.popContent.demographics.Find((Demographic demo) => {return demo.Name == "Peasants";}).Population = 10;
         
         researchManager.CityResearchUpgrade("Festival");
 
-        Assert.AreEqual(new BigInteger(20), gameManager.CityPrestige);
+        Assert.AreEqual(new BigInteger(100), gameManager.CityPrestige);
     }
 
     [UnityTest]
@@ -454,11 +467,11 @@ public class CityResearchTests
         yield return null;
         Building building = gameManager.buildingContent.buildings.Find((building) => {return building.buildingName == "Farm";});
         building.Level = 3;
-        Assert.AreEqual(new BigInteger(16), building.CalculateCost());
+        BigInteger cost = building.CalculateCost();
         
         researchManager.CityResearchUpgrade("Architecture");
 
-        Assert.AreEqual(new BigInteger(14), building.CalculateCost());
+        Assert.AreEqual(cost - cost * 20 / 100, building.CalculateCost());
     }
 
     [UnityTest]
@@ -467,11 +480,12 @@ public class CityResearchTests
         yield return null;
         Demographic demographic = gameManager.popContent.demographics.Find((Demographic demo) => {return demo.Name == "Peasants";});
         Assert.AreEqual(new BigInteger(5), GameManager.instance.Coins);
+        demographic.Population = 10;
         gameManager.resources["Wheat"] = new BigInteger(100);
         researchManager.CityResearchUpgrade("Taxation");
         demographic.transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().requirements.Find((Requirement req) => {return req.resource == "Wheat";}).ConsumeResource();
         
-        Assert.AreEqual(new BigInteger(8), GameManager.instance.Coins);
+        Assert.AreEqual(new BigInteger(10), GameManager.instance.Coins);
     }
 
     [UnityTest]

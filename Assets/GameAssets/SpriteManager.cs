@@ -869,6 +869,14 @@ public class SpriteManager : MonoBehaviour
                 return commoner;
             case "Biggs":
                 return workerElves;
+            case "Jessie":
+                return changelings;
+            case "Tifa":
+                return selkies;
+            case "Aeris":
+                return fairySeamstress;
+            case "Cloud":
+                return highMer;
         }
         return commoner;
     }

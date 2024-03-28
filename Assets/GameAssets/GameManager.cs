@@ -383,6 +383,32 @@ public class GameManager : MonoBehaviour
        
     }
 
+    public Manager AddManager(string name)
+    {
+        
+        Manager manager = Instantiate(ManagerPrefab, contentTransform);
+        manager.InitValues(name, 0, "");
+        Manager existingManager = managers.Find((currentManager) => {return manager.nameText.text == currentManager.nameText.text;});
+        if (existingManager != null)
+        {
+            existingManager.Level++;
+            return existingManager;
+        }
+        else
+        {
+            managers.Add(manager);
+            managersPanel.AddManagerToView(manager);
+            return manager;
+        }
+       
+    }
+
+    public void ManagerLevelUpTriggered()
+    {
+        Manager manager = managers.Find((manager) => {return manager.Name == "Aeris";});
+        manager.AssignedBuilding.LevelUp();
+    }
+
     public void UnassignManagerFromOtherBuilding(Manager manager)
     {
         buildingContent.UnassignManagerFromOtherBuilding(manager);

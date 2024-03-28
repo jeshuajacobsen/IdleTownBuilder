@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using SharpUI.Source.Common.UI.Elements.Loading;
-
+using System.Numerics;
+using System;
 public class ProductionOutput : MonoBehaviour
 {
 
@@ -55,9 +56,6 @@ public class ProductionOutput : MonoBehaviour
             if (producing)
             {
                 productionTimer++;
-                productionTimer += building.Manager != null && 
-                    (building.Manager.effect1Type == "ProductionSpeed" || building.Manager.effect1Type == "ProductionSpeed") 
-                    ? building.Manager.GetEffectMagnitude("ProductionSpeed") : 0;
                 productionTimer += ResearchManager.instance.scienceResearchLevels.ContainsKey("Tapping") && fromTap ? ResearchManager.instance.scienceResearchLevels["Tapping"] * .2f: 0;
                 productionTimer += ResearchManager.instance.scienceResearchLevels.ContainsKey("Advanced Tapping") && fromTap ? ResearchManager.instance.scienceResearchLevels["Advanced Tapping"] * .2f: 0;
                 productionTimer += ResearchManager.instance.scienceResearchLevels.ContainsKey("Expert Tapping") && fromTap ? ResearchManager.instance.scienceResearchLevels["Expert Tapping"] * .2f: 0;
@@ -67,6 +65,12 @@ public class ProductionOutput : MonoBehaviour
                 {
                     productionTimer += ResearchManager.instance.scienceResearchLevels.ContainsKey("Fast Crops") ? ResearchManager.instance.scienceResearchLevels["Fast Crops"] * .1f: 0;
                 }
+    
+                if (building.Manager != null && (building.Manager.effect1Type == "ProductionSpeed" || building.Manager.effect2Type == "ProductionSpeed"))
+                {
+                    productionTimer += building.Manager.GetEffectMagnitude("ProductionSpeed");
+                }
+
                 if (productionTimer >= requiredTime)
                 {
                     productionTimer -= requiredTime;
@@ -91,6 +95,7 @@ public class ProductionOutput : MonoBehaviour
                 }
             }
 
+            //TODO move production timer to timemanager.
             GameManager.instance.productionTimers[resource] = productionTimer; 
             loadingBar.UpdatePercentage((float)(productionTimer / requiredTime * 100));
         }
@@ -111,29 +116,45 @@ public class ProductionOutput : MonoBehaviour
         Tick(true);
     }
 
-    private bool CanStartNextProduction()
+    public bool CanStartNextProduction()
     {
         bool canStart = true;
+        BigInteger cost;
+        double multiplier = 1;
+        if (building.Manager != null && (building.Manager.effect1Type == "LessConsumption" || building.Manager.effect2Type == "LessConsumption"))
+        {
+            multiplier -= building.Manager.GetEffectMagnitude("LessConsumption");
+        }
+
+        if (building.Manager != null && (building.Manager.effect1Type == "NoConsumption" || building.Manager.effect2Type == "NoConsumption"))
+        {
+            multiplier = 0;
+        }
+        
         if (building.inputResourceButton1.gameObject.activeSelf)
         {
+
+            cost = building.inputResourceButton1.requiredAmount * building.Level * (int)(multiplier * 100) / 100;
             if (!GameManager.instance.resources.ContainsKey(building.inputResourceButton1.resource) || 
-                building.inputResourceButton1.requiredAmount * building.Level > GameManager.instance.resources[building.inputResourceButton1.resource])
+                cost > GameManager.instance.resources[building.inputResourceButton1.resource])
             {
                 canStart = false;
             }
         }
         if (building.inputResourceButton2.gameObject.activeSelf)
         {
+            cost = building.inputResourceButton2.requiredAmount * building.Level * (int)(multiplier * 100) / 100;
             if (!GameManager.instance.resources.ContainsKey(building.inputResourceButton2.resource) ||
-                building.inputResourceButton2.requiredAmount * building.Level > GameManager.instance.resources[building.inputResourceButton2.resource])
+                cost > GameManager.instance.resources[building.inputResourceButton2.resource])
             {
                 canStart = false;
             }
         }
         if (building.inputResourceButton3.gameObject.activeSelf)
         {
+            cost = building.inputResourceButton3.requiredAmount * building.Level * (int)(multiplier * 100) / 100;
             if (!GameManager.instance.resources.ContainsKey(building.inputResourceButton3.resource) ||
-                building.inputResourceButton3.requiredAmount * building.Level > GameManager.instance.resources[building.inputResourceButton3.resource])
+                cost > GameManager.instance.resources[building.inputResourceButton3.resource])
             {
                 canStart = false;
             }

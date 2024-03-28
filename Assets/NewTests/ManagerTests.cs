@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 using System;
 using System.Numerics;
 
-public class PrestigeResearchTests
+public class ManagerTests
 {
 
     GameManager gameManager;
@@ -27,7 +27,7 @@ public class PrestigeResearchTests
     {
         Environment.SetEnvironmentVariable("RUNNING_TESTS", "true");
         SceneManager.LoadScene("Main", LoadSceneMode.Single);
-        
+
         yield return null; 
         timeManager = GameObject.Find("TimeManager").transform.GetComponent<TimeManager>();
         //timeManager.Load();
@@ -64,42 +64,74 @@ public class PrestigeResearchTests
         // Note: You cannot yield return here to wait for it to complete
     }
 
-
     [UnityTest]
-    public IEnumerator BuildingResearchWorks()
+    public IEnumerator ProductionQuantityWorks()
     {
         yield return null;
-        gameManager.buildingContent.buildings[0].Level = 10;
-        Assert.AreEqual(new BigInteger(10), gameManager.buildingContent.buildings[0].GetProductionQuantity());
 
-        researchManager.BuildingResearchUpgrade("Farm");
+        gameManager.AddManager("Wedge");
 
-        Assert.AreEqual(new BigInteger(11), gameManager.buildingContent.buildings[0].GetProductionQuantity());
+        Building building = gameManager.buildingContent.buildings[0];
+        building.Level = 10;
+        Assert.AreEqual(new BigInteger(10), building.GetProductionQuantity());
+        //yield return null;
+        building.Manager = gameManager.managers[0];
+
+        Assert.AreEqual(new BigInteger(11), building.GetProductionQuantity());
+        
     }
 
     [UnityTest]
-    public IEnumerator FertilizerResearchWorks()
+    public IEnumerator LessConsumptionWorks()
     {
         yield return null;
 
-        gameManager.buildingContent.buildings[0].Level = 20;
-        BigInteger cost = gameManager.buildingContent.buildings[0].CalculateCost();
+        gameManager.AddManager("Biggs");
+        
+        ResearchManager.instance.BuildingResearchUpgrade("Potter");
+        Building building = gameManager.buildingContent.buildings.Find((building) => building.buildingName == "Potter");
+        building.Level = 10;
+        gameManager.AddResources("Clay", 9);
+        Assert.IsFalse(building.outputResourceButton.CanStartNextProduction());
 
-        researchManager.PrestigeResearchUpgrade("Fertilizer");
+        building.Manager = gameManager.managers[0];
 
-        Assert.AreEqual((cost * 90) / 100, gameManager.buildingContent.buildings[0].CalculateCost());
+        Assert.IsTrue(building.outputResourceButton.CanStartNextProduction());
+        
     }
 
     [UnityTest]
-    public IEnumerator TapPowerResearchWorks()
+    public IEnumerator NoConsumptionWorks()
     {
         yield return null;
 
-        researchManager.PrestigeResearchUpgrade("Tap Power");
+        gameManager.AddManager("Cloud");
+        
+        ResearchManager.instance.BuildingResearchUpgrade("Potter");
+        Building building = gameManager.buildingContent.buildings.Find((building) => building.buildingName == "Potter");
+        building.Level = 10;
+        gameManager.AddResources("Clay", 0);
+        Assert.IsFalse(building.outputResourceButton.CanStartNextProduction());
 
+        building.Manager = gameManager.managers[0];
+
+        Assert.IsTrue(building.outputResourceButton.CanStartNextProduction());
+        
+    }
+
+    [UnityTest]
+    public IEnumerator ProductionSpeedWorks()
+    {
+        yield return null;
+
+        gameManager.AddManager("Barret");
+
+        gameManager.productionTimers["Wheat"] = 0;
         gameManager.buildingContent.buildings[0].outputResourceButton.Tick(false);
         double time = gameManager.productionTimers["Wheat"];
-        gameManager.buildingContent.buildings[0].outputResourceButton.Tick(true);
+        gameManager.buildingContent.buildings[0].Manager = gameManager.managers[0];
+
+        gameManager.buildingContent.buildings[0].outputResourceButton.Tick(false);
         //yield return null;
 
         Assert.AreEqual(time + 1.1, gameManager.productionTimers["Wheat"], .05);
@@ -107,31 +139,20 @@ public class PrestigeResearchTests
     }
 
     [UnityTest]
-    public IEnumerator MarketingResearchWorks()
+    public IEnumerator BuildingLevelUpWorks()
     {
         yield return null;
 
-        Assert.AreEqual(new BigInteger(5), GameManager.instance.Coins);
-        gameManager.AddResources("Milk", 10);
-        BigInteger price = gameManager.GetResourcePrice("Milk");
-        researchManager.PrestigeResearchUpgrade("Marketing");
-        
-        gameManager.tabMarketContentGameObject.GetComponent<TabMarketContent>().SellResources("Milk");
-        
-        Assert.AreEqual(price + price * 10 / 100, gameManager.GetResourcePrice("Milk"));
-        Assert.AreEqual(5 + gameManager.GetResourcePrice("Milk") * 10, GameManager.instance.Coins);
-    }
+        gameManager.AddManager("Aeris");
 
-    [UnityTest]
-    public IEnumerator PeasantingResearchWorks()
-    {
-        yield return null;
-        Demographic demographic = gameManager.popContent.demographics.Find((Demographic demo) => {return demo.Name == "Peasants";});
-        demographic.Population = 1;
-        Assert.AreEqual(new BigInteger(4), demographic.GetPrestigeGenerated());
-   
-        researchManager.PrestigeResearchUpgrade("Peasanting");
+        gameManager.buildingContent.buildings[0].Manager = gameManager.managers[0];
+        gameManager.managers[0].AssignedBuilding = gameManager.buildingContent.buildings[0];
 
-        Assert.AreEqual(new BigInteger(5), demographic.GetPrestigeGenerated());
+        timeManager.managerTime = 4000;
+        timeManager.Tick();
+        //yield return null;
+
+        Assert.AreEqual(2, gameManager.buildingContent.buildings[0].Level);
+        
     }
 }
