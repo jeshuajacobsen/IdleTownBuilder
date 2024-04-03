@@ -21,6 +21,10 @@ public class CityResearchButton : MonoBehaviour
         researchedRatioText.text = "" + level + "/" + maxLevel;
         Button button = transform.GetComponent<Button>();
         button.onClick.AddListener(OpenInSelectedResearch);
+    }
+
+    void Start()
+    {
         ResearchManager.instance.setScienceResearch.AddListener(SetLevel);
     }
 

@@ -4,7 +4,6 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Codice.Client.Common;
 using System.Linq;
 
 public class Manager : MonoBehaviour

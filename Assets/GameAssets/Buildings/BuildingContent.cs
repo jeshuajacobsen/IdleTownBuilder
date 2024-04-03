@@ -27,6 +27,10 @@ public class BuildingContent : MonoBehaviour
     public void AddBuilding(string buildingName)
     {
         Building building = Instantiate(BuildingPrefab, contentTransform);
+        if (ResearchManager.instance.scienceResearchLevels.ContainsKey("Managers") && ResearchManager.instance.scienceResearchLevels["Managers"] >= 1)
+        {
+            building.transform.Find("ManagerButton").gameObject.SetActive(true);
+        }
         building.transform.SetParent(transform, false);
         building.InitValues(buildingName);
         building.onProductionClick.AddListener(HandleProductionClick);
@@ -34,6 +38,14 @@ public class BuildingContent : MonoBehaviour
         if (buildingName == "Farm")
         {
             building.Unlock();
+        }
+    }
+
+    public void unlockManagers()
+    {
+        foreach (Building building in buildings)
+        {
+            building.transform.Find("ManagerButton").gameObject.SetActive(true);
         }
     }
 

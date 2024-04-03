@@ -41,8 +41,8 @@ public class Demographic : MonoBehaviour, Unlockable
         set 
         { 
             capacityLevel = value;
-            transform.Find("CapacityPanel").Find("CapacityText").GetComponent<TextMeshProUGUI>().text = CalculateCapacity(false).ToString() + " -> " + CalculateCapacity(true).ToString();
-            transform.Find("CapacityPanel").Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + CalculateCapacityCost();
+            transform.Find("CapacityPanel").Find("CapacityText").GetComponent<TextMeshProUGUI>().text = GameManager.BigIntToExponentString(CalculateCapacity(false)) + " -> " + GameManager.BigIntToExponentString(CalculateCapacity(true));
+            transform.Find("CapacityPanel").Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + GameManager.BigIntToExponentString(CalculateCapacityCost());
         }
     }
     private int growthLevel = 1;
@@ -53,8 +53,8 @@ public class Demographic : MonoBehaviour, Unlockable
         set 
         { 
             growthLevel = value;
-            transform.Find("GrowthPanel").Find("GrowthText").GetComponent<TextMeshProUGUI>().text = CalculateGrowth(false).ToString() + " -> " + CalculateGrowth(true).ToString();
-            transform.Find("GrowthPanel").Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + CalculateGrowthCost();
+            transform.Find("GrowthPanel").Find("GrowthText").GetComponent<TextMeshProUGUI>().text = GameManager.BigIntToExponentString(CalculateGrowth(false)) + " -> " + GameManager.BigIntToExponentString(CalculateGrowth(true));
+            transform.Find("GrowthPanel").Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + GameManager.BigIntToExponentString(CalculateGrowthCost());
         }
     }
 
@@ -478,7 +478,6 @@ public class Demographic : MonoBehaviour, Unlockable
         {
             CapacityLevel = CapacityLevel + 1;
             GameManager.instance.SubtractCoins(cost);
-            transform.Find("CapacityPanel").Find("UpgradeButton").Find("ButtonText").GetComponent<TextMeshProUGUI>().text = "$" + CalculateCapacityCost();
         }
     }
 

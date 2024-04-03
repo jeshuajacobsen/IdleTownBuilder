@@ -21,8 +21,8 @@ public class CityData
                 races = new List<string> {"Human"};
                 demographics = new List<string> {"Peasants", "Commoners"};
                 tasks = new TaskData[] {
-                    new TaskData("PopulationGoal", 2, "Peasants"),
-                    new TaskData("PopulationGoal", 2, "Commoners"), 
+                    new TaskData("PopulationGoal", 10, "Peasants"),
+                    new TaskData("PopulationGoal", 5, "Commoners"), 
                     new TaskData("BuildingGoal", 20, "Farm")
                 };
                 break;
@@ -31,9 +31,9 @@ public class CityData
                 races = new List<string> {"Human", "Merfolk"};
                 demographics = new List<string> {"Peasants", "Commoners", "Surfs"};
                 tasks = new TaskData[] {
-                    new TaskData("PopulationGoal", 10, "Peasants"),
-                    new TaskData("PopulationGoal", 5, "Commoners"), 
-                    new TaskData("BuildingGoal", 20, "Farm")
+                    new TaskData("PopulationGoal", 10, "Surfs"),
+                    new TaskData("PopulationGoal", 10, "Commoners"), 
+                    new TaskData("BuildingGoal", 10, "Reef")
                 };
                 break;
             case "Dwarvary":
@@ -41,9 +41,9 @@ public class CityData
                 races = new List<string> {"Human", "Dwarf"};
                 demographics = new List<string> {"Peasants", "Commoners", "Miners"};
                 tasks = new TaskData[] {
-                    new TaskData("PopulationGoal", 10, "Peasants"),
-                    new TaskData("PopulationGoal", 5, "Commoners"), 
-                    new TaskData("BuildingGoal", 20, "Farm")
+                    new TaskData("PopulationGoal", 10, "Miners"),
+                    new TaskData("BuildingGoal", 10, "Mushroom Cave"), 
+                    new TaskData("BuildingGoal", 5, "Mana Well")
                 };
                 break;
             case "Mountain Port":
@@ -51,9 +51,9 @@ public class CityData
                 races = new List<string> {"Human", "Merfolk", "Dwarf"};
                 demographics = new List<string> {"Peasants", "Commoners", "Tradesmen", "Surfs", "Middle Mer", "Miners", "Workers"};
                 tasks = new TaskData[] {
-                    new TaskData("PopulationGoal", 10, "Peasants"),
-                    new TaskData("PopulationGoal", 5, "Commoners"), 
-                    new TaskData("BuildingGoal", 20, "Farm")
+                    new TaskData("PopulationGoal", 10, "Middle Mer"),
+                    new TaskData("PopulationGoal", 10, "Workers"), 
+                    new TaskData("BuildingGoal", 10, "Iron Mine")
                 };
                 break;
             case "Fairia":

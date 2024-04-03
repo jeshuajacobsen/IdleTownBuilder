@@ -40,7 +40,7 @@ public class ResearchInfoPanel : MonoBehaviour
         this.level = level;
         this.maxLevel = maxLevel;
         this.isBuilding = isBuilding;
-        costText.text = "" + getCost();
+        costText.text = "" + GameManager.BigIntToExponentString(getCost());
         currentLevelText.text = level + "/" + maxLevel;
     }
 

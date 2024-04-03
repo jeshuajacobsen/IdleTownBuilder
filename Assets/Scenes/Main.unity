@@ -3270,6 +3270,7 @@ GameObject:
   - component: {fileID: 259657008}
   - component: {fileID: 259657009}
   - component: {fileID: 259657010}
+  - component: {fileID: 259657011}
   m_Layer: 5
   m_Name: ManagerContent
   m_TagString: Untagged
@@ -3293,8 +3294,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -416.1343, y: 379.2}
-  m_SizeDelta: {x: 832, y: 965.56}
+  m_AnchoredPosition: {x: -416.1343, y: 379.19794}
+  m_SizeDelta: {x: 832.27, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &259657009
 MonoBehaviour:
@@ -3332,6 +3333,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f66cd64052c4143890f8b921a8cf0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &259657011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259657007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1001 &277916856
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10207,7 +10222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: maxLevel
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
@@ -22650,7 +22665,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1468076966
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25554,7 +25569,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1684871834
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31281,7 +31296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 259657008}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1

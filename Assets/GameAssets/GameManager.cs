@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     private const int managerPrice = 50;
     public static GameManager instance;
 
-    private BigInteger coins = 100000;
+    private BigInteger coins = 1;
 
     public BigInteger Coins
     {
@@ -385,7 +385,7 @@ public class GameManager : MonoBehaviour
 
     public Manager AddManager(string name)
     {
-        
+        //TODO charge gems
         Manager manager = Instantiate(ManagerPrefab, contentTransform);
         manager.InitValues(name, 0, "");
         Manager existingManager = managers.Find((currentManager) => {return manager.nameText.text == currentManager.nameText.text;});
@@ -444,7 +444,7 @@ public class GameManager : MonoBehaviour
         Coins = saveData.coins;
         Gems = saveData.gems;
         CityPrestige = saveData.cityPrestige;
-        CollectedPrestige = 10000; //saveData.collectedPrestige;
+        CollectedPrestige = saveData.collectedPrestige;
         resources = saveData.resources;
         cityName = saveData.cityName;
         cityNameText.text = saveData.cityName;
@@ -460,7 +460,7 @@ public class GameManager : MonoBehaviour
 
     public void StartNewGame()
     {
-        CollectedPrestige = 10000;
+        CollectedPrestige = 0;
         Coins = 5;
         Gems = 0;
         CityPrestige = 0;

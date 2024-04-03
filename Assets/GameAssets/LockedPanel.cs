@@ -14,7 +14,7 @@ public class LockedPanel : MonoBehaviour
     {
         parent = parentMonoBehaviour as Unlockable;
         transform.Find("BuildButton").GetComponent<Button>().onClick.AddListener(Unlock);
-        transform.Find("BuildButton").Find("Text").GetComponent<TextMeshProUGUI>().text = "$" + parent.GetUnlockCost();
+        transform.Find("BuildButton").Find("Text").GetComponent<TextMeshProUGUI>().text = "$" + GameManager.BigIntToExponentString(parent.GetUnlockCost());
     }
 
     // Update is called once per frame

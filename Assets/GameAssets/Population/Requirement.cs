@@ -9,14 +9,16 @@ using System.Numerics;
 public class Requirement : MonoBehaviour
 {
     public string resource;
-    public BigInteger cost;
+    private BigInteger cost;
     public BigInteger Cost
     {
         get 
         { 
             double multiplier = 1; 
+            multiplier -= resource == "Wheat" && ResearchManager.instance.scienceResearchLevels.ContainsKey("Foraging")? ResearchManager.instance.scienceResearchLevels["Foraging"] * .1f : 0;
+            multiplier -= resource == "Vegetables" && ResearchManager.instance.scienceResearchLevels.ContainsKey("Gleaning")? ResearchManager.instance.scienceResearchLevels["Gleaning"] * .1f : 0;
             multiplier = Math.Round(multiplier, 2);
-            return cost * new BigInteger(multiplier * 100) / 100;
+            return population * cost * new BigInteger(multiplier * 100) / 100;
         }
         set 
         { 
@@ -41,11 +43,11 @@ public class Requirement : MonoBehaviour
             if (resource != null && GameManager.instance.resources.ContainsKey(resource))
             {
                 costText.text = GameManager.BigIntToExponentString(GameManager.instance.resources[resource]) +
-                    "/" + GameManager.BigIntToExponentString(Cost * population);
+                    "/" + GameManager.BigIntToExponentString(Cost);
             }
             else
             {
-                costText.text = "0" + "/" + GameManager.BigIntToExponentString(Cost * population);
+                costText.text = "0" + "/" + GameManager.BigIntToExponentString(Cost);
             }
         }
     }
@@ -57,26 +59,24 @@ public class Requirement : MonoBehaviour
         BigInteger resourceInStock = GameManager.instance.resources.ContainsKey(resource) ? GameManager.instance.resources[resource] : 0;
         transform.Find("Mask").Find("Image").GetComponent<Image>().sprite = SpriteManager.instance.GetResourceSprite(newResource);
         
-        transform.Find("costText").GetComponent<TextMeshProUGUI>().text = "" + resourceInStock + "/" + Cost * population;
+        transform.Find("costText").GetComponent<TextMeshProUGUI>().text = "" + resourceInStock + "/" + Cost;
     }
 
     public int PercentMet()
     {
         if (GameManager.instance.resources.ContainsKey(resource))
         {
-            return (int)((float)Min(GameManager.instance.resources[resource], Cost * population) / (float)(Cost * population) * 100);
+            return (int)((float)Min(GameManager.instance.resources[resource], Cost) / (float)(Cost) * 100);
         }
         return 0;
     }
 
     public int ConsumeResource()
     {
-        double multiplier = 1;
-        multiplier -= resource == "Wheat" && ResearchManager.instance.scienceResearchLevels.ContainsKey("Foraging")? ResearchManager.instance.scienceResearchLevels["Foraging"] * .1f : 0;
-        multiplier -= resource == "Vegetables" && ResearchManager.instance.scienceResearchLevels.ContainsKey("Gleaning")? ResearchManager.instance.scienceResearchLevels["Gleaning"] * .1f : 0; 
+         
         if (GameManager.instance.resources.ContainsKey(resource))
         {
-            int quantity = (int)Min(GameManager.instance.resources[resource], Cost * population * (int)(multiplier * 100) / 100);
+            int quantity = (int)Min(GameManager.instance.resources[resource], Cost);
             GameManager.instance.SubtractResources(resource, quantity);
 
             if (ResearchManager.instance.scienceResearchLevels.ContainsKey("Taxation") && 

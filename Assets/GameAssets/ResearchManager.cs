@@ -74,6 +74,10 @@ public class ResearchManager : MonoBehaviour
                 GameManager.instance.AddResources(building.outputResourceButton.resource, building.GetProductionQuantity() * 5);
             }
         }
+        if (upgradeTitle == "Managers")
+        {
+            GameManager.instance.buildingContent.unlockManagers();
+        }
         if (scienceResearchLevels.ContainsKey(upgradeTitle)) {
             scienceResearchLevels[upgradeTitle] += 1;
             

@@ -121,9 +121,11 @@ public class CityResearchTests
         yield return null;
         
         Demographic demographic = gameManager.popContent.demographics.Find((Demographic demo) => {return demo.Name == "Peasants";});
+        demographic.Population = 10;
         Requirement requirement = demographic.transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().requirements.Find((Requirement req) => {return req.resource == "Wheat";});
         BigInteger cost = requirement.Cost;
 
+        researchManager.CityResearchUpgrade("Foraging");
         researchManager.CityResearchUpgrade("Foraging");
 
         Assert.AreEqual(cost - cost * 20 / 100, requirement.Cost);
@@ -298,13 +300,14 @@ public class CityResearchTests
         Requirement requirement = demographic.transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().requirements.Find((Requirement req) => {return req.resource == "Vegetables";});
         demographic.Population = 20;
         gameManager.resources["Vegetables"] = new BigInteger(1000);
+        BigInteger cost = requirement.Cost;
         
 
         researchManager.CityResearchUpgrade("Gleaning");
 
         requirement.ConsumeResource();
 
-        Assert.AreEqual(requirement.Cost * 20 * (int)(.9f * 100) / 100, 1000 - gameManager.resources["Vegetables"] + 1);
+        Assert.AreEqual(cost * 90 / 100, 1000 - gameManager.resources["Vegetables"]);
         
     }
 
@@ -557,5 +560,16 @@ public class CityResearchTests
         researchManager.CityResearchUpgrade("Levy");
         
         Assert.AreEqual(new BigInteger(5), GameManager.instance.resources["Wheat"]);
+    }
+
+    [UnityTest]
+    public IEnumerator ManagerResearchWorks()
+    {
+        yield return null;
+        Assert.IsFalse(gameManager.buildingContent.buildings[0].transform.Find("ManagerButton").gameObject.activeSelf);
+
+        researchManager.CityResearchUpgrade("Managers");
+        
+        Assert.IsTrue(gameManager.buildingContent.buildings[0].transform.Find("ManagerButton").gameObject.activeSelf);
     }
 }
