@@ -15,7 +15,7 @@ public class ResourceCost : MonoBehaviour
     public int level;
     public BigInteger GetRequiredAmount(int level)
     {
-        return requiredAmount * GameManager.Pow((level + 1), 2);
+        return GameManager.GrowthFunction(level, requiredAmount);
     }
 
     // Start is called before the first frame update
@@ -34,7 +34,8 @@ public class ResourceCost : MonoBehaviour
         } 
         else 
         {
-            resourceCost.text = "" + GameManager.instance.resources[resourceName.text] + "/" + GetRequiredAmount(level);
+            resourceCost.text = "" + GameManager.BigIntToExponentString(GameManager.instance.resources[resourceName.text]) +
+              "/" + GameManager.BigIntToExponentString(GetRequiredAmount(level));
             if (GetRequiredAmount(level) > GameManager.instance.resources[resourceName.text])
             {
                 resourceCost.color = Color.red;
@@ -51,7 +52,8 @@ public class ResourceCost : MonoBehaviour
         this.level = level;
         if (GameManager.instance.resources.ContainsKey(newResourceName))
         {
-            resourceCost.text = "" + GameManager.instance.resources[newResourceName] + "/" + GameManager.BigIntToExponentString(GetRequiredAmount(level));
+            resourceCost.text = "" + GameManager.BigIntToExponentString(GameManager.instance.resources[newResourceName]) + "/"
+                 + GameManager.BigIntToExponentString(GetRequiredAmount(level));
 
             if (GetRequiredAmount(level) > GameManager.instance.resources[newResourceName])
             {

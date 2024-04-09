@@ -572,4 +572,22 @@ public class CityResearchTests
         
         Assert.IsTrue(gameManager.buildingContent.buildings[0].transform.Find("ManagerButton").gameObject.activeSelf);
     }
+
+    [UnityTest]
+    public IEnumerator ManagersBoostWorks()
+    {
+        yield return null;
+
+        gameManager.AddManager("Wedge");
+
+        Building building = gameManager.buildingContent.buildings[0];
+        building.Level = 20;
+        Assert.AreEqual(new BigInteger(20), building.GetProductionQuantity());
+        
+        building.Manager = gameManager.managers[0];
+        researchManager.CityResearchUpgrade("Managers Boost");
+
+        Assert.AreEqual(new BigInteger(23), building.GetProductionQuantity());
+        
+    }
 }

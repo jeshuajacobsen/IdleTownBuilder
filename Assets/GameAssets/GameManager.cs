@@ -116,9 +116,9 @@ public class GameManager : MonoBehaviour
         resourcePrices["High Arcana "] = 5000;
 
         //merfolk
-        resourcePrices["Kelp"] = 200;
-        resourcePrices["Coral"] = 500;
-        resourcePrices["Fish"] = 2000;
+        resourcePrices["Kelp"] = 100;
+        resourcePrices["Coral"] = 200;
+        resourcePrices["Fish"] = 400;
         resourcePrices["Reed"] = 4000;
         resourcePrices["Pearl"] = 8000;
         resourcePrices["Basket"] = 9000;
@@ -139,9 +139,9 @@ public class GameManager : MonoBehaviour
         resourcePrices["Trident"] = 10000;
 
         //Dwarf
-        resourcePrices["Mushroom"] = 200;
-        resourcePrices["Mana"] = 600;
-        resourcePrices["Coal"] = 2000;
+        resourcePrices["Mushroom"] = 80;
+        resourcePrices["Mana"] = 300;
+        resourcePrices["Coal"] = 400;
         resourcePrices["Iron Ore"] = 8000;
         resourcePrices["Honey"] = 10000;
         resourcePrices["Iron Ingot"] = 1000000;
@@ -283,6 +283,16 @@ public class GameManager : MonoBehaviour
         return result;
     }
 
+    public static BigInteger GrowthFunction(int level, BigInteger baseCost)
+    {
+        if (level == 0)
+        {
+            return baseCost;
+        }
+        //return baseCost * (Pow(level, 3) + Pow(level, 2) + level);
+        return baseCost * Pow(2, level);
+    }
+
     public void AddCoins(BigInteger quantity)
     {
         Coins = Coins + quantity;
@@ -406,7 +416,10 @@ public class GameManager : MonoBehaviour
     public void ManagerLevelUpTriggered()
     {
         Manager manager = managers.Find((manager) => {return manager.Name == "Aeris";});
-        manager.AssignedBuilding.LevelUp();
+        if (manager != null && manager.AssignedBuilding != null)
+        {
+            manager.AssignedBuilding.LevelUp();
+        }
     }
 
     public void UnassignManagerFromOtherBuilding(Manager manager)

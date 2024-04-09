@@ -66,6 +66,6 @@ public class ResearchInfoPanel : MonoBehaviour
 
     private BigInteger getCost()
     {
-        return baseCost * GameManager.Pow(level + 1, 2);
+        return GameManager.GrowthFunction(level, baseCost);
     }
 }

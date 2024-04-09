@@ -151,21 +151,23 @@ public class Manager : MonoBehaviour
 
     public double GetEffectMagnitude(string effectType)
     {
+        double magnitude = 0;
+        magnitude += ResearchManager.instance.scienceResearchLevels.ContainsKey("Managers Boost") ? ResearchManager.instance.scienceResearchLevels["Managers Boost"] * .05f : 0;
         if (level < 3)
         {
-            return .1f;
+            return .1f + magnitude;
         } 
         else if (level >= 3 && level < 5) 
         {
-            return .2f;
+            return .2f + magnitude;
         }
         else if (level >= 5 && level < 8) 
         {
-            return .3f;
+            return .3f + magnitude;
         }
         else
         {
-            return .4f;
+            return .4f + magnitude;
         }
     }
 

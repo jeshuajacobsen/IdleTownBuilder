@@ -21,7 +21,7 @@ public class BuildingData
         case "Farm":
             outputResource = "Wheat";
             inputResources = new string[] {};
-            baseCost = 1;
+            baseCost = 2;
             productionTime = 10;
             researchBaseCost = 10;
             category = "Farm";
@@ -239,190 +239,190 @@ public class BuildingData
         case "Kelpery":
             outputResource = "Kelp";
             inputResources = new string[] {};
-            baseCost = 2000;
+            baseCost = 300;
             productionTime = 10;
             race = "Merfolk";
-            researchBaseCost = 1100;
+            researchBaseCost = 100;
             category = "Farm";
             break;
         case "Reef":
             outputResource = "Coral";
             inputResources = new string[] {};
-            baseCost = 4000;
+            baseCost = 500;
             productionTime = 12;
             race = "Merfolk";
-            researchBaseCost = 3000;
+            researchBaseCost = 300;
             category = "Gathering";
             break;
         case "Fishery":
             outputResource = "Fish";
             inputResources = new string[] {};
-            baseCost = 8000;
+            baseCost = 800;
             productionTime = 14;
             race = "Merfolk";
-            researchBaseCost = 6000;
+            researchBaseCost = 600;
             category = "Gathering";
             break;
         case "Reeds":
             outputResource = "Reed";
             inputResources = new string[] {};
-            baseCost = 24000;
+            baseCost = 2400;
             productionTime = 16;
             race = "Merfolk";
-            researchBaseCost = new BigInteger(Math.Pow(10, 5));
+            researchBaseCost = new BigInteger(Math.Pow(10, 3));
             category = "Gathering";
             break;
         case "Oystery":
             outputResource = "Pearl";
             inputResources = new string[] {};
-            baseCost = 75000;
+            baseCost = 10000;
             productionTime = 18;
             race = "Merfolk";
-            researchBaseCost = new BigInteger(Math.Pow(10, 6));
+            researchBaseCost = new BigInteger(Math.Pow(10, 4));
             category = "Farm";
             break;
         case "Basket Weaver":
             outputResource = "Basket";
             inputResources = new string[] {"Reed"};
-            baseCost = 300000;
+            baseCost = 200000;
             productionTime = 18;
             race = "Merfolk";
-            researchBaseCost = new BigInteger(Math.Pow(10, 7));
+            researchBaseCost = new BigInteger(Math.Pow(10, 5));
             category = "Crafting";
             break;
         case "Sand Banks":
             outputResource = "Sand";
             inputResources = new string[] {};
-            baseCost = 9 * new BigInteger(Math.Pow(10, 5));
+            baseCost = 9 * new BigInteger(Math.Pow(10, 4));
             productionTime = 20;
             race = "Merfolk";
-            researchBaseCost = new BigInteger(Math.Pow(10, 8));
+            researchBaseCost = new BigInteger(Math.Pow(10, 6));
             category = "Gathering";
             break;
         case "Manatee Pasture":
             outputResource = "Manatee";
             inputResources = new string[] {};
-            baseCost = new BigInteger(Math.Pow(10, 6));
+            baseCost = new BigInteger(Math.Pow(10, 5));
             productionTime = 20;
             race = "Merfolk";
-            researchBaseCost = new BigInteger(Math.Pow(10, 9));
+            researchBaseCost = new BigInteger(Math.Pow(10, 7));
             category = "Farm";
             break;
         case "Merite Cave":
             outputResource = "Merite Ore";
             inputResources = new string[] {};
-            baseCost = new BigInteger(Math.Pow(10, 7));
+            baseCost = new BigInteger(Math.Pow(10, 6));
             productionTime = 22;
             race = "Merfolk";
-            researchBaseCost = new BigInteger(Math.Pow(10, 10));
+            researchBaseCost = new BigInteger(Math.Pow(10, 8));
             category = "Mine";
             break;
         case "Manatee Dairy":
             outputResource = "Milk";
             inputResources = new string[] {"Manatee"};
-            baseCost = 6 * new BigInteger(Math.Pow(10, 8));
+            baseCost = 6 * new BigInteger(Math.Pow(10, 7));
             productionTime = 20;
             race = "Merfolk";
-            researchBaseCost = new BigInteger(Math.Pow(10, 11));
+            researchBaseCost = new BigInteger(Math.Pow(10, 9));
             category = "Processing";
             break;
         case "Newt Swamp":
             outputResource = "Eye Of Newt";
             inputResources = new string[] {};
-            baseCost = 6 * new BigInteger(Math.Pow(10, 9));
+            baseCost = 6 * new BigInteger(Math.Pow(10, 8));
             productionTime = 20;
             race = "Merfolk";
-            researchBaseCost = new BigInteger(Math.Pow(10, 12));
+            researchBaseCost = new BigInteger(Math.Pow(10, 10));
             category = "Gathering";
             break;
         case "Squid Traps":
             outputResource = "Ink";
             inputResources = new string[] {};
-            baseCost = 6 * new BigInteger(Math.Pow(10, 10));
+            baseCost = 6 * new BigInteger(Math.Pow(10, 9));
             productionTime = 20;
             race = "Merfolk";
-            researchBaseCost = new BigInteger(Math.Pow(10, 13));
+            researchBaseCost = new BigInteger(Math.Pow(10, 11));
             category = "Gathering";
             break;
         case "Witch Hut":
             outputResource = "Curse";
             inputResources = new string[] {"Eye Of Newt"};
-            baseCost = 6 * new BigInteger(Math.Pow(10, 11));
+            baseCost = 6 * new BigInteger(Math.Pow(10, 10));
             productionTime = 20;
             race = "Merfolk";
-            researchBaseCost = new BigInteger(Math.Pow(10, 14));
+            researchBaseCost = new BigInteger(Math.Pow(10, 12));
             category = "Magic";
             break;
         case "Crab Pots":
             outputResource = "Crab";
             inputResources = new string[] {"Reed"};
-            baseCost = new BigInteger(Math.Pow(10, 12));
+            baseCost = new BigInteger(Math.Pow(10, 11));
             productionTime = 26;
             race = "Merfolk";
-            researchBaseCost = new BigInteger(Math.Pow(10, 15));
+            researchBaseCost = new BigInteger(Math.Pow(10, 13));
             category = "Gathering";
             break;
         case "Thermal Vents":
             outputResource = "Magma Slug";
             inputResources = new string[] {};
-            baseCost = new BigInteger(Math.Pow(10, 13));;
+            baseCost = new BigInteger(Math.Pow(10, 12));;
             productionTime = 32;
             race = "Merfolk";
-            researchBaseCost = new BigInteger(Math.Pow(10, 16));
+            researchBaseCost = new BigInteger(Math.Pow(10, 14));
             category = "Gathering";
             break;
         case "Rice Patties":
             outputResource = "Rice";
             inputResources = new string[] {};
-            baseCost = new BigInteger(Math.Pow(10, 14));
+            baseCost = new BigInteger(Math.Pow(10, 13));
             productionTime = 26;
             race = "Merfolk";
-            researchBaseCost = new BigInteger(Math.Pow(10, 17));
+            researchBaseCost = new BigInteger(Math.Pow(10, 15));
             category = "Farm";
             break;
         case "Slime Milker":
             outputResource = "Fire Slime";
             inputResources = new string[] {"Magma Slug"};
-            baseCost = new BigInteger(Math.Pow(10, 15));;
+            baseCost = new BigInteger(Math.Pow(10, 14));;
             productionTime = 36;
             race = "Merfolk";
-            researchBaseCost = new BigInteger(Math.Pow(10, 18));
+            researchBaseCost = new BigInteger(Math.Pow(10, 16));
             category = "Processing";
             break;
         case "Aqua Forge":
             outputResource = "Merite Ingot";
             inputResources = new string[] {"Fire Slime", "Merite Ore"};
-            baseCost = new BigInteger(Math.Pow(10, 16));;
+            baseCost = new BigInteger(Math.Pow(10, 15));;
             productionTime = 40;
             race = "Merfolk";
-            researchBaseCost = new BigInteger(Math.Pow(10, 19));
+            researchBaseCost = new BigInteger(Math.Pow(10, 17));
             category = "Processing";
             break;
         case "Aqua Jeweler":
             outputResource = "Mer Jewelry";
             inputResources = new string[] {"Fire Slime", "Merite Ore", "Pearl"};
-            baseCost = new BigInteger(Math.Pow(10, 17));;
+            baseCost = new BigInteger(Math.Pow(10, 16));;
             productionTime = 40;
             race = "Merfolk";
-            researchBaseCost = new BigInteger(Math.Pow(10, 20));
+            researchBaseCost = new BigInteger(Math.Pow(10, 18));
             category = "Jeweler";
             break;
         case "Aqua Armorer":
             outputResource = "Mermail";
             inputResources = new string[] {"Fire Slime", "Merite Ingot"};
-            baseCost = new BigInteger(Math.Pow(10, 18));;
+            baseCost = new BigInteger(Math.Pow(10, 17));;
             productionTime = 40;
             race = "Merfolk";
-            researchBaseCost = new BigInteger(Math.Pow(10, 21));
+            researchBaseCost = new BigInteger(Math.Pow(10, 19));
             category = "Crafting";
             break;
         case "Aqua Smith":
             outputResource = "Trident";
             inputResources = new string[] {"Fire Slime", "Merite Ingot"};
-            baseCost = new BigInteger(Math.Pow(10, 19));;
+            baseCost = new BigInteger(Math.Pow(10, 18));;
             productionTime = 40;
             race = "Merfolk";
-            researchBaseCost = new BigInteger(Math.Pow(10, 22));
+            researchBaseCost = new BigInteger(Math.Pow(10, 20));
             category = "Crafting";
             break;
 
@@ -430,55 +430,55 @@ public class BuildingData
         case "Mushroom Cave":
             outputResource = "Mushroom";
             inputResources = new string[] {};
-            baseCost = 2000;
+            baseCost = 200;
             productionTime = 10;
             race = "Dwarf";
-            researchBaseCost = 1000;
+            researchBaseCost = 100;
             category = "Gathering";
             break;  
         case "Mana Well":
             outputResource = "Mana";
             inputResources = new string[] {};
-            baseCost = 6000;
+            baseCost = 600;
             productionTime = 12;
             race = "Dwarf";
-            researchBaseCost = 3000;
+            researchBaseCost = 400;
             category = "Magic";
             break;
         case "Coal Mine":
             outputResource = "Coal";
             inputResources = new string[] {};
-            baseCost = 20000;
+            baseCost = 800;
             productionTime = 14;
             race = "Dwarf";
-            researchBaseCost = 10000;
+            researchBaseCost = 600;
             category = "Mine";
             break;
         case "Iron Mine":
             outputResource = "Iron Ore";
             inputResources = new string[] {};
-            baseCost = new BigInteger(Math.Pow(10, 6));
+            baseCost = 2600;
             productionTime = 18;
             race = "Dwarf";
-            researchBaseCost = new BigInteger(Math.Pow(10, 7));
+            researchBaseCost = new BigInteger(Math.Pow(10, 3));
             category = "Mine";
             break;
         case "Apiary":
             outputResource = "Honey";
             inputResources = new string[] {};
-            baseCost = new BigInteger(Math.Pow(10, 7));
+            baseCost = new BigInteger(Math.Pow(10, 5));
             productionTime = 18;
             race = "Dwarf";
-            researchBaseCost = new BigInteger(Math.Pow(10, 8));
+            researchBaseCost = new BigInteger(Math.Pow(10, 6));
             category = "Farm";
             break;
         case "Iron Smelter":
             outputResource = "Iron Ingot";
             inputResources = new string[] {"Coal", "Iron Ore"};
-            baseCost = new BigInteger(Math.Pow(10, 8));
+            baseCost = new BigInteger(Math.Pow(10, 6));
             productionTime = 18;
             race = "Dwarf";
-            researchBaseCost = new BigInteger(Math.Pow(10, 9));
+            researchBaseCost = new BigInteger(Math.Pow(10, 7));
             category = "Processing"; 
             break;
         case "Meadery":

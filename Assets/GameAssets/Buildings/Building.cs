@@ -185,8 +185,8 @@ public class Building : MonoBehaviour, Unlockable
         }
 
         multiplier -= ResearchManager.instance.scienceResearchLevels.ContainsKey("Architecture") ? ResearchManager.instance.scienceResearchLevels["Architecture"] * .1 : 0;
-        
-        BigInteger cost = baseCost * GameManager.Pow(level, 2) * (int)(multiplier * 100) / 100;
+
+        BigInteger cost = GameManager.GrowthFunction(level, baseCost) * (int)(multiplier * 100) / 100;
         return cost > 0 ? cost : 1;
     }
 
