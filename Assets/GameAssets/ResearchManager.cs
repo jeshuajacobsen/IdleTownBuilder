@@ -88,6 +88,7 @@ public class ResearchManager : MonoBehaviour
 
     public void PrestigeResearchUpgrade(string upgradeTitle)
     {
+        
         if (prestigeResearchLevels.ContainsKey(upgradeTitle)) {
             prestigeResearchLevels[upgradeTitle] += 1;
             

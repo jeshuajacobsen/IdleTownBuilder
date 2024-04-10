@@ -22,7 +22,7 @@ public class ResearchInfoPanel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        onUpgrade = new UnityEvent<string>();
+        
     }
 
     // Update is called once per frame
@@ -33,6 +33,10 @@ public class ResearchInfoPanel : MonoBehaviour
 
     public void Setup(string title, string description, BigInteger baseCost, int level, int maxLevel, bool isBuilding)
     {
+        if (onUpgrade == null)
+        {
+            onUpgrade = new UnityEvent<string>();
+        }
         titleText.text = title;
         descriptionText.text = description;
         transform.parent.gameObject.SetActive(true);

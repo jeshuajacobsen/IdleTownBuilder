@@ -39,10 +39,10 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1053
+    x: 1052
     y: 0
-    width: 490
-    height: 663
+    width: 491
+    height: 697
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 19}
@@ -94,8 +94,8 @@ MonoBehaviour:
     y: 0
     width: 377
     height: 939
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -118,10 +118,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 541
-    height: 663
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+    width: 540
+    height: 697
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -143,9 +143,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 663
+    y: 697
     width: 1543
-    height: 276
+    height: 242
   m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 20}
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 79
+  controlID: 84
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -271,7 +271,7 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 1543
-    height: 663
+    height: 697
   m_MinSize: {x: 300, y: 50}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
@@ -291,10 +291,10 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 541
+    x: 540
     y: 0
     width: 512
-    height: 663
+    height: 697
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 18}
@@ -324,10 +324,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -1372
+    x: -1380
     y: 73
     width: 510
-    height: 648
+    height: 658
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -339,12 +339,12 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
   m_Spl:
-    ID: 176
+    ID: 22945
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
-    - 433
-    - 145
+    - 441
+    - 147
     relativeSizes:
     - 0.75
     - 0.25
@@ -354,7 +354,7 @@ MonoBehaviour:
     maxSizes:
     - 0
     - 0
-    lastTotalSize: 578
+    lastTotalSize: 588
     splitSize: 6
     xOffset: 0
     m_Version: 1
@@ -371,7 +371,7 @@ MonoBehaviour:
       name: My project
       fullName: My project
       resultStatus: 1
-      duration: 2.5145981
+      duration: 24.437384
       messages: 
       output: 
       stacktrace: 
@@ -387,7 +387,7 @@ MonoBehaviour:
       name: NewTests.dll
       fullName: C:/Users/jeshu/My project/Library/ScriptAssemblies/NewTests.dll
       resultStatus: 1
-      duration: 2.4991565
+      duration: 24.416588
       messages: 
       output: 
       stacktrace: 
@@ -403,7 +403,7 @@ MonoBehaviour:
       name: CityResearchTests
       fullName: CityResearchTests
       resultStatus: 1
-      duration: 18.697092
+      duration: 24.412354
       messages: 
       output: 
       stacktrace: 
@@ -419,12 +419,12 @@ MonoBehaviour:
       name: AdvancedTappingResearchWorks
       fullName: CityResearchTests.AdvancedTappingResearchWorks
       resultStatus: 1
-      duration: 3.3955936
+      duration: 13.559668
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.47679789833 minutes.
+        have been away for 62.2907130716667 minutes.
 
         Unloading the last
         loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
@@ -446,12 +446,12 @@ MonoBehaviour:
       name: ArchitectureResearchWorks
       fullName: CityResearchTests.ArchitectureResearchWorks
       resultStatus: 1
-      duration: 0.6173271
+      duration: 0.5565114
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.49407123167 minutes.
+        have been away for 62.3126064116667 minutes.
 
         Unloading the last
         loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
@@ -473,39 +473,12 @@ MonoBehaviour:
       name: BathsResearchWorks
       fullName: CityResearchTests.BathsResearchWorks
       resultStatus: 1
-      duration: 0.600916
+      duration: 0.5671319
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.50404657667 minutes.
-
-        Unloading the last
-        loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
-        Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch
-        to another scene.
-
-'
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: NewTests.dll/[NewTests][CityResearchTests][suite]
-    - id: 1018
-      uniqueId: NewTests.dll/CityResearchTests/[NewTests][CityResearchTests.ChildCareResearchWorks]
-      name: ChildCareResearchWorks
-      fullName: CityResearchTests.ChildCareResearchWorks
-      resultStatus: 1
-      duration: 0.5782707
-      messages: 
-      output: 'The referenced script (Unknown) on this Behaviour is missing!
-
-        You
-        have been away for 1716.513823895 minutes.
+        have been away for 62.322013275 minutes.
 
         Unloading the last loaded
         scene Assets/Scenes/Main.unity(build index: 0), is not supported. Please
@@ -522,17 +495,44 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1001
       parentUniqueId: NewTests.dll/[NewTests][CityResearchTests][suite]
+    - id: 1018
+      uniqueId: NewTests.dll/CityResearchTests/[NewTests][CityResearchTests.ChildCareResearchWorks]
+      name: ChildCareResearchWorks
+      fullName: CityResearchTests.ChildCareResearchWorks
+      resultStatus: 1
+      duration: 0.5221622
+      messages: 
+      output: 'The referenced script (Unknown) on this Behaviour is missing!
+
+        You
+        have been away for 62.3312262033333 minutes.
+
+        Unloading the last
+        loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
+        Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch
+        to another scene.
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: NewTests.dll/[NewTests][CityResearchTests][suite]
     - id: 1008
       uniqueId: NewTests.dll/CityResearchTests/[NewTests][CityResearchTests.CraftingResearchWorks]
       name: CraftingResearchWorks
       fullName: CityResearchTests.CraftingResearchWorks
       resultStatus: 1
-      duration: 0.5447252
+      duration: 0.4787181
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.52315082333 minutes.
+        have been away for 62.3392469416667 minutes.
 
         Unloading the last
         loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
@@ -554,12 +554,12 @@ MonoBehaviour:
       name: EconomicsResearchWorks
       fullName: CityResearchTests.EconomicsResearchWorks
       resultStatus: 1
-      duration: 0.5908778
+      duration: 0.4827002
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.53223931833 minutes.
+        have been away for 62.3472933433333 minutes.
 
         Unloading the last
         loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
@@ -581,12 +581,12 @@ MonoBehaviour:
       name: EstatesResearchWorks
       fullName: CityResearchTests.EstatesResearchWorks
       resultStatus: 1
-      duration: 0.5637714
+      duration: 0.4846064
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.54227762167 minutes.
+        have been away for 62.3552624966667 minutes.
 
         Unloading the last
         loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
@@ -608,17 +608,17 @@ MonoBehaviour:
       name: ExpertTappingResearchWorks
       fullName: CityResearchTests.ExpertTappingResearchWorks
       resultStatus: 1
-      duration: 0.5279772
+      duration: 0.4712686
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.551295725 minutes.
+        have been away for 62.3631653766667 minutes.
 
-        Unloading the last loaded
-        scene Assets/Scenes/Main.unity(build index: 0), is not supported. Please
-        use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to
-        another scene.
+        Unloading the last
+        loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
+        Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch
+        to another scene.
 
 '
       stacktrace: 
@@ -635,12 +635,12 @@ MonoBehaviour:
       name: FarmResearchWorks
       fullName: CityResearchTests.FarmResearchWorks
       resultStatus: 1
-      duration: 0.4849993
+      duration: 0.470431
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.55934406667 minutes.
+        have been away for 62.3708939616667 minutes.
 
         Unloading the last
         loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
@@ -662,12 +662,12 @@ MonoBehaviour:
       name: FastCropsResearchWorks
       fullName: CityResearchTests.FastCropsResearchWorks
       resultStatus: 1
-      duration: 0.4813079
+      duration: 0.4888414
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.56750284833 minutes.
+        have been away for 62.3790229616667 minutes.
 
         Unloading the last
         loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
@@ -689,12 +689,12 @@ MonoBehaviour:
       name: FertilityRitesResearchWorks
       fullName: CityResearchTests.FertilityRitesResearchWorks
       resultStatus: 1
-      duration: 0.4776886
+      duration: 0.4857819
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.57522780833 minutes.
+        have been away for 62.3872123266667 minutes.
 
         Unloading the last
         loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
@@ -716,17 +716,17 @@ MonoBehaviour:
       name: FestivalResearchWorks
       fullName: CityResearchTests.FestivalResearchWorks
       resultStatus: 1
-      duration: 0.5084035
+      duration: 0.4926103
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.58344190167 minutes.
+        have been away for 62.395344285 minutes.
 
-        Unloading the last
-        loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
-        Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch
-        to another scene.
+        Unloading the last loaded
+        scene Assets/Scenes/Main.unity(build index: 0), is not supported. Please
+        use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to
+        another scene.
 
 '
       stacktrace: 
@@ -743,17 +743,17 @@ MonoBehaviour:
       name: ForagingResearchWorks
       fullName: CityResearchTests.ForagingResearchWorks
       resultStatus: 1
-      duration: 0.4873267
+      duration: 0.4762367
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.59205218167 minutes.
+        have been away for 62.40350651 minutes.
 
-        Unloading the last
-        loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
-        Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch
-        to another scene.
+        Unloading the last loaded
+        scene Assets/Scenes/Main.unity(build index: 0), is not supported. Please
+        use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to
+        another scene.
 
 '
       stacktrace: 
@@ -770,12 +770,12 @@ MonoBehaviour:
       name: FountainsResearchWorks
       fullName: CityResearchTests.FountainsResearchWorks
       resultStatus: 1
-      duration: 0.4812758
+      duration: 0.4831297
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.60002003667 minutes.
+        have been away for 62.4114403266667 minutes.
 
         Unloading the last
         loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
@@ -797,12 +797,12 @@ MonoBehaviour:
       name: GatheringResearchWorks
       fullName: CityResearchTests.GatheringResearchWorks
       resultStatus: 1
-      duration: 0.4794738
+      duration: 0.4769292
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.60791140667 minutes.
+        have been away for 62.4192991466667 minutes.
 
         Unloading the last
         loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
@@ -824,15 +824,29 @@ MonoBehaviour:
       name: GleaningResearchWorks
       fullName: CityResearchTests.GleaningResearchWorks
       resultStatus: 1
-      duration: 0.4832779
+      duration: 16.01766
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
-        You
-        have been away for 1716.61609107333 minutes.
+        1
 
-        Unloading the last
-        loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
+        1
+
+        1
+
+        1
+
+        1
+
+        You
+        have been away for 76.64241628 minutes.
+
+        1
+
+        0.9
+
+        Unloading
+        the last loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
         Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch
         to another scene.
 
@@ -851,17 +865,17 @@ MonoBehaviour:
       name: HousingResearchWorks
       fullName: CityResearchTests.HousingResearchWorks
       resultStatus: 1
-      duration: 0.4930347
+      duration: 0.4761809
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.62420878333 minutes.
+        have been away for 62.43535767 minutes.
 
-        Unloading the last
-        loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
-        Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch
-        to another scene.
+        Unloading the last loaded
+        scene Assets/Scenes/Main.unity(build index: 0), is not supported. Please
+        use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to
+        another scene.
 
 '
       stacktrace: 
@@ -878,12 +892,12 @@ MonoBehaviour:
       name: ImmigrationResearchWorks
       fullName: CityResearchTests.ImmigrationResearchWorks
       resultStatus: 1
-      duration: 0.5049942
+      duration: 0.4759751
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.63264890333 minutes.
+        have been away for 62.4432802566667 minutes.
 
         Unloading the last
         loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
@@ -905,12 +919,12 @@ MonoBehaviour:
       name: JewelerResearchWorks
       fullName: CityResearchTests.JewelerResearchWorks
       resultStatus: 1
-      duration: 0.4984376
+      duration: 0.466436
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.64074426667 minutes.
+        have been away for 62.4510631366667 minutes.
 
         Unloading the last
         loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
@@ -932,12 +946,12 @@ MonoBehaviour:
       name: LevyResearchWorks
       fullName: CityResearchTests.LevyResearchWorks
       resultStatus: 1
-      duration: 0.4827818
+      duration: 1.6183698
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.64907897833 minutes.
+        have been away for 62.4600419483333 minutes.
 
         Unloading the last
         loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
@@ -959,17 +973,17 @@ MonoBehaviour:
       name: LuxuryTaxResearchWorks
       fullName: CityResearchTests.LuxuryTaxResearchWorks
       resultStatus: 1
-      duration: 0.4844321
+      duration: 0.5042211
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.65709068833 minutes.
+        have been away for 62.486275265 minutes.
 
-        Unloading the last
-        loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
-        Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch
-        to another scene.
+        Unloading the last loaded
+        scene Assets/Scenes/Main.unity(build index: 0), is not supported. Please
+        use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to
+        another scene.
 
 '
       stacktrace: 
@@ -986,12 +1000,12 @@ MonoBehaviour:
       name: MagicResearchWorks
       fullName: CityResearchTests.MagicResearchWorks
       resultStatus: 1
-      duration: 0.4810026
+      duration: 0.5115276
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.66512559167 minutes.
+        have been away for 62.4949976516667 minutes.
 
         Unloading the last
         loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
@@ -1008,22 +1022,76 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1001
       parentUniqueId: NewTests.dll/[NewTests][CityResearchTests][suite]
-    - id: 1010
-      uniqueId: NewTests.dll/CityResearchTests/[NewTests][CityResearchTests.ManufacturingResearchWorks]
-      name: ManufacturingResearchWorks
-      fullName: CityResearchTests.ManufacturingResearchWorks
+    - id: 1039
+      uniqueId: NewTests.dll/CityResearchTests/[NewTests][CityResearchTests.ManagerResearchWorks]
+      name: ManagerResearchWorks
+      fullName: CityResearchTests.ManagerResearchWorks
       resultStatus: 1
-      duration: 0.486411
+      duration: 0.4560364
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.67311879 minutes.
+        have been away for 62.5026107033333 minutes.
+
+        Unloading the last
+        loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
+        Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch
+        to another scene.
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1007
+      parentUniqueId: NewTests.dll/[NewTests][CityResearchTests][suite]
+    - id: 1040
+      uniqueId: NewTests.dll/CityResearchTests/[NewTests][CityResearchTests.ManagersBoostWorks]
+      name: ManagersBoostWorks
+      fullName: CityResearchTests.ManagersBoostWorks
+      resultStatus: 1
+      duration: 23.232443
+      messages: 
+      output: 'The referenced script (Unknown) on this Behaviour is missing!
+
+        You
+        have been away for 1229.825639325 minutes.
 
         Unloading the last loaded
         scene Assets/Scenes/Main.unity(build index: 0), is not supported. Please
         use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to
         another scene.
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1007
+      parentUniqueId: NewTests.dll/[NewTests][CityResearchTests][suite]
+    - id: 1010
+      uniqueId: NewTests.dll/CityResearchTests/[NewTests][CityResearchTests.ManufacturingResearchWorks]
+      name: ManufacturingResearchWorks
+      fullName: CityResearchTests.ManufacturingResearchWorks
+      resultStatus: 1
+      duration: 0.4871433
+      messages: 
+      output: 'The referenced script (Unknown) on this Behaviour is missing!
+
+        You
+        have been away for 62.5106947733333 minutes.
+
+        Unloading the last
+        loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
+        Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch
+        to another scene.
 
 '
       stacktrace: 
@@ -1040,39 +1108,12 @@ MonoBehaviour:
       name: MarketResearchWorks
       fullName: CityResearchTests.MarketResearchWorks
       resultStatus: 1
-      duration: 0.4705537
+      duration: 0.4527151
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.68117389 minutes.
-
-        Unloading the last loaded
-        scene Assets/Scenes/Main.unity(build index: 0), is not supported. Please
-        use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to
-        another scene.
-
-'
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: NewTests.dll/[NewTests][CityResearchTests][suite]
-    - id: 1005
-      uniqueId: NewTests.dll/CityResearchTests/[NewTests][CityResearchTests.MiningResearchWorks]
-      name: MiningResearchWorks
-      fullName: CityResearchTests.MiningResearchWorks
-      resultStatus: 1
-      duration: 0.5283859
-      messages: 
-      output: 'The referenced script (Unknown) on this Behaviour is missing!
-
-        You
-        have been away for 1716.68957821167 minutes.
+        have been away for 62.5181528533333 minutes.
 
         Unloading the last
         loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
@@ -1089,17 +1130,44 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1001
       parentUniqueId: NewTests.dll/[NewTests][CityResearchTests][suite]
+    - id: 1005
+      uniqueId: NewTests.dll/CityResearchTests/[NewTests][CityResearchTests.MiningResearchWorks]
+      name: MiningResearchWorks
+      fullName: CityResearchTests.MiningResearchWorks
+      resultStatus: 1
+      duration: 0.4844525
+      messages: 
+      output: 'The referenced script (Unknown) on this Behaviour is missing!
+
+        You
+        have been away for 62.52621477 minutes.
+
+        Unloading the last loaded
+        scene Assets/Scenes/Main.unity(build index: 0), is not supported. Please
+        use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to
+        another scene.
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: NewTests.dll/[NewTests][CityResearchTests][suite]
     - id: 1015
       uniqueId: NewTests.dll/CityResearchTests/[NewTests][CityResearchTests.NeighborhoodResearchWorks]
       name: NeighborhoodResearchWorks
       fullName: CityResearchTests.NeighborhoodResearchWorks
       resultStatus: 1
-      duration: 0.5453882
+      duration: 0.4592632
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.69857259167 minutes.
+        have been away for 62.5339422316667 minutes.
 
         Unloading the last
         loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
@@ -1121,39 +1189,12 @@ MonoBehaviour:
       name: ProcessingResearchWorks
       fullName: CityResearchTests.ProcessingResearchWorks
       resultStatus: 1
-      duration: 0.4755087
+      duration: 0.492755
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.70698268667 minutes.
-
-        Unloading the last
-        loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
-        Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch
-        to another scene.
-
-'
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: NewTests.dll/[NewTests][CityResearchTests][suite]
-    - id: 1002
-      uniqueId: NewTests.dll/CityResearchTests/[NewTests][CityResearchTests.TappingResearchWorks]
-      name: TappingResearchWorks
-      fullName: CityResearchTests.TappingResearchWorks
-      resultStatus: 1
-      duration: 0.4682804
-      messages: 
-      output: 'The referenced script (Unknown) on this Behaviour is missing!
-
-        You
-        have been away for 1716.714882455 minutes.
+        have been away for 62.54208705 minutes.
 
         Unloading the last loaded
         scene Assets/Scenes/Main.unity(build index: 0), is not supported. Please
@@ -1170,17 +1211,44 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1001
       parentUniqueId: NewTests.dll/[NewTests][CityResearchTests][suite]
+    - id: 1002
+      uniqueId: NewTests.dll/CityResearchTests/[NewTests][CityResearchTests.TappingResearchWorks]
+      name: TappingResearchWorks
+      fullName: CityResearchTests.TappingResearchWorks
+      resultStatus: 1
+      duration: 0.4763172
+      messages: 
+      output: 'The referenced script (Unknown) on this Behaviour is missing!
+
+        You
+        have been away for 62.5503303483333 minutes.
+
+        Unloading the last
+        loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
+        Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch
+        to another scene.
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: NewTests.dll/[NewTests][CityResearchTests][suite]
     - id: 1028
       uniqueId: NewTests.dll/CityResearchTests/[NewTests][CityResearchTests.TaxationResearchDoesntAffectHighTier]
       name: TaxationResearchDoesntAffectHighTier
       fullName: CityResearchTests.TaxationResearchDoesntAffectHighTier
       resultStatus: 1
-      duration: 0.4754654
+      duration: 0.4709411
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.722711245 minutes.
+        have been away for 62.55804738 minutes.
 
         Unloading the last loaded
         scene Assets/Scenes/Main.unity(build index: 0), is not supported. Please
@@ -1202,17 +1270,17 @@ MonoBehaviour:
       name: TaxationResearchWorks
       fullName: CityResearchTests.TaxationResearchWorks
       resultStatus: 1
-      duration: 0.4526575
+      duration: 0.4961603
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.73032004333 minutes.
+        have been away for 62.566071755 minutes.
 
-        Unloading the last
-        loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
-        Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch
-        to another scene.
+        Unloading the last loaded
+        scene Assets/Scenes/Main.unity(build index: 0), is not supported. Please
+        use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to
+        another scene.
 
 '
       stacktrace: 
@@ -1229,12 +1297,12 @@ MonoBehaviour:
       name: WellsResearchWorks
       fullName: CityResearchTests.WellsResearchWorks
       resultStatus: 1
-      duration: 0.469395
+      duration: 0.4778188
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.73811534167 minutes.
+        have been away for 62.5741778233333 minutes.
 
         Unloading the last
         loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
@@ -1251,13 +1319,164 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1001
       parentUniqueId: NewTests.dll/[NewTests][CityResearchTests][suite]
+    - id: 1001
+      uniqueId: NewTests.dll/[NewTests][ManagerTests][suite]
+      name: ManagerTests
+      fullName: ManagerTests
+      resultStatus: 1
+      duration: 2.4151268
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1041
+      parentUniqueId: '[NewTests][C:/Users/jeshu/My project/Library/ScriptAssemblies/NewTests.dll][suite]'
+    - id: 1006
+      uniqueId: NewTests.dll/ManagerTests/[NewTests][ManagerTests.BuildingLevelUpWorks]
+      name: BuildingLevelUpWorks
+      fullName: ManagerTests.BuildingLevelUpWorks
+      resultStatus: 1
+      duration: 0.4763276
+      messages: 
+      output: 'The referenced script (Unknown) on this Behaviour is missing!
+
+        You
+        have been away for 62.5825312733333 minutes.
+
+        Unloading the last
+        loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
+        Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch
+        to another scene.
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: NewTests.dll/[NewTests][ManagerTests][suite]
+    - id: 1003
+      uniqueId: NewTests.dll/ManagerTests/[NewTests][ManagerTests.LessConsumptionWorks]
+      name: LessConsumptionWorks
+      fullName: ManagerTests.LessConsumptionWorks
+      resultStatus: 1
+      duration: 0.4826653
+      messages: 
+      output: 'The referenced script (Unknown) on this Behaviour is missing!
+
+        You
+        have been away for 62.5905272566667 minutes.
+
+        Unloading the last
+        loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
+        Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch
+        to another scene.
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: NewTests.dll/[NewTests][ManagerTests][suite]
+    - id: 1004
+      uniqueId: NewTests.dll/ManagerTests/[NewTests][ManagerTests.NoConsumptionWorks]
+      name: NoConsumptionWorks
+      fullName: ManagerTests.NoConsumptionWorks
+      resultStatus: 1
+      duration: 0.468689
+      messages: 
+      output: 'The referenced script (Unknown) on this Behaviour is missing!
+
+        You
+        have been away for 62.59849174 minutes.
+
+        Unloading the last loaded
+        scene Assets/Scenes/Main.unity(build index: 0), is not supported. Please
+        use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to
+        another scene.
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: NewTests.dll/[NewTests][ManagerTests][suite]
+    - id: 1002
+      uniqueId: NewTests.dll/ManagerTests/[NewTests][ManagerTests.ProductionQuantityWorks]
+      name: ProductionQuantityWorks
+      fullName: ManagerTests.ProductionQuantityWorks
+      resultStatus: 1
+      duration: 0.4816403
+      messages: 
+      output: 'The referenced script (Unknown) on this Behaviour is missing!
+
+        You
+        have been away for 62.60632277 minutes.
+
+        Unloading the last loaded
+        scene Assets/Scenes/Main.unity(build index: 0), is not supported. Please
+        use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to
+        another scene.
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: NewTests.dll/[NewTests][ManagerTests][suite]
+    - id: 1004
+      uniqueId: NewTests.dll/ManagerTests/[NewTests][ManagerTests.ProductionSpeedWorks]
+      name: ProductionSpeedWorks
+      fullName: ManagerTests.ProductionSpeedWorks
+      resultStatus: 1
+      duration: 0.4939868
+      messages: 
+      output: 'The referenced script (Unknown) on this Behaviour is missing!
+
+        You
+        have been away for 62.6145111533333 minutes.
+
+        Unloading the last
+        loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
+        Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch
+        to another scene.
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: NewTests.dll/[NewTests][ManagerTests][suite]
     - id: 1023
       uniqueId: NewTests.dll/[NewTests][PrestigeResearchTests][suite]
       name: PrestigeResearchTests
       fullName: PrestigeResearchTests
-      resultStatus: 1
-      duration: 2.4952257
-      messages: 
+      resultStatus: 2
+      duration: 2.4019284
+      messages: One or more child tests had errors
       output: 
       stacktrace: 
       notRunnable: 0
@@ -1272,17 +1491,15 @@ MonoBehaviour:
       name: BuildingResearchWorks
       fullName: PrestigeResearchTests.BuildingResearchWorks
       resultStatus: 1
-      duration: 0.4664256
+      duration: 0.4894156
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.74600307333 minutes.
+        have been away for 62.6227276383333 minutes.
 
-        Building(Clone) (Building)
-
-        Unloading
-        the last loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
+        Unloading the last
+        loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
         Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch
         to another scene.
 
@@ -1301,12 +1518,12 @@ MonoBehaviour:
       name: FertilizerResearchWorks
       fullName: PrestigeResearchTests.FertilizerResearchWorks
       resultStatus: 1
-      duration: 0.4879535
+      duration: 0.4659821
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.75424414 minutes.
+        have been away for 62.63069456 minutes.
 
         Unloading the last loaded
         scene Assets/Scenes/Main.unity(build index: 0), is not supported. Please
@@ -1328,70 +1545,12 @@ MonoBehaviour:
       name: MarketingResearchWorks
       fullName: PrestigeResearchTests.MarketingResearchWorks
       resultStatus: 1
-      duration: 0.4722747
+      duration: 0.4728102
       messages: 
       output: 'The referenced script (Unknown) on this Behaviour is missing!
 
         You
-        have been away for 1716.76198435667 minutes.
-
-        Unloading the last
-        loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
-        Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch
-        to another scene.
-
-'
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1033
-      parentUniqueId: NewTests.dll/[NewTests][PrestigeResearchTests][suite]
-    - id: 1038
-      uniqueId: NewTests.dll/PrestigeResearchTests/[NewTests][PrestigeResearchTests.PeasantingResearchWorks]
-      name: PeasantingResearchWorks
-      fullName: PrestigeResearchTests.PeasantingResearchWorks
-      resultStatus: 1
-      duration: 2.4513059
-      messages: 
-      output: 'The referenced script (Unknown) on this Behaviour is missing!
-
-        You
-        have been away for 1722.64679497 minutes.
-
-        False
-
-        True
-
-        Unloading
-        the last loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
-        Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch
-        to another scene.
-
-'
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1033
-      parentUniqueId: NewTests.dll/[NewTests][PrestigeResearchTests][suite]
-    - id: 1036
-      uniqueId: NewTests.dll/PrestigeResearchTests/[NewTests][PrestigeResearchTests.TapPowerResearchWorks]
-      name: TapPowerResearchWorks
-      fullName: PrestigeResearchTests.TapPowerResearchWorks
-      resultStatus: 1
-      duration: 0.5150889
-      messages: 
-      output: 'The referenced script (Unknown) on this Behaviour is missing!
-
-        You
-        have been away for 1716.77853887 minutes.
+        have been away for 62.638441095 minutes.
 
         Unloading the last loaded
         scene Assets/Scenes/Main.unity(build index: 0), is not supported. Please
@@ -1408,7 +1567,68 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1033
       parentUniqueId: NewTests.dll/[NewTests][PrestigeResearchTests][suite]
-    m_ResultText: 'PeasantingResearchWorks (2.451s)
+    - id: 1038
+      uniqueId: NewTests.dll/PrestigeResearchTests/[NewTests][PrestigeResearchTests.PeasantingResearchWorks]
+      name: PeasantingResearchWorks
+      fullName: PrestigeResearchTests.PeasantingResearchWorks
+      resultStatus: 1
+      duration: 0.4924058
+      messages: 
+      output: 'The referenced script (Unknown) on this Behaviour is missing!
+
+        You
+        have been away for 62.64649497 minutes.
+
+        Unloading the last loaded
+        scene Assets/Scenes/Main.unity(build index: 0), is not supported. Please
+        use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to
+        another scene.
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1033
+      parentUniqueId: NewTests.dll/[NewTests][PrestigeResearchTests][suite]
+    - id: 1036
+      uniqueId: NewTests.dll/PrestigeResearchTests/[NewTests][PrestigeResearchTests.TapPowerResearchWorks]
+      name: TapPowerResearchWorks
+      fullName: PrestigeResearchTests.TapPowerResearchWorks
+      resultStatus: 2
+      duration: 0.4711066
+      messages: "  Expected: 10.1d +/- 0.050000000000000003d\r\n  But was:  0.10000000149011612d\r\n"
+      output: 'The referenced script (Unknown) on this Behaviour is missing!
+
+        You
+        have been away for 62.6544774416667 minutes.
+
+        Unloading the last
+        loaded scene Assets/Scenes/Main.unity(build index: 0), is not supported.
+        Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch
+        to another scene.
+
+'
+      stacktrace: 'at PrestigeResearchTests+<TapPowerResearchWorks>d__10.MoveNext
+        () [0x000bb] in C:\Users\jeshu\My project\Assets\NewTests\PrestigeResearchTests.cs:105
+
+        at
+        UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0004e]
+        in .\Library\PackageCache\com.unity.test-framework@1.1.33\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:46
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1033
+      parentUniqueId: NewTests.dll/[NewTests][PrestigeResearchTests][suite]
+    m_ResultText: 'ManagersBoostWorks (23.232s)
 
       ---
 
@@ -1416,22 +1636,17 @@ MonoBehaviour:
       script (Unknown) on this Behaviour is missing!
 
       You have been away for
-      1722.64679497 minutes.
+      1229.825639325 minutes.
 
-      False
-
-      True
-
-      Unloading the last loaded
-      scene Assets/Scenes/Main.unity(build index: 0), is not supported. Please use
-      SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another
-      scene.'
+      Unloading the last loaded scene Assets/Scenes/Main.unity(build
+      index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene()
+      to switch to another scene.'
     m_ResultStacktrace: 
     m_TestListState:
-      scrollPos: {x: 0, y: 211}
-      m_SelectedIDs: f71e590f
-      m_LastClickedID: 257498871
-      m_ExpandedIDs: 4160d88bafd86f945d4185b14a07bcb7bb56c4db56af2dfd018de40c03fe4433891bef4530792d74ffffff7f
+      scrollPos: {x: 0, y: 151}
+      m_SelectedIDs: 0b4b2be3
+      m_LastClickedID: -483702005
+      m_ExpandedIDs: 4160d88bafd86f945d4185b14a07bcb7bb56c4db56af2dfd018de40cf735f51903fe4433891bef4530792d74ffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1564,9 +1779,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: -1920
-    y: 736
+    y: 770
     width: 1542
-    height: 255
+    height: 221
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1602,10 +1817,10 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: b4900000
-    m_LastClickedID: 37044
-    m_ExpandedIDs: 00000000b490000000ca9a3b
+    scrollPos: {x: 0, y: 69}
+    m_SelectedIDs: 58910000
+    m_LastClickedID: 37208
+    m_ExpandedIDs: 0000000058910000709100000893000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1633,7 +1848,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000b4900000
+    m_ExpandedIDs: 0000000058910000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1658,8 +1873,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: de900000
-    m_LastClickedInstanceID: 37086
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000098fd0000a4fd0000000000007c81000044810000
     m_RenameOverlay:
@@ -1709,8 +1924,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -377
-    y: 73
+    x: -30457
+    y: -31970
     width: 376
     height: 918
   m_SerializedDataModeController:
@@ -1756,10 +1971,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -1920
-    y: 73
-    width: 540
-    height: 642
+    x: -32000
+    y: -31970
+    width: 539
+    height: 676
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1773,23 +1988,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d4b4ffff
-      m_LastClickedID: -19244
-      m_ExpandedIDs: d4b4ffff18fbffff3a7d00009a7d0000487e0000dc7e0000b27f0000c08000006e830000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 043160ffa23160ffa44d60ffb64d63ff384e63ff468263fffe9b63ff809c63ff8ed063ff48f863ffcaf863ff9a2c64ff9e4664ff204764fff07a64ff209664ffa29664ff20d76cff18f16cff9af16cff283275ff2e4c75ffb04c75ff808075ff969a75ff189b75ffe8ce75ffe0e875ff62e975ffe0297effd8437eff5a447effd88486ff869d86ff089e86ff86de8eff34f78effb6f78eff862b8fff7e458fff00468fffbe798fffd0938fff52948fffccd497ff8aed97ff0cee97ffce2198ff40ab98ffca4c99ff684d99ff646999ffe0609bffce819bffbece9bff40cf9bffd8029cff381c9cffba1c9cff52509cff24aa9cffe6ac9cff68ad9cff2671a4ff7c8aa4fffe8aa4fff8bea4ffb6d8a4ff38d9a4ffd00ca5ff2626a5ffa826a5ff405aa5ffa473a5ff2674a5ffbea7a5ff54c2a5ffd6c2a5ff6ef6a5ffc40fa6ff4610a6ffde43a6ff405da6ffc25da6ff5a91a6ffb0aaa6ff32aba6ff5adea6fffef8a6ff80f9a6ff182da7ff6e46a7fff046a7ff887aa7ffde93a7ff6094a7fff8c7a7ff5ee1a7ffe0e1a7ffda15a8ff302fa8ffb22fa8ffac63a8ff027da8ff847da8ff7eb1a8ffd4caa8ff56cba8ff50ffa8ffe819a9ff6a1aa9ff644ea9ffba67a9ff3c68a9ff369ca9ff4ab4a9ffccb4a9fff6e7a9ff0a00aaff8c00aaff8634aaff6250aaffe450aaffde84aaff409eaaffc29eaaff5ad2aaffc8ebaaff4aecaaffe21fabff3839abffba39abff526dabffa886abff2a87abffc2baabff4ed4abffd0d4abfffa07acffe022acff6223acff8c56acfff06facff7270acff9ca3acfff2bcacff74bdacff9ef0acffb428adff3629adff605cadffb675adff3876adff7aa9adffeac2adff6cc3adffacf6adff0210aeff8410aeffae43aeff045daeff865daeffb090aeff06aaaeff88aaaeffb2ddaeff08f7aeff8af7aeffb42aafff0a44afff8c44afffb677afff0c91afff8e91afffb8c4afff8ee0afff10e1afff3a14b0ff902db0ff122eb0ff3c61b0ff8a7ab0ff0c7bb0ff36aeb0ff4ac6b0ffccc6b0ff06fab0ff8613b1ff0814b1ff3247b1ff8860b1ff0a61b1ff1691b8ffacabb8ff2eacb8ff4adcbfff3af8bfffbcf8bfffc828c7ffac44c7ff2e45c7ff5878c7ffae91c7ff3092c7fff4c6c7ff66e0c7ffe8e0c7ff6a17c8ffce30c8ff5031c8ff7a64c8ffd07dc8ff527ec8ff7cb1c8ffcacac8ff4ccbc8ff76fec8ff8a16c9ff0c17c9ff364ac9ff9a63c9ff1c64c9ff4697c9ff9cb0c9ff1eb1c9ff90dfd0ffa4f7d0ff26f8d0ffb22bd1ff2045d1ffa245d1ff76f2d1ff4629d2ffc829d2ff2af7d8ffce11d9ff5012d9ff7e45d9ffe25ed9ff645fd9ffba94d9ff52afd9ffd4afd9ff2ae5d9ff80fed9ff02ffd9ff5834daffca4ddaff4c4edaffb883daff1c9ddaff9e9ddafff4d2daff3eecdaffc0ecdaff1622dbff6c3bdbffee3bdbff4471dbff928adbff148bdbff7ac0dbffe0d9dbff62dadbffb80fdcff0629dcff8829dcffde5edcff0277dcff8477dcffdaacdcff28c6dcffaac6dcff16fcdcff2a14ddffac14ddffd027e4ff3441e4ffb641e4ff0c77e4ff208fe4ffa28fe4ff4e4de8ff6265e8ffe465e8ff3a9be8ffacb4e8ff2eb5e8ff84eae8ffe603e9ff6804e9ffbe39e9ffd251e9ff5452e9ff0010edff6429edffe629edff3c5fedff6a79edffec79edff9837f1ffa451f1ff2652f1ffd20ff5ff3429f5ffb629f5ff7c5ff5ffa601f7ff208cfdff1235feff5235feff3a5bfeffb687feff66d0ffff20d7ffff06fbfffff4ffffff3c7d0000fc7d00001c7e00009a7e0000ae7e0000de7e0000487f0000bc7f00002880000032800000b8800000d2800000c2820000128300002083000076830000e4830000e0600c0068630c00da630c0088640c00ae6b0d00366e0d00a86e0d00566f0d00821e1b002c201b000a211b0024211b002a221b00ac771b0014781b0046781b0012791b0056791b00b8791b00347a1b00547b1b00227c1b006e7c1b000c7d1b008c7d1b00a47d1b00087e1b00147e1b002a7e1b00102f1e00ca2f1e00b4331e00b0341e00ec371e00ea3c1e00d23e1e00b0441e003c471e0022491e00a8491e00b89c2600209e2600649e2600429f260062a026001aa22600b2a2260016a3260038c726009cc82600e0c82600bec9260010ca2600deca2600f8cb260096cc260016cd26002ecd260092cd26009ecd2600
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: TasksManager
+        m_OriginalName: TasksManager
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 2542090
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 
@@ -1819,10 +2034,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -1379
-    y: 73
+    x: -31460
+    y: -31970
     width: 510
-    height: 642
+    height: 676
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -2181,9 +2396,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 114.01593, y: 306.87686, z: -2.123334}
+    m_Target: {x: 216.13063, y: 353.4644, z: -1.6560673}
     speed: 2
-    m_Value: {x: 114.01593, y: 306.87686, z: -2.123334}
+    m_Value: {x: 216.13063, y: 353.4644, z: -1.6560673}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -2233,9 +2448,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 304.12848
+    m_Target: 386.30893
     speed: 2
-    m_Value: 304.12848
+    m_Value: 386.30893
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -2280,10 +2495,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -867
-    y: 73
-    width: 488
-    height: 642
+    x: -30948
+    y: -31970
+    width: 489
+    height: 676
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -2300,7 +2515,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 310, y: 621}
+  m_TargetSize: {x: 328, y: 655}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -2315,10 +2530,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -155
-    m_HBaseRangeMax: 155
-    m_VBaseRangeMin: -310.5
-    m_VBaseRangeMax: 310.5
+    m_HBaseRangeMin: -164
+    m_HBaseRangeMax: 164
+    m_VBaseRangeMin: -327.5
+    m_VBaseRangeMax: 327.5
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -2336,23 +2551,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 488
-      height: 621
+      width: 489
+      height: 655
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 244, y: 310.5}
+    m_Translation: {x: 244.5, y: 327.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -244
-      y: -310.5
-      width: 488
-      height: 621
+      x: -244.5
+      y: -327.5
+      width: 489
+      height: 655
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 488, y: 642}
+  m_LastWindowPixelSize: {x: 489, y: 676}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000001000000000000
@@ -2378,10 +2593,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -1920
-    y: 736
+    x: -32000
+    y: -31273
     width: 1542
-    height: 255
+    height: 221
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
