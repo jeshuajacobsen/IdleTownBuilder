@@ -7,6 +7,7 @@ public class GameData
 {
     private Dictionary<string, BuildingData> buildingsData;
     private Dictionary<string, CityData> cityData;
+    private Dictionary<string, DemographicData> demographicData;
 
     public Dictionary<string, BigInteger> resourcePrices;
     public GameData()
@@ -21,12 +22,12 @@ public class GameData
         resourcePrices["Stone"] = 300;
         resourcePrices["Vegetables"] = 500;
         resourcePrices["Hemp"] = 700;
-        resourcePrices["Clothes"] = 1000;
+        resourcePrices["Flour"] = 900;
+        resourcePrices["Clothes"] = 1500;
         resourcePrices["Copper Ore"] = 7000;
         resourcePrices["Fruit"] = 15000;
         resourcePrices["Tin Ore"] = 90000;
         resourcePrices["Bronze Ingot"] = 100000;
-        resourcePrices["Flour"] = 3 * new BigInteger(Math.Pow(10, 5));
         resourcePrices["Bread"] = new BigInteger(Math.Pow(10, 6));
         resourcePrices["Grapes"] = 2 * new BigInteger(Math.Pow(10, 7));
         resourcePrices["Furniture"] = 3 * new BigInteger(Math.Pow(10, 8));;
@@ -243,6 +244,57 @@ public class GameData
         {
             building.baseCost = CalculateBuildingBaseCost(building.outputResource);
             building.researchBaseCost = CalculateBuildingResearchCost(building.outputResource);
+            building.productionTime = CalculateBuildingProductionTime(building.outputResource);
+        }
+
+
+
+        demographicData = new Dictionary<string, DemographicData>
+        {
+            //human
+            {"Peasants", new DemographicData("Peasants")},
+            {"Commoners", new DemographicData("Commoners")},
+            {"Tradesmen", new DemographicData("Tradesmen")},
+            {"Patricians", new DemographicData("Patricians")},
+            {"Wizards", new DemographicData("Wizards")},
+            {"Nobles", new DemographicData("Nobles")},
+            {"Royalty", new DemographicData("Royalty")},
+
+            //merfolk
+            {"Surfs", new DemographicData("Surfs")},
+            {"Middle Mer", new DemographicData("Middle Mer")},
+            {"Sea Witches", new DemographicData("Sea Witches")},
+            {"Mer-chants", new DemographicData("Mer-chants")},
+            {"High Mer", new DemographicData("High Mer")},
+            {"Tritons", new DemographicData("Tritons")},
+
+            //dwarves
+            {"Miners", new DemographicData("Miners")},
+            {"Workers", new DemographicData("Workers")},
+            {"Mages", new DemographicData("Mages")},
+            {"Artificers", new DemographicData("Artificers")},
+            {"Dwarf Lords", new DemographicData("Dwarf Lords")},
+
+            //fairies
+            {"Changelings", new DemographicData("Changelings")},
+            {"Brownies", new DemographicData("Brownies")},
+            {"Leprechauns", new DemographicData("Leprechauns")},
+            {"Selkies", new DemographicData("Selkies")},
+            {"Clurichaun", new DemographicData("Clurichaun")},
+            {"Aos Si", new DemographicData("Aos Si")},
+
+            //elves
+            {"Worker Elves", new DemographicData("Worker Elves")},
+            {"House Elves", new DemographicData("House Elves")},
+            {"Druids", new DemographicData("Druids")},
+            {"High Elves", new DemographicData("High Elves")},
+            {"Perfects", new DemographicData("Perfects")},
+        };
+
+        foreach (var demographic in demographicData.Values)
+        {
+            demographic.baseCost = CalculateDemographicBaseCost(demographic);
+            demographic.basePrestigeGenerated = CalculateDemographicBasePrestigeGenerated(demographic);
         }
 
         cityData = new Dictionary<string, CityData>
@@ -268,6 +320,35 @@ public class GameData
         return resourcePrices[resourceName] * (int)(1.3 + (float)ResourceOrder(resourceName) / 3);
     }
 
+    public int CalculateBuildingProductionTime(string resourceName)
+    {
+        return 8 + (int)((float)ResourceOrder(resourceName) * 2);
+    }
+
+    public BigInteger CalculateDemographicBaseCost(DemographicData demographic)
+    {
+        int raceOffset = demographic.race == "Merfolk" || demographic.race == "Dwarf" ? 1 :
+                     demographic.race == "Fairy" || demographic.race  == "Elf" ? 2 : 0;
+        BigInteger cashValueOfRequirements = 0;
+        foreach (var requirement in demographic.requirements)
+        {
+            cashValueOfRequirements += resourcePrices[requirement.Key] * requirement.Value;
+        }
+        return (demographic.tier + raceOffset) * cashValueOfRequirements / 2;
+    }
+
+    public BigInteger CalculateDemographicBasePrestigeGenerated(DemographicData demographic)
+    {
+        int raceOffset = demographic.race == "Merfolk" || demographic.race == "Dwarf" ? 1 :
+                     demographic.race == "Fairy" || demographic.race  == "Elf" ? 2 : 0;
+        BigInteger cashValueOfRequirements = 0;
+        foreach (var requirement in demographic.requirements)
+        {
+            cashValueOfRequirements += resourcePrices[requirement.Key] * requirement.Value;
+        }
+        return cashValueOfRequirements / (20 + demographic.tier + raceOffset);
+    }
+
     public int ResourceOrder(string resourceName)
     {
         List<BigInteger> sortedPrices = new List<BigInteger>(resourcePrices.Values);
@@ -285,5 +366,10 @@ public class GameData
     public CityData GetCityData(string name)
     {
         return cityData[name];
+    }
+
+    public DemographicData GetDemographicData(string name)
+    {
+        return demographicData[name];
     }
 }

@@ -15,7 +15,7 @@ public class ResourceCost : MonoBehaviour
     public int level;
     public BigInteger GetRequiredAmount(int level)
     {
-        return GameManager.GrowthFunction(level, requiredAmount);
+        return GameManager.ResearchGrowthFunction(level, requiredAmount);
     }
 
     // Start is called before the first frame update

@@ -22,7 +22,7 @@ public class BuildingData
             outputResource = "Wheat";
             inputResources = new string[] {};
             //baseCost = 2;
-            productionTime = 10;
+            //productionTime = 10;
             //research//baseCost = 10;
             category = "Farm";
             break;
@@ -30,7 +30,7 @@ public class BuildingData
             outputResource = "Wood";
             inputResources = new string[] {};
             //baseCost = 6;
-            productionTime = 12;
+            //productionTime = 12;
             //research//baseCost = 20;
             category = "Gathering";
             break;
@@ -38,7 +38,7 @@ public class BuildingData
             outputResource = "Clay";
             inputResources = new string[] {};
             //baseCost = 10;
-            productionTime = 14;
+            //productionTime = 14;
             //research//baseCost = 40;
             category = "Gathering";
             break;
@@ -46,7 +46,7 @@ public class BuildingData
             outputResource = "Lumber";
             inputResources = new string[] {"Wood"};
             //baseCost = 200;
-            productionTime = 16;
+            //productionTime = 16;
             //research//baseCost = 60;
             category = "Processing";
             break;
@@ -54,7 +54,7 @@ public class BuildingData
             outputResource = "Pottery";
             inputResources = new string[] {"Clay"};
             //baseCost = 600;
-            productionTime = 18;
+            //productionTime = 18;
             //research//baseCost = 80;
             category = "Crafting";
             break;
@@ -62,7 +62,7 @@ public class BuildingData
             outputResource = "Stone";
             inputResources = new string[] {};
             //baseCost = 1800;
-            productionTime = 22;
+            //productionTime = 22;
             //research//baseCost = 100;
             category = "Gathering";
             break;
@@ -70,7 +70,7 @@ public class BuildingData
             outputResource = "Vegetables";
             inputResources = new string[] {};
             //baseCost = 6000;
-            productionTime = 24;
+            //productionTime = 24;
             //research//baseCost = 300;
             category = "Farm";
             break;
@@ -78,15 +78,23 @@ public class BuildingData
             outputResource = "Hemp";
             inputResources = new string[] {};
             //baseCost = 20000;
-            productionTime = 24;
+            //productionTime = 24;
             //research//baseCost = 1000;
             category = "Farm";
+            break;
+        case "Wind Mill":
+            outputResource = "Flour";
+            inputResources = new string[] {"Wheat"};
+            //baseCost = new BigInteger(Math.Pow(10, 7));
+            //productionTime = 24;
+            //research//baseCost = new BigInteger(Math.Pow(10, 8));
+            category = "Processing";
             break;
         case "Weaver":
             outputResource = "Clothes";
             inputResources = new string[] {"Hemp"};
             //baseCost = 80000;
-            productionTime = 24;
+            //productionTime = 26;
             //research//baseCost = 5000;
             category = "Crafting";
             break;
@@ -94,7 +102,7 @@ public class BuildingData
             outputResource = "Copper Ore";
             inputResources = new string[] {};
             //baseCost = 320000;
-            productionTime = 28;
+            //productionTime = 28;
             //research//baseCost = 30000;
             category = "Mine";
             break;
@@ -102,7 +110,7 @@ public class BuildingData
             outputResource = "Fruit";
             inputResources = new string[] {};
             //baseCost = 1000000;
-            productionTime = 30;
+            //productionTime = 30;
             //research//baseCost = new BigInteger(Math.Pow(10, 5));
             category = "Farm";
             break;
@@ -110,7 +118,7 @@ public class BuildingData
             outputResource = "Tin Ore";
             inputResources = new string[] {};
             //baseCost = 5000000;
-            productionTime = 28;
+            //productionTime = 28;
             //research//baseCost = new BigInteger(Math.Pow(10, 6));
             category = "Mine";
             break;
@@ -118,23 +126,15 @@ public class BuildingData
             outputResource = "Bronze Ingot";
             inputResources = new string[] {"Copper Ore", "Tin Ore", "Wood"};
             //baseCost = 25000000;
-            productionTime = 30;
+            //productionTime = 30;
             //research//baseCost = new BigInteger(Math.Pow(10, 7));
-            category = "Processing";
-            break;
-        case "Wind Mill":
-            outputResource = "Flour";
-            inputResources = new string[] {"Wheat"};
-            //baseCost = new BigInteger(Math.Pow(10, 7));
-            productionTime = 26;
-            //research//baseCost = new BigInteger(Math.Pow(10, 8));
             category = "Processing";
             break;
         case "Bakery":
             outputResource = "Bread";
             inputResources = new string[] {"Flour"};
             //baseCost = new BigInteger(Math.Pow(10, 8));;
-            productionTime = 30;
+            //productionTime = 30;
             //research//baseCost = new BigInteger(Math.Pow(10, 9));
             category = "Crafting";
             break;
@@ -142,7 +142,7 @@ public class BuildingData
             outputResource = "Grapes";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 9));
-            productionTime = 32;
+            //productionTime = 32;
             //research//baseCost = new BigInteger(Math.Pow(10, 10));
             category = "Farm";
             break;
@@ -150,7 +150,7 @@ public class BuildingData
             outputResource = "Furniture";
             inputResources = new string[] {"Lumber", "Bronze Ingot"};
             //baseCost = new BigInteger(Math.Pow(10, 10));
-            productionTime = 32;
+            //productionTime = 32;
             //research//baseCost = new BigInteger(Math.Pow(10, 12));
             category = "Manufacturing";
             break;
@@ -158,7 +158,7 @@ public class BuildingData
             outputResource = "Cow";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 11));
-            productionTime = 32;
+            //productionTime = 32;
             //research//baseCost = new BigInteger(Math.Pow(10, 13));
             category = "Farm";
             break;
@@ -166,7 +166,7 @@ public class BuildingData
             outputResource = "Milk";
             inputResources = new string[] {"Cow"};
             //baseCost = new BigInteger(Math.Pow(10, 12));
-            productionTime = 32;
+            //productionTime = 32;
             //research//baseCost = new BigInteger(Math.Pow(10, 14));
             category = "Processing";
             break;
@@ -174,7 +174,7 @@ public class BuildingData
             outputResource = "Barrel";
             inputResources = new string[] {"Lumber", "Iron Ingot"};
             //baseCost = new BigInteger(Math.Pow(10, 13));
-            productionTime = 32;
+            //productionTime = 32;
             //research//baseCost = new BigInteger(Math.Pow(10, 15));
             category = "Manufacturing";
             break;
@@ -182,7 +182,7 @@ public class BuildingData
             outputResource = "Wine";
             inputResources = new string[] {"Grapes", "Barrel"};
             //baseCost = new BigInteger(Math.Pow(10, 14));
-            productionTime = 32;
+            //productionTime = 32;
             //research//baseCost = new BigInteger(Math.Pow(10, 16));
             category = "Crafting";
             break;
@@ -190,7 +190,7 @@ public class BuildingData
             outputResource = "Beef";
             inputResources = new string[] {"Cow"};
             //baseCost = new BigInteger(Math.Pow(10, 15));
-            productionTime = 32;
+            //productionTime = 32;
             //research//baseCost = new BigInteger(Math.Pow(10, 17));
             category = "Processing";
             break;
@@ -198,7 +198,7 @@ public class BuildingData
             outputResource = "Leather";
             inputResources = new string[] {"Cow"};
             //baseCost = new BigInteger(Math.Pow(10, 16));
-            productionTime = 32;
+            //productionTime = 32;
             //research//baseCost = new BigInteger(Math.Pow(10, 18));
             category = "Processing";
             break;
@@ -206,7 +206,7 @@ public class BuildingData
             outputResource = "Paper";
             inputResources = new string[] {"Wood"};
             //baseCost = new BigInteger(Math.Pow(10, 17));
-            productionTime = 32;
+            //productionTime = 32;
             //research//baseCost = new BigInteger(Math.Pow(10, 19));
             category = "Processing";
             break;
@@ -214,7 +214,7 @@ public class BuildingData
             outputResource = "Leather Clothes";
             inputResources = new string[] {"Leather"};
             //baseCost = new BigInteger(Math.Pow(10, 18));
-            productionTime = 32;
+            //productionTime = 32;
             //research//baseCost = new BigInteger(Math.Pow(10, 20));
             category = "Crafting";
             break;
@@ -222,7 +222,7 @@ public class BuildingData
             outputResource = "Human Jewelry";
             inputResources = new string[] {"Gold Ingot", "Jewel"};
             //baseCost = new BigInteger(Math.Pow(10, 19));
-            productionTime = 32;
+            //productionTime = 32;
             //research//baseCost = new BigInteger(Math.Pow(10, 21));
             category = "Jeweler";
             break;
@@ -230,7 +230,7 @@ public class BuildingData
             outputResource = "High Arcana";
             inputResources = new string[] {"Mana", "Fairy Dust", "Life Gem"};
             //baseCost = new BigInteger(Math.Pow(10, 20));
-            productionTime = 32;
+            //productionTime = 32;
             //research//baseCost = new BigInteger(Math.Pow(10, 22));
             category = "Magic";
             break;
@@ -240,7 +240,7 @@ public class BuildingData
             outputResource = "Kelp";
             inputResources = new string[] {};
             //baseCost = 300;
-            productionTime = 10;
+            //productionTime = 10;
             race = "Merfolk";
             //research//baseCost = 100;
             category = "Farm";
@@ -249,7 +249,7 @@ public class BuildingData
             outputResource = "Coral";
             inputResources = new string[] {};
             //baseCost = 500;
-            productionTime = 12;
+            //productionTime = 12;
             race = "Merfolk";
             //research//baseCost = 300;
             category = "Gathering";
@@ -258,7 +258,7 @@ public class BuildingData
             outputResource = "Fish";
             inputResources = new string[] {};
             //baseCost = 800;
-            productionTime = 14;
+            //productionTime = 14;
             race = "Merfolk";
             //research//baseCost = 600;
             category = "Gathering";
@@ -267,7 +267,7 @@ public class BuildingData
             outputResource = "Reed";
             inputResources = new string[] {};
             //baseCost = 2400;
-            productionTime = 16;
+            //productionTime = 16;
             race = "Merfolk";
             //research//baseCost = new BigInteger(Math.Pow(10, 3));
             category = "Gathering";
@@ -276,7 +276,7 @@ public class BuildingData
             outputResource = "Pearl";
             inputResources = new string[] {};
             //baseCost = 10000;
-            productionTime = 18;
+            //productionTime = 18;
             race = "Merfolk";
             //research//baseCost = new BigInteger(Math.Pow(10, 4));
             category = "Farm";
@@ -285,7 +285,7 @@ public class BuildingData
             outputResource = "Basket";
             inputResources = new string[] {"Reed"};
             //baseCost = 200000;
-            productionTime = 18;
+            //productionTime = 18;
             race = "Merfolk";
             //research//baseCost = new BigInteger(Math.Pow(10, 5));
             category = "Crafting";
@@ -294,7 +294,7 @@ public class BuildingData
             outputResource = "Sand";
             inputResources = new string[] {};
             //baseCost = 9 * new BigInteger(Math.Pow(10, 4));
-            productionTime = 20;
+            //productionTime = 20;
             race = "Merfolk";
             //research//baseCost = new BigInteger(Math.Pow(10, 6));
             category = "Gathering";
@@ -303,7 +303,7 @@ public class BuildingData
             outputResource = "Manatee";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 5));
-            productionTime = 20;
+            //productionTime = 20;
             race = "Merfolk";
             //research//baseCost = new BigInteger(Math.Pow(10, 7));
             category = "Farm";
@@ -312,7 +312,7 @@ public class BuildingData
             outputResource = "Merite Ore";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 6));
-            productionTime = 22;
+            //productionTime = 22;
             race = "Merfolk";
             //research//baseCost = new BigInteger(Math.Pow(10, 8));
             category = "Mine";
@@ -321,7 +321,7 @@ public class BuildingData
             outputResource = "Milk";
             inputResources = new string[] {"Manatee"};
             //baseCost = 6 * new BigInteger(Math.Pow(10, 7));
-            productionTime = 20;
+            //productionTime = 20;
             race = "Merfolk";
             //research//baseCost = new BigInteger(Math.Pow(10, 9));
             category = "Processing";
@@ -330,7 +330,7 @@ public class BuildingData
             outputResource = "Eye Of Newt";
             inputResources = new string[] {};
             //baseCost = 6 * new BigInteger(Math.Pow(10, 8));
-            productionTime = 20;
+            //productionTime = 20;
             race = "Merfolk";
             //research//baseCost = new BigInteger(Math.Pow(10, 10));
             category = "Gathering";
@@ -339,7 +339,7 @@ public class BuildingData
             outputResource = "Ink";
             inputResources = new string[] {};
             //baseCost = 6 * new BigInteger(Math.Pow(10, 9));
-            productionTime = 20;
+            //productionTime = 20;
             race = "Merfolk";
             //research//baseCost = new BigInteger(Math.Pow(10, 11));
             category = "Gathering";
@@ -348,7 +348,7 @@ public class BuildingData
             outputResource = "Curse";
             inputResources = new string[] {"Eye Of Newt"};
             //baseCost = 6 * new BigInteger(Math.Pow(10, 10));
-            productionTime = 20;
+            //productionTime = 20;
             race = "Merfolk";
             //research//baseCost = new BigInteger(Math.Pow(10, 12));
             category = "Magic";
@@ -357,7 +357,7 @@ public class BuildingData
             outputResource = "Crab";
             inputResources = new string[] {"Reed"};
             //baseCost = new BigInteger(Math.Pow(10, 11));
-            productionTime = 26;
+            //productionTime = 26;
             race = "Merfolk";
             //research//baseCost = new BigInteger(Math.Pow(10, 13));
             category = "Gathering";
@@ -366,7 +366,7 @@ public class BuildingData
             outputResource = "Magma Slug";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 12));;
-            productionTime = 32;
+            //productionTime = 32;
             race = "Merfolk";
             //research//baseCost = new BigInteger(Math.Pow(10, 14));
             category = "Gathering";
@@ -375,7 +375,7 @@ public class BuildingData
             outputResource = "Rice";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 13));
-            productionTime = 26;
+            //productionTime = 26;
             race = "Merfolk";
             //research//baseCost = new BigInteger(Math.Pow(10, 15));
             category = "Farm";
@@ -384,7 +384,7 @@ public class BuildingData
             outputResource = "Fire Slime";
             inputResources = new string[] {"Magma Slug"};
             //baseCost = new BigInteger(Math.Pow(10, 14));;
-            productionTime = 36;
+            //productionTime = 36;
             race = "Merfolk";
             //research//baseCost = new BigInteger(Math.Pow(10, 16));
             category = "Processing";
@@ -393,7 +393,7 @@ public class BuildingData
             outputResource = "Merite Ingot";
             inputResources = new string[] {"Fire Slime", "Merite Ore"};
             //baseCost = new BigInteger(Math.Pow(10, 15));;
-            productionTime = 40;
+            //productionTime = 40;
             race = "Merfolk";
             //research//baseCost = new BigInteger(Math.Pow(10, 17));
             category = "Processing";
@@ -402,7 +402,7 @@ public class BuildingData
             outputResource = "Mer Jewelry";
             inputResources = new string[] {"Fire Slime", "Merite Ore", "Pearl"};
             //baseCost = new BigInteger(Math.Pow(10, 16));;
-            productionTime = 40;
+            //productionTime = 40;
             race = "Merfolk";
             //research//baseCost = new BigInteger(Math.Pow(10, 18));
             category = "Jeweler";
@@ -411,7 +411,7 @@ public class BuildingData
             outputResource = "Mermail";
             inputResources = new string[] {"Fire Slime", "Merite Ingot"};
             //baseCost = new BigInteger(Math.Pow(10, 17));;
-            productionTime = 40;
+            //productionTime = 40;
             race = "Merfolk";
             //research//baseCost = new BigInteger(Math.Pow(10, 19));
             category = "Crafting";
@@ -420,7 +420,7 @@ public class BuildingData
             outputResource = "Trident";
             inputResources = new string[] {"Fire Slime", "Merite Ingot"};
             //baseCost = new BigInteger(Math.Pow(10, 18));;
-            productionTime = 40;
+            //productionTime = 40;
             race = "Merfolk";
             //research//baseCost = new BigInteger(Math.Pow(10, 20));
             category = "Crafting";
@@ -431,7 +431,7 @@ public class BuildingData
             outputResource = "Mushroom";
             inputResources = new string[] {};
             //baseCost = 200;
-            productionTime = 10;
+            //productionTime = 10;
             race = "Dwarf";
             //research//baseCost = 100;
             category = "Gathering";
@@ -440,7 +440,7 @@ public class BuildingData
             outputResource = "Mana";
             inputResources = new string[] {};
             //baseCost = 600;
-            productionTime = 12;
+            //productionTime = 12;
             race = "Dwarf";
             //research//baseCost = 400;
             category = "Magic";
@@ -449,7 +449,7 @@ public class BuildingData
             outputResource = "Coal";
             inputResources = new string[] {};
             //baseCost = 800;
-            productionTime = 14;
+            //productionTime = 14;
             race = "Dwarf";
             //research//baseCost = 600;
             category = "Mine";
@@ -458,7 +458,7 @@ public class BuildingData
             outputResource = "Iron Ore";
             inputResources = new string[] {};
             //baseCost = 2600;
-            productionTime = 18;
+            //productionTime = 18;
             race = "Dwarf";
             //research//baseCost = new BigInteger(Math.Pow(10, 3));
             category = "Mine";
@@ -467,7 +467,7 @@ public class BuildingData
             outputResource = "Honey";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 5));
-            productionTime = 18;
+            //productionTime = 18;
             race = "Dwarf";
             //research//baseCost = new BigInteger(Math.Pow(10, 6));
             category = "Farm";
@@ -476,7 +476,7 @@ public class BuildingData
             outputResource = "Iron Ingot";
             inputResources = new string[] {"Coal", "Iron Ore"};
             //baseCost = new BigInteger(Math.Pow(10, 6));
-            productionTime = 18;
+            //productionTime = 18;
             race = "Dwarf";
             //research//baseCost = new BigInteger(Math.Pow(10, 7));
             category = "Processing"; 
@@ -485,7 +485,7 @@ public class BuildingData
             outputResource = "Mead";
             inputResources = new string[] {"Honey"};
             //baseCost = new BigInteger(Math.Pow(10, 9));
-            productionTime = 20;
+            //productionTime = 20;
             race = "Dwarf";
             //research//baseCost = new BigInteger(Math.Pow(10, 10));
             category = "Crafting";
@@ -494,7 +494,7 @@ public class BuildingData
             outputResource = "Mechanical Parts";
             inputResources = new string[] {"Wood", "Iron Ingot"};
             //baseCost = new BigInteger(Math.Pow(10, 10));
-            productionTime = 24;
+            //productionTime = 24;
             race = "Dwarf";
             //research//baseCost = new BigInteger(Math.Pow(10, 11));
             category = "Manufacturing";
@@ -503,7 +503,7 @@ public class BuildingData
             outputResource = "Tools";
             inputResources = new string[] {"Coal", "Iron Ore", "Wood"};
             //baseCost = new BigInteger(Math.Pow(10, 11));
-            productionTime = 18;
+            //productionTime = 18;
             race = "Dwarf";
             //research//baseCost = new BigInteger(Math.Pow(10, 12));
             category = "Crafting";
@@ -512,7 +512,7 @@ public class BuildingData
             outputResource = "Hops";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 12));
-            productionTime = 18;
+            //productionTime = 18;
             race = "Dwarf";
             //research//baseCost = new BigInteger(Math.Pow(10, 13));
             category = "Farm";
@@ -521,7 +521,7 @@ public class BuildingData
             outputResource = "Gold Ore";
             inputResources = new string[] {"Tools"};
             //baseCost = new BigInteger(Math.Pow(10, 13));
-            productionTime = 18;
+            //productionTime = 18;
             race = "Dwarf";
             //research//baseCost = new BigInteger(Math.Pow(10, 14));
             category = "Mine";
@@ -530,7 +530,7 @@ public class BuildingData
             outputResource = "Glass";
             inputResources = new string[] {"Sand"};
             //baseCost = new BigInteger(Math.Pow(10, 14));
-            productionTime = 18;
+            //productionTime = 18;
             race = "Dwarf";
             //research//baseCost = new BigInteger(Math.Pow(10, 15));
             category = "Crafting";
@@ -539,7 +539,7 @@ public class BuildingData
             outputResource = "Beer";
             inputResources = new string[] {"Wheat", "Hops", "Bottles"};
             //baseCost = new BigInteger(Math.Pow(10, 15));
-            productionTime = 18;
+            //productionTime = 18;
             race = "Dwarf";
             //research//baseCost = new BigInteger(Math.Pow(10, 16));
             category = "Crafting";
@@ -548,7 +548,7 @@ public class BuildingData
             outputResource = "Gold Ingot";
             inputResources = new string[] {"Coal", "Iron Ore"};
             //baseCost = new BigInteger(Math.Pow(10, 16));
-            productionTime = 18;
+            //productionTime = 18;
             race = "Dwarf";
             //research//baseCost = new BigInteger(Math.Pow(10, 17));
             category = "Processing";
@@ -557,7 +557,7 @@ public class BuildingData
             outputResource = "Artifact";
             inputResources = new string[] {"Mechanical Parts", "Mana", "Gold"};
             //baseCost = new BigInteger(Math.Pow(10, 17));
-            productionTime = 18;
+            //productionTime = 18;
             race = "Dwarf";
             //research//baseCost = new BigInteger(Math.Pow(10, 18));
             category = "Crafting";
@@ -566,7 +566,7 @@ public class BuildingData
             outputResource = "Jewel";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 18));
-            productionTime = 18;
+            //productionTime = 18;
             race = "Dwarf";
             //research//baseCost = new BigInteger(Math.Pow(10, 19));
             category = "Mine";
@@ -575,7 +575,7 @@ public class BuildingData
             outputResource = "Book";
             inputResources = new string[] {"Leather", "Paper", "Ink"};
             //baseCost = new BigInteger(Math.Pow(10, 19));
-            productionTime = 18;
+            //productionTime = 18;
             race = "Dwarf";
             //research//baseCost = new BigInteger(Math.Pow(10, 20));
             category = "Manufacturing";
@@ -584,7 +584,7 @@ public class BuildingData
             outputResource = "Golem";
             inputResources = new string[] {"Mechanical Parts", "Mana", "Clay"};
             //baseCost = new BigInteger(Math.Pow(10, 20));
-            productionTime = 18;
+            //productionTime = 18;
             race = "Dwarf";
             //research//baseCost = new BigInteger(Math.Pow(10, 21));
             category = "Manufacturing";
@@ -593,7 +593,7 @@ public class BuildingData
             outputResource = "Rune";
             inputResources = new string[] {"Mana", "Stone"};
             //baseCost = new BigInteger(Math.Pow(10, 21));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Dwarf";
             //research//baseCost = new BigInteger(Math.Pow(10, 22));
             category = "Magic";
@@ -602,7 +602,7 @@ public class BuildingData
             outputResource = "Mithril Ore";
             inputResources = new string[] {"Tools", "Golem"};
             //baseCost = new BigInteger(Math.Pow(10, 22));
-            productionTime = 18;
+            //productionTime = 18;
             race = "Dwarf";
             //research//baseCost = new BigInteger(Math.Pow(10, 23));
             category = "Mine";
@@ -611,7 +611,7 @@ public class BuildingData
             outputResource = "Mithril Ingot";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 23));
-            productionTime = 18;
+            //productionTime = 18;
             race = "Dwarf";
             //research//baseCost = new BigInteger(Math.Pow(10, 24));
             category = "Processing";
@@ -620,7 +620,7 @@ public class BuildingData
             outputResource = "Mithril Armor";
             inputResources = new string[] {"Mithril Ingot"};
             //baseCost = new BigInteger(Math.Pow(10, 24));
-            productionTime = 18;
+            //productionTime = 18;
             race = "Dwarf";
             //research//baseCost = new BigInteger(Math.Pow(10, 25));
             category = "Crafting";
@@ -631,7 +631,7 @@ public class BuildingData
             outputResource = "Flowers";
             inputResources = new string[] {};
             //baseCost = 50000;
-            productionTime = 32;
+            //productionTime = 32;
             race = "Fairy";
             //research//baseCost = new BigInteger(Math.Pow(10, 6));
             category = "Farm";
@@ -640,7 +640,7 @@ public class BuildingData
             outputResource = "Magic Mushroom";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 6));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Fairy";
             //research//baseCost = new BigInteger(Math.Pow(10, 7));
             category = "Magic";
@@ -649,7 +649,7 @@ public class BuildingData
             outputResource = "Berry";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 7));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Fairy";
             //research//baseCost = new BigInteger(Math.Pow(10, 8));
             category = "Gathering";
@@ -658,7 +658,7 @@ public class BuildingData
             outputResource = "Fairy Dust";
             inputResources = new string[] {"Magic Mushroom"};
             //baseCost = new BigInteger(Math.Pow(10, 8));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Fairy";
             //research//baseCost = new BigInteger(Math.Pow(10, 9));
             category = "Processing";
@@ -667,7 +667,7 @@ public class BuildingData
             outputResource = "Mana";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 9));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Fairy";
             //research//baseCost = new BigInteger(Math.Pow(10, 10));
             category = "Magic";
@@ -676,7 +676,7 @@ public class BuildingData
             outputResource = "Shoes";
             inputResources = new string[] {"Leather"};
             //baseCost = new BigInteger(Math.Pow(10, 10));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Fairy";
             //research//baseCost = new BigInteger(Math.Pow(10, 11));
             category = "Crafting";
@@ -685,7 +685,7 @@ public class BuildingData
             outputResource = "Luck Charm";
             inputResources = new string[] {"Mana", "Iron Ingot"};
             //baseCost = new BigInteger(Math.Pow(10, 11));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Fairy";
             //research//baseCost = new BigInteger(Math.Pow(10, 12));
             category = "Magic";
@@ -694,7 +694,7 @@ public class BuildingData
             outputResource = "Beauty Charm";
             inputResources = new string[] {"Mana", "Living Wood", "Fairy Dust"};
             //baseCost = new BigInteger(Math.Pow(10, 12));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Fairy";
             //research//baseCost = new BigInteger(Math.Pow(10, 13));
             category = "Magic";
@@ -703,7 +703,7 @@ public class BuildingData
             outputResource = "Light Bulb";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 13));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Fairy";
             //research//baseCost = new BigInteger(Math.Pow(10, 14));
             category = "Farm";
@@ -712,7 +712,7 @@ public class BuildingData
             outputResource = "Tea";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 14));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Fairy";
             //research//baseCost = new BigInteger(Math.Pow(10, 15));
             category = "Farm";
@@ -721,7 +721,7 @@ public class BuildingData
             outputResource = "Silk";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 15));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Fairy";
             //research//baseCost = new BigInteger(Math.Pow(10, 16));
             category = "Gathering";
@@ -730,7 +730,7 @@ public class BuildingData
             outputResource = "Fairyelium";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 16));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Fairy";
             //research//baseCost = new BigInteger(Math.Pow(10, 17));
             category = "Manufactury";
@@ -739,7 +739,7 @@ public class BuildingData
             outputResource = "Whisper Silk";
             inputResources = new string[] {"Silk", "Mana", "Fairy Dust"};
             //baseCost = new BigInteger(Math.Pow(10, 17));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Fairy";
             //research//baseCost = new BigInteger(Math.Pow(10, 18));
             category = "Processing";
@@ -748,7 +748,7 @@ public class BuildingData
             outputResource = "Fairy Crystal";
             inputResources = new string[] {"Fairyelium", "Mana"};
             //baseCost = new BigInteger(Math.Pow(10, 18));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Fairy";
             //research//baseCost = new BigInteger(Math.Pow(10, 19));
             category = "Processing";
@@ -757,7 +757,7 @@ public class BuildingData
             outputResource = "Invisibility Cloak";
             inputResources = new string[] {"Whisper Silk", "Mana"};
             //baseCost = new BigInteger(Math.Pow(10, 19));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Fairy";
             //research//baseCost = new BigInteger(Math.Pow(10, 20));
             category = "Crafting";
@@ -766,7 +766,7 @@ public class BuildingData
             outputResource = "Fairy Jewelry";
             inputResources = new string[] {"Fairy Crystal", "Gold Ingot"};
             //baseCost = new BigInteger(Math.Pow(10, 20));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Fairy";
             //research//baseCost = new BigInteger(Math.Pow(10, 21));
             category = "Jeweler";
@@ -778,7 +778,7 @@ public class BuildingData
             outputResource = "Anima Fruit";
             inputResources = new string[] {};
             //baseCost = 50000;
-            productionTime = 32;
+            //productionTime = 32;
             race = "Elf";
             //research//baseCost = new BigInteger(Math.Pow(10, 6));
             category = "Gathering";
@@ -787,7 +787,7 @@ public class BuildingData
             outputResource = "Living Wood";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 6));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Elf";
             //research//baseCost = new BigInteger(Math.Pow(10, 7));
             category = "Gathering";
@@ -796,7 +796,7 @@ public class BuildingData
             outputResource = "Egg";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 7));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Elf";
             //research//baseCost = new BigInteger(Math.Pow(10, 8));
             category = "Farm";
@@ -805,7 +805,7 @@ public class BuildingData
             outputResource = "Cotton";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 8));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Elf";
             //research//baseCost = new BigInteger(Math.Pow(10, 9));
             category = "Farm";
@@ -814,7 +814,7 @@ public class BuildingData
             outputResource = "Unicorn Hair";
             inputResources = new string[] {"Wheat"};
             //baseCost = new BigInteger(Math.Pow(10, 9));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Elf";
             //research//baseCost = new BigInteger(Math.Pow(10, 10));
             category = "Farm";
@@ -823,7 +823,7 @@ public class BuildingData
             outputResource = "Cotton Clothes";
             inputResources = new string[] {"Cotton"};
             //baseCost = new BigInteger(Math.Pow(10, 10));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Elf";
             //research//baseCost = new BigInteger(Math.Pow(10, 11));
             category = "Crafting";
@@ -832,7 +832,7 @@ public class BuildingData
             outputResource = "Chicken";
             inputResources = new string[] {"Egg"};
             //baseCost = new BigInteger(Math.Pow(10, 11));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Elf";
             //research//baseCost = new BigInteger(Math.Pow(10, 12));
             category = "Farm";
@@ -841,7 +841,7 @@ public class BuildingData
             outputResource = "Enchantment";
             inputResources = new string[] {"Mana", "Living Wood"};
             //baseCost = new BigInteger(Math.Pow(10, 12));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Elf";
             //research//baseCost = new BigInteger(Math.Pow(10, 13));
             category = "Magic";
@@ -850,7 +850,7 @@ public class BuildingData
             outputResource = "Sugar";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 13));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Elf";
             //research//baseCost = new BigInteger(Math.Pow(10, 14));
             category = "Farm";
@@ -859,7 +859,7 @@ public class BuildingData
             outputResource = "Cake";
             inputResources = new string[] {"Flour", "Egg", "Milk"};
             //baseCost = new BigInteger(Math.Pow(10, 14));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Elf";
             //research//baseCost = new BigInteger(Math.Pow(10, 15));
             category = "Crafting";
@@ -868,7 +868,7 @@ public class BuildingData
             outputResource = "Wand";
             inputResources = new string[] {"Mana", "Living Wood", "Unicorn Hair"};
             //baseCost = new BigInteger(Math.Pow(10, 15));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Elf";
             //research//baseCost = new BigInteger(Math.Pow(10, 16));
             category = "Crafting";
@@ -877,7 +877,7 @@ public class BuildingData
             outputResource = "Coffee";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 16));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Elf";
             //research//baseCost = new BigInteger(Math.Pow(10, 17));
             category = "Farm";
@@ -886,7 +886,7 @@ public class BuildingData
             outputResource = "Dark Wood";
             inputResources = new string[] {};
             //baseCost = new BigInteger(Math.Pow(10, 17));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Elf";
             //research//baseCost = new BigInteger(Math.Pow(10, 18));
             category = "Gathering";
@@ -895,7 +895,7 @@ public class BuildingData
             outputResource = "Liqour";
             inputResources = new string[] {"Sugar"};
             //baseCost = new BigInteger(Math.Pow(10, 18));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Elf";
             //research//baseCost = new BigInteger(Math.Pow(10, 19));
             category = "Manufacturing";
@@ -904,7 +904,7 @@ public class BuildingData
             outputResource = "Life Gem";
             inputResources = new string[] {"Mana", "Wheat"};
             //baseCost = new BigInteger(Math.Pow(10, 19));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Elf";
             //research//baseCost = new BigInteger(Math.Pow(10, 20));
             category = "Processing";
@@ -913,7 +913,7 @@ public class BuildingData
             outputResource = "Elvish Jewelry";
             inputResources = new string[] {"Life Gem", "Gold Ingot"};
             //baseCost = new BigInteger(Math.Pow(10, 20));
-            productionTime = 32;
+            //productionTime = 32;
             race = "Elf";
             //research//baseCost = new BigInteger(Math.Pow(10, 21));
             category = "Jeweler";

@@ -14,11 +14,10 @@ public class ProductionOutput : MonoBehaviour
     public string resource = "";
     public UnityEvent<string> onProductionClick;
     private bool producing = false;
-
-    public LoadingBar loadingBar;
     public Building building;
 
     [SerializeField] private Toggle pauseToggle;
+    [SerializeField] private Image loadingBarImage;
 
     void Awake()
     {
@@ -96,8 +95,8 @@ public class ProductionOutput : MonoBehaviour
             }
 
             //TODO move production timer to timemanager.
-            GameManager.instance.productionTimers[resource] = productionTimer; 
-            loadingBar.UpdatePercentage((float)(productionTimer / requiredTime * 100));
+            GameManager.instance.productionTimers[resource] = productionTimer;
+            loadingBarImage.fillAmount = (float)productionTimer / requiredTime;
         }
     }
 

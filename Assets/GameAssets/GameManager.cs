@@ -179,6 +179,15 @@ public class GameManager : MonoBehaviour
         return baseCost * Pow(2, level);
     }
 
+    public static BigInteger ResearchGrowthFunction(int level, BigInteger baseCost)
+    {
+        if (level == 0)
+        {
+            return baseCost;
+        }
+        return baseCost * (Pow(level, 3) + Pow(level, 2) + level);
+    }
+
     public void AddCoins(BigInteger quantity)
     {
         Coins = Coins + quantity;

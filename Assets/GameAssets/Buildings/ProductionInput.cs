@@ -16,7 +16,7 @@ public class ProductionInput : MonoBehaviour
     public UnityEvent<string> onProductionClick;
     public bool locked = true;
 
-    public LoadingBar loadingBar;
+    [SerializeField] private Image loadingBarImage;
 
     void Awake()
     {
@@ -36,7 +36,7 @@ public class ProductionInput : MonoBehaviour
         {
            productionTimer = GameManager.instance.productionTimers[resource]; 
         }
-        loadingBar.UpdatePercentage((float)(productionTimer / requiredTime * 100));
+        loadingBarImage.fillAmount = (float)(productionTimer / requiredTime);
     }
 
     public void InitValues(string newResource)
