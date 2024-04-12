@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using SharpUI.Source.Common.UI.Elements.Loading;
 using System.Numerics;
 using UnityEditor.Rendering;
+using Codice.Client.Commands.TransformerRule;
+using TMPro;
 
 public class ConsumptionPanel : MonoBehaviour
 {
@@ -54,6 +56,7 @@ public class ConsumptionPanel : MonoBehaviour
                 productionTimer -= requiredTime;
                 GameManager.instance.AddCityPrestige(GetPrestigeGenerated());
                 Demographic currentDemo = transform.parent.GetComponent<Demographic>();
+                transform.parent.Find("PrestigeText").GetComponent<TextMeshProUGUI>().text = GameManager.BigIntToExponentString(GetPrestigeGenerated());
                 currentDemo.Happiness = CalculateHappiness();
                 
                 foreach (Requirement requirement in requirements)

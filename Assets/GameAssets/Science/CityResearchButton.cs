@@ -26,6 +26,7 @@ public class CityResearchButton : MonoBehaviour
     void Start()
     {
         ResearchManager.instance.setScienceResearch.AddListener(SetLevel);
+        ResearchManager.instance.resetScienceResearch.AddListener(Reset);
     }
 
     void Update()
@@ -58,8 +59,6 @@ public class CityResearchButton : MonoBehaviour
         researchPanel.Setup(title, description, level, maxLevel, new List<string>(resourceCostNames.Split(',')), intCostList);
         researchPanel.onUpgrade.RemoveAllListeners();
         researchPanel.onUpgrade.AddListener(Upgrade);
-
-        ResearchManager.instance.resetScienceResearch.AddListener(Reset);
     }
 
     private void Reset()

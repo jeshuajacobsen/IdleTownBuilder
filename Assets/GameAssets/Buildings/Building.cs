@@ -40,6 +40,8 @@ public class Building : MonoBehaviour, Unlockable
 
     public Canvas canvas;
 
+    [SerializeField] private TextMeshProUGUI ProductionText;
+
     private Manager manager;
     public Manager Manager
     {
@@ -82,7 +84,7 @@ public class Building : MonoBehaviour, Unlockable
 
     void Update()
     {
-        
+        ProductionText.text = GameManager.BigIntToExponentString(GetProductionQuantity()) + "->" + GameManager.BigIntToExponentString(GetProductionQuantity(true));
     }
 
     public void InitValues(string newName)
@@ -156,6 +158,11 @@ public class Building : MonoBehaviour, Unlockable
         {
             GameManager.instance.productionTimers[outputResource] = 0;
         }
+
+        if (ResearchManager.instance.scienceResearchLevels.ContainsKey("Managers") && ResearchManager.instance.scienceResearchLevels["Managers"] >= 1)
+        {
+            transform.Find("ManagerButton").gameObject.SetActive(true);
+        }
     }
 
     public void OpenManagerPanel()
@@ -217,7 +224,7 @@ public class Building : MonoBehaviour, Unlockable
         outputResourceButton.HandleProductionClick();
     }
 
-    public BigInteger GetProductionQuantity()
+    public BigInteger GetProductionQuantity(bool nextLevel = false)
     {
         double multiplier = 1;
 
@@ -271,7 +278,8 @@ public class Building : MonoBehaviour, Unlockable
             multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Elf Tech") ? ResearchManager.instance.prestigeResearchLevels["Elf Tech"] * .1f : 0;
         }
         multiplier += Manager != null && (Manager.effect1Type == "ProductionQuantity" || Manager.effect2Type == "ProductionQuantity") ? Manager.GetEffectMagnitude("ProductionQuantity") : 0;
-        return new BigInteger(level * multiplier);
+        int levelPlus = nextLevel ? Level + 1 : Level;
+        return new BigInteger(levelPlus * multiplier);
     }
 
     public void Unlock()
