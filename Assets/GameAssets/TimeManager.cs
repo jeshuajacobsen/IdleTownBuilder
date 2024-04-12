@@ -104,8 +104,10 @@ public class TimeManager : MonoBehaviour
         // Calculate the difference
         TimeSpan difference = now - oldDateTime;
 
+
+        int finalMaxAwayTime = (int)TimeSpan.FromMinutes(120 + (ResearchManager.instance.prestigeResearchLevels.ContainsKey("Max Time Away") ? ResearchManager.instance.prestigeResearchLevels["Max Time Away"] * 20 : 0)).TotalSeconds;
         int processSeconds = isTimeWarping ? 
-            (int)TimeSpan.FromHours(2).TotalSeconds : Math.Min((int)difference.TotalSeconds, maxAwayTime);
+            (int)TimeSpan.FromHours(2).TotalSeconds : Math.Min((int)difference.TotalSeconds, finalMaxAwayTime);
 
         Dictionary<string, BigInteger> oldResources = new Dictionary<string, BigInteger>(GameManager.instance.resources);
         BigInteger oldPrestige = GameManager.instance.CityPrestige;

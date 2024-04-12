@@ -67,13 +67,13 @@ public class TabMarketContent : MonoBehaviour
 
     private BigInteger calculateSellAmount(string resourceName)
     {
-        BigInteger multiplier = 100;
+        float multiplier = 100;
 
-        return new BigInteger((int)quantitySlider.slider.value * 
-                (int)(GameManager.instance.resources[resourceName] * 
-                GameManager.instance.GetResourcePrice(resourceName) *
-                multiplier /
-                100));
+        return (BigInteger)(
+            GameManager.instance.resources[resourceName] *
+            GameManager.instance.GetResourcePrice(resourceName) *
+            (BigInteger)(quantitySlider.slider.value * multiplier / 100)
+        );
     }
 
     private void Tick()

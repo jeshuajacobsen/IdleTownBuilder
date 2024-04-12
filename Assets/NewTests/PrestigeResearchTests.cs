@@ -128,10 +128,10 @@ public class PrestigeResearchTests
         yield return null;
         Demographic demographic = gameManager.popContent.demographics.Find((Demographic demo) => {return demo.Name == "Peasants";});
         demographic.Population = 1;
-        Assert.AreEqual(new BigInteger(4), demographic.GetPrestigeGenerated());
+        Assert.AreEqual(new BigInteger(5), demographic.GetPrestigeGenerated());
    
         researchManager.PrestigeResearchUpgrade("Peasanting");
 
-        Assert.AreEqual(new BigInteger(5), demographic.GetPrestigeGenerated());
+        Assert.AreEqual(new BigInteger(6), demographic.GetPrestigeGenerated());
     }
 }

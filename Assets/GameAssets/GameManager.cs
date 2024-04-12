@@ -133,6 +133,7 @@ public class GameManager : MonoBehaviour
             }
             return intString.Substring(0, intString.Length % 3) + "," + intString.Substring(intString.Length % 3, 3);
         }
+
         int exponentBrackets = (int)((intString.Length - 6) / 3);
         if (intString.Length % 3 == 1)
         {
@@ -148,7 +149,7 @@ public class GameManager : MonoBehaviour
     {
         string[] letters = new string[] {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", 
             "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
-        return letters[exponentBrackets / letters.Length] + letters[exponentBrackets % letters.Length];
+        return letters[exponentBrackets / letters.Length] + letters[(exponentBrackets - 1) % letters.Length];
     }
 
     public static BigInteger Pow(BigInteger baseValue, int exponent)

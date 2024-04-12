@@ -7,6 +7,7 @@ using System.Numerics;
 using UnityEditor.Rendering;
 using Codice.Client.Commands.TransformerRule;
 using TMPro;
+using System;
 
 public class ConsumptionPanel : MonoBehaviour
 {
@@ -105,7 +106,7 @@ public class ConsumptionPanel : MonoBehaviour
         {
             multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Baths") ? ResearchManager.instance.scienceResearchLevels["Baths"] * .1f : 0;
         }
-        return totalHappiness * (int)(multiplier * 100) / 100;
+        return Math.Min(100, totalHappiness * (int)(multiplier * 100) / 100);
     }    
 
     public void Unlock()
