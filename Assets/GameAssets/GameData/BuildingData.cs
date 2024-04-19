@@ -14,8 +14,10 @@ public class BuildingData
     public string race = "Human";
     public BigInteger researchBaseCost = 10;
     public string category = "Farm";
+    public string name;
     public BuildingData(string buildingName)
     {
+        this.name = buildingName;
         switch(buildingName)
         {
         case "Farm":

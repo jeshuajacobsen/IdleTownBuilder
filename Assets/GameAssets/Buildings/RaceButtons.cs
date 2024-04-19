@@ -48,10 +48,20 @@ public class RaceButtons : MonoBehaviour
         raceButtons = new List<RaceButton>();
 
         CityData cityData = GameManager.instance.gameData.GetCityData(newCityName);
-        foreach(string raceName in cityData.races)
+        if (page == "kingdom")
         {
-            AddRace(raceName);
+            AddRace("Human");
+            AddRace("Merfolk"); 
+            AddRace("Dwarf");
+            AddRace("Fairy");
+            AddRace("Elf");
+             
+        } else {
+            foreach(string raceName in cityData.races)
+            {
+                AddRace(raceName);
+            }   
         }
-
+        raceButtons[0].FilterByRace();
     }
 }

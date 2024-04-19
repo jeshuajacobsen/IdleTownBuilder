@@ -2,12 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using System.Linq;
+using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 
 public class GameData
 {
     private Dictionary<string, BuildingData> buildingsData;
     private Dictionary<string, CityData> cityData;
     private Dictionary<string, DemographicData> demographicData;
+    private Dictionary<string, PrestigeResearchData> prestigeTechTreeData;
 
     public Dictionary<string, BigInteger> resourcePrices;
     public GameData()
@@ -307,7 +310,17 @@ public class GameData
             { "Elveryn", new CityData("Elveryn") }
         };
 
-        
+        prestigeTechTreeData = new Dictionary<string, PrestigeResearchData>
+        {
+            { "Human Tech", new PrestigeResearchData("Human Tech") },
+            { "Production Speed", new PrestigeResearchData("Production Speed") },
+            { "Peasanting", new PrestigeResearchData("Peasanting") },
+            { "Marketing", new PrestigeResearchData("Marketing") },
+            { "Tap Power", new PrestigeResearchData("Tap Power") },
+            { "Merfolk Tech", new PrestigeResearchData("Merfolk Tech") },
+            { "Max Away Time", new PrestigeResearchData("Max Away Time") }
+
+        };
     }
 
     public BigInteger CalculateBuildingBaseCost(string resourceName)
@@ -363,6 +376,11 @@ public class GameData
         return buildingsData[name];
     }
 
+    public List<BuildingData> GetBuildingDataByRace(string race)
+    {
+        return buildingsData.Values.Where(x => x.race == race).ToList();
+    }
+
     public CityData GetCityData(string name)
     {
         return cityData[name];
@@ -371,5 +389,15 @@ public class GameData
     public DemographicData GetDemographicData(string name)
     {
         return demographicData[name];
+    }
+
+    public PrestigeResearchData GetPrestigeResearchData(string name)
+    {
+        return prestigeTechTreeData[name];
+    }
+
+    public List<PrestigeResearchData> GetPrestigeResearchDataList(string race)
+    {
+        return prestigeTechTreeData.Where(x => x.Value.race == race).ToList().Select(x => x.Value).ToList();
     }
 }

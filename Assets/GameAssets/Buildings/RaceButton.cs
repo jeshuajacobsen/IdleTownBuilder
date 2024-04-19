@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class RaceButton : MonoBehaviour
 {
     public string raceName;
-    public string page = "buildings";
+    public string page;
     
     void Start()
     {
@@ -20,13 +20,11 @@ public class RaceButton : MonoBehaviour
         
     }
 
-    private void FilterByRace()
+    public void FilterByRace()
     {
-        if (page == "buildings")
-        {
-            GameObject.FindWithTag("BuildingContent").transform.GetComponent<BuildingContent>().FilterBuildings(raceName);
-        } else {
-            GameObject.FindWithTag("PopulationContent").transform.GetComponent<PopulationContent>().FilterDemographics(raceName);
-        }
+        GameManager.instance.buildingContent.FilterBuildings(raceName);
+        GameManager.instance.popContent.FilterDemographics(raceName);
+        GameManager.instance.kingdomContent.showRaceResearch(raceName);
     }
+
 }

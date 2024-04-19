@@ -22,6 +22,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private MarketContent marketContent;
     [SerializeField] private RaceButtons buildingRaceButtons;
     [SerializeField] private RaceButtons populationRaceButtons;
+    [SerializeField] private RaceButtons kingdomRaceButtons;
 
     [SerializeField] private NewCityContent newCityContent;
 
@@ -174,6 +175,7 @@ public class TimeManager : MonoBehaviour
             popContent.LoadSavedData(saveData);
             buildingRaceButtons.Reset(saveData.cityName);
             populationRaceButtons.Reset(saveData.cityName);
+            kingdomRaceButtons.Reset(saveData.cityName);
             newCityContent.Setup();
             newCityContent.LoadSavedData(saveData);
             tasksPanel.InitValues(saveData.cityName);
@@ -187,6 +189,7 @@ public class TimeManager : MonoBehaviour
             popContent.Reset("Peasantry");
             buildingRaceButtons.Reset("Peasantry");
             populationRaceButtons.Reset("Peasantry");
+            kingdomRaceButtons.Reset("Peasantry");
             newCityContent.Setup();
             tasksPanel.InitValues("Peasantry");
             TasksManager.instance.cityTasksCompletionStatus = new Dictionary<string, bool[]>();

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Numerics;
+using UnityEngine.Events;
 
 public class PrestigeResearchButton : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class PrestigeResearchButton : MonoBehaviour
     [SerializeField] private BigInteger baseCost;
 
     [SerializeField] private bool isBuilding;
+
+    public UnityEvent<string> onUpgrade;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +42,26 @@ public class PrestigeResearchButton : MonoBehaviour
         
     }
 
+    public void InitValues(string title, bool isBuilding)
+    {
+        this.title = title;
+        this.isBuilding = isBuilding;
+        if (isBuilding)
+        {
+            BuildingData buildingData = GameManager.instance.gameData.GetBuildingData(title);
+            this.description = title;
+            this.maxLevel = 50;
+            this.baseCost = buildingData.researchBaseCost;
+        }
+        else
+        {
+            PrestigeResearchData researchData = GameManager.instance.gameData.GetPrestigeResearchData(title);
+            this.description = researchData.description;
+            this.maxLevel = researchData.maxLevel;
+            this.baseCost = researchData.baseCost;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -47,8 +70,7 @@ public class PrestigeResearchButton : MonoBehaviour
 
     public void OpenInSelectedResearch()
     {
-        ResearchInfoPanel researchPanel = transform.parent.parent.Find("SelectedResearchBackground")
-            .Find("ResearchInfoPanel").GetComponent<ResearchInfoPanel>();
+        ResearchInfoPanel researchPanel = GameManager.instance.kingdomSelectedResearch;
         researchPanel.Setup(title, description, baseCost, level, maxLevel, isBuilding);
         researchPanel.onUpgrade.RemoveAllListeners();
         researchPanel.onUpgrade.AddListener(Upgrade);
@@ -60,6 +82,7 @@ public class PrestigeResearchButton : MonoBehaviour
         {
             level++;
             transform.Find("levelText").GetComponent<TextMeshProUGUI>().text = "" + level + "/" + maxLevel;
+            onUpgrade.Invoke(title);
         }
     }
 

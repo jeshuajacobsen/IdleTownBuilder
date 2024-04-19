@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         set 
         { 
             cityPrestige = value; 
-            cityPrestigeText.text = "" + GameManager.BigIntToExponentString(cityPrestige);
+            cityPrestigeText.text = "" + BigIntToExponentString(cityPrestige);
         }
     }
     private BigInteger collectedPrestige = 0;
@@ -54,8 +54,8 @@ public class GameManager : MonoBehaviour
         get { return collectedPrestige; }
         set 
         { 
-            collectedPrestige = value; 
-            collectedPrestigeText.text = "" + GameManager.BigIntToExponentString(collectedPrestige);
+            collectedPrestige = value;
+            collectedPrestigeText.text = "" + BigIntToExponentString(collectedPrestige);
         }
     }
     [SerializeField] private TextMeshProUGUI collectedPrestigeText;
@@ -78,6 +78,8 @@ public class GameManager : MonoBehaviour
     public BuildingContent buildingContent;
     public GameObject tabMarketContentGameObject;
     public PopulationContent popContent;
+    public TabContentKingdom kingdomContent;
+    public ResearchInfoPanel kingdomSelectedResearch;
     public string currentCity;
     public TextMeshProUGUI cityNameText;
 
