@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using SharpUI.Source.Common.UI.Elements.Loading;
 using System.Numerics;
-using UnityEditor.Rendering;
-using Codice.Client.Commands.TransformerRule;
 using TMPro;
 using System;
 

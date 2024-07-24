@@ -22,9 +22,15 @@ public class RaceButton : MonoBehaviour
 
     public void FilterByRace()
     {
-        GameManager.instance.buildingContent.FilterBuildings(raceName);
-        GameManager.instance.popContent.FilterDemographics(raceName);
-        GameManager.instance.kingdomContent.showRaceResearch(raceName);
+        if (page == "kingdom")
+        {
+            GameManager.instance.kingdomContent.showRaceResearch(raceName);
+        }
+        else
+        {
+            GameManager.instance.buildingContent.FilterBuildings(raceName);
+            GameManager.instance.popContent.FilterDemographics(raceName);
+        }
     }
 
 }

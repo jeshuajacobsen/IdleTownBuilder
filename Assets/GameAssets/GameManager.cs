@@ -188,7 +188,7 @@ public class GameManager : MonoBehaviour
         {
             return baseCost;
         }
-        return baseCost * (Pow(level, 3) + Pow(level, 2) + level);
+        return baseCost * (10 * Pow(level, 3) + 10 * Pow(level, 2) + level);
     }
 
     public void AddCoins(BigInteger quantity)
