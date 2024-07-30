@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,7 +23,28 @@ public class PrestigeTechTree : MonoBehaviour
 
     void Update()
     {
-        
+        for (int i = 0; i < researchTiers.Count; i++)
+        {
+            if (researchTiers[i].researchedCount >= 5)
+            {
+                ResearchTier researchTier = researchTiers.Find((tier) => tier.tier == researchTiers[i].tier + 1);
+                researchTier?.unlock();
+            } 
+            else if (researchTiers[i].researchedCount < 5)
+            {
+                ResearchTier researchTier = researchTiers.Find((tier) => tier.tier == researchTiers[i].tier - 1);
+                if (researchTier != null)
+                {
+                    researchTier.transform.Find("LockPanel").Find("UnlockRequirementText").GetComponent<TextMeshProUGUI>().text = "Research tier " + researchTier.tier + " to unlock";
+                    researchTier.transform.Find("LockPanel").Find("UnlockProgressText").GetComponent<TextMeshProUGUI>().text = researchTier.researchedCount + "/" + 5;
+                }
+                if (researchTier?.researchedCount >= 5)
+                {
+                    researchTiers[0].unlock();
+                }
+                
+            }
+        }
     }
 
     public void InitValues(string raceName)
@@ -35,6 +58,7 @@ public class PrestigeTechTree : MonoBehaviour
         {
             int count = 0;
             ResearchTier tier = Instantiate(researchTierPrefab, contentTransform).GetComponent<ResearchTier>();
+            tier.InitValues(i, raceName);
             List<PrestigeResearchData> tierResearchData = researchData.Where(tier => tier.tier - 1 == i).ToList();
             foreach (PrestigeResearchData data in tierResearchData)
             {

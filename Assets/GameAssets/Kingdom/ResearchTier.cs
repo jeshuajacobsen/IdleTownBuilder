@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +11,9 @@ public class ResearchTier : MonoBehaviour
     public PrestigeResearchButton researchButtonPrefab;
     [SerializeField] private Transform contentTransform;
     public UnityEvent<string> onUpgrade;
+    public int tier;
+    public string raceName;
+    public int researchedCount = 0;
 
     void Start()
     {
@@ -21,6 +25,16 @@ public class ResearchTier : MonoBehaviour
         
     }
 
+    public void InitValues(int tier, string raceName)
+    {
+        this.tier = tier;
+        this.raceName = raceName;
+        if (tier == 0)
+        {
+            unlock();
+        }
+    }
+
     public void AddResearchButton(string title)
     {
         if (researchButtonPrefab == null)
@@ -29,6 +43,7 @@ public class ResearchTier : MonoBehaviour
         }
         PrestigeResearchButton researchButton = Instantiate(researchButtonPrefab, contentTransform);
         researchButton.InitValues(title, false);
+        researchedCount += researchButton.level;
         researchButtons.Add(researchButton);
     }
 
@@ -40,7 +55,13 @@ public class ResearchTier : MonoBehaviour
         }
         PrestigeResearchButton researchButton = Instantiate(researchButtonPrefab, contentTransform);
         researchButton.InitValues(title, true);
+        researchedCount += researchButton.level;
         researchButtons.Add(researchButton);
-        onUpgrade.Invoke(title);
+        //onUpgrade.Invoke(title);
+    }
+    
+    public void unlock()
+    {
+        transform.Find("LockPanel")?.gameObject.SetActive(false);
     }
 }

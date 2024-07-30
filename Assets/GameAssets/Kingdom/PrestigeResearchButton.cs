@@ -9,7 +9,7 @@ using UnityEngine.Events;
 public class PrestigeResearchButton : MonoBehaviour
 {
 
-    int level = 0;
+    public int level = 0;
     [SerializeField] private int maxLevel;
     [SerializeField] private string title;
     [SerializeField] private string description;
@@ -22,17 +22,6 @@ public class PrestigeResearchButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (isBuilding)
-        {
-            level = ResearchManager.instance.buildingResearchLevels.ContainsKey(title) ? ResearchManager.instance.buildingResearchLevels[title] : 0;
-            baseCost = GameManager.instance.gameData.GetBuildingData(title).researchBaseCost;
-        }
-        else
-        {
-            baseCost = 100;
-            level = ResearchManager.instance.prestigeResearchLevels.ContainsKey(title) ? ResearchManager.instance.prestigeResearchLevels[title] : 0;
-        }
-        transform.Find("levelText").GetComponent<TextMeshProUGUI>().text = "" + level + "/" + maxLevel;
         if (isBuilding)
         {
             transform.Find("Mask").Find("Image").GetComponent<Image>().sprite = SpriteManager.instance.GetBuildingSprite(title);
@@ -48,6 +37,7 @@ public class PrestigeResearchButton : MonoBehaviour
         this.isBuilding = isBuilding;
         if (isBuilding)
         {
+            this.level = ResearchManager.instance.buildingResearchLevels.ContainsKey(title) ? ResearchManager.instance.buildingResearchLevels[title] : 0;
             BuildingData buildingData = GameManager.instance.gameData.GetBuildingData(title);
             this.description = title;
             this.maxLevel = 50;
@@ -55,11 +45,13 @@ public class PrestigeResearchButton : MonoBehaviour
         }
         else
         {
+            level = ResearchManager.instance.prestigeResearchLevels.ContainsKey(title) ? ResearchManager.instance.prestigeResearchLevels[title] : 0;
             PrestigeResearchData researchData = GameManager.instance.gameData.GetPrestigeResearchData(title);
             this.description = researchData.description;
             this.maxLevel = researchData.maxLevel;
             this.baseCost = researchData.baseCost;
         }
+        transform.Find("levelText").GetComponent<TextMeshProUGUI>().text = "" + level + "/" + maxLevel;
     }
 
     // Update is called once per frame
