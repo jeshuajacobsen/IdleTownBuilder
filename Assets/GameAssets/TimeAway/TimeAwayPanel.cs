@@ -32,7 +32,7 @@ public class TimeAwayPanel : MonoBehaviour
 
     private void HandleTimeAway(int secondsAway, Dictionary<string, BigInteger> gainedResources, BigInteger gainedPrestige)
     {
-        transform.Find("AwayTime").GetComponent<TextMeshProUGUI>().text = "You were away for " + secondsAway / 60 + "minutes";
+        transform.Find("AwayTime").GetComponent<TextMeshProUGUI>().text = "You were away for " + (int)(secondsAway / 60) + " minutes";
         transform.Find("PrestigeGained").GetComponent<TextMeshProUGUI>().text = "Prestige Gained: " + gainedPrestige;
         transform.parent.gameObject.SetActive(true);
     }

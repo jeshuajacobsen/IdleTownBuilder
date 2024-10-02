@@ -4,6 +4,7 @@ using System.Numerics;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Linq;
 
 public class TasksManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class TasksManager : MonoBehaviour
     public UnityEvent<string, int> taskCompleted = new UnityEvent<string, int>();
     public TasksPanel tasksPanel;
     public GameObject taskDescriptionPanel;
+    private int taskCompletedCount = 0;
 
     void Start()
     {
@@ -116,5 +118,17 @@ public class TasksManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public int checkHowManyTaskCompleted()
+    {
+        int totalTrueCount = 0;
+
+        foreach (var kvp in cityTasksCompletionStatus)
+        {
+            totalTrueCount += kvp.Value.Count(status => status);
+        }
+
+        return totalTrueCount;
     }
 }

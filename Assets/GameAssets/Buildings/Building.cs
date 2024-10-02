@@ -94,10 +94,6 @@ public class Building : MonoBehaviour, Unlockable
         GameObject arrow2 = transform.Find("ProductionDisplay").Find("Arrow2").gameObject;
         GameObject arrow3 = transform.Find("ProductionDisplay").Find("Arrow3").gameObject;
 
-        if (buildingName == "Farm")
-        {
-            Unlock();
-        }
         BuildingData buildingData = GameManager.instance.gameData.GetBuildingData(newName);
         string[] inputResources;
         string outputResource;
@@ -162,6 +158,11 @@ public class Building : MonoBehaviour, Unlockable
         if (ResearchManager.instance.scienceResearchLevels.ContainsKey("Managers") && ResearchManager.instance.scienceResearchLevels["Managers"] >= 1)
         {
             transform.Find("ManagerButton").gameObject.SetActive(true);
+        }
+
+        if (buildingName == "Farm")
+        {
+            Unlock();
         }
     }
 
@@ -292,6 +293,10 @@ public class Building : MonoBehaviour, Unlockable
         display.Find("InputProductionButton1").GetComponent<ProductionInput>().Unlock();
         display.Find("InputProductionButton2").GetComponent<ProductionInput>().Unlock();
         display.Find("InputProductionButton3").GetComponent<ProductionInput>().Unlock();
+        if (!GameManager.instance.resources.ContainsKey(outputResourceButton.resource))
+        {
+            GameManager.instance.AddResources(outputResourceButton.resource, 0);
+        }
     }
 
     public BigInteger GetUnlockCost()

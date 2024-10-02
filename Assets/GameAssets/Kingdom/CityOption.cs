@@ -26,10 +26,10 @@ public class CityOption : MonoBehaviour, Unlockable
         cityName = newName;
         transform.Find("CityNameText").GetComponent<TextMeshProUGUI>().text = newName;
         transform.Find("BuildButton").GetComponent<Button>().onClick.AddListener(SelectNewCity);
-        transform.Find("LockedPanel").GetComponent<LockedPanel>().SetUsePrestige(true);
 
         CityData cityData = GameManager.instance.gameData.GetCityData(newName);
         unlockCost = cityData.unlockCost;
+        transform.Find("LockedPanel").Find("UnlockCostText").GetComponent<TextMeshProUGUI>().text = unlockCost +"X";
 
         Transform raceButtonPanel = transform.Find("RaceButtonPanel");
         foreach (string race in cityData.races)
@@ -41,6 +41,20 @@ public class CityOption : MonoBehaviour, Unlockable
             imageGameObject.transform.SetParent(raceButtonPanel, false);
         }
         transform.Find("TasksPanel").GetComponent<TasksPanel>().InitValues(newName);
+
+        TasksManager.instance.taskCompleted.AddListener((cityName, index) =>
+        {
+            Debug.Log("Task Completed");
+            Debug.Log(TasksManager.instance.checkHowManyTaskCompleted());
+            if (TasksManager.instance.checkHowManyTaskCompleted() > unlockCost)
+            {
+                Unlock();
+            }
+        });
+        if (TasksManager.instance.checkHowManyTaskCompleted() > unlockCost)
+        {
+            Unlock();
+        }
     }
 
     public void SelectNewCity()

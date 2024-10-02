@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 public class ResearchTier : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class ResearchTier : MonoBehaviour
     {
         this.tier = tier;
         this.raceName = raceName;
+        
+        transform.Find("TitlePanel").Find("Title").GetComponent<TextMeshProUGUI>().text = raceName + " Tier " + (tier + 1);
         if (tier == 0)
         {
             unlock();

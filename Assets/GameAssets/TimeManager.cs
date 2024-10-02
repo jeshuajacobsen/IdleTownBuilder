@@ -113,7 +113,7 @@ public class TimeManager : MonoBehaviour
         Dictionary<string, BigInteger> oldResources = new Dictionary<string, BigInteger>(GameManager.instance.resources);
         BigInteger oldPrestige = GameManager.instance.CityPrestige;
 
-        if (difference.TotalMinutes >= 1)
+        if (processSeconds >= 1)
         {
             for (int i = 0; i < processSeconds; i++)
             {
@@ -132,32 +132,39 @@ public class TimeManager : MonoBehaviour
         }
         
         
-        Debug.Log($"You have been away for {difference.TotalMinutes} minutes.");
+        Debug.Log($"You have been away for {(int)difference.TotalMinutes} minutes.");
     }
 
     public void Save()
     {
-        if (Environment.GetEnvironmentVariable("RUNNING_TESTS") != "true")
+        string path = Application.persistentDataPath + "/savefile.json";
+        if (Environment.GetEnvironmentVariable("RUNNING_TESTS") == "true")
         {
-            GameManager.instance.PrepForSave(saveData);
-            ResearchManager.instance.PrepForSave(saveData);
-            buildingContent.PrepForSave(saveData);
-            marketContent.PrepForSave(saveData);
-            popContent.PrepForSave(saveData);
-            newCityContent.PrepForSave(saveData);
-            saveData.taskCompletion = TasksManager.instance.cityTasksCompletionStatus;
-            string jsonData = JsonConvert.SerializeObject(saveData);
-        
-            System.IO.File.WriteAllText(Application.persistentDataPath + "/savefile.json", jsonData);
-            Debug.Log(jsonData);
-            Debug.Log("Saved data to: " + Application.persistentDataPath + "/savefile.json");
+            path = Application.persistentDataPath + "/testSavefile.json";
         }
+        GameManager.instance.PrepForSave(saveData);
+        ResearchManager.instance.PrepForSave(saveData);
+        buildingContent.PrepForSave(saveData);
+        marketContent.PrepForSave(saveData);
+        popContent.PrepForSave(saveData);
+        newCityContent.PrepForSave(saveData);
+        saveData.taskCompletion = TasksManager.instance.cityTasksCompletionStatus;
+        string jsonData = JsonConvert.SerializeObject(saveData);
+    
+        System.IO.File.WriteAllText(path, jsonData);
+        Debug.Log(jsonData);
+        Debug.Log("Saved data to: " + path);
     }
 
     public void Load()
     {
         string path = Application.persistentDataPath + "/savefile.json";
-        if (!System.IO.File.Exists(path) && Environment.GetEnvironmentVariable("RUNNING_TESTS") != "true")
+        if (Environment.GetEnvironmentVariable("RUNNING_TESTS") == "true")
+        {
+            path = Application.persistentDataPath + "/testSavefile.json";
+        }
+        
+        if (System.IO.File.Exists(path))
         {
             string jsonData = System.IO.File.ReadAllText(path);
             Debug.Log(jsonData);
@@ -180,7 +187,7 @@ public class TimeManager : MonoBehaviour
             newCityContent.LoadSavedData(saveData);
             tasksPanel.InitValues(saveData.cityName);
             TasksManager.instance.SetupCityTasks(saveData.taskCompletion);
-            Debug.Log("Loaded from: " + Application.persistentDataPath + "/savefile.json");
+            Debug.Log("Loaded from: " + path);
         } else {
             GameManager.instance.StartNewGame();
             ResearchManager.instance.StartNewGame();

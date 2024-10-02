@@ -9,7 +9,7 @@ using System.Numerics;
 using System.IO;
 using TMPro;
 
-public class PrestigeResearchTests
+public class TimeAwayTests
 {
 
     GameManager gameManager;
@@ -92,89 +92,29 @@ public class PrestigeResearchTests
         }
     }
 
-
     [UnityTest]
-    public IEnumerator BuildingResearchWorks()
+    public IEnumerator MaxTimeAwayActuallyRestrictsTimeAway()
     {
         yield return null;
-        gameManager.buildingContent.buildings[0].Level = 10;
-        Assert.AreEqual(new BigInteger(10), gameManager.buildingContent.buildings[0].GetProductionQuantity());
-
-        researchManager.BuildingResearchUpgrade("Farm");
-
-        Assert.AreEqual(new BigInteger(11), gameManager.buildingContent.buildings[0].GetProductionQuantity());
-    }
-
-    [UnityTest]
-    public IEnumerator FertilizerResearchWorks()
-    {
-        yield return null;
-
-        gameManager.buildingContent.buildings[0].Level = 20;
-        BigInteger cost = gameManager.buildingContent.buildings[0].CalculateCost();
-
-        researchManager.PrestigeResearchUpgrade("Fertilizer");
-
-        Assert.AreEqual((cost * 90) / 100, gameManager.buildingContent.buildings[0].CalculateCost());
-    }
-
-    [UnityTest]
-    public IEnumerator TapPowerResearchWorks()
-    {
-        yield return null;
-
-        researchManager.PrestigeResearchUpgrade("Tap Power");
-
-        gameManager.buildingContent.buildings[0].outputResourceButton.Tick(false);
-        double time = gameManager.productionTimers["Wheat"];
-        gameManager.buildingContent.buildings[0].outputResourceButton.Tick(true);
-        //yield return null;
-
-        Assert.AreEqual(time + 1.1, gameManager.productionTimers["Wheat"], .05);
-        
-    }
-
-    [UnityTest]
-    public IEnumerator MarketingResearchWorks()
-    {
-        yield return null;
-
-        BigInteger oldCoins = GameManager.instance.Coins;
-        gameManager.AddResources("Milk", 10);
-        BigInteger price = gameManager.GetResourcePrice("Milk");
-        researchManager.PrestigeResearchUpgrade("Marketing");
-        
-        gameManager.tabMarketContentGameObject.GetComponent<TabMarketContent>().SellResources("Milk");
-        
-        Assert.AreEqual(price + price * 10 / 100, gameManager.GetResourcePrice("Milk"));
-        Assert.AreEqual(oldCoins + gameManager.GetResourcePrice("Milk") * 10, GameManager.instance.Coins);
-    }
-
-    [UnityTest]
-    public IEnumerator PeasantingResearchWorks()
-    {
-        yield return null;
-        Demographic demographic = gameManager.popContent.demographics.Find((Demographic demo) => {return demo.Name == "Peasants";});
-        demographic.Population = 1;
-        Assert.AreEqual(new BigInteger(5), demographic.GetPrestigeGenerated());
-   
-        researchManager.PrestigeResearchUpgrade("Peasanting");
-
-        Assert.AreEqual(new BigInteger(6), demographic.GetPrestigeGenerated());
-    }
-
-    [UnityTest]
-    public IEnumerator MaxTimeAwayResearchWorks()
-    {
-        yield return null;
-
-        researchManager.PrestigeResearchUpgrade("Max Time Away");
 
         DateTime now = DateTime.UtcNow.AddMinutes(-140);
         PlayerPrefs.SetString("testTime", now.ToString());
         PlayerPrefs.Save();
         timeManager.LoadTime("testTime", false);
         
-        Assert.AreEqual("You were away for 140 minutes", GameObject.FindGameObjectWithTag("TimeAwayPanel").transform.Find("TimeAwayPanel").Find("AwayTime").GetComponent<TextMeshProUGUI>().text);
+        Assert.AreEqual("You were away for 120 minutes", GameObject.FindGameObjectWithTag("TimeAwayPanel").transform.Find("TimeAwayPanel").Find("AwayTime").GetComponent<TextMeshProUGUI>().text);
+    }
+
+        [UnityTest]
+    public IEnumerator TimeAwayGeneratesWheat()
+    {
+        yield return null;
+
+        DateTime now = DateTime.UtcNow.AddMinutes(-1);
+        PlayerPrefs.SetString("testTime", now.ToString());
+        PlayerPrefs.Save();
+        timeManager.LoadTime("testTime", false);
+        
+        Assert.AreEqual(new BigInteger(8), timeManager.timeAwayResources["Wheat"]);
     }
 }

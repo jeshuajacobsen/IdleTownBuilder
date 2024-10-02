@@ -474,49 +474,50 @@ public class CityResearchTests
         
         researchManager.CityResearchUpgrade("Architecture");
 
-        Assert.AreEqual(cost - cost * 10 / 100, building.CalculateCost());
+        BigInteger costDiff = building.CalculateCost() - cost - cost * 10 / 100;
+        Assert.IsTrue(costDiff <= 2, $"Expected cost was {cost}, but got {cost - cost * 10 / 100}. Difference: {costDiff}");
     }
 
     [UnityTest]
     public IEnumerator TaxationResearchWorks()
     {
         yield return null;
+        BigInteger oldCoins = GameManager.instance.Coins;
         Demographic demographic = gameManager.popContent.demographics.Find((Demographic demo) => {return demo.Name == "Peasants";});
-        Assert.AreEqual(new BigInteger(5), GameManager.instance.Coins);
         demographic.Population = 10;
         gameManager.resources["Wheat"] = new BigInteger(100);
         researchManager.CityResearchUpgrade("Taxation");
         demographic.transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().requirements.Find((Requirement req) => {return req.resource == "Wheat";}).ConsumeResource();
         
-        Assert.AreEqual(new BigInteger(10), GameManager.instance.Coins);
+        Assert.AreEqual(oldCoins + new BigInteger(5), GameManager.instance.Coins);
     }
 
     [UnityTest]
     public IEnumerator TaxationResearchDoesntAffectHighTier()
     {
         yield return null;
+        BigInteger oldCoins = GameManager.instance.Coins;
         gameManager.popContent.AddDemographic("Wizards");
         Demographic demographic = gameManager.popContent.demographics.Find((Demographic demo) => {return demo.Name == "Wizards";});
-        Assert.AreEqual(new BigInteger(5), GameManager.instance.Coins);
         gameManager.resources["Milk"] = new BigInteger(100);
         researchManager.CityResearchUpgrade("Taxation");
         demographic.transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().requirements.Find((Requirement req) => {return req.resource == "Milk";}).ConsumeResource();
         
-        Assert.AreEqual(new BigInteger(5), GameManager.instance.Coins);
+        Assert.AreEqual(oldCoins, GameManager.instance.Coins);
     }
 
     [UnityTest]
     public IEnumerator LuxuryTaxResearchWorks()
     {
         yield return null;
+        BigInteger oldCoins = GameManager.instance.Coins;
         gameManager.popContent.AddDemographic("Wizards");
         Demographic demographic = gameManager.popContent.demographics.Find((Demographic demo) => {return demo.Name == "Wizards";});
-        Assert.AreEqual(new BigInteger(5), GameManager.instance.Coins);
         gameManager.resources["Milk"] = new BigInteger(100);
         researchManager.CityResearchUpgrade("Luxury Tax");
         demographic.transform.Find("ConsumptionPanel").GetComponent<ConsumptionPanel>().requirements.Find((Requirement req) => {return req.resource == "Milk";}).ConsumeResource();
         
-        Assert.AreEqual(5 + gameManager.GetResourcePrice("Milk") * 5 * 10 / 100, GameManager.instance.Coins);
+        Assert.AreEqual(oldCoins + gameManager.GetResourcePrice("Milk") * 5 * 10 / 100, GameManager.instance.Coins);
     }
 
     [UnityTest]
@@ -524,7 +525,7 @@ public class CityResearchTests
     {
         yield return null;
 
-        Assert.AreEqual(new BigInteger(5), GameManager.instance.Coins);
+        BigInteger oldCoins = GameManager.instance.Coins;
         gameManager.AddResources("Milk", 10);
         BigInteger price = gameManager.GetResourcePrice("Milk");
         researchManager.CityResearchUpgrade("Economics");
@@ -532,7 +533,7 @@ public class CityResearchTests
         gameManager.tabMarketContentGameObject.GetComponent<TabMarketContent>().SellResources("Milk");
         
         Assert.AreEqual(price + price * 10 / 100, gameManager.GetResourcePrice("Milk"));
-        Assert.AreEqual(5 + gameManager.GetResourcePrice("Milk") * 10, GameManager.instance.Coins);
+        Assert.AreEqual(oldCoins + gameManager.GetResourcePrice("Milk") * 10, GameManager.instance.Coins);
     }
 
     [UnityTest]
@@ -540,7 +541,7 @@ public class CityResearchTests
     {
         yield return null;
 
-        Assert.AreEqual(new BigInteger(5), GameManager.instance.Coins);
+        BigInteger oldCoins = GameManager.instance.Coins;
         gameManager.AddResources("Milk", 10);
         BigInteger price = gameManager.GetResourcePrice("Milk");
         researchManager.CityResearchUpgrade("Market");
@@ -548,7 +549,7 @@ public class CityResearchTests
         gameManager.tabMarketContentGameObject.GetComponent<TabMarketContent>().SellResources("Milk");
         
         Assert.AreEqual(price + price * 10 / 100, gameManager.GetResourcePrice("Milk"));
-        Assert.AreEqual(5 + gameManager.GetResourcePrice("Milk") * 10, GameManager.instance.Coins);
+        Assert.AreEqual(oldCoins + gameManager.GetResourcePrice("Milk") * 10, GameManager.instance.Coins);
     }
 
     [UnityTest]

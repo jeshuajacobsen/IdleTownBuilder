@@ -27,7 +27,7 @@ public class CityData
                 };
                 break;
             case "Aquias":
-                unlockCost = 300;
+                unlockCost = 2;
                 races = new List<string> {"Human", "Merfolk"};
                 demographics = new List<string> {"Peasants", "Commoners", "Surfs"};
                 tasks = new TaskData[] {
@@ -37,7 +37,7 @@ public class CityData
                 };
                 break;
             case "Dwarvary":
-                unlockCost = 300;
+                unlockCost = 2;
                 races = new List<string> {"Human", "Dwarf"};
                 demographics = new List<string> {"Peasants", "Commoners", "Miners"};
                 tasks = new TaskData[] {
@@ -47,7 +47,7 @@ public class CityData
                 };
                 break;
             case "Mountain Port":
-                unlockCost = 300;
+                unlockCost = 5;
                 races = new List<string> {"Human", "Merfolk", "Dwarf"};
                 demographics = new List<string> {"Peasants", "Commoners", "Tradesmen", "Surfs", "Middle Mer", "Miners", "Workers"};
                 tasks = new TaskData[] {
@@ -57,7 +57,7 @@ public class CityData
                 };
                 break;
             case "Fairia":
-                unlockCost = 1000;
+                unlockCost = 7;
                 races = new List<string> {"Human", "Merfolk", "Dwarf", "Fairy"};
                 demographics = new List<string> {"Peasants", "Commoners", "Tradesmen", "Patricians", "Wizards", "Surfs", "Middle Mer", "Sea Witches", "Mer-chants", "Miners", "Workers", "Mages", "Artificers", "Changelings", "Brownies", "Leprechauns"};
                 tasks = new TaskData[] {
@@ -67,7 +67,7 @@ public class CityData
                 };
                 break;
             case "Elveryn":
-                unlockCost = 1000;
+                unlockCost = 10;
                 races = new List<string> {"Human", "Merfolk", "Dwarf", "Elf"};
                 demographics = new List<string> {"Peasants", "Commoners", "Tradesmen", "Patricians", "Wizards", "Surfs", "Middle Mer", "Sea Witches", "Mer-chants", "Miners", "Workers", "Mages", "Worker Elves", "House Elves", "Druids"};
                 tasks = new TaskData[] {

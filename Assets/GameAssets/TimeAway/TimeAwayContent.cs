@@ -28,7 +28,7 @@ public class TimeAwayContent : MonoBehaviour
         {
             Destroy(resource.gameObject);
         }
-        foreach (KeyValuePair<string, BigInteger> resourceKV in TimeManager.instance.timeAwayResources)
+        foreach (KeyValuePair<string, BigInteger> resourceKV in gainedResources)
         {
             AddResourceListItem(resourceKV.Key, resourceKV.Value);
         }
