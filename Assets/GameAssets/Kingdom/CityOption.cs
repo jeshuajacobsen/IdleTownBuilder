@@ -44,17 +44,11 @@ public class CityOption : MonoBehaviour, Unlockable
 
         TasksManager.instance.taskCompleted.AddListener((cityName, index) =>
         {
-            Debug.Log("Task Completed");
-            Debug.Log(TasksManager.instance.checkHowManyTaskCompleted());
-            if (TasksManager.instance.checkHowManyTaskCompleted() > unlockCost)
+            if (TasksManager.instance.checkHowManyTaskCompleted() >= unlockCost)
             {
                 Unlock();
             }
         });
-        if (TasksManager.instance.checkHowManyTaskCompleted() > unlockCost)
-        {
-            Unlock();
-        }
     }
 
     public void SelectNewCity()

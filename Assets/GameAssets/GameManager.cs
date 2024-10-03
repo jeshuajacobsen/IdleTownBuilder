@@ -13,54 +13,69 @@ public class GameManager : MonoBehaviour
     private const int managerPrice = 50;
     public static GameManager instance;
 
-    private BigInteger coins = 1;
+    // Events to notify when properties change
+    public event Action<BigInteger> OnCoinsChanged;
+    public event Action<BigInteger> OnGemsChanged;
+    public event Action<BigInteger> OnCityPrestigeChanged;
+    public event Action<BigInteger> OnCollectedPrestigeChanged;
+    public event Action<String> OnCityNameChanged;
 
+    // Properties
+    private BigInteger coins = 1;
     public BigInteger Coins
     {
         get { return coins; }
-        set 
-        { 
-            coins = value; 
-            coinsText.text = "" + GameManager.BigIntToExponentString(coins);
-            TasksManager.instance.CheckTasks("CoinGoal", "Coins", coins);
+        set
+        {
+            coins = value;
+            OnCoinsChanged?.Invoke(coins);
+            TasksManager.instance?.CheckTasks("CoinGoal", "Coins", coins);
         }
     }
 
     private BigInteger gems = 0;
-    private BigInteger Gems
+    public BigInteger Gems
     {
         get { return gems; }
-        set 
-        { 
-            gems = value; 
-            gemsText.text = "" + GameManager.BigIntToExponentString(gems);
+        set
+        {
+            gems = value;
+            OnGemsChanged?.Invoke(gems);
         }
     }
-    public TextMeshProUGUI coinsText;
-    public TextMeshProUGUI gemsText;
-    private  BigInteger cityPrestige = 0;
+
+    private BigInteger cityPrestige = 0;
     public BigInteger CityPrestige
     {
         get { return cityPrestige; }
-        set 
-        { 
-            cityPrestige = value; 
-            cityPrestigeText.text = "" + BigIntToExponentString(cityPrestige);
+        set
+        {
+            cityPrestige = value;
+            OnCityPrestigeChanged?.Invoke(cityPrestige);
         }
     }
+
     private BigInteger collectedPrestige = 0;
     public BigInteger CollectedPrestige
     {
         get { return collectedPrestige; }
-        set 
-        { 
+        set
+        {
             collectedPrestige = value;
-            collectedPrestigeText.text = "" + BigIntToExponentString(collectedPrestige);
+            OnCollectedPrestigeChanged?.Invoke(collectedPrestige);
         }
     }
-    [SerializeField] private TextMeshProUGUI collectedPrestigeText;
-    public string cityName;
-    [SerializeField] private TextMeshProUGUI cityPrestigeText;
+
+    private string cityName;
+    public string CityName
+    {
+        get { return cityName; }
+        set
+        {
+            cityName = value;
+            OnCityNameChanged?.Invoke(cityName);
+        }
+    }
 
     public UnityEvent<string, BigInteger> onResourcesChanged;
     public UnityEvent<string, BigInteger> onResourcesAdded;
@@ -81,7 +96,6 @@ public class GameManager : MonoBehaviour
     public TabContentKingdom kingdomContent;
     public ResearchInfoPanel kingdomSelectedResearch;
     public string currentCity;
-    public TextMeshProUGUI cityNameText;
 
     void Awake()
     {
@@ -151,8 +165,8 @@ public class GameManager : MonoBehaviour
     {
         string[] letters = new string[] {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", 
             "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
-        Debug.Log("Exponent Brackets: " + exponentBrackets);
-        Debug.Log("Exponent Letters: " + exponentBrackets / letters.Length + " " + (exponentBrackets - 1) % letters.Length);
+        // Debug.Log("Exponent Brackets: " + exponentBrackets);
+        // Debug.Log("Exponent Letters: " + exponentBrackets / letters.Length + " " + (exponentBrackets - 1) % letters.Length);
         if ((exponentBrackets - 1) % letters.Length < 0)
         {
             return letters[exponentBrackets / letters.Length] + letters[0];            
@@ -338,8 +352,7 @@ public class GameManager : MonoBehaviour
         resources = new Dictionary<string, BigInteger>();
         AddResources("Wheat", 1);
         Coins = 1;
-        this.cityName = newCityName;
-        cityNameText.text = newCityName;
+        this.CityName = newCityName;
         resetCity.Invoke(newCityName);
         currentCity = newCityName;
     }
@@ -363,8 +376,7 @@ public class GameManager : MonoBehaviour
         CityPrestige = saveData.cityPrestige;
         CollectedPrestige = saveData.collectedPrestige;
         resources = saveData.resources;
-        cityName = saveData.cityName;
-        cityNameText.text = saveData.cityName;
+        CityName = saveData.cityName;
         currentCity = cityName;
         foreach (string key in saveData.managerLevels.Keys)
         {
@@ -383,8 +395,7 @@ public class GameManager : MonoBehaviour
         CityPrestige = 0;
         resources = new Dictionary<string, BigInteger>();
         AddResources("Wheat", 1);
-        cityName = "Peasantry";
-        cityNameText.text = cityName;
+        CityName = "Peasantry";
         currentCity = cityName;
     }
 }

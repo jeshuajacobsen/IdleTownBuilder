@@ -11644,6 +11644,7 @@ GameObject:
   - component: {fileID: 879131657}
   - component: {fileID: 879131656}
   - component: {fileID: 879131655}
+  - component: {fileID: 879131658}
   m_Layer: 5
   m_Name: Header
   m_TagString: Untagged
@@ -11735,6 +11736,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879131653}
   m_CullTransparentMesh: 0
+--- !u!114 &879131658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879131653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a6c805dd0013ad4697c4f3c651ff9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinsText: {fileID: 435767783}
+  gemsText: {fileID: 1798664700}
+  cityPrestigeText: {fileID: 243119485}
+  collectedPrestigeText: {fileID: 2124663581}
 --- !u!1 &884084991
 GameObject:
   m_ObjectHideFlags: 0
@@ -12453,11 +12470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe494d06e7eb29146bc3daf833bfd032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinsText: {fileID: 435767783}
-  gemsText: {fileID: 1798664700}
-  collectedPrestigeText: {fileID: 2124663581}
   cityName: 
-  cityPrestigeText: {fileID: 243119485}
   onResourcesChanged:
     m_PersistentCalls:
       m_Calls: []

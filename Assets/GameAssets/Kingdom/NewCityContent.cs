@@ -8,7 +8,7 @@ public class NewCityContent : MonoBehaviour
     [SerializeField] private CityOption cityOptionPrefab;
     private Transform contentTransform;
 
-    private List<CityOption> cityOptions = new List<CityOption>();
+    public List<CityOption> cityOptions = new List<CityOption>();
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +45,7 @@ public class NewCityContent : MonoBehaviour
         saveData.cityOptionLocks = new Dictionary<string, bool>();
         foreach (CityOption city in cityOptions)
         {
-            saveData.cityOptionLocks[city.cityName] = city.transform.Find("LockedPanel").gameObject.activeSelf;
+            saveData.cityOptionLocks[city.cityName] = !city.transform.Find("LockedPanel").gameObject.activeSelf;
         }
     }
 
