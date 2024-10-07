@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class CityResearchButton : MonoBehaviour
 {
-    int level = 0;
+    public int level = 0;
     [SerializeField] private int maxLevel;
-    [SerializeField] private string title;
+    public string title;
     [SerializeField] private string description;
 
     [SerializeField] private string resourceCostNames;
@@ -16,34 +17,32 @@ public class CityResearchButton : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI researchedRatioText;
 
+    [SerializeField] private CityResearchButton dependency;
+    public UnityEvent onUpgrade;
+    List<int> intCostList = new List<int>();
+
     void Awake()
     {
         researchedRatioText.text = "" + level + "/" + maxLevel;
         Button button = transform.GetComponent<Button>();
         button.onClick.AddListener(OpenInSelectedResearch);
+        onUpgrade = new UnityEvent();
     }
 
     void Start()
     {
         ResearchManager.instance.setScienceResearch.AddListener(SetLevel);
         ResearchManager.instance.resetScienceResearch.AddListener(Reset);
-    }
-
-    void Update()
-    {
-        
-    }
-
-    public void OpenInSelectedResearch()
-    {
-        CityResearchInfoPanel researchPanel = transform.parent.parent.Find("SelectedResearchBackground")
-            .Find("CityResearchInfoPanel").GetComponent<CityResearchInfoPanel>();
+        if (dependency != null)
+        {
+            dependency.onUpgrade.AddListener(Unlock);
+        } 
+        else
+        {
+            Unlock();
+        }
 
         string[] stringArray = resourceCostPrices.Split(' ');
-
-        // Create a list of integers to store the parsed values
-        List<int> intCostList = new List<int>();
-
         // Parse each substring and add it to the list
         foreach (string substring in stringArray)
         {
@@ -56,7 +55,65 @@ public class CityResearchButton : MonoBehaviour
                 Debug.Log($"Failed to parse: {substring}");
             }
         }
-        researchPanel.Setup(title, description, level, maxLevel, new List<string>(resourceCostNames.Split(',')), intCostList);
+    }
+
+    void Update()
+    {
+        bool preReqMet = dependency == null || dependency.level > 0;
+        if (!preReqMet)
+        {
+            SetTextColor(Color.white);
+            transform.Find("BackgroundImage").GetComponent<Image>().sprite = SpriteManager.instance.GetInterfaceSprite("ResearchBackgroundGrey");
+            return;
+        }
+        if (level >= maxLevel)
+        {
+            SetTextColor(Color.green);
+            transform.Find("BackgroundImage").GetComponent<Image>().sprite = SpriteManager.instance.GetInterfaceSprite("ResearchBackgroundGreen");
+            return;
+        }
+        List<string> resources = new List<string>(resourceCostNames.Split(','));
+        bool canAffordUpgrade = true;
+        for (int i = 0; i < resources.Count; i++)
+        {
+            
+            if (GameManager.instance.resources.ContainsKey(resources[i]))
+            {
+                if (GameManager.instance.resources[resources[i]] < ResourceCost.GetRequiredAmount(level, intCostList[i]))
+                {
+                    canAffordUpgrade = false;
+                }
+            }
+            else 
+            {
+                canAffordUpgrade = false;
+            }
+        }
+        if (canAffordUpgrade)
+        {
+            SetTextColor(Color.yellow);
+            transform.Find("BackgroundImage").GetComponent<Image>().sprite = SpriteManager.instance.GetInterfaceSprite("ResearchBackgroundYellow");
+        }
+        else 
+        {
+            SetTextColor(Color.red);
+            transform.Find("BackgroundImage").GetComponent<Image>().sprite = SpriteManager.instance.GetInterfaceSprite("ResearchBackgroundRed");
+        }
+    }
+
+    private void SetTextColor(Color color)
+    {
+        //transform.Find("ResearchName").GetComponent<TextMeshProUGUI>().color = color;
+        //transform.Find("ResearchedRatioText").GetComponent<TextMeshProUGUI>().color = color;
+    }
+
+    public void OpenInSelectedResearch()
+    {
+        CityResearchInfoPanel researchPanel = transform.parent.parent.Find("SelectedResearchBackground")
+            .Find("CityResearchInfoPanel").GetComponent<CityResearchInfoPanel>();
+
+        List<string> resources = new List<string>(resourceCostNames.Split(','));
+        researchPanel.Setup(title, description, level, maxLevel, resources, intCostList, dependency);
         researchPanel.onUpgrade.RemoveAllListeners();
         researchPanel.onUpgrade.AddListener(Upgrade);
     }
@@ -65,6 +122,9 @@ public class CityResearchButton : MonoBehaviour
     {
         level = 0;
         researchedRatioText.text = "" + level + "/" + maxLevel;
+        
+        SetTextColor(Color.white);
+        transform.Find("BackgroundImage").GetComponent<Image>().sprite = SpriteManager.instance.GetInterfaceSprite("ResearchBackgroundGrey");
     }
 
     public void Upgrade(string titleToUpgrade)
@@ -73,6 +133,7 @@ public class CityResearchButton : MonoBehaviour
         {
             level++;
             researchedRatioText.text = "" + level + "/" + maxLevel;
+            onUpgrade.Invoke();
         }
     }
 
@@ -82,6 +143,15 @@ public class CityResearchButton : MonoBehaviour
         {
             this.level = level;
             researchedRatioText.text = "" + level + "/" + maxLevel;
+            if (level > 0)
+            {
+                onUpgrade.Invoke();
+            }
         }
+    }
+
+    private void Unlock()
+    {
+        //transform.Find("Mask").Find("LockedPanel").gameObject.SetActive(false);
     }
 }

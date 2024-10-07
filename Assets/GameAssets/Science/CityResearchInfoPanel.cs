@@ -18,6 +18,7 @@ public class CityResearchInfoPanel : MonoBehaviour
 
     int level;
     int maxLevel;
+    bool preReqMet;
     List<ResourceCost> resourceCosts = new List<ResourceCost>();
 
     public UnityEvent<string> onUpgrade;
@@ -38,7 +39,7 @@ public class CityResearchInfoPanel : MonoBehaviour
         
     }
 
-    public void Setup(string title, string description, int level, int maxLevel, List<string> resources, List<int> costs)
+    public void Setup(string title, string description, int level, int maxLevel, List<string> resources, List<int> costs, CityResearchButton dependency)
     {
         onUpgrade = new UnityEvent<string>();
         foreach (ResourceCost resourceCost in resourceCosts)
@@ -51,6 +52,18 @@ public class CityResearchInfoPanel : MonoBehaviour
         transform.parent.gameObject.SetActive(true);
         this.level = level;
         this.maxLevel = maxLevel;
+        this.preReqMet = dependency == null || dependency.level > 0;
+        if (preReqMet)
+        {
+            transform.Find("UpgradeButton").gameObject.SetActive(true);
+            transform.Find("PreReqText").gameObject.SetActive(false);
+        }
+        else
+        {
+            transform.Find("UpgradeButton").gameObject.SetActive(false);
+            transform.Find("PreReqText").gameObject.SetActive(true);
+            transform.Find("PreReqText").GetComponent<TextMeshProUGUI>().text = "Requires: " + dependency.title;
+        }
         currentLevelText.text = level + "/" + maxLevel;
         for (int i = 0; i < resources.Count; i++)
         {
@@ -78,7 +91,7 @@ public class CityResearchInfoPanel : MonoBehaviour
                 canAffordUpgrade = false;
             }
         }
-        if (canAffordUpgrade && level < maxLevel)
+        if (canAffordUpgrade && level < maxLevel && preReqMet)
         {
             
             ResearchManager.instance.CityResearchUpgrade(titleText.text);

@@ -294,6 +294,12 @@ public class SpriteManager : MonoBehaviour
     public Sprite starEmpty;
     public Sprite starFilled;
 
+    public Sprite researchBackgroundGrey;
+    public Sprite researchBackgroundGreen;
+    public Sprite researchBackgroundRed;
+    public Sprite researchBackgroundYellow;
+
+
     void Awake() 
     {
         if (instance == null)
@@ -349,6 +355,15 @@ public class SpriteManager : MonoBehaviour
                 return starEmpty;
             case "StarFilled":
                 return starFilled;
+            case "ResearchBackgroundGrey":
+                return researchBackgroundGrey;
+            case "ResearchBackgroundGreen":
+                return researchBackgroundGreen;
+            case "ResearchBackgroundRed":
+                return researchBackgroundRed;
+            case "ResearchBackgroundYellow":
+                return researchBackgroundYellow;
+
         }
         return fillBarGreen;
     }

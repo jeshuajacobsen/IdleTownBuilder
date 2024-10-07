@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour
     public PopulationContent popContent;
     public TabContentKingdom kingdomContent;
     public ResearchInfoPanel kingdomSelectedResearch;
+    public CityResearchContent cityResearchContent;
     public string currentCity;
 
     void Awake()
