@@ -147,6 +147,27 @@ public class Demographic : MonoBehaviour, Unlockable
     {
         int capLevel = nextLevel ? CapacityLevel + 1 : CapacityLevel;
         double multiplier = 1;
+        if (race == "Human")
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Human Capacity") ? ResearchManager.instance.scienceResearchLevels["Human Capacity"] * .1f : 0;
+        }
+        else if (race == "Merfolk")
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Merfolk Capacity") ? ResearchManager.instance.scienceResearchLevels["Merfolk Capacity"] * .1f : 0;
+        }
+        else if (race == "Dwarf")
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Dwarf Capacity") ? ResearchManager.instance.scienceResearchLevels["Dwarf Capacity"] * .1f : 0;
+        }
+        else if (race == "Fairy")
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Fairy Capacity") ? ResearchManager.instance.scienceResearchLevels["Fairy Capacity"] * .1f : 0;
+        }
+        else if (race == "Elf")
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Elf Capacity") ? ResearchManager.instance.scienceResearchLevels["Elf Capacity"] * .1f : 0;
+        }
+
         if (tier == 1 || tier == 2)
         { 
             multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Housing") ? ResearchManager.instance.scienceResearchLevels["Housing"] * .1f : 0;
@@ -159,6 +180,9 @@ public class Demographic : MonoBehaviour, Unlockable
         {
             multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Estates") ? ResearchManager.instance.scienceResearchLevels["Estates"] * .1f : 0;
         }
+
+        multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Population Capacity") ? ResearchManager.instance.prestigeResearchLevels["Population Capacity"] * .05f : 0;
+
         return capLevel * (int)(100 * multiplier) / 100;
     }
 
@@ -166,6 +190,27 @@ public class Demographic : MonoBehaviour, Unlockable
     {
         int growLevel = nextLevel ? GrowthLevel + 1 : GrowthLevel;
         double multiplier = 1;
+        if (race == "Human")
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Human Growth") ? ResearchManager.instance.scienceResearchLevels["Human Growth"] * .1f : 0;
+        }
+        else if (race == "Merfolk")
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Merfolk Growth") ? ResearchManager.instance.scienceResearchLevels["Merfolk Growth"] * .1f : 0;
+        }
+        else if (race == "Dwarf")
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Dwarf Growth") ? ResearchManager.instance.scienceResearchLevels["Dwarf Growth"] * .1f : 0;
+        }
+        else if (race == "Fairy")
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Fairy Growth") ? ResearchManager.instance.scienceResearchLevels["Fairy Growth"] * .1f : 0;
+        }
+        else if (race == "Elf")
+        {
+            multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Elf Growth") ? ResearchManager.instance.scienceResearchLevels["Elf Growth"] * .1f : 0;
+        }
+
         if (tier == 1 || tier == 2)
         { 
             multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Immigration") ? ResearchManager.instance.scienceResearchLevels["Immigration"] * .1f : 0;
@@ -178,6 +223,9 @@ public class Demographic : MonoBehaviour, Unlockable
         {
             multiplier += ResearchManager.instance.scienceResearchLevels.ContainsKey("Fertility Rites") ? ResearchManager.instance.scienceResearchLevels["Fertility Rites"] * .1f : 0;
         }
+
+        multiplier += ResearchManager.instance.prestigeResearchLevels.ContainsKey("Population Growth") ? ResearchManager.instance.prestigeResearchLevels["Population Growth"] * .05f : 0;
+
         return growLevel * (int)(100 * multiplier) / 100;
     }
 

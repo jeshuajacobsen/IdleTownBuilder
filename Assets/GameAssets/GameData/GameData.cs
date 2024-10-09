@@ -24,8 +24,8 @@ public class GameData
         resourcePrices["Stone"] = 300;
         resourcePrices["Vegetables"] = 500;
         resourcePrices["Hemp"] = 700;
-        resourcePrices["Flour"] = 900;
-        resourcePrices["Clothes"] = 1500;
+        resourcePrices["Clothes"] = 900;
+        resourcePrices["Flour"] = 1500;
         resourcePrices["Copper Ore"] = 7000;
         resourcePrices["Fruit"] = 15000;
         resourcePrices["Tin Ore"] = 90000;
@@ -139,11 +139,11 @@ public class GameData
             { "Vegetable Farm", new BuildingData("Vegetable Farm") },
             { "Hemp Farm", new BuildingData("Hemp Farm") },
             { "Weaver", new BuildingData("Weaver") },
+            { "Wind Mill", new BuildingData("Wind Mill") },
             { "Copper Mine", new BuildingData("Copper Mine") },
             { "Orchard", new BuildingData("Orchard") },
             { "Tin Mine", new BuildingData("Tin Mine") },
             { "Smelter", new BuildingData("Smelter") },
-            { "Wind Mill", new BuildingData("Wind Mill") },
             { "Bakery", new BuildingData("Bakery") },
             { "Vineyard", new BuildingData("Vineyard") },
             { "Furniture Factory", new BuildingData("Furniture Factory") },
@@ -312,12 +312,27 @@ public class GameData
         prestigeTechTreeData = new Dictionary<string, PrestigeResearchData>
         {
             { "Human Tech", new PrestigeResearchData("Human Tech") },
+            { "Merfolk Tech", new PrestigeResearchData("Merfolk Tech")},
+            { "Dwarf Tech", new PrestigeResearchData("Dwarf Tech")},
+            { "Fairy Tech", new PrestigeResearchData("Fairy Tech")},
+            { "Elf Tech", new PrestigeResearchData("Elf Tech")},
+            { "Population Growth", new PrestigeResearchData("Population Growth")},
+            { "Population Capacity", new PrestigeResearchData("Population Capacity")},
             { "Production Speed", new PrestigeResearchData("Production Speed") },
             { "Peasanting", new PrestigeResearchData("Peasanting") },
             { "Marketing", new PrestigeResearchData("Marketing") },
             { "Tap Power", new PrestigeResearchData("Tap Power") },
-            { "Merfolk Tech", new PrestigeResearchData("Merfolk Tech") },
-            { "Max Away Time", new PrestigeResearchData("Max Away Time") }
+            { "Max Away Time", new PrestigeResearchData("Max Away Time") },
+            { "Human capacity", new PrestigeResearchData("Human capacity")},
+            { "Merfolk capacity", new PrestigeResearchData("Merfolk capacity")},
+            { "Dwarf capacity", new PrestigeResearchData("Dwarf capacity")},
+            { "Fairy capacity", new PrestigeResearchData("Fairy capacity")},
+            { "Elf capacity", new PrestigeResearchData("Elf capacity")},
+            { "Human Growth", new PrestigeResearchData("Human Growth")},
+            { "Merfolk Growth", new PrestigeResearchData("Merfolk Growth")},
+            { "Dwarf Growth", new PrestigeResearchData("Dwarf Growth")},
+            { "Fairy Growth", new PrestigeResearchData("Fairy Growth")},
+            { "Elf Growth", new PrestigeResearchData("Elf Growth")}
 
         };
     }

@@ -1656,6 +1656,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1428261218}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Increases output of Magic type buildings by 10%.
       objectReference: {fileID: 0}
@@ -1801,6 +1805,10 @@ PrefabInstance:
       propertyPath: maxLevel
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1308698606}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Adds 30 min to each time boost used.
@@ -2023,6 +2031,10 @@ PrefabInstance:
       propertyPath: maxLevel
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 523096188}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Adds 30 min to max time away.
@@ -2392,6 +2404,10 @@ PrefabInstance:
       propertyPath: maxLevel
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1946482446}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Increases growth of all tier 3 and 4 Populations by 10%.
@@ -2822,6 +2838,10 @@ PrefabInstance:
       propertyPath: maxLevel
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1488394385}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: When researched gain resources equal to each unlocked buildings output
@@ -3691,6 +3711,10 @@ PrefabInstance:
       propertyPath: maxLevel
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1946482446}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: When researched city gains 10 prestige for each citizen in tier 1 and
@@ -6083,6 +6107,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1700007455}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Increases tier 3 and 4 happiness by 10%
       objectReference: {fileID: 0}
@@ -6104,6 +6132,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
   m_PrefabInstance: {fileID: 443124083}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &443124085 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+  m_PrefabInstance: {fileID: 443124083}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6172b4e20de7e94e8659a64ff5efe91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &451022300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6513,6 +6552,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1946482446}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Increases growth of all tier 5 and 6 Populations by 10%.
       objectReference: {fileID: 0}
@@ -6776,6 +6819,10 @@ PrefabInstance:
       propertyPath: maxLevel
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1855735390}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Increases output of Manufacturing type buildings by 10%.
@@ -10026,6 +10073,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb4af4f62c1aa043b9d1bfd33dc6da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &724221357 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+  m_PrefabInstance: {fileID: 484200082}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6172b4e20de7e94e8659a64ff5efe91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &733114229
 GameObject:
   m_ObjectHideFlags: 0
@@ -11023,6 +11081,10 @@ PrefabInstance:
       propertyPath: maxLevel
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1549953335}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Increases capacity of all tier 5 and 6 Populations.
@@ -14862,6 +14924,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1760910797}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Commoners consume 10% less Vegetables.
       objectReference: {fileID: 0}
@@ -15109,6 +15175,10 @@ PrefabInstance:
       propertyPath: maxLevel
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1988382563}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Collect gold equal to 10% of the value of resources consumed from every
@@ -16443,6 +16513,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1908465290}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Increase all mine production by 10%.
       objectReference: {fileID: 0}
@@ -16614,6 +16688,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
   m_PrefabInstance: {fileID: 1207589601}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1207589603 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+  m_PrefabInstance: {fileID: 1207589601}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6172b4e20de7e94e8659a64ff5efe91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1208765826
 GameObject:
   m_ObjectHideFlags: 0
@@ -17081,6 +17166,10 @@ PrefabInstance:
       propertyPath: maxLevel
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1930431820}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: 10% Increase in price of all goods in the market.
@@ -18310,6 +18399,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1908465290}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Increases output of Gathering type buildings by 10%.
       objectReference: {fileID: 0}
@@ -18467,6 +18560,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1840212616}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Increases output of Processing type buildings by 10%.
       objectReference: {fileID: 0}
@@ -18606,6 +18703,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3613257357719121980, guid: b8c0aa3587671114bbe7f60450fc54e7, type: 3}
   m_PrefabInstance: {fileID: 1302378554}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1308698606 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+  m_PrefabInstance: {fileID: 199384512}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6172b4e20de7e94e8659a64ff5efe91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1316237632
 GameObject:
   m_ObjectHideFlags: 0
@@ -19861,6 +19969,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1881116946}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Increases output of Crafting type buildings by 10%.
       objectReference: {fileID: 0}
@@ -19882,6 +19994,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
   m_PrefabInstance: {fileID: 1428261216}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1428261218 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+  m_PrefabInstance: {fileID: 1428261216}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6172b4e20de7e94e8659a64ff5efe91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1431061462
 GameObject:
   m_ObjectHideFlags: 0
@@ -20235,6 +20358,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 2105341154}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Tapping a resource adds 20% more progress.
       objectReference: {fileID: 0}
@@ -20534,7 +20661,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1468076966
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21033,6 +21160,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1930431820}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Collect gold equal to 10% of the value of resources consumed from every
         tier 1,2, and 3 demographic.
@@ -21055,6 +21186,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
   m_PrefabInstance: {fileID: 1488394383}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1488394385 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+  m_PrefabInstance: {fileID: 1488394383}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6172b4e20de7e94e8659a64ff5efe91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1488551776
 GameObject:
   m_ObjectHideFlags: 0
@@ -21544,6 +21686,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1988382563}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: 10% Increase in price of all goods in the market.
       objectReference: {fileID: 0}
@@ -21765,6 +21911,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1922789407}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Increases capacity of all tier 3 and 4 Populations.
       objectReference: {fileID: 0}
@@ -21786,6 +21936,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
   m_PrefabInstance: {fileID: 1549953333}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1549953335 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+  m_PrefabInstance: {fileID: 1549953333}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6172b4e20de7e94e8659a64ff5efe91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1556434867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22237,6 +22398,10 @@ PrefabInstance:
       propertyPath: maxLevel
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 724221357}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Increases output of Jeweler type buildings by 10%.
@@ -23380,6 +23545,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 443124085}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Increases tier 5 and 6 happiness by 10%
       objectReference: {fileID: 0}
@@ -23711,6 +23880,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1948421564}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Unlocking a building costs 10% less.
       objectReference: {fileID: 0}
@@ -23916,6 +24089,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1760910797}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Increases tier 1 and 2 happiness by 10%
       objectReference: {fileID: 0}
@@ -23937,6 +24114,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
   m_PrefabInstance: {fileID: 1700007453}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1700007455 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+  m_PrefabInstance: {fileID: 1700007453}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6172b4e20de7e94e8659a64ff5efe91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1702057609
 GameObject:
   m_ObjectHideFlags: 0
@@ -24296,6 +24484,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
   m_PrefabInstance: {fileID: 1048984075}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1742845697 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+  m_PrefabInstance: {fileID: 1048984075}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6172b4e20de7e94e8659a64ff5efe91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1745648327
 GameObject:
   m_ObjectHideFlags: 0
@@ -24725,6 +24924,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
   m_PrefabInstance: {fileID: 1760910795}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1760910797 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+  m_PrefabInstance: {fileID: 1760910795}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6172b4e20de7e94e8659a64ff5efe91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1763943704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25852,6 +26062,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1207589603}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Manager bonuses +10%.
       objectReference: {fileID: 0}
@@ -26307,7 +26521,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1048, y: 652.4495}
+  m_AnchoredPosition: {x: -1333, y: 1137}
   m_SizeDelta: {x: 2699.5, y: 2393.418}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1836805000
@@ -26320,6 +26534,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d456240ecc95f946b4d45ab6337cdc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1840212616 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+  m_PrefabInstance: {fileID: 974658183}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6172b4e20de7e94e8659a64ff5efe91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1847071696
@@ -26481,6 +26706,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854992069}
   m_CullTransparentMesh: 1
+--- !u!114 &1855735390 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+  m_PrefabInstance: {fileID: 1202601299}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6172b4e20de7e94e8659a64ff5efe91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1869968652
 GameObject:
   m_ObjectHideFlags: 0
@@ -26797,6 +27033,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881109065}
   m_CullTransparentMesh: 1
+--- !u!114 &1881116946 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+  m_PrefabInstance: {fileID: 1285108051}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6172b4e20de7e94e8659a64ff5efe91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1890439134 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2907822098312005156, guid: 8b742e83ae6861244ab6236008760e42, type: 3}
@@ -27265,6 +27512,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1760910797}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Increases capacity of all tier 1 and 2 Populations by 10%.
       objectReference: {fileID: 0}
@@ -27286,6 +27537,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
   m_PrefabInstance: {fileID: 1922789405}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1922789407 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+  m_PrefabInstance: {fileID: 1922789405}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6172b4e20de7e94e8659a64ff5efe91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1930431820 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+  m_PrefabInstance: {fileID: 1691818000}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6172b4e20de7e94e8659a64ff5efe91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1941487336
 GameObject:
   m_ObjectHideFlags: 0
@@ -27475,6 +27748,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+      propertyPath: dependency
+      value: 
+      objectReference: {fileID: 1742845697}
+    - target: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
       propertyPath: description
       value: Increases growth of all tier 1 and 2 Populations by 10%.
       objectReference: {fileID: 0}
@@ -27496,6 +27773,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
   m_PrefabInstance: {fileID: 1946482444}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1946482446 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+  m_PrefabInstance: {fileID: 1946482444}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6172b4e20de7e94e8659a64ff5efe91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1948421564 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
@@ -27942,6 +28230,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1979350163}
   m_CullTransparentMesh: 1
+--- !u!114 &1988382563 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+  m_PrefabInstance: {fileID: 1233169039}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6172b4e20de7e94e8659a64ff5efe91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1998805193 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1051670295709312782, guid: 5184c24abfa12ba489b7b3d7c62060f5, type: 3}
@@ -28679,6 +28978,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4011880511445362893, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
   m_PrefabInstance: {fileID: 2105341152}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2105341154 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7038032886464738082, guid: ff850885d395ff243ae1c23292ea2bd7, type: 3}
+  m_PrefabInstance: {fileID: 2105341152}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6172b4e20de7e94e8659a64ff5efe91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2111857710
 GameObject:
   m_ObjectHideFlags: 0

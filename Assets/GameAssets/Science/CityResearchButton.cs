@@ -27,22 +27,9 @@ public class CityResearchButton : MonoBehaviour
         Button button = transform.GetComponent<Button>();
         button.onClick.AddListener(OpenInSelectedResearch);
         onUpgrade = new UnityEvent();
-    }
-
-    void Start()
-    {
-        ResearchManager.instance.setScienceResearch.AddListener(SetLevel);
-        ResearchManager.instance.resetScienceResearch.AddListener(Reset);
-        if (dependency != null)
-        {
-            dependency.onUpgrade.AddListener(Unlock);
-        } 
-        else
-        {
-            Unlock();
-        }
-
+        
         string[] stringArray = resourceCostPrices.Split(' ');
+        intCostList.Clear();
         // Parse each substring and add it to the list
         foreach (string substring in stringArray)
         {
@@ -54,6 +41,28 @@ public class CityResearchButton : MonoBehaviour
             {
                 Debug.Log($"Failed to parse: {substring}");
             }
+        }
+    }
+
+    void Start()
+    {
+        ResearchManager.instance.setScienceResearch.AddListener(SetLevel);
+        if (ResearchManager.instance.scienceResearchLevels.ContainsKey(title))
+        {
+            SetLevel(title, ResearchManager.instance.scienceResearchLevels[title]);
+        }
+        else
+        {
+            SetLevel(title, 0);
+        }
+        ResearchManager.instance.resetScienceResearch.AddListener(Reset);
+        if (dependency != null)
+        {
+            dependency.onUpgrade.AddListener(Unlock);
+        } 
+        else
+        {
+            Unlock();
         }
     }
 

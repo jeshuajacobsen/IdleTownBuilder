@@ -22,8 +22,8 @@ public class CityData
                 demographics = new List<string> {"Peasants", "Commoners"};
                 tasks = new TaskData[] {
                     new TaskData("PopulationGoal", 10, "Peasants"),
-                    new TaskData("PopulationGoal", 5, "Commoners"), 
-                    new TaskData("BuildingGoal", 20, "Farm")
+                    new TaskData("PopulationGoal", 2, "Commoners"), 
+                    new TaskData("BuildingGoal", 12, "Farm")
                 };
                 break;
             case "Aquias":
