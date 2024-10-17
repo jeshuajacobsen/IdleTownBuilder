@@ -15,15 +15,6 @@ public class TasksPanel : MonoBehaviour
     
     void Start()
     {
-        TasksManager.instance.taskCompleted.AddListener((cityName, index) =>
-        {
-            if (cityName != this.cityName)
-            {
-                return;
-            }
-            tasks[index].completed = true;
-            tasks[index].transform.GetComponent<Image>().sprite = SpriteManager.instance.GetInterfaceSprite("StarFilled");
-        });
     }
 
     void Update()
@@ -34,13 +25,20 @@ public class TasksPanel : MonoBehaviour
     public void InitValues(string cityName)
     {
         this.cityName = cityName;
+        if (tasks != null)
+        {
+            foreach (Task task in tasks)
+            {
+                Destroy(task.gameObject);
+            }
+        }
         tasks = new Task[3];
         CityData cityData = GameManager.instance.gameData.GetCityData(cityName);
         int index = 0;
         foreach (CityData.TaskData task in cityData.tasks)
         {
             tasks[index] = Instantiate(taskPrefab, contentTransform);
-            tasks[index].InitValues(task, index);
+            tasks[index].InitValues(task, index, cityName);
             tasks[index].transform.SetParent(transform, false);
             tasks[index].transform.localPosition = UnityEngine.Vector3.zero;
             index++;
@@ -54,8 +52,6 @@ public class TasksPanel : MonoBehaviour
         {
             if (task.target == demo && task.quantity <= quantity)
             {
-                task.completed = true;
-                task.transform.GetComponent<Image>().sprite = SpriteManager.instance.GetInterfaceSprite("StarFilled");
                 return index;
             }
             index++;
@@ -74,8 +70,6 @@ public class TasksPanel : MonoBehaviour
         {
             if (task.taskName == "CoinGoal" && task.quantity <= quantity)
             {
-                task.completed = true;
-                task.transform.GetComponent<Image>().sprite = SpriteManager.instance.GetInterfaceSprite("StarFilled");
                 return index;
             }
             index++;
@@ -90,8 +84,6 @@ public class TasksPanel : MonoBehaviour
         {
             if (task.target == target && task.quantity <= quantity)
             {
-                task.completed = true;
-                task.transform.GetComponent<Image>().sprite = SpriteManager.instance.GetInterfaceSprite("StarFilled");
                 return index;
             }
             index++;

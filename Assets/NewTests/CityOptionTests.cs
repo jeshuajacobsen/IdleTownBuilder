@@ -27,7 +27,7 @@ public class CityOptionTests
     [UnitySetUp]
     public IEnumerator UnitySetUp()
     {
-        CopyTestSaveFile();
+        CopyTestSaveFile("defaultTestSavefile.json");
         Environment.SetEnvironmentVariable("RUNNING_TESTS", "true");
         SceneManager.LoadScene("Main", LoadSceneMode.Single);
         
@@ -58,7 +58,7 @@ public class CityOptionTests
         {
             GameObject.DestroyImmediate(tasksManager.gameObject);
         }
-        SceneManager.UnloadScene("Main");
+        unloadOperation = SceneManager.UnloadSceneAsync("Main");
         if (unloadOperation != null)
         {
             yield return new WaitUntil(() => unloadOperation.isDone);
@@ -67,9 +67,9 @@ public class CityOptionTests
         // Note: You cannot yield return here to wait for it to complete
     }
 
-    public void CopyTestSaveFile()
+    public void CopyTestSaveFile(string fileName)
     {
-        string sourcePath = Path.Combine(Application.persistentDataPath, "defaultTestSavefile.json");
+        string sourcePath = Path.Combine(Application.persistentDataPath, fileName);
         string destinationPath = Path.Combine(Application.persistentDataPath, "testSavefile.json");
 
         try
@@ -105,8 +105,8 @@ public class CityOptionTests
         }
     }
 
-    [Test]
-    public void TestCityOptionsUnlockAfterTaskComplete()
+    [UnityTest]
+    public IEnumerator TestCityOptionsUnlockAfterTaskComplete()
     {
         GameManager.instance.Coins = 1000000000000000000;
         List<CityOption> cityOptions = TimeManager.instance.newCityContent.cityOptions;
@@ -118,12 +118,39 @@ public class CityOptionTests
             peasants.PopGrowthPercentComplete = 100;
             peasants.GrowPopulation();
         }
-
+        GameManager.instance.kingdomContent.gameObject.SetActive(true);
+        GameManager.instance.kingdomContent.transform.Find("PrestigePanel").gameObject.SetActive(true);
+        yield return null;
         foreach (CityOption cityOption in cityOptions)
         {
             Transform lockedPanelTransform = cityOption.transform.Find("LockedPanel");
             bool isLocked = lockedPanelTransform != null && lockedPanelTransform.gameObject.activeSelf;
 
+            if (cityOption.cityName == "Peasantry")
+            {
+                Assert.AreEqual(false, isLocked, $"City '{cityOption.cityName}' lock status does not match expected. Actual Locked: {isLocked}");
+            }
+            else
+            {
+                Assert.AreEqual(true, isLocked, $"City '{cityOption.cityName}' lock status does not match expected. Actual Locked: {isLocked}");
+            }
+        }
+    }
+
+    [UnityTest]
+    public IEnumerator TestCityOptionUnlockedFromLoad()
+    {
+        GameManager.instance.Coins = 1000000000000000000;
+        CopyTestSaveFile("cityOptionTestSavefile.json");
+        TimeManager.instance.Load();
+        GameManager.instance.kingdomContent.gameObject.SetActive(true);
+        GameManager.instance.kingdomContent.transform.Find("PrestigePanel").gameObject.SetActive(true);
+        yield return null;
+        List<CityOption> cityOptions = TimeManager.instance.newCityContent.cityOptions;
+        foreach (CityOption cityOption in cityOptions)
+        {
+            Transform lockedPanelTransform = cityOption.transform.Find("LockedPanel");
+            bool isLocked = lockedPanelTransform != null && lockedPanelTransform.gameObject.activeSelf;
             if (cityOption.cityName == "Peasantry")
             {
                 Assert.AreEqual(false, isLocked, $"City '{cityOption.cityName}' lock status does not match expected. Actual Locked: {isLocked}");

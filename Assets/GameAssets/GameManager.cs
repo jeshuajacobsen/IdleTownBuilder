@@ -356,6 +356,7 @@ public class GameManager : MonoBehaviour
         this.CityName = newCityName;
         resetCity.Invoke(newCityName);
         currentCity = newCityName;
+        TasksManager.instance.SetupCityTasks(newCityName);
     }
 
     public void PrepForSave(SaveData saveData)

@@ -9,6 +9,7 @@ public class Task : MonoBehaviour
 {
 
     public string taskName;
+    public string cityName;
     public BigInteger quantity;
     public string target;
     public bool completed = false;
@@ -21,20 +22,24 @@ public class Task : MonoBehaviour
 
     void Update()
     {
-        
+        if (TasksManager.instance.cityTasksCompletionStatus.ContainsKey(cityName))
+        {
+            bool[] tasks = TasksManager.instance.cityTasksCompletionStatus[cityName];
+            if (tasks[index])
+            {
+                completed = true;
+                this.transform.GetComponent<Image>().sprite = SpriteManager.instance.GetInterfaceSprite("StarFilled");
+            }
+        }
     }
 
-    public void InitValues(CityData.TaskData taskData, int index)
+    public void InitValues(CityData.TaskData taskData, int index, string cityName)
     {
+        this.cityName = cityName;
         taskName = taskData.name;
         quantity = taskData.quantity;
         target = taskData.target;
         this.index = index;
-        completed = TasksManager.instance.cityTasksCompletionStatus.ContainsKey(GameManager.instance.currentCity) && TasksManager.instance.cityTasksCompletionStatus[GameManager.instance.currentCity][index];
-        if (completed)
-        {
-            transform.GetComponent<Image>().sprite = SpriteManager.instance.GetInterfaceSprite("StarFilled");
-        }
     }
 
     public void OpenDescription()

@@ -24,7 +24,7 @@ public class Header : MonoBehaviour
         UpdateGemsText(GameManager.instance.Gems);
         UpdateCityPrestigeText(GameManager.instance.CityPrestige);
         UpdateCollectedPrestigeText(GameManager.instance.CollectedPrestige);
-        UpdateCityNameText(GameManager.instance.currentCity);
+        UpdateCityNameText(GameManager.instance.CityName);
     }
 
     void UpdateCoinsText(BigInteger coins)
@@ -51,7 +51,7 @@ public class Header : MonoBehaviour
             collectedPrestigeText.text = GameManager.BigIntToExponentString(prestige);
     }
 
-    void UpdateCityNameText(string cityName)
+    public void UpdateCityNameText(string cityName)
     {
         if (cityNameText != null)
             cityNameText.text = cityName;

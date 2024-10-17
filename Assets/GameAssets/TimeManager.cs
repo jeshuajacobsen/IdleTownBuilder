@@ -28,6 +28,8 @@ public class TimeManager : MonoBehaviour
 
     [SerializeField] private TasksPanel tasksPanel;
     [SerializeField] private GameObject scienceContent;
+
+    [SerializeField] private Header header;
     private SaveData saveData = new SaveData();
 
     void Awake()
@@ -183,10 +185,11 @@ public class TimeManager : MonoBehaviour
             buildingRaceButtons.Reset(saveData.cityName);
             populationRaceButtons.Reset(saveData.cityName);
             kingdomRaceButtons.Reset(saveData.cityName);
-            tasksPanel.InitValues(saveData.cityName);
-            TasksManager.instance.SetupCityTasks(saveData.taskCompletion);
             newCityContent.Setup();
             newCityContent.LoadSavedData(saveData);
+            TasksManager.instance.SetupCityTasks(saveData.cityName);
+            TasksManager.instance.cityTasksCompletionStatus = saveData.taskCompletion;
+            header.UpdateCityNameText(saveData.cityName);
             Debug.Log("Loaded from: " + path);
         } else {
             GameManager.instance.StartNewGame();

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Numerics;
+using System;
 
 public class CityOption : MonoBehaviour, Unlockable
 {
@@ -15,10 +16,13 @@ public class CityOption : MonoBehaviour, Unlockable
     {
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log("TasksManager.instance.checkHowManyTaskCompleted(): " + TasksManager.instance.checkHowManyTaskCompleted());
+        if (transform.Find("LockedPanel").gameObject.activeSelf && TasksManager.instance.checkHowManyTaskCompleted() >= unlockCost)
+        {
+            Unlock();
+        }
     }
 
     public void InitValues(string newName)
@@ -41,14 +45,6 @@ public class CityOption : MonoBehaviour, Unlockable
             imageGameObject.transform.SetParent(raceButtonPanel, false);
         }
         transform.Find("TasksPanel").GetComponent<TasksPanel>().InitValues(newName);
-
-        TasksManager.instance.taskCompleted.AddListener((cityName, index) =>
-        {
-            if (TasksManager.instance.checkHowManyTaskCompleted() >= unlockCost)
-            {
-                Unlock();
-            }
-        });
     }
 
     public void SelectNewCity()

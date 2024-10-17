@@ -13,7 +13,6 @@ public class TasksManager : MonoBehaviour
     public UnityEvent<string, int> taskCompleted = new UnityEvent<string, int>();
     public TasksPanel tasksPanel;
     public GameObject taskDescriptionPanel;
-    private int taskCompletedCount = 0;
 
     void Start()
     {
@@ -36,6 +35,11 @@ public class TasksManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void SetupCityTasks(string cityName)
+    {
+        tasksPanel.InitValues(cityName);
     }
 
     public void OpenTaskDescription(string description)
@@ -110,7 +114,7 @@ public class TasksManager : MonoBehaviour
         cityTasksCompletionStatus = tasksCompletion;
         foreach (string city in tasksCompletion.Keys)
         {
-            for (int i = 0; i < tasksCompletion[city].Length; i++)
+            for (int i = 0; i < tasksCompletion[city].Length - 1; i++)
             {
                 if (tasksCompletion[city][i])
                 {
