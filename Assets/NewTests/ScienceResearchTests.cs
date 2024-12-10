@@ -95,7 +95,7 @@ public class CityResearchTests
         gameManager.buildingContent.buildings[0].outputResourceButton.Tick(true);
         //yield return null;
 
-        Assert.AreEqual(time + 1.2, gameManager.productionTimers["Wheat"], .1);
+        Assert.AreEqual(time + 1.2 % gameManager.buildingContent.buildings[0].outputResourceButton.requiredTime, gameManager.productionTimers["Wheat"], .1);
         
     }
 

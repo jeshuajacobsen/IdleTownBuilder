@@ -34,6 +34,10 @@ public class TasksPanel : MonoBehaviour
         }
         tasks = new Task[3];
         CityData cityData = GameManager.instance.gameData.GetCityData(cityName);
+        Debug.Log("CityData: " + cityData.tasks[0].name);
+        Debug.Log("CityData: " + cityData.tasks[0].target);
+        Debug.Log("CityData: " + cityData.tasks[1].name);
+        Debug.Log("CityData: " + cityData.tasks[1].target);
         int index = 0;
         foreach (CityData.TaskData task in cityData.tasks)
         {

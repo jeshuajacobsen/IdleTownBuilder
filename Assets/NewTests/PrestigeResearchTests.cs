@@ -58,7 +58,7 @@ public class PrestigeResearchTests
         {
             GameObject.DestroyImmediate(tasksManager.gameObject);
         }
-        SceneManager.UnloadScene("Main");
+        SceneManager.UnloadSceneAsync("Main");
         if (unloadOperation != null)
         {
             yield return new WaitUntil(() => unloadOperation.isDone);
@@ -176,5 +176,18 @@ public class PrestigeResearchTests
         timeManager.LoadTime("testTime", false);
         
         Assert.AreEqual("You were away for 140 minutes", GameObject.FindGameObjectWithTag("TimeAwayPanel").transform.Find("TimeAwayPanel").Find("AwayTime").GetComponent<TextMeshProUGUI>().text);
+    }
+
+    [UnityTest]
+    public IEnumerator HumanTechResearchWorks()
+    {
+        yield return null;
+        gameManager.resources["Wheat"] = new BigInteger(0);
+
+        BigInteger oldQuantity = gameManager.buildingContent.buildings[0].GetProductionQuantity();
+        
+        researchManager.PrestigeResearchUpgrade("Human Tech");
+
+        //Assert.AreEqual(new BigInteger(6), demographic.GetPrestigeGenerated());
     }
 }

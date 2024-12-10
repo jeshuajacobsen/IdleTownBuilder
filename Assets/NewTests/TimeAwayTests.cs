@@ -114,7 +114,8 @@ public class TimeAwayTests
         PlayerPrefs.SetString("testTime", now.ToString());
         PlayerPrefs.Save();
         timeManager.LoadTime("testTime", false);
+        int produced = 60 / GameManager.instance.gameData.GetBuildingData("Farm").productionTime;
         
-        Assert.AreEqual(new BigInteger(8), timeManager.timeAwayResources["Wheat"]);
+        Assert.AreEqual(new BigInteger(produced), timeManager.timeAwayResources["Wheat"]);
     }
 }

@@ -66,8 +66,14 @@ public class CityResearchButton : MonoBehaviour
         }
     }
 
+    public void UpdateResearch()
+    {
+        Update();
+    }
+    
     void Update()
     {
+        Debug.Log("Update");
         bool preReqMet = dependency == null || dependency.level > 0;
         if (!preReqMet)
         {

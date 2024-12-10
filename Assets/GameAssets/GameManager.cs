@@ -96,7 +96,6 @@ public class GameManager : MonoBehaviour
     public TabContentKingdom kingdomContent;
     public ResearchInfoPanel kingdomSelectedResearch;
     public CityResearchContent cityResearchContent;
-    public string currentCity;
 
     void Awake()
     {
@@ -137,42 +136,67 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public static string BigIntToExponentString(BigInteger bigInteger)
+    public static string BigIntToExponentString(BigInteger number)
     {
-        string intString = bigInteger.ToString();
-        if (intString.Length <= 3)
+        // Define thresholds and suffixes
+        // You can add more scales as needed (e.g., 't' for trillion)
+        var scales = new (BigInteger threshold, BigInteger divisor, string suffix)[]
         {
-            return intString;
-        } else if (intString.Length <= 6) {
-            if (intString.Length == 6) 
-            {
-                return intString.Substring(0, 3) + "," + intString.Substring(3, 3);
-            }
-            return intString.Substring(0, intString.Length % 3) + "," + intString.Substring(intString.Length % 3, 3);
+            (new BigInteger(1_000_000_000_000_000_000), new BigInteger(1_000_000_000_000_000_000), "Q"),
+            (new BigInteger(1_000_000_000_000_000), new BigInteger(1_000_000_000_000_000), "q"),
+            (new BigInteger(1_000_000_000_000), new BigInteger(1_000_000_000_000), "t"),
+            (new BigInteger(1_000_000_000), new BigInteger(1_000_000_000), "b"),
+            (new BigInteger(1_000_000), new BigInteger(1_000_000), "m"),
+            (new BigInteger(1_000), new BigInteger(1_000), "k")
+        };
+
+        // If less than 1000, just return the number
+        if (number < 1000)
+        {
+            return number.ToString();
         }
 
-        int exponentBrackets = (int)((intString.Length - 6) / 3);
-        if (intString.Length % 3 == 1)
+        // Find the appropriate scale
+        foreach (var (threshold, divisor, suffix) in scales)
         {
-            return intString.Substring(0, 1) + "." + intString.Substring(1, 2) + ExponentLetters(exponentBrackets);
-        } else if (intString.Length % 3 == 2) {
-            return intString.Substring(0, 2) + "." + intString.Substring(2, 1) + ExponentLetters(exponentBrackets);
-        } else {
-            return intString.Substring(0, 3) + ExponentLetters(exponentBrackets);
+            if (number >= threshold)
+            {
+                double scaledValue = (double)number / (double)divisor;
+                return FormatToThreeSignificantDigits(scaledValue) + suffix;
+            }
         }
+
+        // If it's at least 1,000 but less than 1,000,000 (k scale)
+        double val = (double)number / 1000.0;
+        return FormatToThreeSignificantDigits(val) + "k";
     }
 
-    private static string ExponentLetters(int exponentBrackets)
+    private static string FormatToThreeSignificantDigits(double value)
     {
-        string[] letters = new string[] {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", 
-            "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
-        // Debug.Log("Exponent Brackets: " + exponentBrackets);
-        // Debug.Log("Exponent Letters: " + exponentBrackets / letters.Length + " " + (exponentBrackets - 1) % letters.Length);
-        if ((exponentBrackets - 1) % letters.Length < 0)
+        // value will be at least 1 and less than 1000 because of how we're scaling
+        // Determine how many decimals we need based on the integer part's length
+        int intPart = (int)value;
+
+        string format;
+        if (intPart < 10)
         {
-            return letters[exponentBrackets / letters.Length] + letters[0];            
+            // e.g. value = 1.11 -> need two decimal places to get total 3 sig digits
+            // 1.11 has three digits: '1', '1', '1'
+            format = "0.00";
         }
-        return letters[exponentBrackets / letters.Length] + letters[(exponentBrackets - 1) % letters.Length];
+        else if (intPart < 100)
+        {
+            // e.g. value = 12.3 -> '12.3' is 3 digits total: '1','2','3'
+            format = "0.0";
+        }
+        else
+        {
+            // e.g. value = 100 -> '100' is already 3 digits: '1','0','0'
+            format = "0";
+        }
+
+        // Format the number using the chosen format
+        return value.ToString(format);
     }
 
     public static BigInteger Pow(BigInteger baseValue, int exponent)
@@ -355,7 +379,6 @@ public class GameManager : MonoBehaviour
         Coins = 1;
         this.CityName = newCityName;
         resetCity.Invoke(newCityName);
-        currentCity = newCityName;
         TasksManager.instance.SetupCityTasks(newCityName);
     }
 
@@ -379,7 +402,6 @@ public class GameManager : MonoBehaviour
         CollectedPrestige = saveData.collectedPrestige;
         resources = saveData.resources;
         CityName = saveData.cityName;
-        currentCity = cityName;
         foreach (string key in saveData.managerLevels.Keys)
         {
             Manager manager = Instantiate(ManagerPrefab, contentTransform);
@@ -398,6 +420,5 @@ public class GameManager : MonoBehaviour
         resources = new Dictionary<string, BigInteger>();
         AddResources("Wheat", 1);
         CityName = "Peasantry";
-        currentCity = cityName;
     }
 }

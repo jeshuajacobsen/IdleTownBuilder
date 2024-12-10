@@ -31,18 +31,18 @@ public class GameManagerTests
     [Test]
     public void TestBigIntToExponentStringTenMillions()
     {
-        Assert.AreEqual("11.2aa", GameManager.BigIntToExponentString(new BigInteger(11212112)));
+        Assert.AreEqual("11.2m", GameManager.BigIntToExponentString(new BigInteger(11212112)));
     }
 
     [Test]
     public void TestBigIntToExponentStringHundredMillions()
     {
-        Assert.AreEqual("311aa", GameManager.BigIntToExponentString(new BigInteger(311212112)));
+        Assert.AreEqual("311m", GameManager.BigIntToExponentString(new BigInteger(311212112)));
     }
 
     [Test]
     public void TestBigIntToExponentStringBillions()
     {
-        Assert.AreEqual("4.31ab", GameManager.BigIntToExponentString(new BigInteger(4311212112)));
+        Assert.AreEqual("4.31b", GameManager.BigIntToExponentString(new BigInteger(4311212112)));
     }
 }

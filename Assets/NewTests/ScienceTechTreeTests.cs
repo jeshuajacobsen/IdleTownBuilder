@@ -6,6 +6,8 @@ using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
 using System;
 using System.Numerics;
+using TMPro;
+using UnityEngine.UI;
 
 public class ScienceTechTreeTests
 {
@@ -69,8 +71,23 @@ public class ScienceTechTreeTests
     {
         yield return null;
         researchManager.CityResearchUpgrade("Tapping");
-        gameManager.cityResearchContent.transform.Find("CityResearchButtonTapping").GetComponent<CityResearchButton>().Upgrade("Tapping");
-        Assert.IsFalse(gameManager.cityResearchContent.transform.Find("CityResearchButtonAdvancedTapping").transform.Find("Mask").Find("LockedPanel").gameObject.activeSelf);
+        gameManager.resources["Hemp"] = new BigInteger(100);
+        CityResearchButton cityResearchButton = gameManager.cityResearchContent.transform.Find("CityResearchButtonTapping").GetComponent<CityResearchButton>();
+        CityResearchInfoPanel cityResearchInfoPanel = cityResearchButton.transform.parent.parent.Find("SelectedResearchBackground")
+            .Find("CityResearchInfoPanel").GetComponent<CityResearchInfoPanel>();
+        cityResearchButton.OpenInSelectedResearch();
+        bool upgradeCompleted = false;
+        cityResearchButton.onUpgrade.AddListener(() => upgradeCompleted = true);
+        cityResearchInfoPanel.Upgrade();
+        yield return new WaitUntil(() => upgradeCompleted);
+        yield return null;
+
+        // Ensure the background image is updated after the upgrade
+        var advancedTappingButton = gameManager.cityResearchContent.transform.Find("CityResearchButtonAdvancedTapping");
+        advancedTappingButton.GetComponent<CityResearchButton>().UpdateResearch();
+        var backgroundImage = advancedTappingButton.Find("BackgroundImage").GetComponent<Image>();
+        Assert.IsNotNull(backgroundImage);
+        Assert.IsFalse(backgroundImage.sprite.name.Contains("Grey"));
     }
 
     // [UnityTest]

@@ -18,7 +18,6 @@ public class CityOption : MonoBehaviour, Unlockable
 
     void Update()
     {
-        Debug.Log("TasksManager.instance.checkHowManyTaskCompleted(): " + TasksManager.instance.checkHowManyTaskCompleted());
         if (transform.Find("LockedPanel").gameObject.activeSelf && TasksManager.instance.checkHowManyTaskCompleted() >= unlockCost)
         {
             Unlock();

@@ -39,6 +39,7 @@ public class TasksManager : MonoBehaviour
 
     public void SetupCityTasks(string cityName)
     {
+        Debug.Log("Setting up tasks for " + cityName);
         tasksPanel.InitValues(cityName);
     }
 
@@ -61,16 +62,16 @@ public class TasksManager : MonoBehaviour
             int index = tasksPanel.CheckPopulationTask(target, quantity);
             if (index >= 0)
             {
-                if (cityTasksCompletionStatus.ContainsKey(GameManager.instance.currentCity))
+                if (cityTasksCompletionStatus.ContainsKey(GameManager.instance.CityName))
                 {
-                    cityTasksCompletionStatus[GameManager.instance.currentCity][index] = true;
+                    cityTasksCompletionStatus[GameManager.instance.CityName][index] = true;
                 }
                 else
                 {
-                    cityTasksCompletionStatus.Add(GameManager.instance.currentCity, new bool[3]);
-                    cityTasksCompletionStatus[GameManager.instance.currentCity][index] = true;
+                    cityTasksCompletionStatus.Add(GameManager.instance.CityName, new bool[3]);
+                    cityTasksCompletionStatus[GameManager.instance.CityName][index] = true;
                 }
-                taskCompleted.Invoke(GameManager.instance.currentCity, index);
+                taskCompleted.Invoke(GameManager.instance.CityName, index);
             }
         } 
         else if (type == "CoinGoal")
@@ -78,16 +79,16 @@ public class TasksManager : MonoBehaviour
             int index = tasksPanel.CheckCoinTask(quantity);
             if (index >= 0)
             {
-                if (cityTasksCompletionStatus.ContainsKey(GameManager.instance.currentCity))
+                if (cityTasksCompletionStatus.ContainsKey(GameManager.instance.CityName))
                 {
-                    cityTasksCompletionStatus[GameManager.instance.currentCity][index] = true;
+                    cityTasksCompletionStatus[GameManager.instance.CityName][index] = true;
                 }
                 else
                 {
-                    cityTasksCompletionStatus.Add(GameManager.instance.currentCity, new bool[3]);
-                    cityTasksCompletionStatus[GameManager.instance.currentCity][index] = true;
+                    cityTasksCompletionStatus.Add(GameManager.instance.CityName, new bool[3]);
+                    cityTasksCompletionStatus[GameManager.instance.CityName][index] = true;
                 }
-                taskCompleted.Invoke(GameManager.instance.currentCity, index);
+                taskCompleted.Invoke(GameManager.instance.CityName, index);
             }
         }
         else if (type == "BuildingGoal")
@@ -95,31 +96,16 @@ public class TasksManager : MonoBehaviour
             int index = tasksPanel.CheckBuildingTask(target, quantity);
             if (index >= 0)
             {
-                if (cityTasksCompletionStatus.ContainsKey(GameManager.instance.currentCity))
+                if (cityTasksCompletionStatus.ContainsKey(GameManager.instance.CityName))
                 {
-                    cityTasksCompletionStatus[GameManager.instance.currentCity][index] = true;
+                    cityTasksCompletionStatus[GameManager.instance.CityName][index] = true;
                 }
                 else
                 {
-                    cityTasksCompletionStatus.Add(GameManager.instance.currentCity, new bool[3]);
-                    cityTasksCompletionStatus[GameManager.instance.currentCity][index] = true;
+                    cityTasksCompletionStatus.Add(GameManager.instance.CityName, new bool[3]);
+                    cityTasksCompletionStatus[GameManager.instance.CityName][index] = true;
                 }
-                taskCompleted.Invoke(GameManager.instance.currentCity, index);
-            }
-        }
-    }
-
-    public void SetupCityTasks(Dictionary<string, bool[]> tasksCompletion)
-    {
-        cityTasksCompletionStatus = tasksCompletion;
-        foreach (string city in tasksCompletion.Keys)
-        {
-            for (int i = 0; i < tasksCompletion[city].Length - 1; i++)
-            {
-                if (tasksCompletion[city][i])
-                {
-                    taskCompleted.Invoke(city, i);
-                }
+                taskCompleted.Invoke(GameManager.instance.CityName, index);
             }
         }
     }
