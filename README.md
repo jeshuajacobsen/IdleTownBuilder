@@ -28,3 +28,5 @@ the tasks from previous cities.
 ![Screenshot 2025-01-06 143559](https://github.com/user-attachments/assets/2ab96ad9-f207-40a3-a0d2-fb78d52d8646)
 
 The game is still a bit rough and needs a lot of balancing. Some features are more in development than others like the building managers and the gem store. 
+
+There is some basic testing set up. Mostly around research that is hard to test manually.
